@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mkm-7g-gVK">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="zEh-Ja-Qma">
+            <objects>
+                <viewController storyboardIdentifier="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mkm-7g-gVK" customClass="LoginViewController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wJ5-oa-QKn" customClass="Login">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="r6S-4M-wKe">
+                                <rect key="frame" x="30" y="260" width="354" height="235.66666666666663"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqm-YC-csy">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="68"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.222381161971831" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="username"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDt-2C-VUL">
+                                        <rect key="frame" x="0.0" y="84" width="354" height="67.666666666666686"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.222381161971831" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uM9-UP-Tt1">
+                                        <rect key="frame" x="0.0" y="167.66666666666669" width="354" height="68"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="login:" destination="mkm-7g-gVK" eventType="touchUpInside" id="Zg7-tk-5tF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uM9-UP-Tt1" firstAttribute="width" secondItem="r6S-4M-wKe" secondAttribute="width" id="0V6-jC-Nvu"/>
+                                    <constraint firstItem="iqm-YC-csy" firstAttribute="width" secondItem="r6S-4M-wKe" secondAttribute="width" id="4ci-MH-8SP"/>
+                                    <constraint firstItem="dDt-2C-VUL" firstAttribute="width" secondItem="r6S-4M-wKe" secondAttribute="width" id="8sh-u3-97g"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2018 Lindelin, inc., a nonprofit organization." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdH-cq-SyH">
+                                <rect key="frame" x="20" y="704" width="374" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lindale-logo" translatesAutoresizingMaskIntoConstraints="NO" id="FHP-rI-6wI">
+                                <rect key="frame" x="90" y="140" width="234" height="90"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tdH-cq-SyH" firstAttribute="leading" secondItem="hxX-Qv-JW5" secondAttribute="leading" constant="20" id="0iS-GW-auC"/>
+                            <constraint firstItem="r6S-4M-wKe" firstAttribute="top" secondItem="FHP-rI-6wI" secondAttribute="bottom" constant="30" id="29q-sf-fJV"/>
+                            <constraint firstItem="FHP-rI-6wI" firstAttribute="leading" secondItem="hxX-Qv-JW5" secondAttribute="leading" constant="90" id="9Fx-Go-gh9"/>
+                            <constraint firstItem="hxX-Qv-JW5" firstAttribute="trailing" secondItem="FHP-rI-6wI" secondAttribute="trailing" constant="90" id="9y0-zH-ix7"/>
+                            <constraint firstItem="hxX-Qv-JW5" firstAttribute="trailing" secondItem="tdH-cq-SyH" secondAttribute="trailing" constant="20" id="MU2-ka-HgX"/>
+                            <constraint firstItem="hxX-Qv-JW5" firstAttribute="bottom" secondItem="tdH-cq-SyH" secondAttribute="bottom" constant="20" id="N4z-nc-fz0"/>
+                            <constraint firstItem="r6S-4M-wKe" firstAttribute="top" secondItem="hxX-Qv-JW5" secondAttribute="top" constant="240" id="SEe-hs-VoU"/>
+                            <constraint firstItem="FHP-rI-6wI" firstAttribute="top" secondItem="hxX-Qv-JW5" secondAttribute="top" constant="120" id="bZv-Ue-dqy"/>
+                            <constraint firstItem="r6S-4M-wKe" firstAttribute="leading" secondItem="hxX-Qv-JW5" secondAttribute="leading" constant="30" id="h9Q-CL-lZc"/>
+                            <constraint firstItem="r6S-4M-wKe" firstAttribute="height" secondItem="wJ5-oa-QKn" secondAttribute="height" multiplier="0.32" id="idt-6M-fuN"/>
+                            <constraint firstItem="hxX-Qv-JW5" firstAttribute="trailing" secondItem="r6S-4M-wKe" secondAttribute="trailing" constant="30" id="uSu-Z8-QNP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hxX-Qv-JW5"/>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="iqm-YC-csy" id="1Jk-9z-bW5"/>
+                        <outlet property="loginButton" destination="uM9-UP-Tt1" id="g9y-0e-9Aj"/>
+                        <outlet property="password" destination="dDt-2C-VUL" id="46T-P9-Dht"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxW-XU-9OP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="108.39580209895054"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lindale-logo" width="1141" height="335"/>
+    </resources>
+</document>

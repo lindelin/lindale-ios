@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // MARK: - Firebase 設定
+        FirebaseApp.configure()
+        // Messaging.messaging().delegate = self
+        
+        // MARK: - UserDefault 实例
+        //let userDefault = UserDefaults.standard
+        
+        // アクセストークンが無かったらログイン画面を表示
+        let storyboard = UIStoryboard(name:"Login", bundle: nil)
+        let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
+        window?.rootViewController = loginController
         return true
     }
 
