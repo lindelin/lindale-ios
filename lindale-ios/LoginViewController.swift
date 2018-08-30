@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
     
     func loggedIn() {
         let storyboard = UIStoryboard(name:"Main", bundle: nil)
-        let mainController = storyboard.instantiateViewController(withIdentifier: "MainVC") as UIViewController
+        let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = mainController
     }

@@ -11,7 +11,6 @@
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		9618E2EB9D1E7C9CE3D640E9 /* Pods_lindale_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
-		F29DBB7821381F9E009DA744 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7721381F9E009DA744 /* ViewController.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
 		F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */; };
 		F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */; };
@@ -24,6 +23,7 @@
 		F2CAE17A213845D1002C04E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE179213845D1002C04E7 /* Assets.xcassets */; };
 		F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE17C21384A93002C04E7 /* OAuth.swift */; };
 		F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE17F21384B22002C04E7 /* OAuthService.swift */; };
+		F2CAE1822138B559002C04E7 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE1812138B559002C04E7 /* MainController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F29DBB7721381F9E009DA744 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F29DBB7A21381F9E009DA744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F29DBB7D21381F9E009DA744 /* lindale_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = lindale_ios.xcdatamodel; sourceTree = "<group>"; };
 		F29DBB8221381F9F009DA744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		F2CAE179213845D1002C04E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		F2CAE17C21384A93002C04E7 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		F2CAE17F21384B22002C04E7 /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
+		F2CAE1812138B559002C04E7 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		F6B8729374BB005277964279 /* Pods_lindale_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -174,8 +174,8 @@
 		F2CAE166213826EC002C04E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F29DBB7721381F9E009DA744 /* ViewController.swift */,
 				F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */,
+				F2CAE1812138B559002C04E7 /* MainController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -537,9 +537,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */,
+				F2CAE1822138B559002C04E7 /* MainController.swift in Sources */,
 				F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
-				F29DBB7821381F9E009DA744 /* ViewController.swift in Sources */,
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
