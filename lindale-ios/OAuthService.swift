@@ -10,41 +10,55 @@ import Moya
 
 enum OAuthService {
     case login(email: String, password: String)
+    case refresh
 }
 
 extension OAuthService: TargetType {
     var baseURL: URL { return URL(string: "https://lindale.stg.lindelin.org")! }
     var path: String {
         switch self {
-        case .login(_, _):
-            return "/oauth/token"
+            case .login(_, _):
+                return "/oauth/token"
+            case .refresh:
+                return "/oauth/token"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .login:
-            return .post
+            case .login, .refresh:
+                return .post
         }
     }
     var task: Task {
         switch self {
-        case let .login(email, password):
+            case let .login(email, password):
+                return .requestParameters(parameters: [
+                    "grant_type": "password",
+                    "client_id": 1,
+                    "client_secret": "QYvbbd9zoXWtOEBYTVhspVnGoPMUgEckD95Lfmjv",
+                    "username": email,
+                    "password": password,
+                    "scope": "*"
+                    ], encoding: JSONEncoding.default)
+        case .refresh:
             return .requestParameters(parameters: [
-                "grant_type": "password",
-                "client_id": 2,
-                "client_secret": "gMcCi7eMmibbYfzQsgE7129VHKpU28o8Fp6U79tY",
-                "username": email,
-                "password": password,
+                "grant_type": "refresh_token",
+                "client_id": 1,
+                "client_secret": "QYvbbd9zoXWtOEBYTVhspVnGoPMUgEckD95Lfmjv",
+                "refresh_token": UserDefaults.standard.string(forKey: OAuth.CodingKeys.refreshToken.rawValue) ?? nil!,
                 "scope": "*"
                 ], encoding: JSONEncoding.default)
+            
         }
     }
+    
     var sampleData: Data {
         switch self {
-        case .login:
-            return "Half measures are as bad as nothing at all.".utf8Encoded
+            case .login, .refresh:
+                return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }
+    
     var headers: [String: String]? {
         return ["Content-type": "application/json"]
     }

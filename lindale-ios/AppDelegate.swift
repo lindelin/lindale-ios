@@ -26,9 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let userDefault = UserDefaults.standard
         
         // アクセストークンが無かったらログイン画面を表示
-        let storyboard = UIStoryboard(name:"Login", bundle: nil)
-        let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
-        window?.rootViewController = loginController
+        if (OAuth.get() == nil) {
+            let storyboard = UIStoryboard(name:"Login", bundle: nil)
+            let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
+            window?.rootViewController = loginController
+        }
         return true
     }
 

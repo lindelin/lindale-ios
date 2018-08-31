@@ -10,6 +10,7 @@ import UIKit
 import Pastel
 
 class LoginViewController: UIViewController {
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton! {
@@ -19,6 +20,8 @@ class LoginViewController: UIViewController {
             loginButton.layer.cornerRadius = 4
         }
     }
+    
+    fileprivate var validationMessage = "Login faild!"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,20 +53,45 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    // MARK: - ログイン
     @IBAction func login(_ sender: UIButton) {
-        self.loggedIn()
+        let email = self.email.text!
+        let password = self.password.text!
+        OAuth.login(email: email, password: password, success: { (oauth) in
+            OAuth.save(oauth)
+            self.toMainStoryboard()
+        }) { () in
+            self.showLoginAlert()
+        }
     }
     
-    func loggedIn() {
+    // MARK: - Main 画面遷移
+    func toMainStoryboard() {
         let storyboard = UIStoryboard(name:"Main", bundle: nil)
         let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = mainController
     }
     
+    // MARK: - ログイン失敗
+    func showLoginAlert() {
+        let loginErrorAlert = UIAlertController(title: "Login error", message: self.validationMessage, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+            loginErrorAlert.dismiss(animated: true, completion: nil)
+        })
+        
+        loginErrorAlert.addAction(okAction)
+        
+        if self.presentingViewController == nil {
+            self.view.window?.rootViewController?.present(loginErrorAlert, animated: true, completion: nil)
+        }else {
+            self.present(loginErrorAlert, animated: true, completion: nil)
+        }
+    }
+    
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
