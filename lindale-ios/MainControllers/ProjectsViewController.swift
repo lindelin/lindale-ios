@@ -58,7 +58,7 @@ class ProjectsViewController: UITableViewController {
         let id = String(describing: ProjectTableViewCell.self)
         let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProjectTableViewCell
 
-        //cell.projectImage.image = UIImage(named: "lindale")!
+        cell.projectImage.image = UIImage(named: "lindale")
         cell.type.text = self.projects[indexPath.row].type
         cell.title.text = self.projects[indexPath.row].title
         cell.progress.progress = Float(self.projects[indexPath.row].progress! / 100)

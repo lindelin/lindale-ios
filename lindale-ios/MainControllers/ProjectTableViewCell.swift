@@ -9,7 +9,7 @@
 import UIKit
 
 class ProjectTableViewCell: UITableViewCell {
-    //@IBOutlet weak var projectImage: UIImageView!
+    @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var taskStatus: UILabel!
