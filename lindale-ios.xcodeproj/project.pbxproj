@@ -10,6 +10,7 @@
 		0A34BFD2757F39B0C9D7C1C2 /* Pods_lindale_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */; };
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		9618E2EB9D1E7C9CE3D640E9 /* Pods_lindale_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */; };
+		F273D8A5213BBE920004D634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F273D8A4213BBE920004D634 /* Assets.xcassets */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
 		F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */; };
@@ -20,7 +21,6 @@
 		F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE17221382EC7002C04E7 /* Login.storyboard */; };
 		F2CAE17521383A50002C04E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE17421383A50002C04E7 /* GoogleService-Info.plist */; };
 		F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE1772138414C002C04E7 /* UIHelpers.swift */; };
-		F2CAE17A213845D1002C04E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE179213845D1002C04E7 /* Assets.xcassets */; };
 		F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE17C21384A93002C04E7 /* OAuth.swift */; };
 		F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE17F21384B22002C04E7 /* OAuthService.swift */; };
 		F2CAE1822138B559002C04E7 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE1812138B559002C04E7 /* MainController.swift */; };
@@ -57,6 +57,7 @@
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F273D8A4213BBE920004D634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = text; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F29DBB7A21381F9E009DA744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		F2CAE17221382EC7002C04E7 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F2CAE17421383A50002C04E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2CAE1772138414C002C04E7 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
-		F2CAE179213845D1002C04E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		F2CAE17C21384A93002C04E7 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		F2CAE17F21384B22002C04E7 /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
 		F2CAE1812138B559002C04E7 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -154,10 +154,10 @@
 				F2CAE16721382704002C04E7 /* Views */,
 				F2CAE166213826EC002C04E7 /* Controllers */,
 				F29DBB7521381F9E009DA744 /* AppDelegate.swift */,
-				F2CAE179213845D1002C04E7 /* Assets.xcassets */,
 				F29DBB8421381F9F009DA744 /* Info.plist */,
 				F2CAE17421383A50002C04E7 /* GoogleService-Info.plist */,
 				F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */,
+				F273D8A4213BBE920004D634 /* Assets.xcassets */,
 			);
 			path = "lindale-ios";
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				F2CAE17521383A50002C04E7 /* GoogleService-Info.plist in Resources */,
 				F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */,
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
-				F2CAE17A213845D1002C04E7 /* Assets.xcassets in Resources */,
+				F273D8A5213BBE920004D634 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

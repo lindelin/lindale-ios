@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
             window?.rootViewController = loginController
         }
+        
         return true
     }
 

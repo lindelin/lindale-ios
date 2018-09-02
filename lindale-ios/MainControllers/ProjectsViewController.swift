@@ -10,7 +10,7 @@ import UIKit
 
 class ProjectsViewController: UITableViewController {
     
-    var projects = [Project]()
+    var projects: [Project] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,7 @@ class ProjectsViewController: UITableViewController {
     }
     
     func updateUI(with projects: [Project]) {
-        DispatchQueue.main.async {
-            print(projects)
+        OperationQueue.main.addOperation {
             self.projects = projects
             self.tableView.reloadData()
         }
@@ -62,8 +61,6 @@ class ProjectsViewController: UITableViewController {
         cell.type.text = self.projects[indexPath.row].type
         cell.title.text = self.projects[indexPath.row].title
         cell.progress.progress = Float(self.projects[indexPath.row].progress! / 100)
-        cell.taskStatus.text = "1/10"
-        cell.todoStatus.text = "2/8"
 
         return cell
     }

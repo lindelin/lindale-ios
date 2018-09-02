@@ -12,8 +12,6 @@ class ProjectTableViewCell: UITableViewCell {
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var taskStatus: UILabel!
-    @IBOutlet weak var todoStatus: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     
     override func awakeFromNib() {
