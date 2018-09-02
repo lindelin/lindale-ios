@@ -78,7 +78,7 @@
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcC-YW-xhR" userLabel="Card">
                                             <rect key="frame" x="16" y="16" width="343" height="343"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lindale" translatesAutoresizingMaskIntoConstraints="NO" id="y9b-CS-sHV">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y9b-CS-sHV">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgC-BG-VTX">
@@ -191,7 +191,4 @@
             <point key="canvasLocation" x="550" y="-233"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="lindale" width="1500" height="1500"/>
-    </resources>
 </document>
