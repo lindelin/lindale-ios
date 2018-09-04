@@ -20,6 +20,7 @@ extension CALayer {
 }
 
 extension UIView {
+    // 圆角设置
     @IBInspectable
     var cornerRadius: CGFloat {
         get {
@@ -29,7 +30,7 @@ extension UIView {
             layer.cornerRadius = newValue
         }
     }
-    
+    // 阴影设置
     @IBInspectable
     var shadowRadius: CGFloat {
         get {
