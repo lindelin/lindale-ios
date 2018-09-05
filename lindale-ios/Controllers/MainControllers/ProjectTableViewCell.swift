@@ -29,6 +29,7 @@ class ProjectTableViewCell: UITableViewCell {
     }
     
     func setCell(project: ProjectCollection.Project) {
+        self.projectImage.image = #imageLiteral(resourceName: "lindale-launch")
         self.projectImage.downloadedFrom(link: project.image!)
         self.type.text = project.type
         self.title.text = project.title
