@@ -10,6 +10,8 @@
 		0A34BFD2757F39B0C9D7C1C2 /* Pods_lindale_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */; };
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		9618E2EB9D1E7C9CE3D640E9 /* Pods_lindale_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */; };
+		A8F3562F21400300006204D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8F3562E21400300006204D3 /* GoogleService-Info.plist */; };
+		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
@@ -19,7 +21,6 @@
 		F29DBB9921381F9F009DA744 /* lindale_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB9821381F9F009DA744 /* lindale_iosUITests.swift */; };
 		F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */; };
 		F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE17221382EC7002C04E7 /* Login.storyboard */; };
-		F2CAE17521383A50002C04E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE17421383A50002C04E7 /* GoogleService-Info.plist */; };
 		F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE1772138414C002C04E7 /* UIHelpers.swift */; };
 		F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE17C21384A93002C04E7 /* OAuth.swift */; };
 		F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE17F21384B22002C04E7 /* OAuthService.swift */; };
@@ -55,6 +56,8 @@
 		25C11AAE04F70EA3B05BC8A9 /* Pods-lindale-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.release.xcconfig"; sourceTree = "<group>"; };
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		A8F3562E21400300006204D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
 		A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		F29DBB9A21381F9F009DA744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F2CAE17221382EC7002C04E7 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		F2CAE17421383A50002C04E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2CAE1772138414C002C04E7 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		F2CAE17C21384A93002C04E7 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		F2CAE17F21384B22002C04E7 /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
@@ -183,7 +185,7 @@
 				F24FB843213C0D9200045DFA /* Supports */,
 				F29DBB7521381F9E009DA744 /* AppDelegate.swift */,
 				F29DBB8421381F9F009DA744 /* Info.plist */,
-				F2CAE17421383A50002C04E7 /* GoogleService-Info.plist */,
+				A8F3562E21400300006204D3 /* GoogleService-Info.plist */,
 				F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */,
 				F24FB83E213C086D00045DFA /* Assets.xcassets */,
 			);
@@ -214,6 +216,7 @@
 				F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */,
 				F29DBB7921381F9E009DA744 /* Main.storyboard */,
 				F2CAE17221382EC7002C04E7 /* Login.storyboard */,
+				A8F3563221400486006204D3 /* Project.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,7 +264,6 @@
 				F29DBB6F21381F9E009DA744 /* Frameworks */,
 				F29DBB7021381F9E009DA744 /* Resources */,
 				58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */,
-				B4D65301E9DED5186C2B6C86 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,8 +282,6 @@
 				F29DBB8521381F9F009DA744 /* Sources */,
 				F29DBB8621381F9F009DA744 /* Frameworks */,
 				F29DBB8721381F9F009DA744 /* Resources */,
-				89439315A8AFA34AAE399B6F /* [CP] Embed Pods Frameworks */,
-				96E1A0F0D8429CD2723D1621 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,8 +301,6 @@
 				F29DBB9021381F9F009DA744 /* Sources */,
 				F29DBB9121381F9F009DA744 /* Frameworks */,
 				F29DBB9221381F9F009DA744 /* Resources */,
-				5A6F7F2E8558C1F7A836458E /* [CP] Embed Pods Frameworks */,
-				A1750EA113381231AD47EDCB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,10 +361,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */,
-				F2CAE17521383A50002C04E7 /* GoogleService-Info.plist in Resources */,
 				F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */,
+				A8F3563321400486006204D3 /* Project.storyboard in Resources */,
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
 				F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */,
+				A8F3562F21400300006204D3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,66 +458,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5A6F7F2E8558C1F7A836458E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89439315A8AFA34AAE399B6F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96E1A0F0D8429CD2723D1621 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1750EA113381231AD47EDCB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B11178A88AE765E69D083935 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,21 +474,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B4D65301E9DED5186C2B6C86 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

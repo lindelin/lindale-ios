@@ -10,7 +10,7 @@ import UIKit
 
 class ProjectsViewController: UITableViewController {
     
-    var projects: [Project] = []
+    var projectCollection: ProjectCollection?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +21,16 @@ class ProjectsViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        Project.resources(success: { (projects) in
-            self.updateUI(with: projects)
-        }) {
-            print("era-----")
+        ProjectCollection.resources { (projectCollection) in
+            if let projectCollection = projectCollection {
+                self.updateUI(with: projectCollection)
+            }
         }
     }
     
-    func updateUI(with projects: [Project]) {
+    func updateUI(with projectCollection: ProjectCollection) {
         OperationQueue.main.addOperation {
-            self.projects = projects
+            self.projectCollection = projectCollection
             self.tableView.reloadData()
         }
     }
@@ -49,7 +49,7 @@ class ProjectsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.projects.count
+        return (self.projectCollection?.projects.count) ?? 0
     }
 
     
@@ -57,10 +57,7 @@ class ProjectsViewController: UITableViewController {
         let id = String(describing: ProjectTableViewCell.self)
         let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProjectTableViewCell
 
-        cell.projectImage.image = UIImage(named: "system")
-        cell.type.text = self.projects[indexPath.row].type
-        cell.title.text = self.projects[indexPath.row].title
-        cell.progress.progress = Float(self.projects[indexPath.row].progress! / 100)
+        cell.setCell(project: (self.projectCollection?.projects[indexPath.row])!)
 
         return cell
     }

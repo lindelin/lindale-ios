@@ -9,16 +9,6 @@
 import Foundation
 import UIKit
 
-extension CALayer {
-    var borderUIColor: UIColor {
-        get {
-            return UIColor(cgColor: self.borderColor!)
-        } set {
-            self.borderColor = newValue.cgColor
-        }
-    }
-}
-
 extension UIView {
     @IBInspectable
     var cornerRadius: CGFloat {
@@ -67,6 +57,26 @@ extension UIView {
         }
         set {
             layer.shadowOffset = newValue
+        }
+    }
+    
+    @IBInspectable
+    var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable
+    var borderColor: UIColor? {
+        get {
+            return layer.borderColor != nil ? UIColor(cgColor: layer.borderColor!) : nil
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
         }
     }
 }
