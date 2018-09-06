@@ -124,6 +124,7 @@ struct ProjectCollection: Codable {
                     let data = response.data
                     let coder = JSONDecoder()
                     let projectCollection = try! coder.decode(ProjectCollection.self, from: data)
+                    projectCollection.store()
                     completion(projectCollection)
                 }
                 catch {
@@ -133,6 +134,28 @@ struct ProjectCollection: Codable {
             case let .failure(error):
                 print("エラー", error)
             }
+        }
+    }
+    
+    func store() {
+        let coder = JSONEncoder()
+        let projectCollection = try! coder.encode(self)
+        let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        let archiveURL = cachesDirectory.appendingPathComponent("ProjectCollection").appendingPathExtension("json")
+        try! projectCollection.write(to: archiveURL)
+        print("保存成功：", archiveURL)
+    }
+    
+    static func find() -> ProjectCollection? {
+        let coder = JSONDecoder()
+        do {
+            let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+            let archiveURL = cachesDirectory.appendingPathComponent("ProjectCollection").appendingPathExtension("json")
+            let data = try Data(contentsOf: archiveURL)
+            let projectCollection = try coder.decode(ProjectCollection.self, from: data)
+            return projectCollection
+        } catch {
+            return nil
         }
     }
 }

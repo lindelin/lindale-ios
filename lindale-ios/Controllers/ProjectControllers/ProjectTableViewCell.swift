@@ -11,12 +11,14 @@ import UIKit
 class ProjectTableViewCell: UITableViewCell {
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var progressText: UILabel!
     @IBOutlet weak var taskStatus: UILabel!
     @IBOutlet weak var todoStatus: UILabel!
-    @IBOutlet weak var asdasd: UIImageView!
+    @IBOutlet weak var plImage: UIImageView!
+    @IBOutlet weak var plName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,12 +33,15 @@ class ProjectTableViewCell: UITableViewCell {
     
     func setCell(project: ProjectCollection.Project) {
         self.projectImage.image = #imageLiteral(resourceName: "lindale-launch")
-        self.projectImage.downloadedFrom(link: project.image!)
+        self.projectImage.load(url: URL(string: project.image!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
         self.type.text = project.type
+        self.status.text = project.status ?? "New"
         self.title.text = project.title
         self.progress.progress = Float(Double(project.progress!) / Double(100))
         self.progressText.text = project.progress!.description + "%"
         self.taskStatus.text = project.taskStatus
         self.todoStatus.text = project.todoStatus
+        self.plImage.load(url: URL(string: project.pl.photo!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
+        self.plName.text = project.pl.name
     }
 }

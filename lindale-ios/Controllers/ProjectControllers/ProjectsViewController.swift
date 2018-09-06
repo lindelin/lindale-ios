@@ -10,11 +10,10 @@ import UIKit
 
 class ProjectsViewController: UITableViewController {
     
-    var projectCollection: ProjectCollection?
+    var projectCollection: ProjectCollection? = ProjectCollection.find()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

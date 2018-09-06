@@ -10,38 +10,22 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleToFill) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // The download has finished.
-            if let e = error {
-                print("Error downloading cat picture: \(e)")
-            } else {
-                // No errors found.
-                // It would be weird if we didn't have a response, so check for that too.
-                if let res = response as? HTTPURLResponse {
-                    print("Downloaded cat picture with response code \(res.statusCode)")
-                    if let imageData = data {
-                        // Finally convert that Data into an image and do what you wish with it.
-                        let image = UIImage(data: imageData)
-                        // Do something with your image.
-                        DispatchQueue.main.async() { () -> Void in
-                            self.image = image
-                        }
-                        
-                    } else {
-                        print("Couldn't get image: Image is nil")
+    func load(url: URL, placeholder: UIImage?, cache: URLCache? = nil) {
+        let cache = cache ?? URLCache.shared
+        let request = URLRequest(url: url)
+        if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
+            self.image = image
+        } else {
+            self.image = placeholder
+            URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                if let data = data, let response = response, ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300, let image = UIImage(data: data) {
+                    let cachedData = CachedURLResponse(response: response, data: data)
+                    cache.storeCachedResponse(cachedData, for: request)
+                    DispatchQueue.main.async() { () -> Void in
+                        self.image = image
                     }
-                } else {
-                    print("Couldn't get response code for some reason")
                 }
-            }
-            
-            }.resume()
-        
-    }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
+            }).resume()
+        }
     }
 }
