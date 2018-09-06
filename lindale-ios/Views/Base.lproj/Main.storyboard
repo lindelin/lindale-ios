@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="Theme"/>
                     </tabBar>
                     <connections>
                         <segue destination="Qi5-YD-wbw" kind="relationship" relationship="viewControllers" id="QJP-8A-38E"/>
@@ -32,11 +34,17 @@
         <scene sceneID="wGh-BK-2dm">
             <objects>
                 <viewControllerPlaceholder storyboardName="Project" id="Qi5-YD-wbw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Pdi-uW-OZP"/>
+                    <tabBarItem key="tabBarItem" title="Projects" image="briefcase" selectedImage="briefcase" id="Pdi-uW-OZP"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GE-LM-klK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379" y="-88"/>
+            <point key="canvasLocation" x="326" y="200"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="briefcase" width="32" height="32"/>
+        <namedColor name="Theme">
+            <color red="0.14100000262260437" green="0.43500000238418579" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

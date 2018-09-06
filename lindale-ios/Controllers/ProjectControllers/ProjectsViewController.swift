@@ -20,7 +20,7 @@ class ProjectsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         ProjectCollection.resources { (projectCollection) in
             if let projectCollection = projectCollection {
                 self.updateUI(with: projectCollection)
@@ -32,6 +32,7 @@ class ProjectsViewController: UITableViewController {
         OperationQueue.main.addOperation {
             self.projectCollection = projectCollection
             self.tableView.reloadData()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 

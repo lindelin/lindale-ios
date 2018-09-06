@@ -23,6 +23,7 @@ struct OAuth: Codable {
     
     static func login(email: String, password: String, success successCallback: @escaping (OAuth) -> Void,
                         error errorCallback: @escaping () -> Void) {
+        
         let provider = MoyaProvider<OAuthService>()
         provider.request(.login(email: email, password: password)) { result in
             switch result {
@@ -35,11 +36,13 @@ struct OAuth: Codable {
                     successCallback(token)
                 }
                 catch {
+                    print("error", error)
                     errorCallback()
                 }
             // do something with the response data or statusCode
             case let .failure(error):
                 print("error", error)
+                errorCallback()
             }
         }
     }
@@ -82,5 +85,9 @@ struct OAuth: Codable {
         let refreshToken = UserDefaults.standard.string(forKey: OAuth.CodingKeys.refreshToken.rawValue) ?? nil!
         let expires = UserDefaults.standard.integer(forKey: OAuth.CodingKeys.expires.rawValue)
         return OAuth(type: type, expires: expires, accessToken: accessToken, refreshToken: refreshToken)
+    }
+    
+    func token() -> String {
+        return self.type + " " + self.accessToken
     }
 }

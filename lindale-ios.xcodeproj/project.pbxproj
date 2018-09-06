@@ -10,8 +10,8 @@
 		0A34BFD2757F39B0C9D7C1C2 /* Pods_lindale_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */; };
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		9618E2EB9D1E7C9CE3D640E9 /* Pods_lindale_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */; };
-		A8F3562F21400300006204D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8F3562E21400300006204D3 /* GoogleService-Info.plist */; };
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
+		F24EC78E2140AC3200FB0FE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F24EC78D2140AC3200FB0FE9 /* GoogleService-Info.plist */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
@@ -56,10 +56,10 @@
 		25C11AAE04F70EA3B05BC8A9 /* Pods-lindale-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.release.xcconfig"; sourceTree = "<group>"; };
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		A8F3562E21400300006204D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
 		A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24EC78D2140AC3200FB0FE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +125,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F24EC78F2140C05D00FB0FE9 /* ProjectControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */,
+				F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */,
+			);
+			path = ProjectControllers;
+			sourceTree = "<group>";
+		};
 		F24FB841213C0D3500045DFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +146,9 @@
 		F24FB842213C0D5C00045DFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F24EC78F2140C05D00FB0FE9 /* ProjectControllers */,
 				F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */,
 				F2CAE1812138B559002C04E7 /* MainController.swift */,
-				F2CAE18A213918CF002C04E7 /* MainControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,7 +194,7 @@
 				F24FB843213C0D9200045DFA /* Supports */,
 				F29DBB7521381F9E009DA744 /* AppDelegate.swift */,
 				F29DBB8421381F9F009DA744 /* Info.plist */,
-				A8F3562E21400300006204D3 /* GoogleService-Info.plist */,
+				F24EC78D2140AC3200FB0FE9 /* GoogleService-Info.plist */,
 				F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */,
 				F24FB83E213C086D00045DFA /* Assets.xcassets */,
 			);
@@ -230,15 +239,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		F2CAE18A213918CF002C04E7 /* MainControllers */ = {
-			isa = PBXGroup;
-			children = (
-				F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */,
-				F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */,
-			);
-			path = MainControllers;
-			sourceTree = "<group>";
-		};
 		F8CFDFCDA1536707DF277018 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +264,7 @@
 				F29DBB6F21381F9E009DA744 /* Frameworks */,
 				F29DBB7021381F9E009DA744 /* Resources */,
 				58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */,
+				9D254BABA40C2E560027F29C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,6 +283,8 @@
 				F29DBB8521381F9F009DA744 /* Sources */,
 				F29DBB8621381F9F009DA744 /* Frameworks */,
 				F29DBB8721381F9F009DA744 /* Resources */,
+				A62A35CCE02CE5C746B38FFB /* [CP] Embed Pods Frameworks */,
+				1ABCD4BC5C2B41B35817AEB6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +304,8 @@
 				F29DBB9021381F9F009DA744 /* Sources */,
 				F29DBB9121381F9F009DA744 /* Frameworks */,
 				F29DBB9221381F9F009DA744 /* Resources */,
+				66AD31B0A08BAB04A28939AA /* [CP] Embed Pods Frameworks */,
+				911B11FA607938762ADC52FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,7 +370,7 @@
 				A8F3563321400486006204D3 /* Project.storyboard in Resources */,
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
 				F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */,
-				A8F3562F21400300006204D3 /* GoogleService-Info.plist in Resources */,
+				F24EC78E2140AC3200FB0FE9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +391,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1ABCD4BC5C2B41B35817AEB6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		24970697BA99F819D85CE606 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,6 +476,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66AD31B0A08BAB04A28939AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911B11FA607938762ADC52FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D254BABA40C2E560027F29C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A62A35CCE02CE5C746B38FFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B11178A88AE765E69D083935 /* [CP] Check Pods Manifest.lock */ = {

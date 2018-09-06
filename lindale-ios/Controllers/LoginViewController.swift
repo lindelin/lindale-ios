@@ -8,8 +8,9 @@
 
 import UIKit
 import Pastel
+import SafariServices
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -21,19 +22,24 @@ class LoginViewController: UIViewController {
         }
     }
     
+    enum keys: String {
+        case authentication = "authentication"
+    }
+    
     fileprivate var validationMessage = "Login faild!"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let pastelView = PastelView(frame: view.bounds)
         pastelView.startPastelPoint = .bottomLeft
         pastelView.endPastelPoint = .topRight
-        pastelView.animationDuration = 3.0
+        pastelView.animationDuration = 2.0
         pastelView.startAnimation()
         view.insertSubview(pastelView, at: 0)
-
+        
         // Do any additional setup after loading the view.
+        self.setup()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +59,12 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    // MARK: - Setup
+    func setup() {
+        email.delegate = self
+        password.delegate = self
+    }
+    
     // MARK: - ログイン
     @IBAction func login(_ sender: UIButton) {
         let email = self.email.text!
@@ -63,6 +75,16 @@ class LoginViewController: UIViewController {
         }) { () in
             self.showLoginAlert()
         }
+    }
+    
+    // MARK: - パスワードリセット
+    @IBAction func resetPasswordButton(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: LoginViewController.keys.authentication.rawValue)
+        let url = "https://lindale.stg.lindelin.org/password/reset"   // 仮URL
+        let safariViewController = SFSafariViewController(url: URL(string: url)!)
+        let navigationController = UINavigationController(rootViewController: safariViewController)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     // MARK: - Main 画面遷移
@@ -88,6 +110,23 @@ class LoginViewController: UIViewController {
         }else {
             self.present(loginErrorAlert, animated: true, completion: nil)
         }
+    }
+    
+    // MARK: - Doneボタン押下でキーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField.tag {
+        case 1:
+            // タグが0ならsecondTextFieldにフォーカスを当てる
+            password.becomeFirstResponder()
+            break
+        case 2:
+            // タグが1ならキーボードを閉じる
+            textField.resignFirstResponder()
+            break
+        default:
+            break
+        }
+        return true
     }
     
     /*

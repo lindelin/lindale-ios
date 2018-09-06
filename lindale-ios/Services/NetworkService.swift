@@ -14,19 +14,23 @@ enum NetworkService {
 }
 
 extension NetworkService: TargetType {
+    
     var baseURL: URL { return URL(string: "https://lindale.stg.lindelin.org/api")! }
+    
     var path: String {
         switch self {
             case .projects:
                 return "/projects"
         }
     }
+    
     var method: Moya.Method {
         switch self {
             case .projects:
                 return .get
         }
     }
+    
     var task: Task {
         switch self {
             case .projects:
@@ -42,7 +46,7 @@ extension NetworkService: TargetType {
     }
     
     var headers: [String: String]? {
-        return ["Accept": "application/json", "Authorization": (OAuth.get()?.type)! + " " + (OAuth.get()?.accessToken)!]
+        return ["Accept": "application/json", "Authorization": (OAuth.get()?.token())!]
     }
 }
 // MARK: - Helpers
