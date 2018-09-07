@@ -19,10 +19,19 @@ class ProjectsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
+        self.loadData()
+    }
+    
+    @objc func loadData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         ProjectCollection.resources { (projectCollection) in
             if let projectCollection = projectCollection {
                 self.updateUI(with: projectCollection)
+                self.refreshControl?.endRefreshing()
             }
         }
     }
@@ -60,6 +69,27 @@ class ProjectsViewController: UITableViewController {
         cell.setCell(project: (self.projectCollection?.projects[indexPath.row])!)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { (_, _, completion) in
+            let text = "\(self.projectCollection?.projects[indexPath.row].title ?? ""):https://lindale.stg.lindelin.org/projects/\(self.projectCollection?.projects[indexPath.row].id.description ?? "")"
+            let image = UIImage(data: try! Data(contentsOf: URL(string: (self.projectCollection?.projects[indexPath.row].image)!)!))!
+            let activity = UIActivityViewController(activityItems: [text, image], applicationActivities: nil)
+            
+            if let pc = activity.popoverPresentationController {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    pc.sourceView = cell
+                    pc.sourceRect = cell.bounds
+                }
+            }
+            
+            self.present(activity, animated: true)
+        }
+        
+        let config = UISwipeActionsConfiguration(actions: [shareAction])
+        
+        return config
     }
     
 

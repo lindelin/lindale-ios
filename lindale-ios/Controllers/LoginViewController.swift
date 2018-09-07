@@ -89,10 +89,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Main 画面遷移
     func toMainStoryboard() {
-        let storyboard = UIStoryboard(name:"Main", bundle: nil)
-        let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = mainController
+        if self.presentingViewController == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
+            mainController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            self.present(mainController, animated: true, completion: nil)
+        }else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - ログイン失敗

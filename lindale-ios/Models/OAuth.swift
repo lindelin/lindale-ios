@@ -87,6 +87,15 @@ struct OAuth: Codable {
         return OAuth(type: type, expires: expires, accessToken: accessToken, refreshToken: refreshToken)
     }
     
+    static func logout() -> Bool {
+        UserDefaults.standard.removeObject(forKey: OAuth.CodingKeys.accessToken.rawValue)
+        UserDefaults.standard.removeObject(forKey: OAuth.CodingKeys.type.rawValue)
+        UserDefaults.standard.removeObject(forKey: OAuth.CodingKeys.refreshToken.rawValue)
+        UserDefaults.standard.removeObject(forKey: OAuth.CodingKeys.expires.rawValue)
+        
+        return true
+    }
+    
     func token() -> String {
         return self.type + " " + self.accessToken
     }
