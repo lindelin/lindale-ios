@@ -41,3 +41,13 @@ extension UITableViewController {
         }
     }
 }
+
+func image_from(url: String) -> UIImage {
+    let url = URL(string: url)
+    do {
+        let data = try Data(contentsOf: url!)
+        return UIImage(data: data)!
+    } catch {
+        return #imageLiteral(resourceName: "lindale-launch")
+    }
+}

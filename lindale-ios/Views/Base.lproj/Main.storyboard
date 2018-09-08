@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,9 @@
                     </tabBar>
                     <connections>
                         <outlet property="mainTabBar" destination="aiy-As-oYn" id="IWe-eM-jvd"/>
+                        <segue destination="AEC-T9-eTf" kind="relationship" relationship="viewControllers" id="Igr-8f-Fsf"/>
+                        <segue destination="b7g-wB-KPW" kind="relationship" relationship="viewControllers" id="TaG-Ic-gRf"/>
+                        <segue destination="Oev-tT-okm" kind="relationship" relationship="viewControllers" id="5oU-Bu-jNn"/>
                         <segue destination="Qi5-YD-wbw" kind="relationship" relationship="viewControllers" id="QJP-8A-38E"/>
                         <segue destination="piM-6l-tn9" kind="relationship" relationship="viewControllers" id="5sU-0V-SD0"/>
                     </connections>
@@ -36,25 +40,89 @@
         <scene sceneID="Gdf-f1-ZWD">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="piM-6l-tn9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="q8g-X3-M7c"/>
+                    <tabBarItem key="tabBarItem" title="" image="user-30" largeContentSizeImage="lindale-logo" id="q8g-X3-M7c">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtE-8P-4D2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="396" y="-375"/>
+            <point key="canvasLocation" x="325" y="200"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="27s-FX-XHA">
+            <objects>
+                <viewController id="Oev-tT-okm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GEg-sU-CzR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZhM-WH-bLs"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="add-30" id="oal-K1-78m">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEr-Ml-S13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-198" y="-840"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NQl-JI-Sdl">
+            <objects>
+                <viewController id="b7g-wB-KPW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4aK-4I-5OV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="q00-5w-cP5"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="todo-30" id="RKR-SU-vG5">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BVp-BG-n0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="650" y="-578"/>
         </scene>
         <!--Project-->
         <scene sceneID="wGh-BK-2dm">
             <objects>
                 <viewControllerPlaceholder storyboardName="Project" id="Qi5-YD-wbw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Projects" image="briefcase" selectedImage="briefcase" id="Pdi-uW-OZP"/>
+                    <tabBarItem key="tabBarItem" title="" image="project-30" selectedImage="briefcase" id="Pdi-uW-OZP">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GE-LM-klK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="200"/>
+            <point key="canvasLocation" x="328" y="76"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="20g-JK-rh5">
+            <objects>
+                <viewController id="AEC-T9-eTf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jQI-QQ-UfY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FMc-g4-WqD"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="task-30" id="UVZ-gj-pEz">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PMZ-lK-o6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1324" y="-84"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add-30" width="30" height="30"/>
         <image name="briefcase" width="32" height="32"/>
+        <image name="lindale-logo" width="1141" height="335"/>
+        <image name="project-30" width="30" height="30"/>
+        <image name="task-30" width="30" height="30"/>
+        <image name="todo-30" width="30" height="30"/>
+        <image name="user-30" width="30" height="30"/>
         <namedColor name="Theme-main">
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -76,7 +76,7 @@ class ProjectsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let shareAction = UIContextualAction(style: .normal, title: "Share") { (_, _, completion) in
             let text = "\(self.projectCollection?.projects[indexPath.row].title ?? ""):https://lindale.stg.lindelin.org/projects/\(self.projectCollection?.projects[indexPath.row].id.description ?? "")"
-            let image = UIImage(data: try! Data(contentsOf: URL(string: (self.projectCollection?.projects[indexPath.row].image)!)!))!
+            let image = image_from(url: (self.projectCollection?.projects[indexPath.row].image)!)
             let activity = UIActivityViewController(activityItems: [text, image], applicationActivities: nil)
             
             if let pc = activity.popoverPresentationController {
@@ -88,6 +88,8 @@ class ProjectsViewController: UITableViewController {
             
             self.present(activity, animated: true)
         }
+        
+        shareAction.backgroundColor = UIColor(named: "Theme-main")
         
         let config = UISwipeActionsConfiguration(actions: [shareAction])
         

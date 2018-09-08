@@ -16,10 +16,10 @@
             <objects>
                 <tableViewController id="Dnu-SB-rQf" customClass="ProfileTableViewController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bDY-yq-7B9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="5UU-yZ-n8m">
+                        <color key="backgroundColor" name="Theme-background"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="5UU-yZ-n8m">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -50,7 +50,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmr-6e-c59">
                                                     <rect key="frame" x="33" y="0.0" width="10" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -66,8 +66,8 @@
                                             <rect key="frame" x="75.5" y="0.0" width="76" height="39"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXj-iw-7n7">
-                                                    <rect key="frame" x="31" y="0.0" width="14.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="30.5" y="0.0" width="15" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -83,8 +83,8 @@
                                             <rect key="frame" x="151.5" y="0.0" width="75.5" height="39"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB3-lU-u5I">
-                                                    <rect key="frame" x="29" y="0.0" width="17" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="29" y="0.0" width="17.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -99,11 +99,11 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-pc-pVb">
-                                    <rect key="frame" x="132" y="79" width="227" height="30"/>
+                                    <rect key="frame" x="132" y="79" width="227" height="24"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="Yc6-S9-w8e"/>
+                                        <constraint firstAttribute="height" constant="24" id="Yc6-S9-w8e"/>
                                     </constraints>
-                                    <state key="normal" title="Button">
+                                    <state key="normal" title="プロフィール編集">
                                         <color key="titleColor" name="Theme-main"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -114,31 +114,25 @@
                                             <color key="value" red="0.92156862750000001" green="0.35294117650000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="5"/>
+                                            <real key="value" value="4"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x81-5z-rvA">
-                                    <rect key="frame" x="16" y="132" width="343" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <rect key="frame" x="16" y="132" width="343" height="19.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" name="Theme-base"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-na-cfg">
-                                    <rect key="frame" x="16" y="168.5" width="343" height="29"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-na-cfg">
+                                    <rect key="frame" x="16" y="167.5" width="343" height="29"/>
                                     <segments>
-                                        <segment title="Status"/>
-                                        <segment title="お気に入り"/>
-                                        <segment title="My Projects"/>
+                                        <segment title="" image="status-30"/>
+                                        <segment title="" image="task-30"/>
+                                        <segment title="" image="project-30"/>
                                     </segments>
                                     <color key="tintColor" name="Theme-base"/>
                                 </segmentedControl>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-color" translatesAutoresizingMaskIntoConstraints="NO" id="6I8-O8-aQz">
-                                    <rect key="frame" x="0.0" y="215" width="375" height="2"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="fa4-iF-bwP"/>
-                                    </constraints>
-                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -150,16 +144,13 @@
                                 <constraint firstItem="pzo-pc-pVb" firstAttribute="leading" secondItem="R0D-tl-srR" secondAttribute="trailing" constant="16" id="8CR-fM-Wx6"/>
                                 <constraint firstItem="x81-5z-rvA" firstAttribute="leading" secondItem="5UU-yZ-n8m" secondAttribute="leading" constant="16" id="9Cn-qM-mfF"/>
                                 <constraint firstItem="R0D-tl-srR" firstAttribute="top" secondItem="5UU-yZ-n8m" secondAttribute="top" constant="16" id="FOM-7b-wdn"/>
-                                <constraint firstAttribute="bottom" secondItem="6I8-O8-aQz" secondAttribute="bottom" id="FZS-c8-Ryy"/>
                                 <constraint firstItem="b48-UX-LGh" firstAttribute="leading" secondItem="R0D-tl-srR" secondAttribute="trailing" constant="16" id="Vkk-Te-DDu"/>
                                 <constraint firstAttribute="trailing" secondItem="AeP-na-cfg" secondAttribute="trailing" constant="16" id="Xav-rl-fZ0"/>
-                                <constraint firstItem="6I8-O8-aQz" firstAttribute="leading" secondItem="5UU-yZ-n8m" secondAttribute="leading" id="dmp-8h-XCK"/>
                                 <constraint firstItem="x81-5z-rvA" firstAttribute="top" secondItem="R0D-tl-srR" secondAttribute="bottom" constant="16" id="dsZ-be-dDz"/>
                                 <constraint firstAttribute="trailing" secondItem="x81-5z-rvA" secondAttribute="trailing" constant="16" id="ibI-7a-isG"/>
                                 <constraint firstItem="R0D-tl-srR" firstAttribute="leading" secondItem="5UU-yZ-n8m" secondAttribute="leading" constant="16" id="lvD-Yd-TZ5"/>
                                 <constraint firstItem="AeP-na-cfg" firstAttribute="top" secondItem="x81-5z-rvA" secondAttribute="bottom" constant="16" id="mDU-xI-UtU"/>
                                 <constraint firstItem="pzo-pc-pVb" firstAttribute="top" secondItem="b48-UX-LGh" secondAttribute="bottom" constant="16" id="pHW-Ku-s77"/>
-                                <constraint firstAttribute="trailing" secondItem="6I8-O8-aQz" secondAttribute="trailing" id="ys8-AU-nKO"/>
                             </constraints>
                         </view>
                         <sections>
@@ -173,18 +164,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 進捗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOV-5u-xuH">
-                                                    <rect key="frame" x="32" y="12" width="100" height="21"/>
+                                                    <rect key="frame" x="32" y="13.5" width="100" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="UP3-re-qK2"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="i3b-8o-Xrh">
                                                     <rect key="frame" x="132" y="21" width="211" height="2"/>
                                                     <color key="progressTintColor" name="Theme-green"/>
-                                                    <color key="trackTintColor" name="Theme-base-sub"/>
+                                                    <color key="trackTintColor" name="Theme-background"/>
                                                 </progressView>
                                             </subviews>
                                             <constraints>
@@ -204,11 +195,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チケット" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0t-bz-lru">
-                                                    <rect key="frame" x="32" y="11.5" width="100" height="21"/>
+                                                    <rect key="frame" x="32" y="14" width="100" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="yrF-x7-Mgd"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -219,7 +210,7 @@
 VGhlbWUtCAh5ZWxsb3c
 </string>
                                                     </color>
-                                                    <color key="trackTintColor" name="Theme-base-sub"/>
+                                                    <color key="trackTintColor" name="Theme-background"/>
                                                 </progressView>
                                             </subviews>
                                             <constraints>
@@ -241,14 +232,14 @@ VGhlbWUtCAh5ZWxsb3c
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-GO-sGa">
                                                     <rect key="frame" x="132" y="20.5" width="211" height="2"/>
                                                     <color key="progressTintColor" name="Theme-main"/>
-                                                    <color key="trackTintColor" name="Theme-sub"/>
+                                                    <color key="trackTintColor" name="Theme-background"/>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ne-Ww-X3g">
-                                                    <rect key="frame" x="32" y="11" width="100" height="20.5"/>
+                                                    <rect key="frame" x="32" y="13" width="100" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="ckt-TM-fiX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -270,15 +261,19 @@ VGhlbWUtCAh5ZWxsb3c
                             <outlet property="delegate" destination="Dnu-SB-rQf" id="cws-De-jn6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="drawer" id="vQF-4B-448"/>
+                    <tabBarItem key="tabBarItem" title="" image="user-30" id="vQF-4B-448">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Lindalë" id="3z3-fo-Z22">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="D6w-uq-ALe">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" image="menu-30" id="D6w-uq-ALe">
+                            <color key="tintColor" name="Theme-base-sub"/>
                             <connections>
                                 <action selector="logout:" destination="Dnu-SB-rQf" id="8fI-la-BV3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="taskProgress" destination="I5n-jO-u1k" id="S0b-fw-yOn"/>
                         <outlet property="todoProgress" destination="oNn-GO-sGa" id="97F-ec-ffz"/>
@@ -287,7 +282,7 @@ VGhlbWUtCAh5ZWxsb3c
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1O-rF-17s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="-177.66116941529236"/>
+            <point key="canvasLocation" x="1052" y="-178.11094452773614"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oi3-ts-vsQ">
@@ -310,28 +305,34 @@ VGhlbWUtCAh5ZWxsb3c
         </scene>
     </scenes>
     <resources>
-        <image name="drawer" width="32" height="32"/>
-        <image name="nav-color" width="760" height="5"/>
+        <image name="menu-30" width="30" height="30"/>
+        <image name="project-30" width="30" height="30"/>
+        <image name="status-30" width="30" height="30"/>
+        <image name="task-30" width="30" height="30"/>
+        <image name="user-30" width="30" height="30"/>
         <namedColor>
             <string key="name" base64-UTF8="YES">
 VGhlbWUtCAh5ZWxsb3c
 </string>
             <color red="0.96899998188018799" green="0.82700002193450928" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Theme-background">
+            <color red="0.97299998998641968" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-base">
+            <color red="0.32199999690055847" green="0.23899999260902405" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Theme-base">
             <color red="0.32199999690055847" green="0.23899999260902405" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base-sub">
-            <color red="0.86299997568130493" green="0.84700000286102295" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-green">
             <color red="0.69800001382827759" green="0.89800000190734863" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-main">
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Theme-sub">
-            <color red="0.94099998474121094" green="0.9179999828338623" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
