@@ -11,14 +11,21 @@ import Moya
 
 class MainController: UITabBarController {
 
+    @IBOutlet weak var mainTabBar: UITabBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.setupUI()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupUI() {
+        mainTabBar.unselectedItemTintColor = UIColor(named: "Theme-base-sub")
     }
     
 

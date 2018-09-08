@@ -13,7 +13,7 @@
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
 		F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */; };
-		F24EC78E2140AC3200FB0FE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F24EC78D2140AC3200FB0FE9 /* GoogleService-Info.plist */; };
+		F21C50D12142552C008218F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F21C50D02142552C008218F4 /* GoogleService-Info.plist */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
@@ -63,7 +63,7 @@
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21C50CB21420CBE008218F4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
-		F24EC78D2140AC3200FB0FE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F21C50D02142552C008218F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				F24FB843213C0D9200045DFA /* Supports */,
 				F29DBB7521381F9E009DA744 /* AppDelegate.swift */,
 				F29DBB8421381F9F009DA744 /* Info.plist */,
-				F24EC78D2140AC3200FB0FE9 /* GoogleService-Info.plist */,
+				F21C50D02142552C008218F4 /* GoogleService-Info.plist */,
 				F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */,
 				F24FB83E213C086D00045DFA /* Assets.xcassets */,
 			);
@@ -385,7 +385,7 @@
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
 				F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */,
 				F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */,
-				F24EC78E2140AC3200FB0FE9 /* GoogleService-Info.plist in Resources */,
+				F21C50D12142552C008218F4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +498,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -511,6 +513,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -769,7 +773,7 @@
 				INFOPLIST_FILE = "lindale-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lindelin.lindale-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -786,7 +790,7 @@
 				INFOPLIST_FILE = "lindale-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lindelin.lindale-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

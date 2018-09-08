@@ -23,6 +23,8 @@ class ProjectTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.progress.transform = self.progress.transform.scaledBy(x: 1, y: 3
+        )
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

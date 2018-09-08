@@ -14,7 +14,7 @@ enum OAuthService {
 }
 
 extension OAuthService: TargetType {
-    var baseURL: URL { return URL(string: "https://lindale.stg.lindelin.org")! }
+    var baseURL: URL { return URL(string: UserDefaults.standard.string(forKey: OAuth.Client.clientUrl.rawValue)!)! }
     var path: String {
         switch self {
             case .login(_, _):
@@ -34,8 +34,8 @@ extension OAuthService: TargetType {
             case let .login(email, password):
                 return .requestParameters(parameters: [
                     "grant_type": "password",
-                    "client_id": 1,
-                    "client_secret": "QYvbbd9zoXWtOEBYTVhspVnGoPMUgEckD95Lfmjv",
+                    "client_id": UserDefaults.standard.integer(forKey: OAuth.Client.clientId.rawValue),
+                    "client_secret": UserDefaults.standard.string(forKey: OAuth.Client.clientSecret.rawValue)!,
                     "username": email,
                     "password": password,
                     "scope": "*"
@@ -43,8 +43,8 @@ extension OAuthService: TargetType {
         case .refresh:
             return .requestParameters(parameters: [
                 "grant_type": "refresh_token",
-                "client_id": 1,
-                "client_secret": "QYvbbd9zoXWtOEBYTVhspVnGoPMUgEckD95Lfmjv",
+                "client_id": UserDefaults.standard.integer(forKey: OAuth.Client.clientId.rawValue),
+                "client_secret": UserDefaults.standard.string(forKey: OAuth.Client.clientSecret.rawValue)!,
                 "refresh_token": UserDefaults.standard.string(forKey: OAuth.CodingKeys.refreshToken.rawValue) ?? nil!,
                 "scope": "*"
                 ], encoding: JSONEncoding.default)

@@ -43,18 +43,18 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="tP9-gC-Y0s">
                                                                         <rect key="frame" x="0.0" y="0.0" width="302" height="65"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VFL-UE-yz1">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VFL-UE-yz1">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="156" height="17"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Cv-Xk-xug">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="Theme-base-sub"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あああああ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTa-ha-h7h">
-                                                                                        <rect key="frame" x="82" y="1.3333333333333153" width="74" height="14.333333333333336"/>
-                                                                                        <color key="backgroundColor" red="0.90980392160000001" green="0.31372549020000001" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <rect key="frame" x="82" y="0.0" width="74" height="17"/>
+                                                                                        <color key="backgroundColor" name="Theme-main"/>
                                                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                                                         <color key="textColor" red="1" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                         <nil key="highlightedColor"/>
@@ -69,13 +69,13 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="City Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzI-DJ-UZt">
                                                                                 <rect key="frame" x="0.0" y="29" width="91" height="24"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                                <color key="textColor" red="0.0" green="0.090196078430000007" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="textColor" name="Theme-base"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dcR-SO-HQA">
                                                                                 <rect key="frame" x="0.0" y="65" width="302" height="1"/>
-                                                                                <color key="progressTintColor" red="0.14117647058823529" green="0.61568627450980395" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <color key="trackTintColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="progressTintColor" name="Theme-green"/>
+                                                                                <color key="trackTintColor" name="Theme-base-sub"/>
                                                                             </progressView>
                                                                         </subviews>
                                                                         <constraints>
@@ -98,7 +98,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </imageView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" name="Theme-base-sub"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="bottom" secondItem="36Y-gx-jdB" secondAttribute="bottom" id="9TO-up-68W"/>
                                                                                     <constraint firstAttribute="height" constant="60" id="Bz3-LC-Yrf"/>
@@ -112,7 +112,7 @@
                                                                                         <real key="value" value="30"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                        <color key="value" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="value" red="0.94117647059999998" green="0.91764705879999997" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                                         <real key="value" value="1"/>
@@ -125,13 +125,13 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Leader" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMv-bn-L4G">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="227" height="21.666666666666668"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <color key="textColor" name="Theme"/>
+                                                                                        <color key="textColor" name="Theme-blue"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73m-ae-aU7">
                                                                                         <rect key="frame" x="0.0" y="21.666666666666686" width="227" height="21.666666666666671"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                                        <nil key="textColor"/>
+                                                                                        <color key="textColor" name="Theme-main-optional"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
@@ -147,13 +147,13 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhB-El-UcA">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="9"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                        <color key="textColor" red="0.90980392160000001" green="0.31372549020000001" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="textColor" name="Theme-main"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="達成" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q01-qk-9tz">
                                                                                         <rect key="frame" x="0.0" y="13" width="24.666666666666668" height="8.6666666666666643"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                        <color key="textColor" red="0.90980392160000001" green="0.31372549020000001" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="textColor" name="Theme-main"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
@@ -164,13 +164,13 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="50/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZW-82-uYX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="50.666666666666664" height="9"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="Theme-base"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-dL-5dh">
                                                                                         <rect key="frame" x="0.0" y="13" width="31.666666666666668" height="8.6666666666666643"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="Theme-base"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
@@ -181,13 +181,13 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="200/300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehn-St-Lxf">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="62.666666666666664" height="9"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="Theme-base"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="TODOs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz0-bZ-3bE">
                                                                                         <rect key="frame" x="0.0" y="13" width="40.333333333333336" height="8.6666666666666643"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="Theme-base"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -215,7 +215,7 @@
                                                             <constraint firstItem="Kqq-K2-Qox" firstAttribute="centerX" secondItem="eLv-fm-gNe" secondAttribute="centerX" id="Sz1-KB-XY7"/>
                                                         </constraints>
                                                     </view>
-                                                    <color key="backgroundColor" red="1" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <blurEffect style="regular"/>
                                                 </visualEffectView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tjp-MQ-4gK">
@@ -228,12 +228,12 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="value" red="0.94117647059999998" green="0.91764705879999997" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.9941860465116279" green="0.98837209302325579" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Tjp-MQ-4gK" firstAttribute="leading" secondItem="QPl-pU-lto" secondAttribute="leading" constant="8" id="IFt-Tf-z37"/>
                                                 <constraint firstAttribute="trailing" secondItem="Tjp-MQ-4gK" secondAttribute="trailing" constant="8" id="IL9-UC-ORi"/>
@@ -245,25 +245,25 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                    <real key="value" value="10"/>
+                                                    <real key="value" value="15"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="value" red="0.71764705880000002" green="0.68627450980000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                    <real key="value" value="0.29999999999999999"/>
+                                                    <real key="value" value="0.5"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                                     <size key="value" width="3" height="3"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" red="0.94117647059999998" green="0.91764705879999997" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                     <real key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="0.0"/>
+                                                    <real key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
@@ -295,7 +295,7 @@
                             <outlet property="delegate" destination="gbX-Oo-t71" id="ib4-kd-HhP"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Projects" image="briefcase" landscapeImage="briefcase" largeContentSizeImage="briefcase" selectedImage="briefcase" id="kDW-9K-f3i"/>
+                    <tabBarItem key="tabBarItem" title="" image="briefcase" landscapeImage="briefcase" largeContentSizeImage="briefcase" selectedImage="briefcase" id="kDW-9K-f3i"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Projects" id="ikb-r0-OfX"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -335,8 +335,23 @@
         <namedColor name="Theme">
             <color red="0.14100000262260437" green="0.43500000238418579" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Theme">
-            <color red="0.14100000262260437" green="0.43500000238418579" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Theme-base">
+            <color red="0.32199999690055847" green="0.23899999260902405" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-base-sub">
+            <color red="0.86299997568130493" green="0.84700000286102295" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-blue">
+            <color red="0.49799999594688416" green="0.72899997234344482" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-green">
+            <color red="0.69800001382827759" green="0.89800000190734863" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-main">
+            <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-main-optional">
+            <color red="0.9570000171661377" green="0.7369999885559082" blue="0.84299999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

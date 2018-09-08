@@ -20,9 +20,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" name="Theme"/>
+                        <color key="selectedImageTintColor" name="Theme-main"/>
                     </tabBar>
                     <connections>
+                        <outlet property="mainTabBar" destination="aiy-As-oYn" id="IWe-eM-jvd"/>
                         <segue destination="Qi5-YD-wbw" kind="relationship" relationship="viewControllers" id="QJP-8A-38E"/>
                         <segue destination="piM-6l-tn9" kind="relationship" relationship="viewControllers" id="5sU-0V-SD0"/>
                     </connections>
@@ -54,8 +55,8 @@
     </scenes>
     <resources>
         <image name="briefcase" width="32" height="32"/>
-        <namedColor name="Theme">
-            <color red="0.14100000262260437" green="0.43500000238418579" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Theme-main">
+            <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

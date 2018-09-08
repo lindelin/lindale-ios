@@ -10,9 +10,16 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
 
+    @IBOutlet weak var totalProgress: UIProgressView!
+    @IBOutlet weak var taskProgress: UIProgressView!
+    @IBOutlet weak var todoProgress: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        totalProgress.transform = totalProgress.transform.scaledBy(x: 1, y: 5)
+        taskProgress.transform = taskProgress.transform.scaledBy(x: 1, y: 5)
+        todoProgress.transform = todoProgress.transform.scaledBy(x: 1, y: 5)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,15 +34,15 @@ class ProfileTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
         if (OAuth.logout()) {

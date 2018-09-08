@@ -16,6 +16,7 @@ target 'lindale-ios' do
 	pod 'Firebase/Performance'
   pod 'Moya'
   pod 'Pastel'
+  pod "KRProgressHUD"
 
   target 'lindale-iosTests' do
     inherit! :search_paths

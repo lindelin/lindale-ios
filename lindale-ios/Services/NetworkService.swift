@@ -15,7 +15,7 @@ enum NetworkService {
 
 extension NetworkService: TargetType {
     
-    var baseURL: URL { return URL(string: "https://lindale.stg.lindelin.org/api")! }
+    var baseURL: URL { return URL(string: "\(UserDefaults.standard.string(forKey: OAuth.Client.clientUrl.rawValue)!)/api")! }
     
     var path: String {
         switch self {

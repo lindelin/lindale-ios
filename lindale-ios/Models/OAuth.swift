@@ -7,6 +7,8 @@
 //
 import UIKit
 import Moya
+import Firebase
+import KRProgressHUD
 
 struct OAuth: Codable {
     var type: String
@@ -14,11 +16,33 @@ struct OAuth: Codable {
     var accessToken: String
     var refreshToken: String
     
+    enum Client: String {
+        case clientUrl = "client_url"
+        case clientId = "client_id"
+        case clientSecret = "client_secret"
+    }
+    
     enum CodingKeys: String, CodingKey {
         case type = "token_type"
         case expires = "expires_in"
         case accessToken = "access_token"
         case refreshToken = "refresh_token"
+    }
+    
+    static func configure() {
+        KRProgressHUD.show(withMessage: "Loading...")
+        let ref = Database.database().reference()
+        ref.child("system").child("oauth").observeSingleEvent(of: .value, with: { (snapshot) in
+            OperationQueue.main.addOperation {
+                let value = snapshot.value as? NSDictionary
+                UserDefaults.standard.set(value?[OAuth.Client.clientUrl.rawValue] as! String, forKey: OAuth.Client.clientUrl.rawValue)
+                UserDefaults.standard.set(value?[OAuth.Client.clientId.rawValue] as! Int, forKey: OAuth.Client.clientId.rawValue)
+                UserDefaults.standard.set(value?[OAuth.Client.clientSecret.rawValue] as! String, forKey: OAuth.Client.clientSecret.rawValue)
+                KRProgressHUD.dismiss()
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     static func login(email: String, password: String, success successCallback: @escaping (OAuth) -> Void,

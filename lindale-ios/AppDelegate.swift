@@ -22,12 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         // Messaging.messaging().delegate = self
         
+        OAuth.configure()
+        
         let temporaryDirectory = NSTemporaryDirectory()
         let urlCache = URLCache(memoryCapacity: 25000000, diskCapacity: 50000000, diskPath: temporaryDirectory)
         URLCache.shared = urlCache
         
-        // MARK: - UserDefault 实例
-        //let userDefault = UserDefaults.standard
+        // MARK: - 休憩
+        sleep(3)
         
         // アクセストークンが無かったらログイン画面を表示
         if (OAuth.get() == nil) {

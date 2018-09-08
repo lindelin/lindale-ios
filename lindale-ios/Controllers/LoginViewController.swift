@@ -14,13 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var loginButton: UIButton! {
-        didSet {
-            loginButton.layer.borderColor = UIColor.white.withAlphaComponent(0.12).cgColor
-            loginButton.layer.borderWidth = 1.0
-            loginButton.layer.cornerRadius = 4
-        }
-    }
+    @IBOutlet weak var loginButton: UIButton!
     
     enum keys: String {
         case authentication = "authentication"
