@@ -45,13 +45,7 @@ class ProfileTableViewController: UITableViewController {
 //    }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
-        if (OAuth.logout()) {
-            let storyboard = UIStoryboard(name:"Login", bundle: nil)
-            let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
-            loginController.hidesBottomBarWhenPushed = true
-            loginController.modalTransitionStyle = .crossDissolve
-            self.present(loginController, animated: true, completion: nil)
-        }
+        self.logout()
     }
     
     

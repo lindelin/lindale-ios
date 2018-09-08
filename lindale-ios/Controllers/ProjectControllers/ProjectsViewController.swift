@@ -32,6 +32,8 @@ class ProjectsViewController: UITableViewController {
             if let projectCollection = projectCollection {
                 self.updateUI(with: projectCollection)
                 self.refreshControl?.endRefreshing()
+            } else {
+                self.logout()
             }
         }
     }

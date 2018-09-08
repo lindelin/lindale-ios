@@ -132,7 +132,8 @@ struct ProjectCollection: Codable {
                 }
             // do something with the response data or statusCode
             case let .failure(error):
-                print("エラー", error)
+                print(error)
+                completion(nil)
             }
         }
     }

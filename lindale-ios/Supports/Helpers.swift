@@ -29,3 +29,15 @@ extension UIImageView {
         }
     }
 }
+
+extension UITableViewController {
+    func logout() {
+        if (OAuth.logout()) {
+            let storyboard = UIStoryboard(name:"Login", bundle: nil)
+            let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
+            loginController.hidesBottomBarWhenPushed = true
+            loginController.modalTransitionStyle = .crossDissolve
+            self.present(loginController, animated: true, completion: nil)
+        }
+    }
+}
