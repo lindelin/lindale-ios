@@ -27,7 +27,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let pastelView = PastelView(frame: view.bounds)
         pastelView.startPastelPoint = .bottomLeft
         pastelView.endPastelPoint = .topRight
-        pastelView.animationDuration = 2.0
+        pastelView.animationDuration = 1.5
+        pastelView.setColors([
+            Colors.themeMain,
+            Colors.themeYellow,
+            Colors.themeGreen,
+            Colors.themeBlue,
+            Colors.themeBaseOptional,
+            Colors.themeBase,
+            Colors.themeBaseSub,
+            Colors.themeMainOptional,
+            Colors.themeSub
+        ])
         pastelView.startAnimation()
         view.insertSubview(pastelView, at: 0)
         

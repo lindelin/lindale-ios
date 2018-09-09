@@ -34,6 +34,7 @@ class ProjectTableViewCell: UITableViewCell {
     }
     
     func setCell(project: ProjectCollection.Project) {
+        self.projectImage.image = #imageLiteral(resourceName: "lindale-launch")
         self.projectImage.load(url: URL(string: project.image!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
         self.type.text = project.type
         self.status.text = project.status ?? "New"

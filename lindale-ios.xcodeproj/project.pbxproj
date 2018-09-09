@@ -11,6 +11,7 @@
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		9618E2EB9D1E7C9CE3D640E9 /* Pods_lindale_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */; };
 		A87E62FE2143671B007E5DB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A87E62FD2143671A007E5DB4 /* GoogleService-Info.plist */; };
+		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
 		F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */; };
@@ -59,6 +60,8 @@
 		7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.release.xcconfig"; sourceTree = "<group>"; };
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A87E62FD2143671A007E5DB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-ios.entitlements"; sourceTree = "<group>"; };
+		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
 		A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +174,7 @@
 			children = (
 				F2CAE1832138E410002C04E7 /* Helpers.swift */,
 				F2CAE1772138414C002C04E7 /* UIHelpers.swift */,
+				A8D5A026214422E1002E8D52 /* UITheme.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -200,6 +204,7 @@
 		F29DBB7421381F9E009DA744 /* lindale-ios */ = {
 			isa = PBXGroup;
 			children = (
+				A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */,
 				F2CAE17B21384A74002C04E7 /* Models */,
 				F2CAE16721382704002C04E7 /* Views */,
 				F24FB842213C0D5C00045DFA /* Controllers */,
@@ -338,6 +343,11 @@
 				TargetAttributes = {
 					F29DBB7121381F9E009DA744 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					F29DBB8821381F9F009DA744 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -509,6 +519,7 @@
 				F2CAE1842138E410002C04E7 /* Helpers.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
+				A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */,
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,
 				F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */,
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
@@ -688,6 +699,7 @@
 			baseConfigurationReference = 80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "lindale-ios/lindale-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDZ72V563C;
 				INFOPLIST_FILE = "lindale-ios/Info.plist";
@@ -708,6 +720,7 @@
 			baseConfigurationReference = 7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "lindale-ios/lindale-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDZ72V563C;
 				INFOPLIST_FILE = "lindale-ios/Info.plist";

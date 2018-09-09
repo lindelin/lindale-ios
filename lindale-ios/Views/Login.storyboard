@@ -19,6 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abT-ki-TBU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hmd-nj-yQ1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="r6S-4M-wKe">
                                 <rect key="frame" x="30" y="260" width="354" height="235.66666666666663"/>
                                 <subviews>
@@ -124,7 +132,11 @@
                             <constraint firstItem="r6S-4M-wKe" firstAttribute="leading" secondItem="hxX-Qv-JW5" secondAttribute="leading" constant="30" id="h9Q-CL-lZc"/>
                             <constraint firstItem="r6S-4M-wKe" firstAttribute="height" secondItem="wJ5-oa-QKn" secondAttribute="height" multiplier="0.32" id="idt-6M-fuN"/>
                             <constraint firstItem="ybV-S3-It0" firstAttribute="leading" secondItem="hxX-Qv-JW5" secondAttribute="leading" id="kpy-J4-ejV"/>
+                            <constraint firstItem="abT-ki-TBU" firstAttribute="width" secondItem="wJ5-oa-QKn" secondAttribute="width" id="qpA-Z3-OIL"/>
+                            <constraint firstItem="abT-ki-TBU" firstAttribute="centerY" secondItem="wJ5-oa-QKn" secondAttribute="centerY" id="r91-cQ-5Ks"/>
+                            <constraint firstItem="abT-ki-TBU" firstAttribute="centerX" secondItem="wJ5-oa-QKn" secondAttribute="centerX" id="tJp-Xp-mvV"/>
                             <constraint firstItem="hxX-Qv-JW5" firstAttribute="trailing" secondItem="r6S-4M-wKe" secondAttribute="trailing" constant="30" id="uSu-Z8-QNP"/>
+                            <constraint firstItem="abT-ki-TBU" firstAttribute="height" secondItem="wJ5-oa-QKn" secondAttribute="height" id="wt1-gH-gV2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hxX-Qv-JW5"/>
                     </view>
@@ -136,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxW-XU-9OP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="108.39580209895054"/>
+            <point key="canvasLocation" x="100.00000000000001" y="107.60869565217392"/>
         </scene>
     </scenes>
     <resources>
