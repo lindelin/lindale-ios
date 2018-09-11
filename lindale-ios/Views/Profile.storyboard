@@ -23,12 +23,26 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-tl-srR" userLabel="Photo View">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-tl-srR" userLabel="Photo View">
                                     <rect key="frame" x="16" y="16" width="100" height="100"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-sv-CA7">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="50"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" name="Theme-base-sub"/>
                                     <constraints>
+                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="height" secondItem="R0D-tl-srR" secondAttribute="height" id="7K0-I1-6xL"/>
+                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="centerY" secondItem="R0D-tl-srR" secondAttribute="centerY" id="OMi-ul-wXO"/>
+                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="centerX" secondItem="R0D-tl-srR" secondAttribute="centerX" id="P2t-Uy-rU3"/>
                                         <constraint firstAttribute="width" constant="100" id="UVC-5J-S0u"/>
                                         <constraint firstAttribute="height" constant="100" id="bsg-wQ-eR8"/>
+                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="width" secondItem="R0D-tl-srR" secondAttribute="width" id="ge5-ed-ykA"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -118,12 +132,6 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x81-5z-rvA">
-                                    <rect key="frame" x="16" y="132" width="343" height="19.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <color key="textColor" name="Theme-base"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-na-cfg">
                                     <rect key="frame" x="16" y="167.5" width="343" height="29"/>
                                     <segments>
@@ -133,6 +141,12 @@
                                     </segments>
                                     <color key="tintColor" name="Theme-base"/>
                                 </segmentedControl>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="お名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x81-5z-rvA">
+                                    <rect key="frame" x="16" y="140" width="343" height="19.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" name="Theme-base"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -173,17 +187,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="i3b-8o-Xrh">
-                                                    <rect key="frame" x="132" y="21" width="211" height="2"/>
+                                                    <rect key="frame" x="132" y="21" width="195" height="2"/>
                                                     <color key="progressTintColor" name="Theme-green"/>
                                                     <color key="trackTintColor" name="Theme-background"/>
                                                 </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WT0-CG-JJk">
+                                                    <rect key="frame" x="328" y="15.5" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="WT0-CG-JJk" firstAttribute="centerY" secondItem="mdP-hj-h3k" secondAttribute="centerY" id="6pB-Ao-KE8"/>
                                                 <constraint firstItem="XOV-5u-xuH" firstAttribute="centerY" secondItem="mdP-hj-h3k" secondAttribute="centerY" id="A81-d4-mH8"/>
                                                 <constraint firstItem="i3b-8o-Xrh" firstAttribute="centerY" secondItem="mdP-hj-h3k" secondAttribute="centerY" id="NDb-Kl-hIE"/>
                                                 <constraint firstItem="XOV-5u-xuH" firstAttribute="leading" secondItem="mdP-hj-h3k" secondAttribute="leadingMargin" constant="16" id="VIW-ju-vD0"/>
                                                 <constraint firstItem="i3b-8o-Xrh" firstAttribute="leading" secondItem="mdP-hj-h3k" secondAttribute="leadingMargin" constant="116" id="fbQ-xg-FhE"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="i3b-8o-Xrh" secondAttribute="trailing" constant="16" id="t2g-VC-ycC"/>
+                                                <constraint firstAttribute="trailing" secondItem="WT0-CG-JJk" secondAttribute="trailing" constant="16" id="t0S-bQ-fXR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="i3b-8o-Xrh" secondAttribute="trailing" constant="32" id="t2g-VC-ycC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -204,16 +226,24 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I5n-jO-u1k">
-                                                    <rect key="frame" x="132" y="20.5" width="211" height="2"/>
+                                                    <rect key="frame" x="132" y="20.5" width="195" height="2"/>
                                                     <color key="progressTintColor" name="Theme-yellow"/>
                                                     <color key="trackTintColor" name="Theme-background"/>
                                                 </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="di4-Jm-GZH">
+                                                    <rect key="frame" x="328" y="15" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="e0t-bz-lru" firstAttribute="leading" secondItem="RoV-ZT-Xlf" secondAttribute="leadingMargin" constant="16" id="L4Z-sI-A4P"/>
                                                 <constraint firstItem="I5n-jO-u1k" firstAttribute="centerY" secondItem="RoV-ZT-Xlf" secondAttribute="centerY" id="MFm-Re-H1d"/>
+                                                <constraint firstAttribute="trailing" secondItem="di4-Jm-GZH" secondAttribute="trailing" constant="16" id="Wng-sh-E4M"/>
                                                 <constraint firstItem="e0t-bz-lru" firstAttribute="centerY" secondItem="RoV-ZT-Xlf" secondAttribute="centerY" id="iBu-DG-zDn"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="I5n-jO-u1k" secondAttribute="trailing" constant="16" id="ltY-0f-Kyo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="I5n-jO-u1k" secondAttribute="trailing" constant="32" id="ltY-0f-Kyo"/>
+                                                <constraint firstItem="di4-Jm-GZH" firstAttribute="centerY" secondItem="RoV-ZT-Xlf" secondAttribute="centerY" id="scl-0Z-w0P"/>
                                                 <constraint firstItem="I5n-jO-u1k" firstAttribute="leading" secondItem="RoV-ZT-Xlf" secondAttribute="leadingMargin" constant="116" id="vZY-OT-7g2"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -226,7 +256,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-GO-sGa">
-                                                    <rect key="frame" x="132" y="20.5" width="211" height="2"/>
+                                                    <rect key="frame" x="132" y="20.5" width="195" height="2"/>
                                                     <color key="progressTintColor" name="Theme-main"/>
                                                     <color key="trackTintColor" name="Theme-background"/>
                                                 </progressView>
@@ -239,12 +269,20 @@
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cm7-22-Gcb">
+                                                    <rect key="frame" x="328" y="15.5" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="6Ne-Ww-X3g" firstAttribute="centerY" secondItem="5a8-oE-ua1" secondAttribute="centerY" id="BqU-5u-3GZ"/>
+                                                <constraint firstItem="cm7-22-Gcb" firstAttribute="centerY" secondItem="5a8-oE-ua1" secondAttribute="centerY" id="BvL-QN-jPi"/>
+                                                <constraint firstAttribute="trailing" secondItem="cm7-22-Gcb" secondAttribute="trailing" constant="16" id="LxQ-db-F8E"/>
                                                 <constraint firstItem="6Ne-Ww-X3g" firstAttribute="leading" secondItem="5a8-oE-ua1" secondAttribute="leadingMargin" constant="16" id="Rro-7d-6XR"/>
                                                 <constraint firstItem="oNn-GO-sGa" firstAttribute="centerY" secondItem="5a8-oE-ua1" secondAttribute="centerY" id="UoJ-9K-Yyb"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="oNn-GO-sGa" secondAttribute="trailing" constant="16" id="Zgd-wa-Lui"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oNn-GO-sGa" secondAttribute="trailing" constant="32" id="Zgd-wa-Lui"/>
                                                 <constraint firstItem="oNn-GO-sGa" firstAttribute="leading" secondItem="5a8-oE-ua1" secondAttribute="leadingMargin" constant="116" id="rf6-CB-v74"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -271,14 +309,22 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="name" destination="x81-5z-rvA" id="eCv-tI-h1L"/>
+                        <outlet property="photo" destination="OM8-sv-CA7" id="BtF-4V-ZgR"/>
+                        <outlet property="projectCount" destination="Mmr-6e-c59" id="dpf-2M-Rsz"/>
+                        <outlet property="taskCount" destination="AXj-iw-7n7" id="lSI-ga-ook"/>
                         <outlet property="taskProgress" destination="I5n-jO-u1k" id="S0b-fw-yOn"/>
+                        <outlet property="taskProgressText" destination="di4-Jm-GZH" id="CvB-Vd-vl4"/>
+                        <outlet property="todoCount" destination="xB3-lU-u5I" id="geB-dk-GST"/>
                         <outlet property="todoProgress" destination="oNn-GO-sGa" id="97F-ec-ffz"/>
+                        <outlet property="todoProgressText" destination="cm7-22-Gcb" id="mEF-3b-CTL"/>
                         <outlet property="totalProgress" destination="i3b-8o-Xrh" id="W72-CD-TUy"/>
+                        <outlet property="totalProgressText" destination="WT0-CG-JJk" id="tSd-qN-tLy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1O-rF-17s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051.5" y="-179"/>
+            <point key="canvasLocation" x="1050.4000000000001" y="-179.01049475262371"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oi3-ts-vsQ">

@@ -9,11 +9,20 @@
 import UIKit
 
 class ProfileTableViewController: UITableViewController {
-
+    
+    var profile: Profile? = Profile.find()
+    
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var projectCount: UILabel!
+    @IBOutlet weak var taskCount: UILabel!
+    @IBOutlet weak var todoCount: UILabel!
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var totalProgress: UIProgressView!
     @IBOutlet weak var taskProgress: UIProgressView!
     @IBOutlet weak var todoProgress: UIProgressView!
-    
+    @IBOutlet weak var totalProgressText: UILabel!
+    @IBOutlet weak var taskProgressText: UILabel!
+    @IBOutlet weak var todoProgressText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,10 +34,44 @@ class ProfileTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
+        self.updateUI()
+        self.loadData()
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 216
+    @objc func loadData() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Profile.resources { (profile) in
+            if let profile = profile {
+                self.updateUI(with: profile)
+                self.refreshControl?.endRefreshing()
+            } else {
+                self.logout()
+            }
+        }
+    }
+    
+    func updateUI(with profile: Profile? = nil) {
+        if profile != nil {
+            self.profile = profile
+        }
+        if self.profile != nil {
+            self.photo.load(url: URL(string: (self.profile?.photo!)!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
+            self.projectCount.text = self.profile?.status.projectCount.description
+            self.taskCount.text = self.profile?.status.unfinishedTaskCount.description
+            self.todoCount.text = self.profile?.status.unfinishedTodoCount.description
+            self.name.text = self.profile?.name
+            self.totalProgress.progress = Float(Double((self.profile?.progress.total)!) / Double(100))
+            self.taskProgress.progress = Float(Double((self.profile?.progress.task)!) / Double(100))
+            self.todoProgress.progress = Float(Double((self.profile?.progress.todo)!) / Double(100))
+            self.totalProgressText.text = (self.profile?.progress.total.description)! + "%"
+            self.taskProgressText.text = (self.profile?.progress.task.description)! + "%"
+            self.todoProgressText.text = (self.profile?.progress.todo.description)! + "%"
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
