@@ -33,7 +33,7 @@ class ProjectsViewController: UITableViewController {
                 self.updateUI(with: projectCollection)
                 self.refreshControl?.endRefreshing()
             } else {
-                self.logout()
+                //self.logout()
             }
         }
     }

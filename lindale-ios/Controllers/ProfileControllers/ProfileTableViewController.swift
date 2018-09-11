@@ -17,18 +17,11 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var taskCount: UILabel!
     @IBOutlet weak var todoCount: UILabel!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var totalProgress: UIProgressView!
-    @IBOutlet weak var taskProgress: UIProgressView!
-    @IBOutlet weak var todoProgress: UIProgressView!
-    @IBOutlet weak var totalProgressText: UILabel!
-    @IBOutlet weak var taskProgressText: UILabel!
-    @IBOutlet weak var todoProgressText: UILabel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        totalProgress.transform = totalProgress.transform.scaledBy(x: 1, y: 5)
-        taskProgress.transform = taskProgress.transform.scaledBy(x: 1, y: 5)
-        todoProgress.transform = todoProgress.transform.scaledBy(x: 1, y: 5)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -49,7 +42,7 @@ class ProfileTableViewController: UITableViewController {
                 self.updateUI(with: profile)
                 self.refreshControl?.endRefreshing()
             } else {
-                self.logout()
+                //self.logout()
             }
         }
     }
@@ -64,12 +57,7 @@ class ProfileTableViewController: UITableViewController {
             self.taskCount.text = self.profile?.status.unfinishedTaskCount.description
             self.todoCount.text = self.profile?.status.unfinishedTodoCount.description
             self.name.text = self.profile?.name
-            self.totalProgress.progress = Float(Double((self.profile?.progress.total)!) / Double(100))
-            self.taskProgress.progress = Float(Double((self.profile?.progress.task)!) / Double(100))
-            self.todoProgress.progress = Float(Double((self.profile?.progress.todo)!) / Double(100))
-            self.totalProgressText.text = (self.profile?.progress.total.description)! + "%"
-            self.taskProgressText.text = (self.profile?.progress.task.description)! + "%"
-            self.todoProgressText.text = (self.profile?.progress.todo.description)! + "%"
+            
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
@@ -81,32 +69,85 @@ class ProfileTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
+        -> String? {
+            return "進捗"
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
 
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var cellCount = 0
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            cellCount = 1
+            break
+        case 1:
+            cellCount = 2
+            break
+        case 2:
+            cellCount = 3
+            break
+        default:
+            break
+        }
+        
+        return cellCount
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+            break
+        case 1:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+            break
+        case 2:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+            break
+        default:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+            break
+        }
+        
+        
+        // Configure the cell...
+        
+        return cell
+    }
+    
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.tableView.reloadData()
+            break
+        case 1:
+            self.tableView.reloadData()
+            break
+        case 2:
+            self.tableView.reloadData()
+            break
+        default:
+            break
+        }
+    }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
         self.logout()
     }
-    
-    
-    
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
+   
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
