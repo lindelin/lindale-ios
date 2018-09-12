@@ -25,11 +25,11 @@
                     </tabBar>
                     <connections>
                         <outlet property="mainTabBar" destination="aiy-As-oYn" id="IWe-eM-jvd"/>
+                        <segue destination="piM-6l-tn9" kind="relationship" relationship="viewControllers" id="5sU-0V-SD0"/>
+                        <segue destination="Qi5-YD-wbw" kind="relationship" relationship="viewControllers" id="QJP-8A-38E"/>
                         <segue destination="AEC-T9-eTf" kind="relationship" relationship="viewControllers" id="Igr-8f-Fsf"/>
                         <segue destination="b7g-wB-KPW" kind="relationship" relationship="viewControllers" id="TaG-Ic-gRf"/>
                         <segue destination="Oev-tT-okm" kind="relationship" relationship="viewControllers" id="5oU-Bu-jNn"/>
-                        <segue destination="Qi5-YD-wbw" kind="relationship" relationship="viewControllers" id="QJP-8A-38E"/>
-                        <segue destination="piM-6l-tn9" kind="relationship" relationship="viewControllers" id="5sU-0V-SD0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRG-40-o4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,9 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
     
     var profile: Profile? = Profile.find()
+    var favorite: [ProjectCollection.Project] = []
+    var myProjects: [ProjectCollection.Project] = []
+    var userProjects: [ProjectCollection.Project] = []
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var projectCount: UILabel!
@@ -30,6 +33,11 @@ class ProfileTableViewController: UITableViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
+        let projectCollection: ProjectCollection? = ProjectCollection.find()
+        self.favorite = projectCollection?.projects ?? []
+        self.myProjects = projectCollection?.projects ?? []
+        self.userProjects = projectCollection?.projects ?? []
         
         self.updateUI()
         self.loadData()
@@ -58,6 +66,7 @@ class ProfileTableViewController: UITableViewController {
             self.todoCount.text = self.profile?.status.unfinishedTodoCount.description
             self.name.text = self.profile?.name
             
+            self.tableView.reloadData()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
@@ -67,22 +76,58 @@ class ProfileTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+    // MARK: - Table Sections Config
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        var sectionCount = 1
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            sectionCount = 1
+            break
+        case 1:
+            sectionCount = 1
+            break
+        case 2:
+            sectionCount = 2
+            break
+        default:
+            break
+        }
+        
+        return sectionCount
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
         -> String? {
-            return "進捗"
+            
+            var title = ""
+            
+            switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                title = "進捗"
+                break
+            case 1:
+                title = "お気に入り"
+                break
+            case 2:
+                if section == 0 {
+                    title = "管理しているプロジェクト"
+                } else {
+                    title = "参与しているプロジェクト"
+                }
+                break
+            default:
+                break
+            }
+            
+            return title
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
 
+    // MARK: - Table Row Config
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var cellCount = 0
         switch segmentedControl.selectedSegmentIndex {
@@ -90,10 +135,14 @@ class ProfileTableViewController: UITableViewController {
             cellCount = 1
             break
         case 1:
-            cellCount = 2
+            cellCount = self.favorite.count
             break
         case 2:
-            cellCount = 3
+            if section == 0 {
+                cellCount = self.myProjects.count
+            } else {
+                cellCount = self.userProjects.count
+            }
             break
         default:
             break
@@ -105,25 +154,37 @@ class ProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+        var cell:UITableViewCell!
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+            let id = String(describing: ProfileStatusCell.self)
+            let profileStatusCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileStatusCell
+            if self.profile != nil {
+                profileStatusCell.updateStatus(self.profile!.progress)
+            }
+            cell = profileStatusCell
             break
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+            let id = String(describing: ProfileFavoriteCell.self)
+            let profileFavoriteCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileFavoriteCell
+            if self.favorite.count > 0 {
+                profileFavoriteCell.setProject(self.favorite[indexPath.row])
+            }
+            cell = profileFavoriteCell
             break
         case 2:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
+            let id = String(describing: ProfileFavoriteCell.self)
+            let profileFavoriteCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileFavoriteCell
+            if self.favorite.count > 0 {
+                profileFavoriteCell.setProject(self.favorite[indexPath.row])
+            }
+            cell = profileFavoriteCell
             break
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "ProfileStatusCell", for: indexPath)
             break
         }
-        
-        
-        // Configure the cell...
         
         return cell
     }
