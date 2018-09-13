@@ -7,7 +7,17 @@
 		<key>lindale-ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>0</integer>
+		</dict>
+		<key>lindale-watch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
+		<key>lindale-watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 	</dict>
 </dict>

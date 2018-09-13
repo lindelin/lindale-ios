@@ -36,6 +36,17 @@
 		F2CAE18821390ECC002C04E7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18721390ECC002C04E7 /* Project.swift */; };
 		F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */; };
 		F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */; };
+		F2E0D1E2214A342C00023905 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E0D1E0214A342C00023905 /* Interface.storyboard */; };
+		F2E0D1E4214A342D00023905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E0D1E3214A342D00023905 /* Assets.xcassets */; };
+		F2E0D1EB214A342D00023905 /* lindale-watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2E0D1EA214A342D00023905 /* lindale-watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2E0D1F0214A342D00023905 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D1EF214A342D00023905 /* InterfaceController.swift */; };
+		F2E0D1F2214A342D00023905 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D1F1214A342D00023905 /* ExtensionDelegate.swift */; };
+		F2E0D1F4214A342D00023905 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D1F3214A342D00023905 /* NotificationController.swift */; };
+		F2E0D1F6214A342D00023905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E0D1F5214A342D00023905 /* Assets.xcassets */; };
+		F2E0D1FB214A342D00023905 /* lindale-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F2E0D1DE214A342C00023905 /* lindale-watch.app */; };
+		F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D206214A3F3E00023905 /* WatchService.swift */; };
+		F2E0D20A214A401800023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D209214A401800023905 /* WatchService.swift */; };
+		F2E0D20C214A5C8100023905 /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D20B214A5C8100023905 /* ProjectRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +64,46 @@
 			remoteGlobalIDString = F29DBB7121381F9E009DA744;
 			remoteInfo = "lindale-ios";
 		};
+		F2E0D1EC214A342D00023905 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F29DBB6A21381F9E009DA744 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2E0D1E9214A342D00023905;
+			remoteInfo = "lindale-watch Extension";
+		};
+		F2E0D1F9214A342D00023905 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F29DBB6A21381F9E009DA744 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2E0D1DD214A342C00023905;
+			remoteInfo = "lindale-watch";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F2E0D201214A342D00023905 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F2E0D1EB214A342D00023905 /* lindale-watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2E0D203214A342D00023905 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F2E0D1FB214A342D00023905 /* lindale-watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,10 +147,33 @@
 		F2CAE18721390ECC002C04E7 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		F2E0D1DE214A342C00023905 /* lindale-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2E0D1E1214A342C00023905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		F2E0D1E3214A342D00023905 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2E0D1E5214A342D00023905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E0D1EA214A342D00023905 /* lindale-watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "lindale-watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2E0D1EF214A342D00023905 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		F2E0D1F1214A342D00023905 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		F2E0D1F3214A342D00023905 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		F2E0D1F5214A342D00023905 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2E0D1F7214A342D00023905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E0D1F8214A342D00023905 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-watch Extension.entitlements"; sourceTree = "<group>"; };
+		F2E0D205214A398E00023905 /* lindale-watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-watch.entitlements"; sourceTree = "<group>"; };
+		F2E0D206214A3F3E00023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
+		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
+		F2E0D20B214A5C8100023905 /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F6B8729374BB005277964279 /* Pods_lindale_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DAAF8DA5921A577818E3D8EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F29DBB6F21381F9E009DA744 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,6 +195,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A34BFD2757F39B0C9D7C1C2 /* Pods_lindale_iosUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2E0D1E7214A342D00023905 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +250,7 @@
 			children = (
 				F2CAE1852138F45F002C04E7 /* NetworkService.swift */,
 				F2CAE17F21384B22002C04E7 /* OAuthService.swift */,
+				F2E0D206214A3F3E00023905 /* WatchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -201,6 +282,8 @@
 				F29DBB7421381F9E009DA744 /* lindale-ios */,
 				F29DBB8C21381F9F009DA744 /* lindale-iosTests */,
 				F29DBB9721381F9F009DA744 /* lindale-iosUITests */,
+				F2E0D1DF214A342C00023905 /* lindale-watch */,
+				F2E0D1EE214A342D00023905 /* lindale-watch Extension */,
 				F29DBB7321381F9E009DA744 /* Products */,
 				F8CFDFCDA1536707DF277018 /* Pods */,
 				2AD403BAF9D095B63F73CE11 /* Frameworks */,
@@ -213,6 +296,8 @@
 				F29DBB7221381F9E009DA744 /* lindale-ios.app */,
 				F29DBB8921381F9F009DA744 /* lindale-iosTests.xctest */,
 				F29DBB9421381F9F009DA744 /* lindale-iosUITests.xctest */,
+				F2E0D1DE214A342C00023905 /* lindale-watch.app */,
+				F2E0D1EA214A342D00023905 /* lindale-watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,6 +360,41 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F2E0D1DF214A342C00023905 /* lindale-watch */ = {
+			isa = PBXGroup;
+			children = (
+				F2E0D205214A398E00023905 /* lindale-watch.entitlements */,
+				F2E0D1E0214A342C00023905 /* Interface.storyboard */,
+				F2E0D1E3214A342D00023905 /* Assets.xcassets */,
+				F2E0D1E5214A342D00023905 /* Info.plist */,
+			);
+			path = "lindale-watch";
+			sourceTree = "<group>";
+		};
+		F2E0D1EE214A342D00023905 /* lindale-watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F2E0D208214A3FD600023905 /* Services */,
+				F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */,
+				F2E0D20B214A5C8100023905 /* ProjectRow.swift */,
+				F2E0D1EF214A342D00023905 /* InterfaceController.swift */,
+				F2E0D1F1214A342D00023905 /* ExtensionDelegate.swift */,
+				F2E0D1F3214A342D00023905 /* NotificationController.swift */,
+				F2E0D1F5214A342D00023905 /* Assets.xcassets */,
+				F2E0D1F7214A342D00023905 /* Info.plist */,
+				F2E0D1F8214A342D00023905 /* PushNotificationPayload.apns */,
+			);
+			path = "lindale-watch Extension";
+			sourceTree = "<group>";
+		};
+		F2E0D208214A3FD600023905 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F2E0D209214A401800023905 /* WatchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		F8CFDFCDA1536707DF277018 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,10 +421,12 @@
 				F29DBB7021381F9E009DA744 /* Resources */,
 				58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */,
 				D7BF8B06730D04D56023AB40 /* [CP] Copy Pods Resources */,
+				F2E0D203214A342D00023905 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F2E0D1FA214A342D00023905 /* PBXTargetDependency */,
 			);
 			name = "lindale-ios";
 			productName = "lindale-ios";
@@ -353,6 +475,41 @@
 			productReference = F29DBB9421381F9F009DA744 /* lindale-iosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F2E0D1DD214A342C00023905 /* lindale-watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2E0D202214A342D00023905 /* Build configuration list for PBXNativeTarget "lindale-watch" */;
+			buildPhases = (
+				F2E0D1DC214A342C00023905 /* Resources */,
+				F2E0D201214A342D00023905 /* Embed App Extensions */,
+				DAAF8DA5921A577818E3D8EA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2E0D1ED214A342D00023905 /* PBXTargetDependency */,
+			);
+			name = "lindale-watch";
+			productName = "lindale-watch";
+			productReference = F2E0D1DE214A342C00023905 /* lindale-watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		F2E0D1E9214A342D00023905 /* lindale-watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2E0D200214A342D00023905 /* Build configuration list for PBXNativeTarget "lindale-watch Extension" */;
+			buildPhases = (
+				F2E0D1E6214A342D00023905 /* Sources */,
+				F2E0D1E7214A342D00023905 /* Frameworks */,
+				F2E0D1E8214A342D00023905 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lindale-watch Extension";
+			productName = "lindale-watch Extension";
+			productReference = F2E0D1EA214A342D00023905 /* lindale-watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -366,6 +523,9 @@
 					F29DBB7121381F9E009DA744 = {
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -378,6 +538,22 @@
 					F29DBB9321381F9F009DA744 = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = F29DBB7121381F9E009DA744;
+					};
+					F2E0D1DD214A342C00023905 = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					F2E0D1E9214A342D00023905 = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -397,6 +573,8 @@
 				F29DBB7121381F9E009DA744 /* lindale-ios */,
 				F29DBB8821381F9F009DA744 /* lindale-iosTests */,
 				F29DBB9321381F9F009DA744 /* lindale-iosUITests */,
+				F2E0D1DD214A342C00023905 /* lindale-watch */,
+				F2E0D1E9214A342D00023905 /* lindale-watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -427,6 +605,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2E0D1DC214A342C00023905 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2E0D1E4214A342D00023905 /* Assets.xcassets in Resources */,
+				F2E0D1E2214A342C00023905 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2E0D1E8214A342D00023905 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2E0D1F6214A342D00023905 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +821,7 @@
 				F2CAE18821390ECC002C04E7 /* Project.swift in Sources */,
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
+				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +841,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2E0D1E6214A342D00023905 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2E0D20C214A5C8100023905 /* ProjectRow.swift in Sources */,
+				F2E0D1F4214A342D00023905 /* NotificationController.swift in Sources */,
+				F2E0D20A214A401800023905 /* WatchService.swift in Sources */,
+				F2E0D1F2214A342D00023905 /* ExtensionDelegate.swift in Sources */,
+				F2E0D1F0214A342D00023905 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -657,6 +865,16 @@
 			isa = PBXTargetDependency;
 			target = F29DBB7121381F9E009DA744 /* lindale-ios */;
 			targetProxy = F29DBB9521381F9F009DA744 /* PBXContainerItemProxy */;
+		};
+		F2E0D1ED214A342D00023905 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2E0D1E9214A342D00023905 /* lindale-watch Extension */;
+			targetProxy = F2E0D1EC214A342D00023905 /* PBXContainerItemProxy */;
+		};
+		F2E0D1FA214A342D00023905 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2E0D1DD214A342C00023905 /* lindale-watch */;
+			targetProxy = F2E0D1F9214A342D00023905 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -675,6 +893,14 @@
 				F29DBB8221381F9F009DA744 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F2E0D1E0214A342C00023905 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2E0D1E1214A342C00023905 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -922,6 +1148,92 @@
 			};
 			name = Release;
 		};
+		F2E0D1FC214A342D00023905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "lindale-watch/lindale-watch.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				IBSC_MODULE = lindale_watch_Extension;
+				INFOPLIST_FILE = "lindale-watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		F2E0D1FD214A342D00023905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "lindale-watch/lindale-watch.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				IBSC_MODULE = lindale_watch_Extension;
+				INFOPLIST_FILE = "lindale-watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		F2E0D1FE214A342D00023905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "lindale-watch Extension/lindale-watch Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				INFOPLIST_FILE = "lindale-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		F2E0D1FF214A342D00023905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "lindale-watch Extension/lindale-watch Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				INFOPLIST_FILE = "lindale-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -957,6 +1269,24 @@
 			buildConfigurations = (
 				F29DBBA421381F9F009DA744 /* Debug */,
 				F29DBBA521381F9F009DA744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2E0D200214A342D00023905 /* Build configuration list for PBXNativeTarget "lindale-watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2E0D1FE214A342D00023905 /* Debug */,
+				F2E0D1FF214A342D00023905 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2E0D202214A342D00023905 /* Build configuration list for PBXNativeTarget "lindale-watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2E0D1FC214A342D00023905 /* Debug */,
+				F2E0D1FD214A342D00023905 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

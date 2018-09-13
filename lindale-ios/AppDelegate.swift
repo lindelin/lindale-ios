@@ -24,10 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         OAuth.configure()
         
+        let appGroupName = "group.lindale"
+        let appGroupUserDefaults = UserDefaults(suiteName: appGroupName)!
+        appGroupUserDefaults.set(12, forKey: "hasRated")
+        
         let temporaryDirectory = NSTemporaryDirectory()
         let urlCache = URLCache(memoryCapacity: 25000000, diskCapacity: 50000000, diskPath: temporaryDirectory)
         URLCache.shared = urlCache
         
+        // MARK: - Watch
+        WatchSession.main.startSession()
+
         // MARK: - 休憩
         sleep(3)
         
