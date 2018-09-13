@@ -47,20 +47,25 @@ class WatchSession: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         // 在这里，我们接收到watch发送过来的数据，可以用代理、代码块或者通知中心传值到ViewController，做出一系列操作。
         // 注！！：watch侧发送过来信息，iPhone回复直接在这个函数里回复replyHandler([String : Any])（replyHandler(数据)），这样watch侧发送数据的函数对应的reply才能接收到数据，别跟sendMessage这个函数混淆了。如果用sendMessage回复，那watch侧接收到信息就是didReceiveMessage的函数。
+        var replyData: [String : Any] = [:]
         
-        let projectCollection = ProjectCollection.find()
-        var data: [[String: Any]] = []
-        if projectCollection != nil {
-            for project in projectCollection!.projects {
-                let projectArray = [
-                    "title": project.title,
-                    "image": project.image!
-                ]
-                data.append(projectArray)
+        if message["request"] as! String == "aaa" {
+            let projectCollection = ProjectCollection.find()
+            var data: [[String: Any]] = []
+            if projectCollection != nil {
+                for project in projectCollection!.projects {
+                    let projectArray: [String: Any] = [
+                        "title": project.title,
+                        "image": project.image!,
+                        "type": project.type ?? "Project"
+                    ]
+                    data.append(projectArray)
+                }
             }
+            replyData = ["projects": data]
         }
         
-        replyHandler(["projects": data])
+        replyHandler(replyData)
     }
     
     // iPhone向watch发送数据

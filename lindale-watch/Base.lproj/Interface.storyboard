@@ -15,41 +15,63 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="lindale_watch" customModuleProvider="target">
                     <items>
-                        <table alignment="left" id="MGB-7s-jny">
+                        <table alignment="left" spacing="2" pagingScroll="YES" id="MGB-7s-jny">
                             <items>
                                 <tableRow identifier="ProjectRow" id="sym-JO-Xeo" customClass="ProjectRow" customModule="lindale_watch_Extension">
-                                    <group key="rootItem" width="1" height="40" alignment="left" spacing="4" id="cXj-PD-19x">
+                                    <group key="rootItem" width="1" height="40" alignment="left" animationDuration="5" spacing="4" id="cXj-PD-19x">
                                         <items>
-                                            <imageView width="40" height="40" alignment="left" image="project-30" contentMode="scaleAspectFit" id="Aha-Ab-qRK">
-                                                <color key="tintColor" name="Theme-background"/>
-                                            </imageView>
-                                            <group width="80" alignment="left" layout="vertical" spacing="0.0" id="kFW-FT-1tq">
+                                            <group width="136" height="39" alignment="left" spacing="4" id="kFW-FT-1tq">
                                                 <items>
-                                                    <label alignment="left" text="Label" id="giB-rJ-nLS">
-                                                        <color key="textColor" name="Theme-base"/>
-                                                        <fontDescription key="font" type="system" pointSize="14"/>
-                                                    </label>
-                                                    <label alignment="left" text="Label" id="CWF-25-Chs">
-                                                        <color key="textColor" name="Theme-base-sub"/>
-                                                        <fontDescription key="font" type="system" pointSize="12"/>
-                                                    </label>
+                                                    <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="project-30" contentMode="scaleAspectFit" animationDuration="5" id="Aha-Ab-qRK">
+                                                        <color key="tintColor" name="Theme-main"/>
+                                                    </imageView>
+                                                    <group width="93" height="39" alignment="left" layout="vertical" spacing="0.0" id="d7A-M4-OQj">
+                                                        <items>
+                                                            <label width="1" alignment="left" text="Label" id="giB-rJ-nLS">
+                                                                <color key="textColor" name="Theme-base"/>
+                                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                                            </label>
+                                                            <label width="1" alignment="left" text="Label" id="CWF-25-Chs">
+                                                                <color key="textColor" name="Theme-base-sub"/>
+                                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
                                                 </items>
                                             </group>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="projectImage" destination="Aha-Ab-qRK" id="gB7-xl-OkE"/>
                                         <outlet property="projectTitle" destination="giB-rJ-nLS" id="XNI-Hd-NWe"/>
+                                        <outlet property="projectType" destination="CWF-25-Chs" id="7Fj-z2-AlU"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
+                        <table alignment="left" id="dQn-4f-Mqx"/>
                     </items>
                     <connections>
                         <outlet property="projectTable" destination="MGB-7s-jny" id="vhf-t5-foh"/>
+                        <segue destination="sCP-cG-Tcq" kind="relationship" relationship="nextPage" id="KhC-oP-R27"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="398.5"/>
+        </scene>
+        <!--Activity-->
+        <scene sceneID="sxv-DW-lZj">
+            <objects>
+                <controller identifier="Activity" id="sCP-cG-Tcq" customClass="ActivityInterfaceController" customModule="lindale_watch" customModuleProvider="target">
+                    <items>
+                        <activity alignment="left" id="ttK-xt-XZn"/>
+                    </items>
+                    <connections>
+                        <outlet property="activityRing" destination="ttK-xt-XZn" id="IhI-wz-Kbo"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="482" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -76,14 +98,14 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Theme-background">
-            <color red="0.97299998998641968" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Theme-base">
             <color red="0.32199999690055847" green="0.23899999260902405" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base-sub">
             <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-main">
+            <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

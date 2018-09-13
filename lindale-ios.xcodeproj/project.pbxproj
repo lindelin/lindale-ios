@@ -11,6 +11,8 @@
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		9618E2EB9D1E7C9CE3D640E9 /* Pods_lindale_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */; };
 		A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852D219214802AC00C2221D /* ProfileStatusCell.swift */; };
+		A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EEFB2214A92F5009C8E61 /* Helpers.swift */; };
+		A87EEFB5214AA197009C8E61 /* ActivityInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EEFB4214AA197009C8E61 /* ActivityInterfaceController.swift */; };
 		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
@@ -111,8 +113,13 @@
 		224C4B79498BE156AF63A518 /* Pods-lindale-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		25C11AAE04F70EA3B05BC8A9 /* Pods-lindale-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.release.xcconfig"; sourceTree = "<group>"; };
+		7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A852D219214802AC00C2221D /* ProfileStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatusCell.swift; sourceTree = "<group>"; };
+		A87EEFB2214A92F5009C8E61 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		A87EEFB4214AA197009C8E61 /* ActivityInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInterfaceController.swift; sourceTree = "<group>"; };
+		A87EEFB6214AADEF009C8E61 /* YOChartImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YOChartImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A87EEFB8214AAF1F009C8E61 /* YOChartImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YOChartImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-ios.entitlements"; sourceTree = "<group>"; };
 		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
@@ -211,9 +218,12 @@
 		2AD403BAF9D095B63F73CE11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A87EEFB8214AAF1F009C8E61 /* YOChartImageKit.framework */,
+				A87EEFB6214AADEF009C8E61 /* YOChartImageKit.framework */,
 				F6B8729374BB005277964279 /* Pods_lindale_ios.framework */,
 				039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */,
 				CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */,
+				7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -377,12 +387,14 @@
 				F2E0D208214A3FD600023905 /* Services */,
 				F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */,
 				F2E0D20B214A5C8100023905 /* ProjectRow.swift */,
+				A87EEFB4214AA197009C8E61 /* ActivityInterfaceController.swift */,
 				F2E0D1EF214A342D00023905 /* InterfaceController.swift */,
 				F2E0D1F1214A342D00023905 /* ExtensionDelegate.swift */,
 				F2E0D1F3214A342D00023905 /* NotificationController.swift */,
 				F2E0D1F5214A342D00023905 /* Assets.xcassets */,
 				F2E0D1F7214A342D00023905 /* Info.plist */,
 				F2E0D1F8214A342D00023905 /* PushNotificationPayload.apns */,
+				A87EEFB2214A92F5009C8E61 /* Helpers.swift */,
 			);
 			path = "lindale-watch Extension";
 			sourceTree = "<group>";
@@ -420,7 +432,6 @@
 				F29DBB6F21381F9E009DA744 /* Frameworks */,
 				F29DBB7021381F9E009DA744 /* Resources */,
 				58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */,
-				D7BF8B06730D04D56023AB40 /* [CP] Copy Pods Resources */,
 				F2E0D203214A342D00023905 /* Embed Watch Content */,
 			);
 			buildRules = (
@@ -441,8 +452,6 @@
 				F29DBB8521381F9F009DA744 /* Sources */,
 				F29DBB8621381F9F009DA744 /* Frameworks */,
 				F29DBB8721381F9F009DA744 /* Resources */,
-				AF37077AD46514926015542F /* [CP] Embed Pods Frameworks */,
-				C59E017EC603EF4E10484C75 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -462,8 +471,6 @@
 				F29DBB9021381F9F009DA744 /* Sources */,
 				F29DBB9121381F9F009DA744 /* Frameworks */,
 				F29DBB9221381F9F009DA744 /* Resources */,
-				C89C74E38EEC815F726C6CD7 /* [CP] Embed Pods Frameworks */,
-				D705091CAE28A24E65D76671 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -704,21 +711,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF37077AD46514926015542F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B11178A88AE765E69D083935 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -735,66 +727,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59E017EC603EF4E10484C75 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C89C74E38EEC815F726C6CD7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D705091CAE28A24E65D76671 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7BF8B06730D04D56023AB40 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -846,8 +778,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E0D20C214A5C8100023905 /* ProjectRow.swift in Sources */,
+				A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */,
 				F2E0D1F4214A342D00023905 /* NotificationController.swift in Sources */,
 				F2E0D20A214A401800023905 /* WatchService.swift in Sources */,
+				A87EEFB5214AA197009C8E61 /* ActivityInterfaceController.swift in Sources */,
 				F2E0D1F2214A342D00023905 /* ExtensionDelegate.swift in Sources */,
 				F2E0D1F0214A342D00023905 /* InterfaceController.swift in Sources */,
 			);
