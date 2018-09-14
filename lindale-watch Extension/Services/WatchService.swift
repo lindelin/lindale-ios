@@ -48,11 +48,20 @@ class WatchSession: NSObject, WCSessionDelegate {
     }
     
     // 向iPhone侧发送信息
-    func sendMessage(key:String, value:Any, handler: @escaping ([String : Any]) -> Void){
-        session?.sendMessage([key : value], replyHandler: { (reply: [String : Any]) in
+    func sendMessage(message: [String: Any], handler: @escaping ([String : Any]) -> Void){
+        session?.sendMessage(message, replyHandler: { (reply: [String : Any]) in
             handler(reply)
-        }, errorHandler: { (Error) in
-            print(Error)
+        }, errorHandler: { (error) in
+            print(error)
+        })
+    }
+    
+    // 向iPhone侧发送Data
+    func sendData(data: Data, handler: @escaping (Data) -> Void) {
+        session?.sendMessageData(data, replyHandler: { (data) in
+            handler(data)
+        }, errorHandler: { (error) in
+            print(error)
         })
     }
 }

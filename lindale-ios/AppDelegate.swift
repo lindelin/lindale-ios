@@ -22,12 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         // Messaging.messaging().delegate = self
         
+        // MARK: - Oauth 設定
         OAuth.configure()
         
-        let appGroupName = "group.lindale"
-        let appGroupUserDefaults = UserDefaults(suiteName: appGroupName)!
-        appGroupUserDefaults.set(12, forKey: "hasRated")
-        
+        // MARK: - Cache 設定
         let temporaryDirectory = NSTemporaryDirectory()
         let urlCache = URLCache(memoryCapacity: 25000000, diskCapacity: 50000000, diskPath: temporaryDirectory)
         URLCache.shared = urlCache

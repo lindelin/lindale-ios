@@ -19,14 +19,27 @@ class InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         // Configure interface objects here.
-        
+        WatchSession.main.startSession()
+        self.update()
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        WatchSession.main.startSession()
-        WatchSession.main.sendMessage(key: "request", value: "aaa") { (reply: [String : Any]) in
+    }
+    
+    override func didDeactivate() {
+        // This method is called when watch view controller is no longer visible
+        super.didDeactivate()
+    }
+
+    @IBAction func refreshAction() {
+        self.update()
+    }
+    
+    
+    func update() {
+        WatchSession.main.sendMessage(message: ["request": "projects"]) { (reply: [String : Any]) in
             let projects = reply["projects"] as! [Dictionary<String, AnyObject>]
             self.projects = projects
             let totalnum = projects.count
@@ -38,11 +51,6 @@ class InterfaceController: WKInterfaceController {
                 row.projectImage.setImageWithUrl(url: projects[index]["image"] as! String)
             }
         }
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
 
 }

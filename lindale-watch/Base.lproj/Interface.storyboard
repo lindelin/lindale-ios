@@ -51,6 +51,15 @@
                         </table>
                         <table alignment="left" id="dQn-4f-Mqx"/>
                     </items>
+                    <menu key="menu" id="lHA-uS-9kr">
+                        <items>
+                            <menuItem title="refresh" icon="resume" id="hUh-Y3-AWf">
+                                <connections>
+                                    <action selector="refreshAction" destination="AgC-eL-Hgc" id="Con-Jx-0gi"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="projectTable" destination="MGB-7s-jny" id="vhf-t5-foh"/>
                         <segue destination="sCP-cG-Tcq" kind="relationship" relationship="nextPage" id="KhC-oP-R27"/>

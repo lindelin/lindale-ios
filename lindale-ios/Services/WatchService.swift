@@ -44,12 +44,39 @@ class WatchSession: NSObject, WCSessionDelegate {
     // watch侧发送数据过来，iPhone接收到数据并回复数据过去
     // message: watch侧发送过来的信息
     // replyHandler: iPhone回复过去的信息
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
+        
+        let message = self.jsonDecode(data: messageData)
+        
+        if message["request"] as! String == "image" {
+            let url = message["url"] as! String
+            let cache = URLCache.shared
+            let request = URLRequest(url: URL(string: url)!)
+            if let data = cache.cachedResponse(for: request)?.data {
+                replyHandler(data)
+            } else {
+                URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                    if let data = data, let response = response, ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300 {
+                        let cachedData = CachedURLResponse(response: response, data: data)
+                        cache.storeCachedResponse(cachedData, for: request)
+                        OperationQueue.main.addOperation {
+                            replyHandler(data)
+                        }
+                    }
+                }).resume()
+            }
+        }
+    }
+    
+    // watch侧发送数据过来，iPhone接收到数据并回复数据过去
+    // message: watch侧发送过来的信息
+    // replyHandler: iPhone回复过去的信息
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         // 在这里，我们接收到watch发送过来的数据，可以用代理、代码块或者通知中心传值到ViewController，做出一系列操作。
         // 注！！：watch侧发送过来信息，iPhone回复直接在这个函数里回复replyHandler([String : Any])（replyHandler(数据)），这样watch侧发送数据的函数对应的reply才能接收到数据，别跟sendMessage这个函数混淆了。如果用sendMessage回复，那watch侧接收到信息就是didReceiveMessage的函数。
         var replyData: [String : Any] = [:]
         
-        if message["request"] as! String == "aaa" {
+        if message["request"] as! String == "projects" {
             let projectCollection = ProjectCollection.find()
             var data: [[String: Any]] = []
             if projectCollection != nil {
@@ -63,9 +90,9 @@ class WatchSession: NSObject, WCSessionDelegate {
                 }
             }
             replyData = ["projects": data]
+            replyHandler(replyData)
         }
-        
-        replyHandler(replyData)
+    
     }
     
     // iPhone向watch发送数据
@@ -79,4 +106,11 @@ class WatchSession: NSObject, WCSessionDelegate {
             // 发送失败，一般是蓝牙没开，或手机开了飞行模式
         })
     }
+    
+    // Json Decode
+    private func jsonDecode(data: Data) -> [String: Any] {
+        let items = try? JSONSerialization.jsonObject(with: data) as! [String: Any]
+        return items ?? [:]
+    }
+
 }

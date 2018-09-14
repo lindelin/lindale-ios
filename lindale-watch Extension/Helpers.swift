@@ -13,13 +13,15 @@ import WatchKit
 extension WKInterfaceImage {
     
     public func setImageWithUrl(url:String) {
-        DispatchQueue.main.async() {
-            let url = URL(string:url)!
-            let data = try! Data(contentsOf: url)
-            let placeholder = UIImage(data: data as Data)!
-            
-            self.setImage(placeholder)
+        let url = URL(string:url)!
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.setImage(image)
+                }
+            }
         }
+        task.resume()
     }
     
 }
