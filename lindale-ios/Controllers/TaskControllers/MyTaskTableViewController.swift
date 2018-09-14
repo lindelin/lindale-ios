@@ -10,10 +10,14 @@ import UIKit
 
 class MyTaskTableViewController: UITableViewController {
     
+    @IBOutlet weak var totalProgress: UIProgressView!
+    
     var myTaskCollection: MyTaskCollection? = MyTaskCollection.find()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.totalProgress.transform = CGAffineTransform(scaleX: 1.0, y: 5.0)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

@@ -22,7 +22,8 @@ class DefaultTaskCell: UITableViewCell {
     @IBOutlet weak var updateAt: UILabel!
     @IBOutlet weak var subTaskStatus: UILabel!
     @IBOutlet weak var progress: UIProgressView!
-
+    @IBOutlet weak var line: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -37,7 +38,9 @@ class DefaultTaskCell: UITableViewCell {
     
     func setCell(task: MyTaskCollection.Task) {
         self.title.text = "\(task.type): \(task.title)"
-        self.type.text = "\(task.projectName): \(task.id.description)"
+        self.title.textColor = Colors.get(id: task.color)
+        self.type.text = "\(task.projectName): #\(task.id.description)"
+        self.type.textColor = Colors.get(id: task.color)
         self.user.text = task.userName
         self.initiator.text = task.initiatorName
         self.cost.text = task.cost.description
@@ -47,6 +50,8 @@ class DefaultTaskCell: UITableViewCell {
         self.endAt.text = task.endAt
         self.updateAt.text = task.updatedAt
         self.progress.progress = Float(Double(task.progress) / Double(100))
+        self.progress.progressTintColor = Colors.get(id: task.color)
+        self.line.layer.backgroundColor = Colors.get(id: task.color).cgColor
     }
 
 }
