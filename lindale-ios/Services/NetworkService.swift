@@ -12,6 +12,7 @@ import Moya
 enum NetworkService {
     case projects
     case profile
+    case myTasks
 }
 
 extension NetworkService: TargetType {
@@ -24,26 +25,28 @@ extension NetworkService: TargetType {
             return "/projects"
         case .profile:
             return "/profile"
+        case .myTasks:
+            return "/tasks"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile:
+        case .projects, .profile, .myTasks:
             return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .projects, .profile:
+        case .projects, .profile, .myTasks:
            return .requestPlain
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile:
+            case .projects, .profile, .myTasks:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

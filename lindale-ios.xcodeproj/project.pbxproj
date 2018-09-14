@@ -49,6 +49,10 @@
 		F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D206214A3F3E00023905 /* WatchService.swift */; };
 		F2E0D20A214A401800023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D209214A401800023905 /* WatchService.swift */; };
 		F2E0D20C214A5C8100023905 /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D20B214A5C8100023905 /* ProjectRow.swift */; };
+		F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */; };
+		F2F46BA3214BAA21005CD8A9 /* MyTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F46BA2214BAA21005CD8A9 /* MyTaskTableViewController.swift */; };
+		F2F46BA6214BAA53005CD8A9 /* DefaultTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F46BA5214BAA53005CD8A9 /* DefaultTaskCell.swift */; };
+		F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F46BA7214BAD04005CD8A9 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +174,10 @@
 		F2E0D206214A3F3E00023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E0D20B214A5C8100023905 /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
+		F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTask.storyboard; sourceTree = "<group>"; };
+		F2F46BA2214BAA21005CD8A9 /* MyTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskTableViewController.swift; sourceTree = "<group>"; };
+		F2F46BA5214BAA53005CD8A9 /* DefaultTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskCell.swift; sourceTree = "<group>"; };
+		F2F46BA7214BAD04005CD8A9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F6B8729374BB005277964279 /* Pods_lindale_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -268,6 +276,7 @@
 		F24FB842213C0D5C00045DFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2F46BA1214BA9E5005CD8A9 /* TaskControllers */,
 				F21C50CD21420D77008218F4 /* ProfileControllers */,
 				F24EC78F2140C05D00FB0FE9 /* ProjectControllers */,
 				F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */,
@@ -356,6 +365,7 @@
 				F2CAE17221382EC7002C04E7 /* Login.storyboard */,
 				A8F3563221400486006204D3 /* Project.storyboard */,
 				F21C50CB21420CBE008218F4 /* Profile.storyboard */,
+				F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -366,6 +376,7 @@
 				F2CAE17C21384A93002C04E7 /* OAuth.swift */,
 				F2CAE18721390ECC002C04E7 /* Project.swift */,
 				F2403B302147B77E004BF3C8 /* Profile.swift */,
+				F2F46BA7214BAD04005CD8A9 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +416,23 @@
 				F2E0D209214A401800023905 /* WatchService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F2F46BA1214BA9E5005CD8A9 /* TaskControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2F46BA4214BAA29005CD8A9 /* Cells */,
+				F2F46BA2214BAA21005CD8A9 /* MyTaskTableViewController.swift */,
+			);
+			path = TaskControllers;
+			sourceTree = "<group>";
+		};
+		F2F46BA4214BAA29005CD8A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F2F46BA5214BAA53005CD8A9 /* DefaultTaskCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F8CFDFCDA1536707DF277018 /* Pods */ = {
@@ -597,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */,
+				F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */,
 				F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */,
 				A8F3563321400486006204D3 /* Project.storyboard in Resources */,
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
@@ -819,10 +848,12 @@
 				F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */,
 				F2403B312147B77E004BF3C8 /* Profile.swift in Sources */,
 				F2CAE1822138B559002C04E7 /* MainController.swift in Sources */,
+				F2F46BA3214BAA21005CD8A9 /* MyTaskTableViewController.swift in Sources */,
 				F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */,
 				F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
 				F2CAE1842138E410002C04E7 /* Helpers.swift in Sources */,
+				F2F46BA6214BAA53005CD8A9 /* DefaultTaskCell.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
@@ -833,6 +864,7 @@
 				F2CAE18821390ECC002C04E7 /* Project.swift in Sources */,
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
+				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,
 				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
