@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,8 +27,8 @@
                         <segue destination="piM-6l-tn9" kind="relationship" relationship="viewControllers" id="5sU-0V-SD0"/>
                         <segue destination="Qi5-YD-wbw" kind="relationship" relationship="viewControllers" id="QJP-8A-38E"/>
                         <segue destination="OQv-8Q-4Ju" kind="relationship" relationship="viewControllers" id="bTg-q8-k0t"/>
-                        <segue destination="b7g-wB-KPW" kind="relationship" relationship="viewControllers" id="TaG-Ic-gRf"/>
-                        <segue destination="Oev-tT-okm" kind="relationship" relationship="viewControllers" id="5oU-Bu-jNn"/>
+                        <segue destination="t9t-Nz-35r" kind="relationship" relationship="viewControllers" id="nE3-DP-PIu"/>
+                        <segue destination="vCJ-9Q-EUh" kind="relationship" relationship="viewControllers" id="hBq-kU-6Xd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRG-40-o4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -46,43 +45,31 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtE-8P-4D2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="200"/>
+            <point key="canvasLocation" x="515" y="193"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="27s-FX-XHA">
+        <!--Settings-->
+        <scene sceneID="9oz-m8-vih">
             <objects>
-                <viewController id="Oev-tT-okm" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GEg-sU-CzR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ZhM-WH-bLs"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="add-30" id="oal-K1-78m">
+                <viewControllerPlaceholder storyboardName="Settings" id="vCJ-9Q-EUh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="setup-30" id="Si4-Wg-6s0">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FEr-Ml-S13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqn-sr-wlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-198" y="-840"/>
+            <point key="canvasLocation" x="516" y="-383"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="NQl-JI-Sdl">
+        <!--MyTodo-->
+        <scene sceneID="bLf-OX-d1o">
             <objects>
-                <viewController id="b7g-wB-KPW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4aK-4I-5OV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="q00-5w-cP5"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="todo-30" id="RKR-SU-vG5">
+                <viewControllerPlaceholder storyboardName="MyTodo" id="t9t-Nz-35r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="todo-30" id="Ew9-Sq-cwt">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BVp-BG-n0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="von-Gh-MKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="-578"/>
+            <point key="canvasLocation" x="582" y="-269"/>
         </scene>
         <!--MyTask-->
         <scene sceneID="V54-uj-psu">
@@ -94,7 +81,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDe-v3-NrM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="441" y="-66"/>
+            <point key="canvasLocation" x="630" y="-101"/>
         </scene>
         <!--Project-->
         <scene sceneID="wGh-BK-2dm">
@@ -106,14 +93,14 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GE-LM-klK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="328" y="76"/>
+            <point key="canvasLocation" x="603" y="56"/>
         </scene>
     </scenes>
     <resources>
-        <image name="add-30" width="30" height="30"/>
         <image name="briefcase" width="32" height="32"/>
         <image name="lindale-logo" width="1141" height="335"/>
         <image name="project-30" width="30" height="30"/>
+        <image name="setup-30" width="30" height="30"/>
         <image name="task-30" width="30" height="30"/>
         <image name="todo-30" width="30" height="30"/>
         <image name="user-30" width="30" height="30"/>

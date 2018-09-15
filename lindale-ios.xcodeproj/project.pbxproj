@@ -11,6 +11,8 @@
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		9618E2EB9D1E7C9CE3D640E9 /* Pods_lindale_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */; };
 		A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852D219214802AC00C2221D /* ProfileStatusCell.swift */; };
+		A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA75214CA57200425ECA /* MyTodo.storyboard */; };
+		A876AA78214CA69300425ECA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA77214CA69300425ECA /* Settings.storyboard */; };
 		A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EEFB2214A92F5009C8E61 /* Helpers.swift */; };
 		A87EEFB5214AA197009C8E61 /* ActivityInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EEFB4214AA197009C8E61 /* ActivityInterfaceController.swift */; };
 		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
@@ -120,6 +122,8 @@
 		7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A852D219214802AC00C2221D /* ProfileStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatusCell.swift; sourceTree = "<group>"; };
+		A876AA75214CA57200425ECA /* MyTodo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTodo.storyboard; sourceTree = "<group>"; };
+		A876AA77214CA69300425ECA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		A87EEFB2214A92F5009C8E61 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A87EEFB4214AA197009C8E61 /* ActivityInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInterfaceController.swift; sourceTree = "<group>"; };
 		A87EEFB6214AADEF009C8E61 /* YOChartImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YOChartImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +249,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A876AA74214CA4F300425ECA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F21C50CD21420D77008218F4 /* ProfileControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,8 +269,8 @@
 		F24EC78F2140C05D00FB0FE9 /* ProjectControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A876AA74214CA4F300425ECA /* Cells */,
 				F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */,
-				F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */,
 			);
 			path = ProjectControllers;
 			sourceTree = "<group>";
@@ -366,6 +378,8 @@
 				A8F3563221400486006204D3 /* Project.storyboard */,
 				F21C50CB21420CBE008218F4 /* Profile.storyboard */,
 				F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */,
+				A876AA75214CA57200425ECA /* MyTodo.storyboard */,
+				A876AA77214CA69300425ECA /* Settings.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -461,7 +475,6 @@
 				F29DBB7021381F9E009DA744 /* Resources */,
 				58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */,
 				F2E0D203214A342D00023905 /* Embed Watch Content */,
-				70C8AEB308A559501417E680 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -481,8 +494,6 @@
 				F29DBB8521381F9F009DA744 /* Sources */,
 				F29DBB8621381F9F009DA744 /* Frameworks */,
 				F29DBB8721381F9F009DA744 /* Resources */,
-				536A61FE64B38D0B2CC53ADD /* [CP] Embed Pods Frameworks */,
-				BBE7E233D0B780CC6CB905D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -502,8 +513,6 @@
 				F29DBB9021381F9F009DA744 /* Sources */,
 				F29DBB9121381F9F009DA744 /* Frameworks */,
 				F29DBB9221381F9F009DA744 /* Resources */,
-				F9760FC2217D33F99925929A /* [CP] Embed Pods Frameworks */,
-				F46B2249FB91D8FDCDB320AA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -627,11 +636,13 @@
 				F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */,
 				F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */,
 				F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */,
+				A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */,
 				A8F3563321400486006204D3 /* Project.storyboard in Resources */,
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
 				F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */,
 				F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */,
 				F22364332148BB8B003D03E8 /* GoogleService-Info.plist in Resources */,
+				A876AA78214CA69300425ECA /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,21 +716,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		536A61FE64B38D0B2CC53ADD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -760,21 +756,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		70C8AEB308A559501417E680 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B11178A88AE765E69D083935 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -791,51 +772,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBE7E233D0B780CC6CB905D8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F46B2249FB91D8FDCDB320AA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F9760FC2217D33F99925929A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
