@@ -42,6 +42,7 @@
 		F2CAE18821390ECC002C04E7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18721390ECC002C04E7 /* Project.swift */; };
 		F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */; };
 		F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */; };
+		F2DF020C214E1249003E0033 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DF020B214E1249003E0033 /* Todo.swift */; };
 		F2E0D1E2214A342C00023905 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E0D1E0214A342C00023905 /* Interface.storyboard */; };
 		F2E0D1E4214A342D00023905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E0D1E3214A342D00023905 /* Assets.xcassets */; };
 		F2E0D1EB214A342D00023905 /* lindale-watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2E0D1EA214A342D00023905 /* lindale-watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -166,6 +167,7 @@
 		F2CAE18721390ECC002C04E7 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		F2DF020B214E1249003E0033 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		F2E0D1DE214A342C00023905 /* lindale-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E0D1E1214A342C00023905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		F2E0D1E3214A342D00023905 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				F2CAE18721390ECC002C04E7 /* Project.swift */,
 				F2403B302147B77E004BF3C8 /* Profile.swift */,
 				F2F46BA7214BAD04005CD8A9 /* Task.swift */,
+				F2DF020B214E1249003E0033 /* Todo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */,
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
 				F2CAE18821390ECC002C04E7 /* Project.swift in Sources */,
+				F2DF020C214E1249003E0033 /* Todo.swift in Sources */,
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
 				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,

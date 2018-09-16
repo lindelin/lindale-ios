@@ -9,6 +9,8 @@
 import UIKit
 
 class MyTodoTableViewController: UITableViewController {
+    
+    var myTodoCollection: MyTodoCollection? = MyTodoCollection.find()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,31 @@ class MyTodoTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
+        self.loadData()
+    }
+    
+    @objc func loadData() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        MyTodoCollection.resources { (myTodoCollection) in
+            if let myTodoCollection = myTodoCollection {
+                self.updateUI(with: myTodoCollection)
+                self.refreshControl?.endRefreshing()
+            } else {
+                //self.logout()
+            }
+        }
+    }
+    
+    func updateUI(with myTodoCollection: MyTodoCollection) {
+        OperationQueue.main.addOperation {
+            self.myTodoCollection = myTodoCollection
+            self.tableView.reloadData()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,14 +61,15 @@ class MyTodoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return (self.myTodoCollection?.todos.count) ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTodoCell", for: indexPath) as! DefaultTodoCell
-
-        // Configure the cell...
-
+        let id = String(describing: DefaultTodoCell.self)
+        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! DefaultTodoCell
+        
+        cell.setCell(todo: (self.myTodoCollection?.todos[indexPath.row])!)
+        
         return cell
     }
 

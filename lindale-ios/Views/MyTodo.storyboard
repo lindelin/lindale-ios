@@ -40,7 +40,7 @@
                                                                 <constraint firstAttribute="width" constant="40" id="oJE-xq-s58"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="対応中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4V-x6-GMq">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="対応中" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="j4V-x6-GMq">
                                                             <rect key="frame" x="8" y="56" width="64" height="16"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                             <color key="textColor" name="Theme-background"/>
@@ -115,6 +115,13 @@
                                         <constraint firstAttribute="trailing" secondItem="iC2-1I-zgR" secondAttribute="trailing" constant="8" id="wLj-5W-1dV"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contents" destination="U5A-sa-N3u" id="nyp-Uz-boA"/>
+                                    <outlet property="line" destination="rQm-AF-Qhp" id="DWW-rN-8EP"/>
+                                    <outlet property="statusImage" destination="6cJ-J9-9gz" id="W6e-r5-KPb"/>
+                                    <outlet property="statusName" destination="j4V-x6-GMq" id="EAx-RO-Dbd"/>
+                                    <outlet property="statusView" destination="sw7-Cy-JmI" id="uCI-EI-X8A"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -156,9 +163,6 @@
         <image name="todo-30" width="30" height="30"/>
         <namedColor name="Theme-background">
             <color red="0.97299998998641968" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Theme-background">
-            <color red="0.97299999000000004" green="0.96499997380000002" blue="0.976000011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base-sub">
             <color red="0.86299997569999998" green="0.84700000289999999" blue="0.87800002099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
