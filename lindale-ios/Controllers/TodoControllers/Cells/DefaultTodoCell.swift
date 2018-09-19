@@ -14,7 +14,10 @@ class DefaultTodoCell: UITableViewCell {
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var statusName: UILabel!
-    @IBOutlet weak var contents: UITextView!
+    @IBOutlet weak var contents: UILabel!
+    @IBOutlet weak var projectName: UILabel!
+    @IBOutlet weak var updateAt: UILabel!
+    
     
     
     override func awakeFromNib() {
@@ -33,5 +36,8 @@ class DefaultTodoCell: UITableViewCell {
         self.line.layer.backgroundColor = Colors.get(id: todo.color).cgColor
         self.statusName.text = todo.status
         self.contents.text = todo.content
+        self.projectName.text = todo.projectName
+        self.statusImage.image = Actions.todo(action: todo.action)
+        self.updateAt.text = todo.updatedAt
     }
 }

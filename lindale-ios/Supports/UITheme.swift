@@ -39,3 +39,20 @@ class Colors {
         }
     }
 }
+
+class Actions {
+    static func todo(action: Int) -> UIImage {
+        switch action {
+        case 1:
+            return UIImage(named: "go-50")!
+        case 2:
+            return UIImage(named: "ok-50")!
+        case 3:
+            return UIImage(named: "go-50")!
+        case 4:
+            return UIImage(named: "wait-32")!
+        default:
+            return UIImage(named: "go-50")!
+        }
+    }
+}

@@ -27,6 +27,7 @@ struct MyTodoCollection: Codable {
         var details: String?
         var type: String
         var status: String
+        var action: Int
         var color: Int
         var listName: String?
         var userName: String
@@ -40,6 +41,7 @@ struct MyTodoCollection: Codable {
             case details
             case type
             case status
+            case action
             case color
             case listName = "list_name"
             case userName = "user_name"
