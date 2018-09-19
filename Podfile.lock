@@ -110,9 +110,9 @@ PODS:
   - GoogleUtilities/Reachability (5.2.3):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
-  - KRActivityIndicatorView (2.1.2)
-  - KRProgressHUD (3.2.2):
-    - KRActivityIndicatorView (= 2.1.2)
+  - KRActivityIndicatorView (2.2.0)
+  - KRProgressHUD (3.3.0):
+    - KRActivityIndicatorView (= 2.2.0)
   - leveldb-library (1.20)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
@@ -189,8 +189,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: 6f681e27050c5e130325e89fa0316dfca826f954
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
-  KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
-  KRProgressHUD: 8872da74b1c462e15c82a8fff250a2d34ee82ea2
+  KRActivityIndicatorView: a30136b113917e0a716743200d8dbbcc3cb350b5
+  KRProgressHUD: 0741430fa95fbebe525db3b56d1d9c6c785edfdf
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -200,4 +200,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: aeaa8068f3978c187f070d00cc478a2b134d93db
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1

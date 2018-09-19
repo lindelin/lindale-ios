@@ -1,39 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Kkr-4e-yqI">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
+        <!--Tasks Controller-->
+        <scene sceneID="fcq-Hd-EhD">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="lindale_watch" customModuleProvider="target">
+                <controller id="Kkr-4e-yqI" customClass="TasksController" customModule="lindale_watch_Extension">
                     <items>
-                        <table alignment="left" spacing="2" pagingScroll="YES" id="MGB-7s-jny">
+                        <table alignment="left" id="Mhu-Gf-HUx">
                             <items>
-                                <tableRow identifier="ProjectRow" id="sym-JO-Xeo" customClass="ProjectRow" customModule="lindale_watch_Extension">
-                                    <group key="rootItem" width="1" height="40" alignment="left" animationDuration="5" spacing="4" id="cXj-PD-19x">
+                                <tableRow identifier="DefaultTaskRow" id="PwM-p8-kTM" customClass="DefaultTaskRow" customModule="lindale_watch_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="5jP-85-2eS">
                                         <items>
-                                            <group width="136" height="39" alignment="left" spacing="4" id="kFW-FT-1tq">
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="T1V-5X-6hE">
+                                                <color key="color" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </separator>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="tR1-er-PSf">
                                                 <items>
-                                                    <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="project-30" contentMode="scaleAspectFit" animationDuration="5" id="Aha-Ab-qRK">
-                                                        <color key="tintColor" name="Theme-main"/>
-                                                    </imageView>
-                                                    <group width="93" height="39" alignment="left" layout="vertical" spacing="0.0" id="d7A-M4-OQj">
+                                                    <group width="1" height="24" alignment="left" spacing="4" id="YB7-O1-aOS">
                                                         <items>
-                                                            <label width="1" alignment="left" text="Label" id="giB-rJ-nLS">
-                                                                <color key="textColor" name="Theme-base"/>
-                                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                                            <label width="1" alignment="left" verticalAlignment="center" text="実装" id="Wh1-Xj-sOi">
+                                                                <color key="textColor" name="Theme-main"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                                             </label>
-                                                            <label width="1" alignment="left" text="Label" id="CWF-25-Chs">
-                                                                <color key="textColor" name="Theme-base-sub"/>
-                                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="bKP-gr-chd">
+                                                        <items>
+                                                            <label width="1" alignment="left" verticalAlignment="bottom" text="Lindale Project" id="NbW-dG-tgb">
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="4ch-YS-We7">
+                                                        <items>
+                                                            <label width="1" alignment="left" text="sdfsdf亜sdf亜sdf亜sdf亜sdfあ" numberOfLines="10" id="PmI-NK-qqe">
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="n1C-Fb-AU0">
+                                                        <items>
+                                                            <label alignment="left" text="30%" id="yc6-8g-0Qn">
+                                                                <color key="textColor" name="Theme-yellow"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                            </label>
+                                                            <label alignment="right" verticalAlignment="bottom" text="進行中" id="e3C-7b-eRI">
+                                                                <color key="textColor" red="0.015686274510000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                                             </label>
                                                         </items>
                                                     </group>
@@ -42,45 +65,32 @@
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="projectImage" destination="Aha-Ab-qRK" id="gB7-xl-OkE"/>
-                                        <outlet property="projectTitle" destination="giB-rJ-nLS" id="XNI-Hd-NWe"/>
-                                        <outlet property="projectType" destination="CWF-25-Chs" id="7Fj-z2-AlU"/>
+                                        <outlet property="color" destination="T1V-5X-6hE" id="hLp-UZ-Chi"/>
+                                        <outlet property="progress" destination="yc6-8g-0Qn" id="uhe-dg-muH"/>
+                                        <outlet property="projectName" destination="NbW-dG-tgb" id="Xtr-Mz-t2D"/>
+                                        <outlet property="status" destination="e3C-7b-eRI" id="nYc-bQ-hRt"/>
+                                        <outlet property="taskTitle" destination="PmI-NK-qqe" id="oGc-l7-aHp"/>
+                                        <outlet property="type" destination="Wh1-Xj-sOi" id="y5T-5M-WLp"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
-                        <table alignment="left" id="dQn-4f-Mqx"/>
                     </items>
-                    <menu key="menu" id="lHA-uS-9kr">
+                    <menu key="menu" id="7OD-Su-wAQ">
                         <items>
-                            <menuItem title="refresh" icon="resume" id="hUh-Y3-AWf">
+                            <menuItem title="更新" icon="resume" id="yyf-At-lE6">
                                 <connections>
-                                    <action selector="refreshAction" destination="AgC-eL-Hgc" id="Con-Jx-0gi"/>
+                                    <action selector="refresh" destination="Kkr-4e-yqI" id="Huz-r2-M62"/>
                                 </connections>
                             </menuItem>
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="projectTable" destination="MGB-7s-jny" id="vhf-t5-foh"/>
-                        <segue destination="sCP-cG-Tcq" kind="relationship" relationship="nextPage" id="KhC-oP-R27"/>
+                        <outlet property="taskTable" destination="Mhu-Gf-HUx" id="fhK-Og-GSf"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="398.5"/>
-        </scene>
-        <!--Activity-->
-        <scene sceneID="sxv-DW-lZj">
-            <objects>
-                <controller identifier="Activity" id="sCP-cG-Tcq" customClass="ActivityInterfaceController" customModule="lindale_watch" customModuleProvider="target">
-                    <items>
-                        <activity alignment="left" id="ttK-xt-XZn"/>
-                    </items>
-                    <connections>
-                        <outlet property="activityRing" destination="ttK-xt-XZn" id="IhI-wz-Kbo"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="482" y="345"/>
+            <point key="canvasLocation" x="220" y="323"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -107,14 +117,11 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Theme-base">
-            <color red="0.32199999690055847" green="0.23899999260902405" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Theme-base-sub">
-            <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Theme-main">
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-yellow">
+            <color red="0.96899998188018799" green="0.82700002193450928" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

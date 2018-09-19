@@ -92,6 +92,26 @@ class WatchSession: NSObject, WCSessionDelegate {
             replyData = ["projects": data]
             replyHandler(replyData)
         }
+        
+        if message["request"] as! String == "tasks" {
+            let myTaskCollection = MyTaskCollection.find()
+            var data: [[String: Any]] = []
+            if myTaskCollection != nil {
+                for task in myTaskCollection!.tasks {
+                    let taskArray: [String: Any] = [
+                        "title": task.title,
+                        "project": task.projectName,
+                        "type": task.type,
+                        "status": task.status,
+                        "progress": task.progress,
+                        "color": task.color,
+                    ]
+                    data.append(taskArray)
+                }
+            }
+            replyData = ["tasks": data]
+            replyHandler(replyData)
+        }
     
     }
     
