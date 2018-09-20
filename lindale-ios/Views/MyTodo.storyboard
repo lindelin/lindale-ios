@@ -17,9 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="dtk-Ug-cpZ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DefaultTodoCell" rowHeight="110" id="BZA-HT-mZM" customClass="DefaultTodoCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BZA-HT-mZM" id="2n4-30-qmO">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
@@ -46,7 +51,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="Theme-base-sub"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="j4V-x6-GMq" secondAttribute="bottom" constant="8" id="Cir-bf-qL1"/>
                                                         <constraint firstItem="j4V-x6-GMq" firstAttribute="leading" secondItem="sw7-Cy-JmI" secondAttribute="leading" constant="8" id="DnG-0D-Qyw"/>
@@ -59,7 +63,6 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQm-AF-Qhp" userLabel="Line">
                                                     <rect key="frame" x="351" y="0.0" width="8" height="80"/>
-                                                    <color key="backgroundColor" name="Theme-base-sub"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="8" id="tJT-1X-23h"/>
                                                     </constraints>
@@ -79,11 +82,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="updated at" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCp-Bg-Ca3">
                                                     <rect key="frame" x="88" y="55" width="255" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="Theme-base-optional"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Theme-background"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="rQm-AF-Qhp" secondAttribute="trailing" id="43G-Mr-gjp"/>
                                                 <constraint firstItem="rQm-AF-Qhp" firstAttribute="top" secondItem="iC2-1I-zgR" secondAttribute="top" id="4CN-dG-wRA"/>
@@ -183,6 +186,9 @@
         </namedColor>
         <namedColor name="Theme-base">
             <color red="0.32199999690055847" green="0.23899999260902405" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-base-optional">
+            <color red="0.39599999785423279" green="0.30199998617172241" blue="0.56499999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base-sub">
             <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

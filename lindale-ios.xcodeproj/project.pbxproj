@@ -14,6 +14,7 @@
 		A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA75214CA57200425ECA /* MyTodo.storyboard */; };
 		A876AA78214CA69300425ECA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA77214CA69300425ECA /* Settings.storyboard */; };
 		A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EEFB2214A92F5009C8E61 /* Helpers.swift */; };
+		A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */; };
 		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
@@ -132,6 +133,7 @@
 		A87EEFB2214A92F5009C8E61 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A87EEFB6214AADEF009C8E61 /* YOChartImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YOChartImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87EEFB8214AAF1F009C8E61 /* YOChartImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YOChartImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-ios.entitlements"; sourceTree = "<group>"; };
 		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
@@ -264,6 +266,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A8C0447A2153DEE900A75FC1 /* SettingControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */,
+			);
+			path = SettingControllers;
+			sourceTree = "<group>";
+		};
 		F21C50CD21420D77008218F4 /* ProfileControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +305,7 @@
 		F24FB842213C0D5C00045DFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8C0447A2153DEE900A75FC1 /* SettingControllers */,
 				F2A39AE7214D104600BF2AF7 /* TodoControllers */,
 				F2F46BA1214BA9E5005CD8A9 /* TaskControllers */,
 				F21C50CD21420D77008218F4 /* ProfileControllers */,
@@ -402,13 +413,6 @@
 			path = Rows;
 			sourceTree = "<group>";
 		};
-		F2BB3AB2215251D300AB2632 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		F2CAE16721382704002C04E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,7 +454,6 @@
 		F2E0D1EE214A342D00023905 /* lindale-watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F2BB3AB2215251D300AB2632 /* Models */,
 				F2BB3AAF21524F7300AB2632 /* Rows */,
 				F2E0D208214A3FD600023905 /* Services */,
 				F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */,
@@ -837,6 +840,7 @@
 				F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
 				F2CAE1842138E410002C04E7 /* Helpers.swift in Sources */,
+				A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */,
 				F2F46BA6214BAA53005CD8A9 /* DefaultTaskCell.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */,

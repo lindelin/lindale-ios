@@ -18,8 +18,6 @@ class DefaultTodoCell: UITableViewCell {
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var updateAt: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,8 +30,8 @@ class DefaultTodoCell: UITableViewCell {
     }
     
     func setCell(todo: MyTodoCollection.Todo) {
-        self.statusView.layer.backgroundColor = Colors.get(id: todo.color).cgColor
-        self.line.layer.backgroundColor = Colors.get(id: todo.color).cgColor
+        self.statusView.backgroundColor = Colors.get(id: todo.color)
+        self.line.backgroundColor = Colors.get(id: todo.color)
         self.statusName.text = todo.status
         self.contents.text = todo.content
         self.projectName.text = todo.projectName

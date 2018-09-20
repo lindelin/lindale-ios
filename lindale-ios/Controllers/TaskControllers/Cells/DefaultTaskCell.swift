@@ -10,6 +10,7 @@ import UIKit
 
 class DefaultTaskCell: UITableViewCell {
     
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var user: UILabel!
@@ -37,6 +38,7 @@ class DefaultTaskCell: UITableViewCell {
     }
     
     func setCell(task: MyTaskCollection.Task) {
+        self.status.text = task.status
         self.title.text = "\(task.type): \(task.title)"
         self.title.textColor = Colors.get(id: task.color)
         self.type.text = "\(task.projectName): #\(task.id.description)"
@@ -51,7 +53,7 @@ class DefaultTaskCell: UITableViewCell {
         self.updateAt.text = task.updatedAt
         self.progress.progress = Float(Double(task.progress) / Double(100))
         self.progress.progressTintColor = Colors.get(id: task.color)
-        self.line.layer.backgroundColor = Colors.get(id: task.color).cgColor
+        self.line.backgroundColor = Colors.get(id: task.color)
     }
 
 }

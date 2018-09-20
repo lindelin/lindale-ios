@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,24 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="o0Z-cT-sOO">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="GUz-la-M6d">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EW0-xA-b3h">
-                                    <rect key="frame" x="16" y="62" width="343" height="2"/>
-                                </progressView>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="EW0-xA-b3h" secondAttribute="bottom" constant="16" id="2P9-VE-cM1"/>
-                                <constraint firstItem="EW0-xA-b3h" firstAttribute="leading" secondItem="o0Z-cT-sOO" secondAttribute="leading" constant="16" id="ZTw-7A-P0Q"/>
-                                <constraint firstAttribute="trailing" secondItem="EW0-xA-b3h" secondAttribute="trailing" constant="16" id="c9F-7p-Nbk"/>
-                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DefaultTaskCell" rowHeight="400" id="6VT-US-eLz" customClass="DefaultTaskCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="108" width="375" height="400"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6VT-US-eLz" id="70P-9T-XeG">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
@@ -46,7 +35,6 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bpg-KP-aIe" userLabel="Line">
                                                     <rect key="frame" x="0.0" y="0.0" width="12" height="376"/>
-                                                    <color key="backgroundColor" name="Theme-main"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12" id="aEx-TL-8FF"/>
                                                     </constraints>
@@ -62,19 +50,19 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="実装：アップグレード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83t-bq-0M5">
                                                             <rect key="frame" x="0.0" y="0.0" width="307" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                            <color key="textColor" name="Theme-main"/>
+                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lindalë Project： #0000281" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlm-8a-JcB">
                                                             <rect key="frame" x="0.0" y="21.5" width="307" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" name="Theme-main-optional"/>
+                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ysT-6J-qu9">
-                                                    <rect key="frame" x="28" y="94.5" width="307" height="192"/>
+                                                    <rect key="frame" x="28" y="79" width="307" height="217"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U07-py-V05">
                                                             <rect key="frame" x="0.0" y="0.0" width="307" height="17"/>
@@ -216,8 +204,28 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Poi-EB-mGW">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ze-dr-1uo">
                                                             <rect key="frame" x="0.0" y="175" width="307" height="17"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ステータス：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTV-Vd-8Fm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="17"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="120" id="PhY-xa-qfL"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" name="Theme-base"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="進行中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rq-ub-3X3">
+                                                                    <rect key="frame" x="120" y="0.0" width="187" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" name="Theme-base"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Poi-EB-mGW">
+                                                            <rect key="frame" x="0.0" y="200" width="307" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最終更新日時：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXW-r5-Zdb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="17"/>
@@ -245,15 +253,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GZx-L8-lgI">
-                                                    <rect key="frame" x="28" y="310.5" width="307" height="2.5"/>
+                                                    <rect key="frame" x="28" y="320" width="307" height="2.5"/>
                                                     <color key="backgroundColor" name="Theme-background"/>
-                                                    <color key="tintColor" name="Theme-green"/>
                                                 </progressView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="8nB-Jq-ke8" firstAttribute="top" secondItem="cCT-Wx-oLS" secondAttribute="top" constant="16" id="1v5-Cj-pVb"/>
                                                 <constraint firstItem="ysT-6J-qu9" firstAttribute="leading" secondItem="Bpg-KP-aIe" secondAttribute="trailing" constant="16" id="ABe-rb-LLQ"/>
+                                                <constraint firstItem="6oY-BK-dy3" firstAttribute="top" secondItem="GZx-L8-lgI" secondAttribute="bottom" constant="24" id="D4m-HT-JYm"/>
                                                 <constraint firstItem="Bpg-KP-aIe" firstAttribute="leading" secondItem="cCT-Wx-oLS" secondAttribute="leading" id="IXc-ZV-dU4"/>
                                                 <constraint firstItem="GZx-L8-lgI" firstAttribute="leading" secondItem="cCT-Wx-oLS" secondAttribute="leading" constant="28" id="OGI-et-C3f"/>
                                                 <constraint firstAttribute="trailing" secondItem="8nB-Jq-ke8" secondAttribute="trailing" constant="16" id="OXr-Or-kxm"/>
@@ -264,9 +271,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="GZx-L8-lgI" secondAttribute="trailing" constant="16" id="iwZ-ob-1RB"/>
                                                 <constraint firstItem="Bpg-KP-aIe" firstAttribute="top" secondItem="cCT-Wx-oLS" secondAttribute="top" id="jyA-RG-PeZ"/>
                                                 <constraint firstItem="GZx-L8-lgI" firstAttribute="top" secondItem="ysT-6J-qu9" secondAttribute="bottom" constant="24" id="mPL-GA-9jW"/>
+                                                <constraint firstItem="8nB-Jq-ke8" firstAttribute="top" secondItem="cCT-Wx-oLS" secondAttribute="top" constant="16" id="r9x-4F-2Vg"/>
                                                 <constraint firstItem="6oY-BK-dy3" firstAttribute="leading" secondItem="Bpg-KP-aIe" secondAttribute="trailing" constant="16" id="wE2-dW-STf"/>
                                                 <constraint firstAttribute="trailing" secondItem="ysT-6J-qu9" secondAttribute="trailing" constant="16" id="xR9-xb-gHA"/>
-                                                <constraint firstItem="ysT-6J-qu9" firstAttribute="top" secondItem="8nB-Jq-ke8" secondAttribute="bottom" constant="40" id="yd1-LD-gKc"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -285,7 +292,7 @@
                                                     <real key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" name="Theme-background"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
@@ -306,6 +313,7 @@
                                     <outlet property="priority" destination="3ku-68-bo4" id="qWZ-e2-WOg"/>
                                     <outlet property="progress" destination="GZx-L8-lgI" id="AYF-YQ-nL5"/>
                                     <outlet property="startAt" destination="ShM-8W-eKe" id="Gil-uW-2AC"/>
+                                    <outlet property="status" destination="3Rq-ub-3X3" id="QSn-x7-lve"/>
                                     <outlet property="subTaskStatus" destination="6oY-BK-dy3" id="nK2-IH-veM"/>
                                     <outlet property="title" destination="83t-bq-0M5" id="IeI-rt-qsK"/>
                                     <outlet property="type" destination="Zlm-8a-JcB" id="brt-Wz-n3q"/>
@@ -324,9 +332,6 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Tasks" id="dJU-Bs-OWM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="totalProgress" destination="EW0-xA-b3h" id="tMa-2k-D9c"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rN-Uo-3F0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -366,14 +371,8 @@
         <namedColor name="Theme-base-sub">
             <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Theme-green">
-            <color red="0.69800001382827759" green="0.89800000190734863" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Theme-main">
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Theme-main-optional">
-            <color red="0.9570000171661377" green="0.7369999885559082" blue="0.84299999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
