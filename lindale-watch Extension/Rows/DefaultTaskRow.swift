@@ -10,6 +10,7 @@ import UIKit
 import WatchKit
 
 class DefaultTaskRow: NSObject {
+    
     @IBOutlet weak var color: WKInterfaceSeparator!
     @IBOutlet weak var type: WKInterfaceLabel!
     @IBOutlet weak var projectName: WKInterfaceLabel!
@@ -17,13 +18,16 @@ class DefaultTaskRow: NSObject {
     @IBOutlet weak var progress: WKInterfaceLabel!
     @IBOutlet weak var status: WKInterfaceLabel!
     
-    func setRow(_ data: [String: Any]) {
-        print(data)
-        self.color.setColor(Colors.get(id: data["color"] as! Int))
-        self.type.setText(data["type"] as? String)
-        self.projectName.setText(data["project"] as? String)
-        self.taskTitle.setText(data["title"] as? String)
-        self.progress.setText((data["progress"] as! Int).description + "%")
-        self.status.setText(data["status"] as? String)
+    var task:TaskResource.Task? {
+        didSet {
+            guard let task = task else { return }
+            
+            self.color.setColor(task.color)
+            self.type.setText(task.type)
+            self.projectName.setText(task.project)
+            self.taskTitle.setText(task.title)
+            self.progress.setText(task.progress)
+            self.status.setText(task.status)
+        }
     }
 }

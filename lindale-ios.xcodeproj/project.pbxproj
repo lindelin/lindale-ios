@@ -36,6 +36,7 @@
 		F2BB3AB3215254B100AB2632 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		F2BB3AB42152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F2BB3AB52152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
+		F2BF3A4921549FD900DB0A0D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF3A4821549FD900DB0A0D /* Task.swift */; };
 		F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */; };
 		F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE17221382EC7002C04E7 /* Login.storyboard */; };
 		F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE1772138414C002C04E7 /* UIHelpers.swift */; };
@@ -161,6 +162,7 @@
 		F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoTableViewController.swift; sourceTree = "<group>"; };
 		F2BB3AAD215215C000AB2632 /* TasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskRow.swift; sourceTree = "<group>"; };
+		F2BF3A4821549FD900DB0A0D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F2CAE17221382EC7002C04E7 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F2CAE1772138414C002C04E7 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
@@ -413,6 +415,15 @@
 			path = Rows;
 			sourceTree = "<group>";
 		};
+		F2BF3A4721549FB900DB0A0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2BF3A4821549FD900DB0A0D /* Task.swift */,
+			);
+			name = Models;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		F2CAE16721382704002C04E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,16 +465,17 @@
 		F2E0D1EE214A342D00023905 /* lindale-watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F2BF3A4721549FB900DB0A0D /* Models */,
 				F2BB3AAF21524F7300AB2632 /* Rows */,
 				F2E0D208214A3FD600023905 /* Services */,
 				F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */,
 				F2E0D1F1214A342D00023905 /* ExtensionDelegate.swift */,
+				F2BB3AAD215215C000AB2632 /* TasksController.swift */,
 				F2E0D1F3214A342D00023905 /* NotificationController.swift */,
-				F2E0D1F5214A342D00023905 /* Assets.xcassets */,
-				F2E0D1F7214A342D00023905 /* Info.plist */,
 				F2E0D1F8214A342D00023905 /* PushNotificationPayload.apns */,
 				A87EEFB2214A92F5009C8E61 /* Helpers.swift */,
-				F2BB3AAD215215C000AB2632 /* TasksController.swift */,
+				F2E0D1F5214A342D00023905 /* Assets.xcassets */,
+				F2E0D1F7214A342D00023905 /* Info.plist */,
 			);
 			path = "lindale-watch Extension";
 			sourceTree = "<group>";
@@ -879,6 +891,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2BF3A4921549FD900DB0A0D /* Task.swift in Sources */,
 				A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */,
 				F2BB3AAE215215C000AB2632 /* TasksController.swift in Sources */,
 				F2E0D1F4214A342D00023905 /* NotificationController.swift in Sources */,

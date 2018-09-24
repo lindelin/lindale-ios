@@ -19,7 +19,7 @@ class TasksController: WKInterfaceController {
         
         // Configure interface objects here.
         WatchSession.main.startSession()
-        self.update()
+        self.loadData()
     }
 
     override func willActivate() {
@@ -33,22 +33,23 @@ class TasksController: WKInterfaceController {
     }
     
     @IBAction func refresh() {
-        self.update()
+        self.loadData()
     }
     
-    func update() {
-        WatchSession.main.sendMessage(message: ["request": "tasks"]) { (reply: [String : Any]) in
-            if let tasks = reply["tasks"] as? [Dictionary<String, AnyObject>] {
-                OperationQueue.main.addOperation {
-                    let totalnum = tasks.count
-                    self.taskTable.setNumberOfRows(totalnum, withRowType: "DefaultTaskRow")
-                    for index in 0..<totalnum {
-                        let row = self.taskTable.rowController(at: index) as! DefaultTaskRow
-                        row.setRow(tasks[index])
-                    }
-                }
+    func loadData() {
+        TaskResource.getFromPhone { (taskResource) in
+            if let taskResource = taskResource {
+                self.updateUI(with: taskResource)
             }
+        }
+    }
+    
+    func updateUI(with taskResource: TaskResource) {
+        self.taskTable.setNumberOfRows(taskResource.tasks.count, withRowType: "DefaultTaskRow")
+        for index in 0..<self.taskTable.numberOfRows {
+            guard let row = self.taskTable.rowController(at: index) as? DefaultTaskRow else { continue }
             
+            row.task = taskResource.tasks[index]
         }
     }
 }
