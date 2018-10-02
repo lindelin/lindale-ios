@@ -14,8 +14,7 @@ class WatchSession: NSObject, WCSessionDelegate {
     static let main = WatchSession()
     
     // 初始化
-    private override init()
-    {
+    private override init() {
         super.init()
     }
     
@@ -23,13 +22,14 @@ class WatchSession: NSObject, WCSessionDelegate {
     private let session:WCSession? = WCSession.isSupported() ? WCSession.default : nil
     
     // 激活机制
-    func startSession(){
+    func startSession() {
         session?.delegate=self
         session?.activate()
     }
     
     // 检测到iPhone的父应用
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("AppleWatch匹配完成")
     }
     
 //    // 通信完成会话对象开始闲置
@@ -49,11 +49,13 @@ class WatchSession: NSObject, WCSessionDelegate {
     
     // 向iPhone侧发送信息
     func sendMessage(message: [String: Any], handler: @escaping ([String : Any]) -> Void){
-        session?.sendMessage(message, replyHandler: { (reply: [String : Any]) in
-            handler(reply)
-        }, errorHandler: { (error) in
-            print(error)
-        })
+        if session?.isReachable ?? false {
+            session?.sendMessage(message, replyHandler: { (reply: [String : Any]) in
+                handler(reply)
+            }, errorHandler: { (error) in
+                print(error)
+            })
+        }
     }
     
     // 向iPhone侧发送Data

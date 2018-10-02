@@ -18,8 +18,21 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         let urlCache = URLCache(memoryCapacity: 25000000, diskCapacity: 50000000, diskPath: temporaryDirectory)
         URLCache.shared = urlCache
         
-        // MARK: - iPhone 接続確認
+        // MARK: - iPhone 接続
         WatchSession.main.startSession()
+    }
+    
+    func handle(_ userActivity: NSUserActivity) {
+        
+        guard let rootController = WKExtension.shared().rootInterfaceController else {
+            return
+        }
+        
+        rootController.popToRootController()
+        
+        if userActivity.activityType == NSUserActivity.hasTaskActivityType {
+            rootController.pushController(withName: TasksController.controllerIdentifier, context: nil)
+        }
     }
 
     func applicationDidBecomeActive() {
@@ -54,5 +67,4 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             }
         }
     }
-
 }

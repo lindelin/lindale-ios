@@ -105,6 +105,7 @@ struct MyTaskCollection: Codable {
                     let coder = JSONDecoder()
                     let myTaskCollection = try! coder.decode(MyTaskCollection.self, from: data)
                     myTaskCollection.store()
+                    ShortcutManager.main.updateTaskShortcut(shortcut: myTaskCollection.shortcut())
                     completion(myTaskCollection)
                 }
                 catch {
@@ -125,6 +126,15 @@ struct MyTaskCollection: Codable {
         let archiveURL = cachesDirectory.appendingPathComponent("MyTaskCollection").appendingPathExtension("json")
         try! myTaskCollection.write(to: archiveURL)
         print("保存成功：", archiveURL)
+    }
+    
+    func shortcut() -> TaskShortcut {
+        let title = "\(self.tasks[0].type): \(self.tasks[0].title)"
+        return TaskShortcut(id: self.tasks[0].id,
+                            title: title,
+                            status: self.tasks[0].status,
+                            startAt: self.tasks[0].startAt,
+                            endAt: self.tasks[0].endAt)
     }
     
     static func find() -> MyTaskCollection? {

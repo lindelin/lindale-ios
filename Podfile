@@ -18,14 +18,4 @@ target 'lindale-ios' do
   pod 'Pastel'
   pod "KRProgressHUD"
 
-  target 'lindale-iosTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'lindale-iosUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

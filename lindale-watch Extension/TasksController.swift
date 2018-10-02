@@ -12,13 +12,14 @@ import Foundation
 
 class TasksController: WKInterfaceController {
     
+    static let controllerIdentifier = "Tasks"
+    
     @IBOutlet weak var taskTable: WKInterfaceTable!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        WatchSession.main.startSession()
         self.loadData()
     }
 

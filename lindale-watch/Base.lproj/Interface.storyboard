@@ -9,10 +9,10 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
-        <!--Tasks Controller-->
+        <!--Tasks-->
         <scene sceneID="fcq-Hd-EhD">
             <objects>
-                <controller id="Kkr-4e-yqI" customClass="TasksController" customModule="lindale_watch_Extension">
+                <controller identifier="Tasks" id="Kkr-4e-yqI" customClass="TasksController" customModule="lindale_watch_Extension">
                     <items>
                         <table alignment="left" id="Mhu-Gf-HUx">
                             <items>
@@ -124,4 +124,5 @@
             <color red="0.96899998188018799" green="0.82700002193450928" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <color key="tintColor" red="0.92156862750000001" green="0.35294117650000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

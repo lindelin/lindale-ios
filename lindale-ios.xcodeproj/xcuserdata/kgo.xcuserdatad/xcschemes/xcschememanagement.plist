@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>lindale-intents.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>31</integer>
+		</dict>
+		<key>lindale-intentsUI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>32</integer>
+		</dict>
 		<key>lindale-ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,12 +22,17 @@
 		<key>lindale-watch (Notification).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>32</integer>
+			<integer>30</integer>
+		</dict>
+		<key>lindale-watch-intents.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>33</integer>
 		</dict>
 		<key>lindale-watch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>31</integer>
+			<integer>29</integer>
 		</dict>
 	</dict>
 </dict>
