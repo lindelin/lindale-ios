@@ -18,15 +18,15 @@ class DefaultTaskRow: NSObject {
     @IBOutlet weak var progress: WKInterfaceLabel!
     @IBOutlet weak var status: WKInterfaceLabel!
     
-    var task:TaskResource.Task? {
+    var task:MyTaskCollection.Task? {
         didSet {
             guard let task = task else { return }
             
-            self.color.setColor(task.color)
+            self.color.setColor(Colors.get(id: task.color))
             self.type.setText(task.type)
-            self.projectName.setText(task.project)
+            self.projectName.setText(task.projectName)
             self.taskTitle.setText(task.title)
-            self.progress.setText(task.progress)
+            self.progress.setText(task.progress.description)
             self.status.setText(task.status)
         }
     }

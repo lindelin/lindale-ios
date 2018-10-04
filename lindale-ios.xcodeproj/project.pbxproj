@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17BDDCE3D42C9CA389E34039 /* Pods_lindale_watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */; };
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852D219214802AC00C2221D /* ProfileStatusCell.swift */; };
 		A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA75214CA57200425ECA /* MyTodo.storyboard */; };
@@ -27,12 +28,15 @@
 		F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */; };
 		F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A39AE9214D109100BF2AF7 /* DefaultTodoCell.swift */; };
 		F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */; };
+		F2A4FCBA216586B100E0C35E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB8216586B100E0C35E /* Task.swift */; };
+		F2A4FCBB216586B100E0C35E /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB9216586B100E0C35E /* OAuth.swift */; };
+		F2A4FCBD216586C700E0C35E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCBC216586C700E0C35E /* NetworkService.swift */; };
+		F2A4FCC52165E7CB00E0C35E /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCC42165E7CB00E0C35E /* TestController.swift */; };
 		F2BB3AAE215215C000AB2632 /* TasksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BB3AAD215215C000AB2632 /* TasksController.swift */; };
 		F2BB3AB121524FAD00AB2632 /* DefaultTaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */; };
 		F2BB3AB3215254B100AB2632 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		F2BB3AB42152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F2BB3AB52152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
-		F2BF3A4921549FD900DB0A0D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF3A4821549FD900DB0A0D /* Task.swift */; };
 		F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */; };
 		F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE17221382EC7002C04E7 /* Login.storyboard */; };
 		F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE1772138414C002C04E7 /* UIHelpers.swift */; };
@@ -182,6 +186,7 @@
 
 /* Begin PBXFileReference section */
 		039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19BC686EC0AF598B7D343767 /* Pods-lindale-watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		1DE79AC8CC869206DDDC1367 /* Pods-lindale-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		224C4B79498BE156AF63A518 /* Pods-lindale-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		25C11AAE04F70EA3B05BC8A9 /* Pods-lindale-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
 		A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21C50CB21420CBE008218F4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -214,9 +220,12 @@
 		F29DBB8421381F9F009DA744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2A39AE9214D109100BF2AF7 /* DefaultTodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTodoCell.swift; sourceTree = "<group>"; };
 		F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoTableViewController.swift; sourceTree = "<group>"; };
+		F2A4FCB8216586B100E0C35E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F2A4FCB9216586B100E0C35E /* OAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
+		F2A4FCBC216586C700E0C35E /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F2A4FCC42165E7CB00E0C35E /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		F2BB3AAD215215C000AB2632 /* TasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskRow.swift; sourceTree = "<group>"; };
-		F2BF3A4821549FD900DB0A0D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F2CAE17221382EC7002C04E7 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F2CAE1772138414C002C04E7 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
@@ -290,6 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BDDCE3D42C9CA389E34039 /* Pods_lindale_watch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,21 +483,21 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		F2A4FCB72165868C00E0C35E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2A4FCB9216586B100E0C35E /* OAuth.swift */,
+				F2A4FCB8216586B100E0C35E /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F2BB3AAF21524F7300AB2632 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
 				F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */,
 			);
 			path = Rows;
-			sourceTree = "<group>";
-		};
-		F2BF3A4721549FB900DB0A0D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				F2BF3A4821549FD900DB0A0D /* Task.swift */,
-			);
-			name = Models;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		F2CAE16721382704002C04E7 /* Views */ = {
@@ -531,7 +541,7 @@
 		F2E0D1EE214A342D00023905 /* lindale-watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F2BF3A4721549FB900DB0A0D /* Models */,
+				F2A4FCB72165868C00E0C35E /* Models */,
 				F2BB3AAF21524F7300AB2632 /* Rows */,
 				F2E0D208214A3FD600023905 /* Services */,
 				F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */,
@@ -542,6 +552,7 @@
 				A87EEFB2214A92F5009C8E61 /* Helpers.swift */,
 				F2E0D1F5214A342D00023905 /* Assets.xcassets */,
 				F2E0D1F7214A342D00023905 /* Info.plist */,
+				F2A4FCC42165E7CB00E0C35E /* TestController.swift */,
 			);
 			path = "lindale-watch Extension";
 			sourceTree = "<group>";
@@ -549,6 +560,7 @@
 		F2E0D208214A3FD600023905 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F2A4FCBC216586C700E0C35E /* NetworkService.swift */,
 				F2E0D209214A401800023905 /* WatchService.swift */,
 			);
 			path = Services;
@@ -632,6 +644,8 @@
 				1DE79AC8CC869206DDDC1367 /* Pods-lindale-iosTests.release.xcconfig */,
 				A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */,
 				25C11AAE04F70EA3B05BC8A9 /* Pods-lindale-iosUITests.release.xcconfig */,
+				19BC686EC0AF598B7D343767 /* Pods-lindale-watch Extension.debug.xcconfig */,
+				B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -685,10 +699,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2E0D200214A342D00023905 /* Build configuration list for PBXNativeTarget "lindale-watch Extension" */;
 			buildPhases = (
+				C8BD10E51A371B29829E4433 /* [CP] Check Pods Manifest.lock */,
 				F2E0D1E6214A342D00023905 /* Sources */,
 				F2E0D1E7214A342D00023905 /* Frameworks */,
 				F2E0D1E8214A342D00023905 /* Resources */,
 				F2F4FFC3215E169E00D5F197 /* Embed App Extensions */,
+				0CDF969FD5D825935242809E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -908,6 +924,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CDF969FD5D825935242809E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya-watchOS/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result-watchOS/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -915,16 +957,16 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya-iOS/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/Result-iOS/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -960,6 +1002,28 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-lindale-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8BD10E51A371B29829E4433 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lindale-watch Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1011,16 +1075,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2BF3A4921549FD900DB0A0D /* Task.swift in Sources */,
 				F2F4FFDF2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */,
 				F2BB3AAE215215C000AB2632 /* TasksController.swift in Sources */,
 				F2F4FFD3215E246800D5F197 /* Intents.intentdefinition in Sources */,
 				F2F4FFCE215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
+				F2A4FCBD216586C700E0C35E /* NetworkService.swift in Sources */,
 				F2F4FFC9215E1B5000D5F197 /* NSUserActivity+IntentData.swift in Sources */,
 				F2F4FFE4216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
+				F2A4FCBB216586B100E0C35E /* OAuth.swift in Sources */,
+				F2A4FCBA216586B100E0C35E /* Task.swift in Sources */,
 				F2E0D1F4214A342D00023905 /* NotificationController.swift in Sources */,
 				F2F4FFDA2160EB2100D5F197 /* ShortcutManager.swift in Sources */,
+				F2A4FCC52165E7CB00E0C35E /* TestController.swift in Sources */,
 				F2E0D20A214A401800023905 /* WatchService.swift in Sources */,
 				F2E0D1F2214A342D00023905 /* ExtensionDelegate.swift in Sources */,
 				F2BB3AB3215254B100AB2632 /* UITheme.swift in Sources */,
@@ -1329,6 +1396,7 @@
 		};
 		F2E0D1FE214A342D00023905 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19BC686EC0AF598B7D343767 /* Pods-lindale-watch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "lindale-watch Extension/lindale-watch Extension.entitlements";
@@ -1352,6 +1420,7 @@
 		};
 		F2E0D1FF214A342D00023905 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "lindale-watch Extension/lindale-watch Extension.entitlements";

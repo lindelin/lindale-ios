@@ -14,13 +14,20 @@ class TasksController: WKInterfaceController {
     
     static let controllerIdentifier = "Tasks"
     
+    var myTaskCollection: MyTaskCollection? = MyTaskCollection.find()
+    
     @IBOutlet weak var taskTable: WKInterfaceTable!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        self.loadData()
+        if OAuth.isLogined {
+            self.loadData()
+        } else {
+            presentController(withNames: ["Test"], contexts: nil)
+            popToRootController()
+        }
     }
 
     override func willActivate() {
@@ -38,19 +45,20 @@ class TasksController: WKInterfaceController {
     }
     
     func loadData() {
-        TaskResource.getFromPhone { (taskResource) in
-            if let taskResource = taskResource {
-                self.updateUI(with: taskResource)
+        MyTaskCollection.resources { (myTaskCollection) in
+            if let myTaskCollection = myTaskCollection {
+                self.myTaskCollection = myTaskCollection
+                self.updateUI(with: myTaskCollection)
             }
         }
     }
     
-    func updateUI(with taskResource: TaskResource) {
-        self.taskTable.setNumberOfRows(taskResource.tasks.count, withRowType: "DefaultTaskRow")
+    func updateUI(with myTaskCollection: MyTaskCollection) {
+        self.taskTable.setNumberOfRows(myTaskCollection.tasks.count, withRowType: "DefaultTaskRow")
         for index in 0..<self.taskTable.numberOfRows {
             guard let row = self.taskTable.rowController(at: index) as? DefaultTaskRow else { continue }
             
-            row.task = taskResource.tasks[index]
+            row.task = myTaskCollection.tasks[index]
         }
     }
 }

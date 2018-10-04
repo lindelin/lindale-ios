@@ -1,9 +1,9 @@
 //
 //  NetworkService.swift
-//  lindale-ios
+//  lindale-watch Extension
 //
-//  Created by Jie Wu on 2018/08/31.
-//  Copyright © 2018年 lindelin. All rights reserved.
+//  Created by Jie Wu on 2018/10/03.
+//  Copyright © 2018 lindelin. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ enum NetworkService {
 
 extension NetworkService: TargetType {
     
-    var baseURL: URL { return URL(string: "\(UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!)/api")! }
+    var baseURL: URL { return URL(string: "\(OAuth.apiUrl())/api")! }
     
     var path: String {
         switch self {
@@ -43,19 +43,19 @@ extension NetworkService: TargetType {
     var task: Task {
         switch self {
         case .projects, .profile, .myTasks, .myTodos:
-           return .requestPlain
+            return .requestPlain
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos:
-                return "Half measures are as bad as nothing at all.".utf8Encoded
+        case .projects, .profile, .myTasks, .myTodos:
+            return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }
     
     var headers: [String: String]? {
-        return ["Accept": "application/json", "Authorization": (OAuth.get()?.token())!]
+        return ["Accept": "application/json", "Authorization": OAuth.get()!.token()]
     }
 }
 // MARK: - Helpers

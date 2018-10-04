@@ -76,6 +76,8 @@ class WatchSession: NSObject, WCSessionDelegate {
         // 注！！：watch侧发送过来信息，iPhone回复直接在这个函数里回复replyHandler([String : Any])（replyHandler(数据)），这样watch侧发送数据的函数对应的reply才能接收到数据，别跟sendMessage这个函数混淆了。如果用sendMessage回复，那watch侧接收到信息就是didReceiveMessage的函数。
         var replyData: [String : Any] = [:]
         
+        print(message)
+        
         if message["request"] as! String == "projects" {
             let projectCollection = ProjectCollection.find()
             var data: [[String: Any]] = []
@@ -113,7 +115,35 @@ class WatchSession: NSObject, WCSessionDelegate {
                 replyHandler(replyData)
             }
         }
+        
+        if message["request"] as! String == "Auth", let oauth = OAuth.get() {
+            replyData = [
+                UserDefaults.OAuthKeys.clientUrl.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!,
+                UserDefaults.OAuthKeys.clientId.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientId.rawValue)!,
+                UserDefaults.OAuthKeys.clientSecret.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)!,
+                UserDefaults.OAuthKeys.accessToken.rawValue: oauth.accessToken,
+                UserDefaults.OAuthKeys.type.rawValue: oauth.type,
+                UserDefaults.OAuthKeys.refreshToken.rawValue: oauth.refreshToken,
+                UserDefaults.OAuthKeys.expires.rawValue: oauth.expires,
+                ]
+            replyHandler(replyData)
+        } else {
+            replyHandler(["dsfsadfa": "sdfasdf"])
+        }
     
+    }
+    
+    func sendMessageByBackground (_ applicationContext: [String : Any]) {
+        guard WCSession.default.activationState == .activated else {
+            print("error: can not send message")
+            return
+        }
+        do {
+            try session?.updateApplicationContext(applicationContext)
+        } catch {
+            print(error)
+        }
+        
     }
     
     // iPhone向watch发送数据

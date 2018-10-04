@@ -84,6 +84,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - パスワードリセット
     @IBAction func resetPasswordButton(_ sender: Any) {
+        // TODO: authentication
         UserDefaults.standard.set(false, forKey: LoginViewController.keys.authentication.rawValue)
         let url = "https://lindale.stg.lindelin.org/password/reset"   // 仮URL
         let safariViewController = SFSafariViewController(url: URL(string: url)!)

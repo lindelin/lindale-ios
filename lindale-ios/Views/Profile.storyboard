@@ -483,13 +483,13 @@
     </scenes>
     <resources>
         <image name="lindale-launch" width="1500" height="1500"/>
-        <image name="menu-30" width="30" height="30"/>
-        <image name="project-30" width="30" height="30"/>
-        <image name="star-30" width="30" height="30"/>
-        <image name="status-30" width="30" height="30"/>
-        <image name="task-30" width="30" height="30"/>
-        <image name="todo-30" width="30" height="30"/>
-        <image name="user-30" width="30" height="30"/>
+        <image name="menu-30" width="67.5" height="67.5"/>
+        <image name="project-30" width="67.5" height="67.5"/>
+        <image name="star-30" width="67.5" height="67.5"/>
+        <image name="status-30" width="67.5" height="67.5"/>
+        <image name="task-30" width="67.5" height="67.5"/>
+        <image name="todo-30" width="67.5" height="67.5"/>
+        <image name="user-30" width="67.5" height="67.5"/>
         <namedColor name="Theme-background">
             <color red="0.97299998998641968" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

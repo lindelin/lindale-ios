@@ -9,6 +9,18 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
+        <!--Test-->
+        <scene sceneID="kiT-XX-c7R">
+            <objects>
+                <controller identifier="Test" id="tKL-uO-oVJ" customClass="TestController" customModule="lindale_watch_Extension">
+                    <items>
+                        <label width="1" alignment="left" text="ログインしてください。" numberOfLines="6" id="PbJ-hY-HwL"/>
+                        <button width="1" alignment="left" title="Button" id="O2p-Cg-ICx"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="24"/>
+        </scene>
         <!--Tasks-->
         <scene sceneID="fcq-Hd-EhD">
             <objects>

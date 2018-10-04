@@ -23,7 +23,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     }
     
     func handle(_ userActivity: NSUserActivity) {
-        
         guard let rootController = WKExtension.shared().rootInterfaceController else {
             return
         }

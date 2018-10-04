@@ -32,6 +32,15 @@ class WatchSession: NSObject, WCSessionDelegate {
         print("AppleWatch匹配完成")
     }
     
+    // 接收到iPhone端发送过来的信息（后台）
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        print(applicationContext)
+        if applicationContext["type"] as? String == "AuthInfo" {
+            let value = applicationContext["data"] as! [String : Any]
+            OAuth.store(info: value)
+        }
+    }
+    
 //    // 通信完成会话对象开始闲置
 //    func sessionDidBecomeInactive(_ session: WCSession) {
 //    }
@@ -51,10 +60,13 @@ class WatchSession: NSObject, WCSessionDelegate {
     func sendMessage(message: [String: Any], handler: @escaping ([String : Any]) -> Void){
         if session?.isReachable ?? false {
             session?.sendMessage(message, replyHandler: { (reply: [String : Any]) in
+                print(reply)
                 handler(reply)
             }, errorHandler: { (error) in
                 print(error)
             })
+        } else {
+            print("準備中")
         }
     }
     
