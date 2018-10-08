@@ -38,3 +38,28 @@ struct TaskShortcut {
         return userActivity
     }
 }
+
+struct TodoShortcut {
+    var id: Int
+    var content: String
+    var status: String
+    
+    init(id: Int, content: String, status: String) {
+        self.id = id
+        self.content = content
+        self.status = status
+    }
+    
+    public var intent: TodoIntent {
+        let todoIntent = TodoIntent()
+        todoIntent.content = self.content
+        todoIntent.status = self.status
+        todoIntent.setImage(INImage(named: "todo-30"), forParameterNamed: \TodoIntent.content)
+        return todoIntent
+    }
+    
+    public var userActivity: NSUserActivity {
+        let userActivity = NSUserActivity.hasTodoActivity
+        return userActivity
+    }
+}

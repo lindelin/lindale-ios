@@ -35,6 +35,7 @@
 			<key>IntentsSupported</key>
 			<array>
 				<string>TaskIntent</string>
+				<string>TodoIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

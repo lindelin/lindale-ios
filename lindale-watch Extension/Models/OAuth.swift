@@ -34,7 +34,7 @@ struct OAuth {
     }
     
     static func apiUrl() -> String {
-        return UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!
+        return UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue) ?? ""
     }
     
     static func store(info value: [String: Any]) {

@@ -28,6 +28,7 @@
 			<array>
 				<string>INSendMessageIntent</string>
 				<string>TaskIntent</string>
+				<string>TodoIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

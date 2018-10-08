@@ -23,6 +23,7 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>TaskIntent</string>
+		<string>TodoIntent</string>
 		<string>org.lindelin.lindale.hasTask</string>
 		<string>org.lindelin.lindale.hasTodo</string>
 	</array>

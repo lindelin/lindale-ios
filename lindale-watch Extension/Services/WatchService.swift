@@ -57,15 +57,15 @@ class WatchSession: NSObject, WCSessionDelegate {
     }
     
     // 向iPhone侧发送信息
-    func sendMessage(message: [String: Any], handler: @escaping ([String : Any]) -> Void){
+    func sendMessage(message: [String: Any], handler: @escaping ([String : Any]?) -> Void){
         if session?.isReachable ?? false {
             session?.sendMessage(message, replyHandler: { (reply: [String : Any]) in
-                print(reply)
                 handler(reply)
             }, errorHandler: { (error) in
                 print(error)
             })
         } else {
+            handler(nil)
             print("準備中")
         }
     }

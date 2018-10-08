@@ -26,7 +26,7 @@ class DefaultTaskRow: NSObject {
             self.type.setText(task.type)
             self.projectName.setText(task.projectName)
             self.taskTitle.setText(task.title)
-            self.progress.setText(task.progress.description)
+            self.progress.setText(task.progress.description + "%")
             self.status.setText(task.status)
         }
     }

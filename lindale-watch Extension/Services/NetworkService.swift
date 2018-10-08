@@ -55,7 +55,7 @@ extension NetworkService: TargetType {
     }
     
     var headers: [String: String]? {
-        return ["Accept": "application/json", "Authorization": OAuth.get()!.token()]
+        return ["Accept": "application/json", "Authorization": OAuth.get()?.token() ?? ""]
     }
 }
 // MARK: - Helpers

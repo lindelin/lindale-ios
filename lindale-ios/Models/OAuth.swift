@@ -27,30 +27,25 @@ struct OAuth: Codable {
         KRProgressHUD.show(withMessage: "Loading...")
         let ref = Database.database().reference()
         ref.child("system").child("oauth").observeSingleEvent(of: .value, with: { (snapshot) in
-            OperationQueue.main.addOperation {
-                let value = snapshot.value as? NSDictionary
-                UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientUrl.rawValue] as! String, forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)
-                UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientId.rawValue] as! Int, forKey: UserDefaults.OAuthKeys.clientId.rawValue)
-                UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientSecret.rawValue] as! String, forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)
-                UserDefaults.dataSuite.synchronize()
-                
-                if let oauth = OAuth.get() {
-                    WatchSession.main.sendMessageByBackground([
+            
+            let value = snapshot.value as? NSDictionary
+            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientUrl.rawValue] as! String, forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)
+            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientId.rawValue] as! Int, forKey: UserDefaults.OAuthKeys.clientId.rawValue)
+            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientSecret.rawValue] as! String, forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)
+            UserDefaults.dataSuite.synchronize()
+            
+            if let oauth = OAuth.get() {
+                WatchSession.main.sendMessageByBackground([
                         "type": "AuthInfo",
                         "data": [
                             UserDefaults.OAuthKeys.clientUrl.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!,
-                            UserDefaults.OAuthKeys.clientId.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientId.rawValue)!,
-                            UserDefaults.OAuthKeys.clientSecret.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)!,
                             UserDefaults.OAuthKeys.accessToken.rawValue: oauth.accessToken,
                             UserDefaults.OAuthKeys.type.rawValue: oauth.type,
-                            UserDefaults.OAuthKeys.refreshToken.rawValue: oauth.refreshToken,
-                            UserDefaults.OAuthKeys.expires.rawValue: oauth.expires,
                         ]
                     ])
-                }
-                
-                KRProgressHUD.dismiss()
             }
+            
+            KRProgressHUD.dismiss()
         }) { (error) in
             print(error.localizedDescription)
         }

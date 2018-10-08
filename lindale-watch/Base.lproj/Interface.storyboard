@@ -9,22 +9,34 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
-        <!--Test-->
+        <!--Sync-->
         <scene sceneID="kiT-XX-c7R">
             <objects>
-                <controller identifier="Test" id="tKL-uO-oVJ" customClass="TestController" customModule="lindale_watch_Extension">
+                <controller identifier="Sync" id="tKL-uO-oVJ" customClass="SyncController" customModule="lindale_watch_Extension">
                     <items>
-                        <label width="1" alignment="left" text="ログインしてください。" numberOfLines="6" id="PbJ-hY-HwL"/>
-                        <button width="1" alignment="left" title="Button" id="O2p-Cg-ICx"/>
+                        <group width="1" height="1" alignment="left" layout="vertical" spacing="24" id="fQi-9T-UBR">
+                            <items>
+                                <label width="1" alignment="left" text="ご利用になる前に、iPhone と同期してください。" numberOfLines="6" id="PbJ-hY-HwL"/>
+                                <button width="1" alignment="left" title="同期" id="O2p-Cg-ICx">
+                                    <connections>
+                                        <action selector="sync" destination="tKL-uO-oVJ" id="k2g-La-hDC"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                     </items>
+                    <connections>
+                        <outlet property="info" destination="PbJ-hY-HwL" id="t9F-zr-vR2"/>
+                        <outlet property="syncButton" destination="O2p-Cg-ICx" id="a4m-2f-4t4"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="24"/>
+            <point key="canvasLocation" x="220" y="36.5"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="fcq-Hd-EhD">
             <objects>
-                <controller identifier="Tasks" id="Kkr-4e-yqI" customClass="TasksController" customModule="lindale_watch_Extension">
+                <controller identifier="Tasks" title="Tasks" id="Kkr-4e-yqI" customClass="TasksController" customModule="lindale_watch_Extension">
                     <items>
                         <table alignment="left" id="Mhu-Gf-HUx">
                             <items>
@@ -38,7 +50,7 @@
                                                 <items>
                                                     <group width="1" height="24" alignment="left" spacing="4" id="YB7-O1-aOS">
                                                         <items>
-                                                            <label width="1" alignment="left" verticalAlignment="center" text="実装" id="Wh1-Xj-sOi">
+                                                            <label width="1" alignment="left" verticalAlignment="center" text="..." id="Wh1-Xj-sOi">
                                                                 <color key="textColor" name="Theme-main"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                                             </label>
@@ -46,7 +58,7 @@
                                                     </group>
                                                     <group width="1" alignment="left" id="bKP-gr-chd">
                                                         <items>
-                                                            <label width="1" alignment="left" verticalAlignment="bottom" text="Lindale Project" id="NbW-dG-tgb">
+                                                            <label width="1" alignment="left" verticalAlignment="bottom" text="..." id="NbW-dG-tgb">
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                             </label>
@@ -54,7 +66,7 @@
                                                     </group>
                                                     <group width="1" alignment="left" id="4ch-YS-We7">
                                                         <items>
-                                                            <label width="1" alignment="left" text="sdfsdf亜sdf亜sdf亜sdf亜sdfあ" numberOfLines="10" id="PmI-NK-qqe">
+                                                            <label width="1" alignment="left" text="..." numberOfLines="10" id="PmI-NK-qqe">
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                                             </label>
@@ -62,11 +74,11 @@
                                                     </group>
                                                     <group width="1" alignment="left" id="n1C-Fb-AU0">
                                                         <items>
-                                                            <label alignment="left" text="30%" id="yc6-8g-0Qn">
+                                                            <label alignment="left" text="0%" id="yc6-8g-0Qn">
                                                                 <color key="textColor" name="Theme-yellow"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                                             </label>
-                                                            <label alignment="right" verticalAlignment="bottom" text="進行中" id="e3C-7b-eRI">
+                                                            <label alignment="right" verticalAlignment="bottom" text="..." id="e3C-7b-eRI">
                                                                 <color key="textColor" red="0.015686274510000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                                             </label>
@@ -85,6 +97,16 @@
                                         <outlet property="type" destination="Wh1-Xj-sOi" id="y5T-5M-WLp"/>
                                     </connections>
                                 </tableRow>
+                                <tableRow identifier="NoData" selectable="NO" id="kcd-N0-lbF">
+                                    <group key="rootItem" width="1" alignment="left" id="CRS-sR-tDW">
+                                        <items>
+                                            <label width="1" alignment="left" text="NO DATA" textAlignment="center" id="maX-qg-dub">
+                                                <color key="textColor" name="Theme-main"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                </tableRow>
                             </items>
                         </table>
                     </items>
@@ -99,10 +121,90 @@
                     </menu>
                     <connections>
                         <outlet property="taskTable" destination="Mhu-Gf-HUx" id="fhK-Og-GSf"/>
+                        <segue destination="pgX-as-OZz" kind="relationship" relationship="nextPage" id="CEn-vT-tAq"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="323"/>
+        </scene>
+        <!--TODOs-->
+        <scene sceneID="kX1-CO-4UY">
+            <objects>
+                <controller identifier="Todos" title="TODOs" id="pgX-as-OZz" customClass="TodosController" customModule="lindale_watch_Extension">
+                    <items>
+                        <table alignment="left" id="Gmy-Ie-uKz">
+                            <items>
+                                <tableRow identifier="DefaultTodoRow" id="d7q-Pk-kix" customClass="DefaultTodoRow" customModule="lindale_watch_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="zxs-Ln-6HG">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="0a9-Zx-eka">
+                                                <color key="color" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </separator>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="KqH-Gz-Bzq">
+                                                <items>
+                                                    <group width="1" alignment="left" id="GZJ-l0-jkx">
+                                                        <items>
+                                                            <label width="1" alignment="left" verticalAlignment="bottom" text="..." id="Yc2-JV-lZI">
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="Gzd-2T-ZCb">
+                                                        <items>
+                                                            <label width="1" alignment="left" text="..." numberOfLines="10" id="7ed-fF-cuw">
+                                                                <color key="textColor" name="Theme-main"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="QkU-9e-A2q">
+                                                        <items>
+                                                            <label alignment="right" verticalAlignment="bottom" text="..." id="He0-mx-Rjc">
+                                                                <color key="textColor" red="0.015686274510000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="color" destination="0a9-Zx-eka" id="hx4-GV-Mef"/>
+                                        <outlet property="contents" destination="7ed-fF-cuw" id="raz-dK-sgJ"/>
+                                        <outlet property="projectName" destination="Yc2-JV-lZI" id="BV8-Zy-fqg"/>
+                                        <outlet property="status" destination="He0-mx-Rjc" id="032-9I-ldq"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="NoData" id="HAD-yp-igs">
+                                    <group key="rootItem" width="1" alignment="left" id="ntV-BC-e4J">
+                                        <items>
+                                            <label width="1" alignment="left" text="NO DATA" textAlignment="center" id="ofx-0H-hMT">
+                                                <color key="textColor" name="Theme-main"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <menu key="menu" id="l8U-05-Htq">
+                        <items>
+                            <menuItem title="更新" icon="resume" id="pDy-wY-5a3">
+                                <connections>
+                                    <action selector="refresh" destination="pgX-as-OZz" id="FNf-K6-clk"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="todoTable" destination="Gmy-Ie-uKz" id="dvM-Fu-dw8"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="323"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

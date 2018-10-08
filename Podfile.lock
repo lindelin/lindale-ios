@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - EMTLoadingIndicator (4.0.0)
   - Firebase/Core (5.9.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.2.0)
@@ -116,9 +117,9 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
-  - KRActivityIndicatorView (2.2.0)
-  - KRProgressHUD (3.3.0):
-    - KRActivityIndicatorView (= 2.2.0)
+  - KRActivityIndicatorView (3.0.0)
+  - KRProgressHUD (3.4.0):
+    - KRActivityIndicatorView (= 3.0.0)
   - leveldb-library (1.20)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
@@ -135,6 +136,7 @@ PODS:
   - Result (3.2.4)
 
 DEPENDENCIES:
+  - EMTLoadingIndicator
   - Firebase/Core
   - Firebase/Crash
   - Firebase/Database
@@ -150,6 +152,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - EMTLoadingIndicator
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -179,6 +182,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  EMTLoadingIndicator: 84b875fbe500606bb9a5e411885bc152ae9a371f
   Firebase: 383fa29aca93e371cab776b48a5c66544d3c2003
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
@@ -197,8 +201,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
-  KRActivityIndicatorView: a30136b113917e0a716743200d8dbbcc3cb350b5
-  KRProgressHUD: 0741430fa95fbebe525db3b56d1d9c6c785edfdf
+  KRActivityIndicatorView: c414000730a6f4969eeb354bee4f2aebc89c2c2e
+  KRProgressHUD: 79c8703f82179fe34b3602f10b30726f887983fa
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -206,6 +210,6 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
 
-PODFILE CHECKSUM: 693dd72802c6707e3493602f7fae83755047ecd9
+PODFILE CHECKSUM: ee05fbb9356b31041925c5b9393493b49bd49984
 
 COCOAPODS: 1.6.0.beta.1

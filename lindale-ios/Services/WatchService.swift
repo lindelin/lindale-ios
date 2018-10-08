@@ -46,26 +46,8 @@ class WatchSession: NSObject, WCSessionDelegate {
     // replyHandler: iPhone回复过去的信息
     func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
         
-        let message = self.jsonDecode(data: messageData)
+        //let message = self.jsonDecode(data: messageData)
         
-        if message["request"] as! String == "image" {
-            let url = message["url"] as! String
-            let cache = URLCache.shared
-            let request = URLRequest(url: URL(string: url)!)
-            if let data = cache.cachedResponse(for: request)?.data {
-                replyHandler(data)
-            } else {
-                URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                    if let data = data, let response = response, ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300 {
-                        let cachedData = CachedURLResponse(response: response, data: data)
-                        cache.storeCachedResponse(cachedData, for: request)
-                        OperationQueue.main.addOperation {
-                            replyHandler(data)
-                        }
-                    }
-                }).resume()
-            }
-        }
     }
     
     // watch侧发送数据过来，iPhone接收到数据并回复数据过去
@@ -76,59 +58,18 @@ class WatchSession: NSObject, WCSessionDelegate {
         // 注！！：watch侧发送过来信息，iPhone回复直接在这个函数里回复replyHandler([String : Any])（replyHandler(数据)），这样watch侧发送数据的函数对应的reply才能接收到数据，别跟sendMessage这个函数混淆了。如果用sendMessage回复，那watch侧接收到信息就是didReceiveMessage的函数。
         var replyData: [String : Any] = [:]
         
-        print(message)
-        
-        if message["request"] as! String == "projects" {
-            let projectCollection = ProjectCollection.find()
-            var data: [[String: Any]] = []
-            if projectCollection != nil {
-                for project in projectCollection!.projects {
-                    let projectArray: [String: Any] = [
-                        "title": project.title,
-                        "image": project.image!,
-                        "type": project.type ?? "Project"
-                    ]
-                    data.append(projectArray)
-                }
-            }
-            replyData = ["projects": data]
-            replyHandler(replyData)
-        }
-        
-        if message["request"] as! String == "tasks" {
-            MyTaskCollection.resources { (myTaskCollection) in
-                var data: [[String: Any]] = []
-                if myTaskCollection != nil {
-                    for task in myTaskCollection!.tasks {
-                        let taskArray: [String: Any] = [
-                            "title": task.title,
-                            "project": task.projectName,
-                            "type": task.type,
-                            "status": task.status,
-                            "progress": task.progress,
-                            "color": task.color,
-                            ]
-                        data.append(taskArray)
-                    }
-                }
-                replyData = ["tasks": data]
-                replyHandler(replyData)
-            }
-        }
-        
         if message["request"] as! String == "Auth", let oauth = OAuth.get() {
             replyData = [
-                UserDefaults.OAuthKeys.clientUrl.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!,
-                UserDefaults.OAuthKeys.clientId.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientId.rawValue)!,
-                UserDefaults.OAuthKeys.clientSecret.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)!,
-                UserDefaults.OAuthKeys.accessToken.rawValue: oauth.accessToken,
-                UserDefaults.OAuthKeys.type.rawValue: oauth.type,
-                UserDefaults.OAuthKeys.refreshToken.rawValue: oauth.refreshToken,
-                UserDefaults.OAuthKeys.expires.rawValue: oauth.expires,
+                "type": "AuthInfo",
+                "data": [
+                    UserDefaults.OAuthKeys.clientUrl.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!,
+                    UserDefaults.OAuthKeys.accessToken.rawValue: oauth.accessToken,
+                    UserDefaults.OAuthKeys.type.rawValue: oauth.type,
                 ]
+            ]
             replyHandler(replyData)
         } else {
-            replyHandler(["dsfsadfa": "sdfasdf"])
+            replyHandler(replyData)
         }
     
     }

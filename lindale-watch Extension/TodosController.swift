@@ -1,22 +1,22 @@
 //
-//  TasksController.swift
+//  TodosController.swift
 //  lindale-watch Extension
 //
-//  Created by Jie Wu on 2018/09/19.
-//  Copyright © 2018年 lindelin. All rights reserved.
+//  Created by LINDALE on 2018/10/08.
+//  Copyright © 2018 lindelin. All rights reserved.
 //
 
 import WatchKit
 import Foundation
 
 
-class TasksController: WKInterfaceController {
+class TodosController: WKInterfaceController {
     
-    static let controllerIdentifier = "Tasks"
+    static let controllerIdentifier = "Todos"
     
-    var myTaskCollection: MyTaskCollection? = MyTaskCollection.find()
-    
-    @IBOutlet weak var taskTable: WKInterfaceTable!
+    var myTodoCollection: MyTodoCollection? = MyTodoCollection.find()
+
+    @IBOutlet weak var todoTable: WKInterfaceTable!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -42,9 +42,9 @@ class TasksController: WKInterfaceController {
     
     func loadData() {
         if OAuth.isLogined {
-            MyTaskCollection.resources { (myTaskCollection) in
-                if let myTaskCollection = myTaskCollection {
-                    self.myTaskCollection = myTaskCollection
+            MyTodoCollection.resources { (myTodoCollection) in
+                if let myTodoCollection = myTodoCollection {
+                    self.myTodoCollection = myTodoCollection
                     self.updateUI()
                 }
             }
@@ -54,15 +54,16 @@ class TasksController: WKInterfaceController {
     }
     
     func updateUI() {
-        if let myTaskCollection = self.myTaskCollection {
-            self.taskTable.setNumberOfRows(myTaskCollection.tasks.count, withRowType: "DefaultTaskRow")
-            for index in 0..<self.taskTable.numberOfRows {
-                guard let row = self.taskTable.rowController(at: index) as? DefaultTaskRow else { continue }
+        if let myTodoCollection = self.myTodoCollection {
+            self.todoTable.setNumberOfRows(myTodoCollection.todos.count, withRowType: "DefaultTodoRow")
+            for index in 0..<self.todoTable.numberOfRows {
+                guard let row = self.todoTable.rowController(at: index) as? DefaultTodoRow else { continue }
                 
-                row.task = myTaskCollection.tasks[index]
+                row.todo = myTodoCollection.todos[index]
             }
         } else {
-            self.taskTable.setNumberOfRows(1, withRowType: "NoData")
+            self.todoTable.setNumberOfRows(1, withRowType: "NoData")
         }
     }
+
 }

@@ -20,6 +20,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         
         // MARK: - iPhone 接続
         WatchSession.main.startSession()
+        
+        if !OAuth.isLogined {
+            WKInterfaceController.reloadRootControllers(withNames: [SyncController.controllerIdentifier], contexts:  nil)
+        }
     }
     
     func handle(_ userActivity: NSUserActivity) {
