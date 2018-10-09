@@ -15,7 +15,7 @@ class DefaultTaskRow: NSObject {
     @IBOutlet weak var type: WKInterfaceLabel!
     @IBOutlet weak var projectName: WKInterfaceLabel!
     @IBOutlet weak var taskTitle: WKInterfaceLabel!
-    @IBOutlet weak var progress: WKInterfaceLabel!
+    @IBOutlet weak var progress: WKInterfaceGroup!
     @IBOutlet weak var status: WKInterfaceLabel!
     
     var task:MyTaskCollection.Task? {
@@ -26,7 +26,7 @@ class DefaultTaskRow: NSObject {
             self.type.setText(task.type)
             self.projectName.setText(task.projectName)
             self.taskTitle.setText(task.title)
-            self.progress.setText(task.progress.description + "%")
+            self.progress.setBackgroundImage(UIImage(named: "yellow-\(task.progress)-small"))
             self.status.setText(task.status)
         }
     }

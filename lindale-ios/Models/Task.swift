@@ -105,7 +105,6 @@ struct MyTaskCollection: Codable {
                     let coder = JSONDecoder()
                     let myTaskCollection = try! coder.decode(MyTaskCollection.self, from: data)
                     myTaskCollection.store()
-                    ShortcutManager.main.updateTaskShortcut(shortcut: myTaskCollection.shortcut())
                     completion(myTaskCollection)
                 }
                 catch {

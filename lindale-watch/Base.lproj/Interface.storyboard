@@ -74,10 +74,7 @@
                                                     </group>
                                                     <group width="1" alignment="left" id="n1C-Fb-AU0">
                                                         <items>
-                                                            <label alignment="left" text="0%" id="yc6-8g-0Qn">
-                                                                <color key="textColor" name="Theme-yellow"/>
-                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
-                                                            </label>
+                                                            <group width="40" height="40" alignment="left" backgroundImage="green-0-small" id="nTt-mV-6OA"/>
                                                             <label alignment="right" verticalAlignment="bottom" text="..." id="e3C-7b-eRI">
                                                                 <color key="textColor" red="0.015686274510000001" green="0.87058823529999996" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
@@ -90,7 +87,7 @@
                                     </group>
                                     <connections>
                                         <outlet property="color" destination="T1V-5X-6hE" id="hLp-UZ-Chi"/>
-                                        <outlet property="progress" destination="yc6-8g-0Qn" id="uhe-dg-muH"/>
+                                        <outlet property="progress" destination="nTt-mV-6OA" id="qj8-yu-7jr"/>
                                         <outlet property="projectName" destination="NbW-dG-tgb" id="Xtr-Mz-t2D"/>
                                         <outlet property="status" destination="e3C-7b-eRI" id="nYc-bQ-hRt"/>
                                         <outlet property="taskTitle" destination="PmI-NK-qqe" id="oGc-l7-aHp"/>
@@ -233,9 +230,6 @@
     <resources>
         <namedColor name="Theme-main">
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Theme-yellow">
-            <color red="0.96899998188018799" green="0.82700002193450928" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" red="0.92156862750000001" green="0.35294117650000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

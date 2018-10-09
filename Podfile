@@ -21,7 +21,6 @@ target 'lindale-ios' do
   target 'lindale-watch Extension' do
       platform :watchos, '5'
       pod 'Moya'
-      pod 'EMTLoadingIndicator'
   end
 
 end

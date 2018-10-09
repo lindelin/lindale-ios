@@ -23,12 +23,12 @@ class TasksController: WKInterfaceController {
         
         // Configure interface objects here.
         self.updateUI()
+        self.loadData()
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        self.loadData()
     }
 
     override func didDeactivate() {
