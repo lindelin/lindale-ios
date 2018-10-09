@@ -42,6 +42,7 @@ class TodosController: WKInterfaceController {
     
     func loadData() {
         if OAuth.isLogined {
+            self.setTitle("Loading...")
             MyTodoCollection.resources { (myTodoCollection) in
                 if let myTodoCollection = myTodoCollection {
                     self.myTodoCollection = myTodoCollection
@@ -61,8 +62,10 @@ class TodosController: WKInterfaceController {
                 
                 row.todo = myTodoCollection.todos[index]
             }
+            self.setTitle("TODOs")
         } else {
             self.todoTable.setNumberOfRows(1, withRowType: "NoData")
+            self.setTitle("TODOs")
         }
     }
 

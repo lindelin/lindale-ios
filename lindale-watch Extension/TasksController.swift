@@ -42,6 +42,7 @@ class TasksController: WKInterfaceController {
     
     func loadData() {
         if OAuth.isLogined {
+            self.setTitle("Loading...")
             MyTaskCollection.resources { (myTaskCollection) in
                 if let myTaskCollection = myTaskCollection {
                     self.myTaskCollection = myTaskCollection
@@ -61,8 +62,10 @@ class TasksController: WKInterfaceController {
                 
                 row.task = myTaskCollection.tasks[index]
             }
+            self.setTitle("Tasks")
         } else {
             self.taskTable.setNumberOfRows(1, withRowType: "NoData")
+            self.setTitle("Tasks")
         }
     }
 }

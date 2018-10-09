@@ -7,7 +7,7 @@
 		<key>lindale-intents.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>33</integer>
+			<integer>35</integer>
 		</dict>
 		<key>lindale-intentsUI.xcscheme</key>
 		<dict>
@@ -22,7 +22,7 @@
 		<key>lindale-watch (Notification).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>35</integer>
+			<integer>34</integer>
 		</dict>
 		<key>lindale-watch-intents.xcscheme</key>
 		<dict>
@@ -32,7 +32,7 @@
 		<key>lindale-watch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>34</integer>
+			<integer>33</integer>
 		</dict>
 	</dict>
 </dict>
