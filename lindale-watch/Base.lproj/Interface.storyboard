@@ -33,10 +33,10 @@
             </objects>
             <point key="canvasLocation" x="-158" y="-283"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Menu-->
         <scene sceneID="grl-vs-9zw">
             <objects>
-                <controller id="2Sc-RS-G6H">
+                <controller identifier="Menu" title="Menu" id="2Sc-RS-G6H" customClass="MenuController" customModule="lindale_watch_Extension">
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" id="MRw-s9-CaR">
                             <items>

@@ -41,11 +41,7 @@ class SyncController: WKInterfaceController {
                 OAuth.store(info: value)
                 self.syncButton.setTitle("同期")
                 self.info.setText("同期完了しました。")
-                WKInterfaceController.reloadRootControllers(withNames: [
-                        TasksController.controllerIdentifier,
-                        TodosController.controllerIdentifier,
-                        ProgressController.controllerIdentifier
-                    ], contexts:  nil)
+                WKInterfaceController.reloadRootControllers(withNames: [MenuController.controllerIdentifier], contexts:  nil)
             } else {
                 self.info.setText("同期失敗しました。iPhone 側がログインしたかご確認してください。")
                 self.syncButton.setTitle("リトライ")

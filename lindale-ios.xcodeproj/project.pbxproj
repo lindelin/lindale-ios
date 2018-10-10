@@ -61,6 +61,7 @@
 		F2E0D1FB214A342D00023905 /* lindale-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F2E0D1DE214A342C00023905 /* lindale-watch.app */; };
 		F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D206214A3F3E00023905 /* WatchService.swift */; };
 		F2E0D20A214A401800023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D209214A401800023905 /* WatchService.swift */; };
+		F2E156BC216DDDAE001E4535 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E156BB216DDDAE001E4535 /* MenuController.swift */; };
 		F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8131216C8069009B0DDD /* ProgressController.swift */; };
 		F2EC8134216C868D009B0DDD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8133216C868D009B0DDD /* Profile.swift */; };
 		F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */; };
@@ -260,6 +261,7 @@
 		F2E0D205214A398E00023905 /* lindale-watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-watch.entitlements"; sourceTree = "<group>"; };
 		F2E0D206214A3F3E00023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
+		F2E156BB216DDDAE001E4535 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		F2EC8131216C8069009B0DDD /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		F2EC8133216C868D009B0DDD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTask.storyboard; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */,
 				F2E0D1F1214A342D00023905 /* ExtensionDelegate.swift */,
 				A880F778216B4B33007791DD /* SyncController.swift */,
+				F2E156BB216DDDAE001E4535 /* MenuController.swift */,
 				F2BB3AAD215215C000AB2632 /* TasksController.swift */,
 				A880F77E216B97B1007791DD /* TodosController.swift */,
 				F2EC8131216C8069009B0DDD /* ProgressController.swift */,
@@ -1100,6 +1103,7 @@
 				A880F77D216B9685007791DD /* Todo.swift in Sources */,
 				F2F4FFE4216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
 				A880F77F216B97B1007791DD /* TodosController.swift in Sources */,
+				F2E156BC216DDDAE001E4535 /* MenuController.swift in Sources */,
 				F2A4FCBB216586B100E0C35E /* OAuth.swift in Sources */,
 				F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */,
 				A880F779216B4B33007791DD /* SyncController.swift in Sources */,
