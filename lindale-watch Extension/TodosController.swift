@@ -43,10 +43,12 @@ class TodosController: WKInterfaceController {
     func loadData() {
         if OAuth.isLogined {
             self.setTitle("Loading...")
-            MyTodoCollection.resources { (myTodoCollection) in
-                if let myTodoCollection = myTodoCollection {
-                    self.myTodoCollection = myTodoCollection
-                    self.updateUI()
+            DispatchQueue.main.async {
+                MyTodoCollection.resources { (myTodoCollection) in
+                    if let myTodoCollection = myTodoCollection {
+                        self.myTodoCollection = myTodoCollection
+                        self.updateUI()
+                    }
                 }
             }
         } else {

@@ -43,10 +43,12 @@ class TasksController: WKInterfaceController {
     func loadData() {
         if OAuth.isLogined {
             self.setTitle("Loading...")
-            MyTaskCollection.resources { (myTaskCollection) in
-                if let myTaskCollection = myTaskCollection {
-                    self.myTaskCollection = myTaskCollection
-                    self.updateUI()
+            DispatchQueue.main.async {
+                MyTaskCollection.resources { (myTaskCollection) in
+                    if let myTaskCollection = myTaskCollection {
+                        self.myTaskCollection = myTaskCollection
+                        self.updateUI()
+                    }
                 }
             }
         } else {

@@ -45,10 +45,12 @@ class ProgressController: WKInterfaceController {
     func loadData() {
         if OAuth.isLogined {
             self.setTitle("Loading...")
-            Profile.resources { (profile) in
-                if let profile = profile {
-                    self.profile = profile
-                    self.updateUI()
+            DispatchQueue.main.async {
+                Profile.resources { (profile) in
+                    if let profile = profile {
+                        self.profile = profile
+                        self.updateUI()
+                    }
                 }
             }
         } else {
@@ -58,9 +60,12 @@ class ProgressController: WKInterfaceController {
     
     func updateUI() {
         if let profile = self.profile {
-            self.setTotalProgress(profile.progress.total)
-            self.setTaskProgress(profile.progress.task)
-            self.setTodoProgress(profile.progress.todo)
+//            self.setTotalProgress(profile.progress.total)
+//            self.setTaskProgress(profile.progress.task)
+//            self.setTodoProgress(profile.progress.todo)
+            self.totalProgress.setBackgroundImage(UIImage(named: "green-\(profile.progress.total)-large"))
+            self.taskProgress.setBackgroundImage(UIImage(named: "yellow-\(profile.progress.task)-large"))
+            self.todoProgress.setBackgroundImage(UIImage(named: "red-\(profile.progress.todo)-large"))
             self.setTitle("Progress")
         }
     }
