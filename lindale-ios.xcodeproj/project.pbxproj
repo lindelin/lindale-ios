@@ -24,6 +24,7 @@
 		F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */; };
 		F22364332148BB8B003D03E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22364322148BB8B003D03E8 /* GoogleService-Info.plist */; };
 		F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */; };
+		F23226C32170908400846250 /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23226C22170908400846250 /* ActivityViewCell.swift */; };
 		F2403B312147B77E004BF3C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2403B302147B77E004BF3C8 /* Profile.swift */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
@@ -220,6 +221,7 @@
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		F22364322148BB8B003D03E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavoriteCell.swift; sourceTree = "<group>"; };
+		F23226C22170908400846250 /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
 		F2403B302147B77E004BF3C8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,6 +361,7 @@
 			children = (
 				A852D219214802AC00C2221D /* ProfileStatusCell.swift */,
 				F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */,
+				F23226C22170908400846250 /* ActivityViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1080,6 +1083,7 @@
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,
 				F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */,
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
+				F23226C32170908400846250 /* ActivityViewCell.swift in Sources */,
 				F2CAE18821390ECC002C04E7 /* Project.swift in Sources */,
 				F2DF020C214E1249003E0033 /* Todo.swift in Sources */,
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,

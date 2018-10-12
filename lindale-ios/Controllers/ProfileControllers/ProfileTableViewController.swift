@@ -82,7 +82,7 @@ class ProfileTableViewController: UITableViewController {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            sectionCount = 1
+            sectionCount = 2
             break
         case 1:
             sectionCount = 1
@@ -104,7 +104,11 @@ class ProfileTableViewController: UITableViewController {
             
             switch segmentedControl.selectedSegmentIndex {
             case 0:
-                title = "進捗"
+                if section == 0 {
+                    title = "進捗"
+                } else {
+                    title = "アクティビティ"
+                }
                 break
             case 1:
                 title = "お気に入り"
@@ -158,12 +162,23 @@ class ProfileTableViewController: UITableViewController {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            let id = String(describing: ProfileStatusCell.self)
-            let profileStatusCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileStatusCell
-            if self.profile != nil {
-                profileStatusCell.updateStatus(self.profile!.progress)
+            if indexPath[0] == 0 {
+                let id = String(describing: ProfileStatusCell.self)
+                let profileStatusCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileStatusCell
+                print(indexPath)
+                if self.profile != nil {
+                    profileStatusCell.updateStatus(self.profile!.progress)
+                }
+                cell = profileStatusCell
+            } else {
+                let id = String(describing: ActivityViewCell.self)
+                let activityViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ActivityViewCell
+                if self.profile != nil {
+                    activityViewCell.update(html: self.profile!.activity)
+                }
+                cell = activityViewCell
             }
-            cell = profileStatusCell
+            
             break
         case 1:
             let id = String(describing: ProfileFavoriteCell.self)

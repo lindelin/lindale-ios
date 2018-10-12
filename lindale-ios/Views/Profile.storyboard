@@ -14,7 +14,7 @@
             <objects>
                 <tableViewController id="Dnu-SB-rQf" customClass="ProfileTableViewController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bDY-yq-7B9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="5UU-yZ-n8m">
@@ -116,14 +116,14 @@
                                         <constraint firstAttribute="height" constant="24" id="Yc6-S9-w8e"/>
                                     </constraints>
                                     <state key="normal" title="プロフィール編集">
-                                        <color key="titleColor" name="Theme-main"/>
+                                        <color key="titleColor" name="Theme-base"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                             <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.92156862750000001" green="0.35294117650000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="value" name="Theme-base"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="4"/>
@@ -137,7 +137,7 @@
                                         <segment title="" image="star-30"/>
                                         <segment title="" image="project-30"/>
                                     </segments>
-                                    <color key="tintColor" name="Theme-base"/>
+                                    <color key="tintColor" name="Theme-main"/>
                                     <connections>
                                         <action selector="segmentedControlChanged:" destination="Dnu-SB-rQf" eventType="valueChanged" id="5OM-fZ-t8d"/>
                                     </connections>
@@ -428,6 +428,36 @@
                                     <outlet property="type" destination="LfY-Wr-OqK" id="eTQ-sU-CQX"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityViewCell" id="cvs-Ww-ges" userLabel="MyActivity" customClass="ActivityViewCell" customModule="lindale_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="542.33333333333337" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cvs-Ww-ges" id="gcF-nS-lgv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSM-IS-Yya">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="500" id="X19-b0-gYZ"/>
+                                            </constraints>
+                                            <wkWebViewConfiguration key="configuration">
+                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                <wkPreferences key="preferences"/>
+                                            </wkWebViewConfiguration>
+                                        </wkWebView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="nSM-IS-Yya" secondAttribute="bottom" id="Mtb-dO-V0M"/>
+                                        <constraint firstAttribute="trailing" secondItem="nSM-IS-Yya" secondAttribute="trailing" id="Y0N-sq-wOk"/>
+                                        <constraint firstItem="nSM-IS-Yya" firstAttribute="top" secondItem="gcF-nS-lgv" secondAttribute="top" id="rCa-Q4-oVx"/>
+                                        <constraint firstItem="nSM-IS-Yya" firstAttribute="leading" secondItem="gcF-nS-lgv" secondAttribute="leading" id="xEt-Ls-bk8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="activity" destination="nSM-IS-Yya" id="tsb-sZ-bER"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -447,7 +477,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <size key="freeformSize" width="375" height="1000"/>
+                    <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="name" destination="x81-5z-rvA" id="eCv-tI-h1L"/>
                         <outlet property="photo" destination="OM8-sv-CA7" id="BtF-4V-ZgR"/>

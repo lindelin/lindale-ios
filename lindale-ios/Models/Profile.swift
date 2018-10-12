@@ -21,6 +21,7 @@ struct Profile: Codable {
     var updated: String
     var status: Status
     var progress: Progress
+    var activity: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -34,6 +35,7 @@ struct Profile: Codable {
         case updated = "updated_at"
         case status
         case progress
+        case activity
     }
     
     struct Status: Codable {
