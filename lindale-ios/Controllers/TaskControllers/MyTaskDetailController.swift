@@ -10,6 +10,8 @@ import UIKit
 
 class MyTaskDetailController: UITableViewController {
     
+    var headerView: UIView!
+    
     var task: MyTaskCollection.Task!
     var taskResource: TaskResource?
     
@@ -25,7 +27,25 @@ class MyTaskDetailController: UITableViewController {
         self.setUp()
         self.loadData()
         
+        self.headerView = tableView.tableHeaderView
+        tableView.tableHeaderView = nil
+        tableView.addSubview(self.headerView)
+        tableView.contentInset = UIEdgeInsets(top: 146, left: 0, bottom: 0, right: 0)
+        
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationItem.searchController = UISearchController(searchResultsController: nil)
+//        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        
+        headerView.frame = CGRect(x: 0, y: offsetY, width: scrollView.bounds.width, height: 252)
     }
     
     func setUp() {
@@ -74,30 +94,30 @@ class MyTaskDetailController: UITableViewController {
         return sectionCount
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
-        -> String? {
-            
-            var title = ""
-            
-            switch segmentedControl.selectedSegmentIndex {
-            case 0:
-                title = self.getOverviewSectionTitle(section: section)
-                break
-            case 1:
-                title = "サブチケット"
-                break
-            case 2:
-                title = "アクティビティ"
-                break
-            default:
-                break
-            }
-            
-            return title
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
+//        -> String? {
+//            
+//            var title = ""
+//            
+//            switch segmentedControl.selectedSegmentIndex {
+//            case 0:
+//                title = self.getOverviewSectionTitle(section: section)
+//                break
+//            case 1:
+//                title = "サブチケット"
+//                break
+//            case 2:
+//                title = "アクティビティ"
+//                break
+//            default:
+//                break
+//            }
+//            
+//            return title
+//    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 10
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
