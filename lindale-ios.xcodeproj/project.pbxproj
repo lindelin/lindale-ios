@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		17BDDCE3D42C9CA389E34039 /* Pods_lindale_watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */; };
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
+		A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8250EC1217195C50084C5CE /* MyTaskDetailController.swift */; };
 		A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852D219214802AC00C2221D /* ProfileStatusCell.swift */; };
+		A86384012171C6AC00837E1B /* TaskBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86384002171C6AC00837E1B /* TaskBasicInfoCell.swift */; };
+		A86384032171CB7F00837E1B /* TaskUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86384022171CB7F00837E1B /* TaskUserInfoCell.swift */; };
+		A86384052171CBC900837E1B /* TaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86384042171CBC900837E1B /* TaskInfoCell.swift */; };
 		A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA75214CA57200425ECA /* MyTodo.storyboard */; };
 		A876AA78214CA69300425ECA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA77214CA69300425ECA /* Settings.storyboard */; };
 		A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EEFB2214A92F5009C8E61 /* Helpers.swift */; };
@@ -17,6 +21,9 @@
 		A880F77B216B95AC007791DD /* DefaultTodoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F77A216B95AC007791DD /* DefaultTodoRow.swift */; };
 		A880F77D216B9685007791DD /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F77C216B9685007791DD /* Todo.swift */; };
 		A880F77F216B97B1007791DD /* TodosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A880F77E216B97B1007791DD /* TodosController.swift */; };
+		A89F87D621722D0A004ADEA4 /* SubTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D521722D0A004ADEA4 /* SubTaskCell.swift */; };
+		A89F87D821723C02004ADEA4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D721723C02004ADEA4 /* Notification.swift */; };
+		A89F87DA21726541004ADEA4 /* TaskActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D921726541004ADEA4 /* TaskActivityCell.swift */; };
 		A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */; };
 		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
@@ -200,7 +207,11 @@
 		7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.release.xcconfig"; sourceTree = "<group>"; };
 		7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		A8250EC1217195C50084C5CE /* MyTaskDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskDetailController.swift; sourceTree = "<group>"; };
 		A852D219214802AC00C2221D /* ProfileStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatusCell.swift; sourceTree = "<group>"; };
+		A86384002171C6AC00837E1B /* TaskBasicInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBasicInfoCell.swift; sourceTree = "<group>"; };
+		A86384022171CB7F00837E1B /* TaskUserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUserInfoCell.swift; sourceTree = "<group>"; };
+		A86384042171CBC900837E1B /* TaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfoCell.swift; sourceTree = "<group>"; };
 		A876AA75214CA57200425ECA /* MyTodo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTodo.storyboard; sourceTree = "<group>"; };
 		A876AA77214CA69300425ECA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		A87EEFB2214A92F5009C8E61 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -210,6 +221,9 @@
 		A880F77A216B95AC007791DD /* DefaultTodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTodoRow.swift; sourceTree = "<group>"; };
 		A880F77C216B9685007791DD /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		A880F77E216B97B1007791DD /* TodosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosController.swift; sourceTree = "<group>"; };
+		A89F87D521722D0A004ADEA4 /* SubTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskCell.swift; sourceTree = "<group>"; };
+		A89F87D721723C02004ADEA4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		A89F87D921726541004ADEA4 /* TaskActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActivityCell.swift; sourceTree = "<group>"; };
 		A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-ios.entitlements"; sourceTree = "<group>"; };
 		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
@@ -406,6 +420,7 @@
 				F2CAE1852138F45F002C04E7 /* NetworkService.swift */,
 				F2CAE17F21384B22002C04E7 /* OAuthService.swift */,
 				F2E0D206214A3F3E00023905 /* WatchService.swift */,
+				A89F87D721723C02004ADEA4 /* Notification.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -592,6 +607,7 @@
 			children = (
 				F2F46BA4214BAA29005CD8A9 /* Cells */,
 				F2F46BA2214BAA21005CD8A9 /* MyTaskTableViewController.swift */,
+				A8250EC1217195C50084C5CE /* MyTaskDetailController.swift */,
 			);
 			path = TaskControllers;
 			sourceTree = "<group>";
@@ -600,6 +616,11 @@
 			isa = PBXGroup;
 			children = (
 				F2F46BA5214BAA53005CD8A9 /* DefaultTaskCell.swift */,
+				A86384002171C6AC00837E1B /* TaskBasicInfoCell.swift */,
+				A86384022171CB7F00837E1B /* TaskUserInfoCell.swift */,
+				A86384042171CBC900837E1B /* TaskInfoCell.swift */,
+				A89F87D521722D0A004ADEA4 /* SubTaskCell.swift */,
+				A89F87D921726541004ADEA4 /* TaskActivityCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1058,7 +1079,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A86384052171CBC900837E1B /* TaskInfoCell.swift in Sources */,
 				F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */,
+				A89F87DA21726541004ADEA4 /* TaskActivityCell.swift in Sources */,
 				F2403B312147B77E004BF3C8 /* Profile.swift in Sources */,
 				F2CAE1822138B559002C04E7 /* MainController.swift in Sources */,
 				F2F4FFD92160EB2100D5F197 /* ShortcutManager.swift in Sources */,
@@ -1069,6 +1092,7 @@
 				F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */,
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
+				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
 				F2F4FFCD215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
 				F2CAE1842138E410002C04E7 /* Helpers.swift in Sources */,
 				A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */,
@@ -1085,11 +1109,15 @@
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
 				F23226C32170908400846250 /* ActivityViewCell.swift in Sources */,
 				F2CAE18821390ECC002C04E7 /* Project.swift in Sources */,
+				A86384012171C6AC00837E1B /* TaskBasicInfoCell.swift in Sources */,
+				A89F87D621722D0A004ADEA4 /* SubTaskCell.swift in Sources */,
 				F2DF020C214E1249003E0033 /* Todo.swift in Sources */,
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
+				A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */,
 				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,
 				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,
+				A86384032171CB7F00837E1B /* TaskUserInfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

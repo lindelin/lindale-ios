@@ -542,4 +542,5 @@
             <color red="0.96899998188018799" green="0.82700002193450928" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <color key="tintColor" name="Theme-base-sub"/>
 </document>

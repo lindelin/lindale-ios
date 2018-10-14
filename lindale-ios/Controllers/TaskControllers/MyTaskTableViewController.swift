@@ -62,14 +62,17 @@ class MyTaskTableViewController: UITableViewController {
         return cell
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowTaskDetail" {
+            let row = tableView.indexPathForSelectedRow!
+            let cell = tableView.cellForRow(at: row) as! DefaultTaskCell
+            let destination = segue.destination as! MyTaskDetailController
+            destination.task = cell.task!
+        }
     }
-    */
-
 }

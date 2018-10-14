@@ -10,6 +10,8 @@ import UIKit
 
 class DefaultTaskCell: UITableViewCell {
     
+    var task: MyTaskCollection.Task? = nil
+    
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var type: UILabel!
@@ -38,6 +40,7 @@ class DefaultTaskCell: UITableViewCell {
     }
     
     func setCell(task: MyTaskCollection.Task) {
+        self.task = task
         self.status.text = task.status
         self.title.text = "\(task.type): \(task.title)"
         self.title.textColor = Colors.get(id: task.color)

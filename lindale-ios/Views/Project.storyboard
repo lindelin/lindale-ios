@@ -338,9 +338,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add-30" width="30" height="30"/>
+        <image name="add-30" width="67.5" height="67.5"/>
         <image name="lindale-launch" width="1500" height="1500"/>
-        <image name="project-30" width="30" height="30"/>
+        <image name="project-30" width="67.5" height="67.5"/>
         <namedColor name="Theme">
             <color red="0.14100000262260437" green="0.43500000238418579" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -366,4 +366,5 @@
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <color key="tintColor" name="Theme-base-sub"/>
 </document>

@@ -14,6 +14,7 @@ enum NetworkService {
     case profile
     case myTasks
     case myTodos
+    case myTaskDetail(id: Int)
 }
 
 extension NetworkService: TargetType {
@@ -28,6 +29,8 @@ extension NetworkService: TargetType {
             return "/profile"
         case .myTasks:
             return "/tasks"
+        case .myTaskDetail(let id):
+            return "/tasks/\(id)"
         case .myTodos:
             return "/todos"
         }
@@ -35,21 +38,21 @@ extension NetworkService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail:
             return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail:
            return .requestPlain
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

@@ -180,7 +180,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="todo-30" width="30" height="30"/>
+        <image name="todo-30" width="45" height="45"/>
         <namedColor name="Theme-background">
             <color red="0.97299998998641968" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -194,4 +194,5 @@
             <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <color key="tintColor" name="Theme-base-sub"/>
 </document>

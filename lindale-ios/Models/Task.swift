@@ -149,3 +149,126 @@ struct MyTaskCollection: Codable {
         }
     }
 }
+
+struct TaskResource: Codable {
+    var project: String
+    var id: Int
+    var initiator: User
+    var title: String
+    var content: String?
+    var startAt: String?
+    var endAt: String?
+    var cost: Int
+    var progress: Int
+    var user: User
+    var color: Int
+    var type: String
+    var status: String
+    var group: String?
+    var priority: String
+    var isFinish: Int
+    var updatedAt: String
+    var subTasks: [SubTask]
+    var taskActivities: [TaskActivity]
+    
+    enum CodingKeys: String, CodingKey {
+        case project
+        case id
+        case initiator
+        case title
+        case content
+        case startAt = "start_at"
+        case endAt = "end_at"
+        case cost
+        case progress
+        case user
+        case color
+        case type
+        case status
+        case group
+        case priority
+        case isFinish = "is_finish"
+        case updatedAt = "updated_at"
+        case subTasks = "sub_tasks"
+        case taskActivities = "task_activities"
+    }
+    
+    struct User: Codable {
+        var id: Int
+        var name: String
+        var email: String
+        var photo: String?
+        var content: String?
+        var company: String?
+        var location: String?
+        var created: String
+        var updated: String
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case email
+            case photo
+            case content
+            case company
+            case location
+            case created = "created_at"
+            case updated = "updated_at"
+        }
+    }
+    
+    struct SubTask: Codable {
+        var taskId: Int
+        var id: Int
+        var content: String
+        var isFinish: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case taskId = "task_id"
+            case id
+            case content
+            case isFinish = "is_finish"
+        }
+        
+        func isCompleted() -> Bool {
+            return self.isFinish == 1 ? true : false
+        }
+    }
+    
+    struct TaskActivity: Codable {
+        var taskId: Int
+        var id: Int
+        var content: String
+        var user: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case taskId = "task_id"
+            case id
+            case content
+            case user = "user_id"
+        }
+    }
+    
+    static func load(id: Int, completion: @escaping (TaskResource?) -> Void) {
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.myTaskDetail(id: id)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let taskResource = try! coder.decode(TaskResource.self, from: data)
+                    completion(taskResource)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+}

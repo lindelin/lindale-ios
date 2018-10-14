@@ -162,19 +162,18 @@ class ProfileTableViewController: UITableViewController {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            if indexPath[0] == 0 {
+            if indexPath.section == 0 {
                 let id = String(describing: ProfileStatusCell.self)
                 let profileStatusCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileStatusCell
-                print(indexPath)
-                if self.profile != nil {
-                    profileStatusCell.updateStatus(self.profile!.progress)
+                if let profile = self.profile {
+                    profileStatusCell.updateStatus(profile.progress)
                 }
                 cell = profileStatusCell
             } else {
                 let id = String(describing: ActivityViewCell.self)
                 let activityViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ActivityViewCell
-                if self.profile != nil {
-                    activityViewCell.update(html: self.profile!.activity)
+                if let profile = self.profile {
+                    activityViewCell.update(html: profile.activity)
                 }
                 cell = activityViewCell
             }
