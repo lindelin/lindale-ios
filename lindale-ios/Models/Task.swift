@@ -239,13 +239,15 @@ struct TaskResource: Codable {
         var taskId: Int
         var id: Int
         var content: String
-        var user: Int
+        var user: User
+        var updateAt: String
         
         enum CodingKeys: String, CodingKey {
             case taskId = "task_id"
             case id
             case content
-            case user = "user_id"
+            case user
+            case updateAt = "update_at"
         }
     }
     

@@ -14,7 +14,7 @@ class TaskActivityCell: UITableViewCell {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var content: WKWebView!
+    @IBOutlet weak var content: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,13 +28,9 @@ class TaskActivityCell: UITableViewCell {
     }
 
     func setCell(taskActivity: TaskResource.TaskActivity) {
-        self.name.text = taskActivity.user.description
-        self.content.loadHTMLString(taskActivity.content, baseURL: nil)
-        self.content.evaluateJavaScript("document.body.scrollHeight", completionHandler: { [weak self] (result, error) in
-            if let height = result as? CGFloat {
-                print(height)
-                self!.content.frame.size.height += height
-            }
-        })
+        self.photo.load(url: URL(string: taskActivity.user.photo!)!, placeholder: UIImage(named: "user-30"))
+        self.name.text = taskActivity.user.name
+        self.date.text = taskActivity.updateAt
+        self.content.text = taskActivity.content
     }
 }

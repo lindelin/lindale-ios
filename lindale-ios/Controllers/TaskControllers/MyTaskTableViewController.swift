@@ -22,6 +22,11 @@ class MyTaskTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
+    }
+    
     @objc func loadData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         MyTaskCollection.resources { (myTaskCollection) in

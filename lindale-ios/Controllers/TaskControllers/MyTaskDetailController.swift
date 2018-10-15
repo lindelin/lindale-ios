@@ -27,6 +27,9 @@ class MyTaskDetailController: UITableViewController {
         self.setUp()
         self.loadData()
         
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+        
         self.headerView = tableView.tableHeaderView
         tableView.tableHeaderView = nil
         tableView.addSubview(self.headerView)
@@ -68,6 +71,20 @@ class MyTaskDetailController: UITableViewController {
     }
 
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.tableView.separatorStyle = .singleLine
+            break
+        case 1:
+            self.tableView.separatorStyle = .none
+            break
+        case 2:
+            self.tableView.separatorStyle = .singleLine
+            break
+        default:
+            self.tableView.separatorStyle = .none
+            break
+        }
         self.tableView.reloadData()
     }
     
