@@ -599,19 +599,16 @@
                                     <outlet property="updatedAt" destination="7OL-6V-b1O" id="hyu-o9-iLx"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskInfoCell" rowHeight="400" id="cAn-xM-D7b" customClass="TaskInfoCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="505.5" width="375" height="400"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskInfoCell" id="cAn-xM-D7b" customClass="TaskInfoCell" customModule="lindale_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="505.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cAn-xM-D7b" id="hkk-F4-gF3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOB-eg-Wvn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="400" id="qeG-fP-ang"/>
-                                            </constraints>
                                             <wkWebViewConfiguration key="configuration">
                                                 <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                                 <wkPreferences key="preferences"/>
@@ -619,10 +616,10 @@
                                         </wkWebView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="VOB-eg-Wvn" secondAttribute="bottom" id="Z5H-bG-BGJ"/>
-                                        <constraint firstItem="VOB-eg-Wvn" firstAttribute="leading" secondItem="hkk-F4-gF3" secondAttribute="leading" id="egl-as-usX"/>
-                                        <constraint firstItem="VOB-eg-Wvn" firstAttribute="top" secondItem="hkk-F4-gF3" secondAttribute="top" id="tQx-Gw-TLr"/>
-                                        <constraint firstAttribute="trailing" secondItem="VOB-eg-Wvn" secondAttribute="trailing" id="wgL-ee-6qf"/>
+                                        <constraint firstItem="VOB-eg-Wvn" firstAttribute="top" secondItem="hkk-F4-gF3" secondAttribute="top" id="A5m-cd-pfL"/>
+                                        <constraint firstAttribute="bottom" secondItem="VOB-eg-Wvn" secondAttribute="bottom" id="a1Q-RF-Eg4"/>
+                                        <constraint firstAttribute="trailing" secondItem="VOB-eg-Wvn" secondAttribute="trailing" id="rV0-AQ-qwz"/>
+                                        <constraint firstItem="VOB-eg-Wvn" firstAttribute="leading" secondItem="hkk-F4-gF3" secondAttribute="leading" id="wgu-WF-bj6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -630,7 +627,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskUserInfoCell" rowHeight="68" id="fL1-Pn-RG8" customClass="TaskUserInfoCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="905.5" width="375" height="68"/>
+                                <rect key="frame" x="0.0" y="549.5" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fL1-Pn-RG8" id="Ykt-yf-Mfd">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
@@ -689,7 +686,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubTaskCell" rowHeight="100" id="R3s-Da-Q7i" customClass="SubTaskCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="973.5" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="617.5" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R3s-Da-Q7i" id="Dzl-FV-3mR">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -754,7 +751,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskActivityCell" rowHeight="152" id="YfC-oX-NLG" customClass="TaskActivityCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1073.5" width="375" height="152"/>
+                                <rect key="frame" x="0.0" y="717.5" width="375" height="152"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YfC-oX-NLG" id="9oT-4l-KF2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>

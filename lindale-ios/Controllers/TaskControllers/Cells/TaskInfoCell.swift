@@ -9,13 +9,15 @@
 import UIKit
 import WebKit
 
-class TaskInfoCell: UITableViewCell {
+class TaskInfoCell: UITableViewCell, WKNavigationDelegate {
 
     @IBOutlet weak var info: WKWebView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.info.navigationDelegate = self
+        self.info.scrollView.isScrollEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,5 +36,13 @@ class TaskInfoCell: UITableViewCell {
         if let content = taskResource.content {
             self.info.loadHTMLString(content, baseURL: nil)
         }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        //Webのロード完了後に実行されるメソッド。WKNavigationDelegateのdelegateを通しておくことを忘れないこと
+        let height = webView.scrollView.contentSize.height
+        var frame = webView.frame
+        frame.size.height = height
+        webView.frame = frame
     }
 }
