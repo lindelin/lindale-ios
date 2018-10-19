@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Down
 
 class TaskActivityCell: UITableViewCell {
 
@@ -31,6 +32,6 @@ class TaskActivityCell: UITableViewCell {
         self.photo.load(url: URL(string: taskActivity.user.photo!)!, placeholder: UIImage(named: "user-30"))
         self.name.text = taskActivity.user.name
         self.date.text = taskActivity.updateAt
-        self.content.text = taskActivity.content
+        self.content.attributedText = try? Down(markdownString: taskActivity.content).toAttributedString()
     }
 }

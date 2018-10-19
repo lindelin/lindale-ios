@@ -17,6 +17,7 @@ target 'lindale-ios' do
   pod 'Moya'
   pod 'Pastel'
   pod "KRProgressHUD"
+  pod 'Down'
   
   target 'lindale-watch Extension' do
       platform :watchos, '5'

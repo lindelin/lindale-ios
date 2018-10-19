@@ -24,24 +24,11 @@ class MyTaskDetailController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUp()
+        self.setUpNavigationController()
+        self.setUpTableView()
+        self.setUpHeaderView()
         self.loadData()
-        
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        self.headerView = tableView.tableHeaderView
-        tableView.tableHeaderView = nil
-        tableView.addSubview(self.headerView)
-        tableView.contentInset = UIEdgeInsets(top: 146, left: 0, bottom: 0, right: 0)
-        
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationItem.searchController = UISearchController(searchResultsController: nil)
-//        navigationItem.hidesSearchBarWhenScrolling = false
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        
+    
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
     }
     
@@ -51,7 +38,26 @@ class MyTaskDetailController: UITableViewController {
         headerView.frame = CGRect(x: 0, y: offsetY, width: scrollView.bounds.width, height: 252)
     }
     
-    func setUp() {
+    func setUpTableView() {
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+        self.headerView = tableView.tableHeaderView
+        tableView.tableHeaderView = nil
+        tableView.addSubview(self.headerView)
+        tableView.contentInset = UIEdgeInsets(top: 146, left: 0, bottom: 0, right: 0)
+        tableView.separatorStyle = .singleLine
+    }
+    
+    func setUpNavigationController() {
+        //        navigationController?.navigationBar.prefersLargeTitles = true
+        //        navigationItem.searchController = UISearchController(searchResultsController: nil)
+        //        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func setUpHeaderView() {
         self.taskProgress.transform = CGAffineTransform(scaleX: 1.0, y: 5.0)
         self.taskTitle.text = "\(self.task.type): \(self.task.title)"
         self.taskTitle.textColor = Colors.get(id: self.task.color)
@@ -111,28 +117,6 @@ class MyTaskDetailController: UITableViewController {
         return sectionCount
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
-//        -> String? {
-//            
-//            var title = ""
-//            
-//            switch segmentedControl.selectedSegmentIndex {
-//            case 0:
-//                title = self.getOverviewSectionTitle(section: section)
-//                break
-//            case 1:
-//                title = "サブチケット"
-//                break
-//            case 2:
-//                title = "アクティビティ"
-//                break
-//            default:
-//                break
-//            }
-//            
-//            return title
-//    }
-    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
@@ -144,7 +128,11 @@ class MyTaskDetailController: UITableViewController {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cellCount = 1
+            if section == 2 {
+                cellCount = 7
+            } else {
+                cellCount = 1
+            }
             break
         case 1:
             if let taskResource = self.taskResource {
@@ -207,6 +195,8 @@ class MyTaskDetailController: UITableViewController {
             } else {
                 sectionCell.setCell(task: self.task)
             }
+            sectionCell.label.text = "担当者"
+            sectionCell.label.textColor = Colors.themeBlue
             cell = sectionCell
             break
         case 1:
@@ -217,17 +207,12 @@ class MyTaskDetailController: UITableViewController {
             } else {
                 sectionCell.setCell(task: self.task, isInitiator: true)
             }
+            sectionCell.label.text = "起票者"
+            sectionCell.label.textColor = Colors.themeGreen
             cell = sectionCell
             break
         case 2:
-            let id = String(describing: TaskBasicInfoCell.self)
-            let sectionCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! TaskBasicInfoCell
-            if let taskResource = self.taskResource {
-                sectionCell.setCell(taskResource: taskResource)
-            } else {
-                sectionCell.setCell(task: self.task)
-            }
-            cell = sectionCell
+            cell = self.getBasicCell(from: indexPath)
             break
         case 3:
             let id = String(describing: TaskInfoCell.self)
@@ -250,64 +235,76 @@ class MyTaskDetailController: UITableViewController {
         return cell
     }
     
-    func getOverviewSectionTitle(section: Int) -> String {
-        var title = ""
+    func getBasicCell(from indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskBasicCell", for: indexPath)
+        cell.textLabel?.textColor = Colors.themeBaseSub
+        cell.detailTextLabel?.textColor = Colors.themeBase
+        cell.detailTextLabel?.numberOfLines = 0
         
-        switch section {
+        switch indexPath.row {
         case 0:
-            title = "担当者"
+            cell.textLabel?.text = "予定工数"
+            if let taskResource = self.taskResource {
+                cell.detailTextLabel?.text = taskResource.cost.description
+            } else {
+                cell.detailTextLabel?.text = task.cost.description
+            }
             break
         case 1:
-            title = "起票者"
+            cell.textLabel?.text = "グループ"
+            if let taskResource = self.taskResource {
+                cell.detailTextLabel?.text = taskResource.group
+            } else {
+                cell.detailTextLabel?.text = task.group
+            }
             break
         case 2:
-            title = "情報"
+            cell.textLabel?.text = "優先度"
+            if let taskResource = self.taskResource {
+                cell.detailTextLabel?.text = taskResource.priority
+            } else {
+                cell.detailTextLabel?.text = task.priority
+            }
             break
         case 3:
-            title = "説明"
+            cell.textLabel?.text = "開始日"
+            if let taskResource = self.taskResource {
+                cell.detailTextLabel?.text = taskResource.startAt
+            } else {
+                cell.detailTextLabel?.text = task.startAt
+            }
+            break
+        case 4:
+            cell.textLabel?.text = "期限日"
+            if let taskResource = self.taskResource {
+                cell.detailTextLabel?.text = taskResource.endAt
+            } else {
+                cell.detailTextLabel?.text = task.endAt
+            }
+            break
+        case 5:
+            cell.textLabel?.text = "ステータス"
+            if let taskResource = self.taskResource {
+                cell.detailTextLabel?.text = taskResource.status
+            } else {
+                cell.detailTextLabel?.text = task.status
+            }
+            break
+        case 6:
+            cell.textLabel?.text = "最終更新日"
+            if let taskResource = self.taskResource {
+                cell.detailTextLabel?.text = taskResource.updatedAt
+            } else {
+                cell.detailTextLabel?.text = task.updatedAt
+            }
             break
         default:
             break
         }
         
-        return title
+        return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     /*
     // MARK: - Navigation
 

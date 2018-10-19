@@ -8,16 +8,15 @@
 
 import UIKit
 import WebKit
+import Down
 
-class TaskInfoCell: UITableViewCell, WKNavigationDelegate {
+class TaskInfoCell: UITableViewCell {
 
-    @IBOutlet weak var info: WKWebView!
+    @IBOutlet weak var info: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.info.navigationDelegate = self
-        self.info.scrollView.isScrollEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,21 +27,15 @@ class TaskInfoCell: UITableViewCell, WKNavigationDelegate {
     
     func setCell(task: MyTaskCollection.Task) {
         if let content = task.content {
-            self.info.loadHTMLString(content, baseURL: nil)
+            let md = SwiftyMarkdown(string: content)
+            self.info.attributedText = md.attributedString()
         }
     }
     
     func setCell(taskResource: TaskResource) {
         if let content = taskResource.content {
-            self.info.loadHTMLString(content, baseURL: nil)
+            let md = Down(markdownString: content)
+            self.info.attributedText = try? md.toAttributedString()
         }
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        //Webのロード完了後に実行されるメソッド。WKNavigationDelegateのdelegateを通しておくことを忘れないこと
-        let height = webView.scrollView.contentSize.height
-        var frame = webView.frame
-        frame.size.height = height
-        webView.frame = frame
     }
 }

@@ -11,8 +11,8 @@ import UIKit
 class TaskUserInfoCell: UITableViewCell {
 
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var email: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,17 +28,14 @@ class TaskUserInfoCell: UITableViewCell {
     func setCell(task: MyTaskCollection.Task, isInitiator: Bool = false) {
         if isInitiator {
             self.name.text = task.userName
-            self.email.text = "..."
         } else {
             self.name.text = task.initiatorName
-            self.email.text = "..."
         }
     }
     
     func setCell(user: TaskResource.User) {
         self.photo.load(url: URL(string: user.photo!)!, placeholder: UIImage(named: "user-30"))
-        self.name.text = user.name
-        self.email.text = user.email
+        self.name.text = "\(user.name)（\(user.email)）"
     }
 
 }
