@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WebKit
 import Down
 
 class TaskInfoCell: UITableViewCell {
@@ -27,8 +26,8 @@ class TaskInfoCell: UITableViewCell {
     
     func setCell(task: MyTaskCollection.Task) {
         if let content = task.content {
-            let md = SwiftyMarkdown(string: content)
-            self.info.attributedText = md.attributedString()
+            let md = Down(markdownString: content)
+            self.info.attributedText = try? md.toAttributedString()
         }
     }
     

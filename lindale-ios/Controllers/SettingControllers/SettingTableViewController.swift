@@ -36,7 +36,11 @@ class SettingTableViewController: UITableViewController {
             performSegue(withIdentifier: "AccountSettings", sender: nil)
         }
         if indexPath.section == 1 && indexPath.row == 1 {
-            performSegue(withIdentifier: "LocalSettings", sender: nil)
+            Settings.Locale.load { (localeSettings) in
+                if let localeSettings = localeSettings {
+                    self.performSegue(withIdentifier: "LocalSettings", sender: localeSettings)
+                }
+            }
         }
         if indexPath.section == 1 && indexPath.row == 2 {
             performSegue(withIdentifier: "NotificationSettings", sender: nil)
@@ -69,15 +73,16 @@ class SettingTableViewController: UITableViewController {
             self.email.text = self.profile!.email
         }
     }
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "LocalSettings" {
+            let destination = segue.destination as! LanguageSettingController
+            destination.localeSettings = sender as? Settings.Locale
+        }
     }
-    */
-
 }

@@ -28,6 +28,9 @@ class MyTaskDetailController: UITableViewController {
         self.setUpTableView()
         self.setUpHeaderView()
         self.loadData()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
     
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
     }
@@ -68,10 +71,13 @@ class MyTaskDetailController: UITableViewController {
     }
     
     @objc func loadData() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         TaskResource.load(id: self.task.id) { (taskResource) in
             if let taskResource = taskResource {
                 self.taskResource = taskResource
                 self.tableView.reloadData()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.refreshControl?.endRefreshing()
             }
         }
     }

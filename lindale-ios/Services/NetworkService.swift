@@ -15,6 +15,8 @@ enum NetworkService {
     case myTasks
     case myTodos
     case myTaskDetail(id: Int)
+    case localeSettings
+    case localeUpdate(lang: String)
 }
 
 extension NetworkService: TargetType {
@@ -33,26 +35,34 @@ extension NetworkService: TargetType {
             return "/tasks/\(id)"
         case .myTodos:
             return "/todos"
+        case .localeSettings:
+            return "/settings/locale"
+        case .localeUpdate:
+            return "/settings/locale"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings:
             return .get
+        case .localeUpdate:
+            return .put
         }
     }
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail:
-           return .requestPlain
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings:
+            return .requestPlain
+        case let .localeUpdate(lang):
+            return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }
