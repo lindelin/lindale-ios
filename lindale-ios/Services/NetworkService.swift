@@ -17,6 +17,9 @@ enum NetworkService {
     case myTaskDetail(id: Int)
     case localeSettings
     case localeUpdate(lang: String)
+    case resetPassword(password: Settings.Password)
+    case notificationSettings
+    case notificationUpdate(notificationSettings: Settings.Notification)
 }
 
 extension NetworkService: TargetType {
@@ -35,34 +38,46 @@ extension NetworkService: TargetType {
             return "/tasks/\(id)"
         case .myTodos:
             return "/todos"
-        case .localeSettings:
+        case .localeSettings, .localeUpdate:
             return "/settings/locale"
-        case .localeUpdate:
-            return "/settings/locale"
+        case .resetPassword:
+            return "/settings/password"
+        case .notificationSettings, .notificationUpdate:
+            return "/settings/notification"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings:
             return .get
-        case .localeUpdate:
+        case .localeUpdate, .resetPassword, .notificationUpdate:
             return .put
         }
     }
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
+        case let .resetPassword(password):
+            return .requestParameters(parameters: [
+                    "password": password.password ?? "",
+                    "new_password": password.newPassword ?? "",
+                    "new_password_confirmation": password.newPasswordConfirmation ?? ""
+                ], encoding: JSONEncoding.default)
+        case let .notificationUpdate(notificationSettings):
+            return .requestParameters(parameters: [
+                "slack": notificationSettings.slack,
+                ], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

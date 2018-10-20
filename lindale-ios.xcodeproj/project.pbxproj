@@ -29,6 +29,9 @@
 		A8DCF832217AECB100839DA4 /* LanguageSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF831217AECB100839DA4 /* LanguageSettingController.swift */; };
 		A8DCF834217AF88300839DA4 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF833217AF88300839DA4 /* Setting.swift */; };
 		A8DCF837217AFDF500839DA4 /* LocaleUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF836217AFDF500839DA4 /* LocaleUpdateController.swift */; };
+		A8DE10A7217B4A1600D1F654 /* AccountSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10A6217B4A1600D1F654 /* AccountSettingController.swift */; };
+		A8DE10AB217B63C300D1F654 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
+		A8DE10AE217B76DF00D1F654 /* NotificationSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AD217B76DF00D1F654 /* NotificationSettingController.swift */; };
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
 		F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */; };
@@ -233,6 +236,9 @@
 		A8DCF831217AECB100839DA4 /* LanguageSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingController.swift; sourceTree = "<group>"; };
 		A8DCF833217AF88300839DA4 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		A8DCF836217AFDF500839DA4 /* LocaleUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleUpdateController.swift; sourceTree = "<group>"; };
+		A8DE10A6217B4A1600D1F654 /* AccountSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingController.swift; sourceTree = "<group>"; };
+		A8DE10AA217B63C300D1F654 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		A8DE10AD217B76DF00D1F654 /* NotificationSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingController.swift; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
 		A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -399,6 +405,8 @@
 			children = (
 				A8DCF835217AFDB400839DA4 /* LanguageControllers */,
 				A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */,
+				A8DE10A6217B4A1600D1F654 /* AccountSettingController.swift */,
+				A8DE10AD217B76DF00D1F654 /* NotificationSettingController.swift */,
 			);
 			path = SettingControllers;
 			sourceTree = "<group>";
@@ -574,6 +582,7 @@
 				F2F46BA7214BAD04005CD8A9 /* Task.swift */,
 				F2DF020B214E1249003E0033 /* Todo.swift */,
 				A8DCF833217AF88300839DA4 /* Setting.swift */,
+				A8DE10AA217B63C300D1F654 /* Errors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1111,6 +1120,7 @@
 				F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */,
 				F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */,
 				F2F4FFC7215E179C00D5F197 /* NSUserActivity+IntentData.swift in Sources */,
+				A8DE10AE217B76DF00D1F654 /* NotificationSettingController.swift in Sources */,
 				F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */,
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
@@ -1129,6 +1139,7 @@
 				F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */,
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,
 				A8DCF837217AFDF500839DA4 /* LocaleUpdateController.swift in Sources */,
+				A8DE10A7217B4A1600D1F654 /* AccountSettingController.swift in Sources */,
 				F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */,
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
 				F23226C32170908400846250 /* ActivityViewCell.swift in Sources */,
@@ -1139,6 +1150,7 @@
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
 				A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */,
+				A8DE10AB217B63C300D1F654 /* Errors.swift in Sources */,
 				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,
 				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,
 				A86384032171CB7F00837E1B /* TaskUserInfoCell.swift in Sources */,

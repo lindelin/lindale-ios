@@ -299,29 +299,97 @@
         <!--Account-->
         <scene sceneID="Mcd-fG-cN6">
             <objects>
-                <tableViewController id="oRu-Ya-LtZ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cl3-0f-6YL">
+                <tableViewController id="oRu-Ya-LtZ" customClass="AccountSettingController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="cl3-0f-6YL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0cY-Vt-nsA">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0cY-Vt-nsA" id="FdD-G9-Ukh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="AvZ-ve-9NY">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0cY-Vt-nsA">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0cY-Vt-nsA" id="FdD-G9-Ukh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-s5-CMS">
+                                                    <rect key="frame" x="16" y="13.5" width="343" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="VVN-s5-CMS" secondAttribute="trailing" constant="16" id="2GT-Fa-Wya"/>
+                                                <constraint firstItem="VVN-s5-CMS" firstAttribute="leading" secondItem="FdD-G9-Ukh" secondAttribute="leading" constant="16" id="Ewy-iV-gd0"/>
+                                                <constraint firstItem="VVN-s5-CMS" firstAttribute="centerY" secondItem="FdD-G9-Ukh" secondAttribute="centerY" id="PYj-PP-0oi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zs1-mu-oQY">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zs1-mu-oQY" id="9oy-jV-62P">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ztv-rv-FjB">
+                                                    <rect key="frame" x="16" y="13.5" width="343" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="new-password"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ztv-rv-FjB" firstAttribute="leading" secondItem="9oy-jV-62P" secondAttribute="leading" constant="16" id="AXf-So-E6n"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ztv-rv-FjB" secondAttribute="trailing" constant="16" id="HAu-r0-2Ox"/>
+                                                <constraint firstItem="Ztv-rv-FjB" firstAttribute="centerY" secondItem="9oy-jV-62P" secondAttribute="centerY" id="egh-2c-ImV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yVD-k0-KZZ">
+                                        <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yVD-k0-KZZ" id="7gQ-io-ZWx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQh-sR-M2G">
+                                                    <rect key="frame" x="16" y="13.5" width="343" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="new-password"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CQh-sR-M2G" firstAttribute="centerY" secondItem="7gQ-io-ZWx" secondAttribute="centerY" id="5XO-FC-Zer"/>
+                                                <constraint firstItem="CQh-sR-M2G" firstAttribute="leading" secondItem="7gQ-io-ZWx" secondAttribute="leading" constant="16" id="JTg-3d-IWI"/>
+                                                <constraint firstAttribute="trailing" secondItem="CQh-sR-M2G" secondAttribute="trailing" constant="16" id="vQV-2h-Hta"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="oRu-Ya-LtZ" id="okf-eC-vB6"/>
                             <outlet property="delegate" destination="oRu-Ya-LtZ" id="QwC-a8-dCV"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Account" id="LoK-Sl-Qcr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="THg-xQ-esz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="THg-xQ-esz">
+                            <connections>
+                                <action selector="save:" destination="oRu-Ya-LtZ" id="1qq-TM-km3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmPassword" destination="CQh-sR-M2G" id="sAK-hk-dzf"/>
+                        <outlet property="newPassword" destination="Ztv-rv-FjB" id="You-GB-6at"/>
+                        <outlet property="password" destination="VVN-s5-CMS" id="6km-A6-siO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95C-LF-X9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -358,36 +426,61 @@
             </objects>
             <point key="canvasLocation" x="-271" y="734"/>
         </scene>
-        <!--Notification-->
+        <!--Notification Setting Controller-->
         <scene sceneID="n0Q-bb-b1a">
             <objects>
-                <tableViewController id="X0s-ZU-ymm" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dZg-7c-oyB">
+                <tableViewController id="X0s-ZU-ymm" customClass="NotificationSettingController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dZg-7c-oyB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bSC-MK-8Tx">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSC-MK-8Tx" id="fIX-D8-kcg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="jdL-No-wAi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bSC-MK-8Tx">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSC-MK-8Tx" id="fIX-D8-kcg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xKd-xl-lbK">
+                                                    <rect key="frame" x="310" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="updateSlack:" destination="X0s-ZU-ymm" eventType="valueChanged" id="zOI-m5-3XS"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzV-He-pMn">
+                                                    <rect key="frame" x="16" y="10" width="194" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xKd-xl-lbK" firstAttribute="leading" secondItem="nzV-He-pMn" secondAttribute="trailing" constant="100" id="ZPv-Kz-245"/>
+                                                <constraint firstAttribute="trailing" secondItem="xKd-xl-lbK" secondAttribute="trailing" constant="16" id="cOZ-zn-Wwf"/>
+                                                <constraint firstItem="xKd-xl-lbK" firstAttribute="centerY" secondItem="fIX-D8-kcg" secondAttribute="centerY" id="iw7-u9-uaa"/>
+                                                <constraint firstItem="nzV-He-pMn" firstAttribute="centerY" secondItem="fIX-D8-kcg" secondAttribute="centerY" id="tlN-2o-CAF"/>
+                                                <constraint firstItem="nzV-He-pMn" firstAttribute="leading" secondItem="fIX-D8-kcg" secondAttribute="leading" constant="16" id="w7x-dJ-wP6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="X0s-ZU-ymm" id="HuD-bd-aSi"/>
                             <outlet property="delegate" destination="X0s-ZU-ymm" id="8sS-Ee-gA1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notification" id="bqY-JA-UJP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mn1-uf-zbf"/>
-                    </navigationItem>
+                    <connections>
+                        <outlet property="slack" destination="xKd-xl-lbK" id="1dj-Jh-y0H"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZs-Go-eVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="734"/>
+            <point key="canvasLocation" x="2453.5999999999999" y="733.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kiq-DF-Sk8">

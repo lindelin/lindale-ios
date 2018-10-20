@@ -43,7 +43,11 @@ class SettingTableViewController: UITableViewController {
             }
         }
         if indexPath.section == 1 && indexPath.row == 2 {
-            performSegue(withIdentifier: "NotificationSettings", sender: nil)
+            Settings.Notification.load { (notificationSettings) in
+                if let notificationSettings = notificationSettings {
+                    self.performSegue(withIdentifier: "NotificationSettings", sender: notificationSettings)
+                }
+            }
         }
     }
     
@@ -83,6 +87,11 @@ class SettingTableViewController: UITableViewController {
         if segue.identifier == "LocalSettings" {
             let destination = segue.destination as! LanguageSettingController
             destination.localeSettings = sender as? Settings.Locale
+        }
+        
+        if segue.identifier == "NotificationSettings" {
+            let destination = segue.destination as! NotificationSettingController
+            destination.notificationSettings = sender as? Settings.Notification
         }
     }
 }
