@@ -30,7 +30,7 @@ class SettingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 1 {
-            performSegue(withIdentifier: "ProfileSettings", sender: nil)
+            performSegue(withIdentifier: "ProfileSettings", sender: self.profile)
         }
         if indexPath.section == 1 && indexPath.row == 0 {
             performSegue(withIdentifier: "AccountSettings", sender: nil)
@@ -92,6 +92,11 @@ class SettingTableViewController: UITableViewController {
         if segue.identifier == "NotificationSettings" {
             let destination = segue.destination as! NotificationSettingController
             destination.notificationSettings = sender as? Settings.Notification
+        }
+        
+        if segue.identifier == "ProfileSettings" {
+            let destination = segue.destination as! ProfileSettingController
+            destination.profile = sender as? Profile
         }
     }
 }

@@ -25,6 +25,7 @@
 		A89F87D821723C02004ADEA4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D721723C02004ADEA4 /* Notification.swift */; };
 		A89F87DA21726541004ADEA4 /* TaskActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D921726541004ADEA4 /* TaskActivityCell.swift */; };
 		A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */; };
+		A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D013D4217CA4DC0099F11A /* ProfileSettingController.swift */; };
 		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		A8DCF832217AECB100839DA4 /* LanguageSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF831217AECB100839DA4 /* LanguageSettingController.swift */; };
 		A8DCF834217AF88300839DA4 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF833217AF88300839DA4 /* Setting.swift */; };
@@ -231,6 +232,7 @@
 		A89F87D721723C02004ADEA4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A89F87D921726541004ADEA4 /* TaskActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActivityCell.swift; sourceTree = "<group>"; };
 		A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		A8D013D4217CA4DC0099F11A /* ProfileSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingController.swift; sourceTree = "<group>"; };
 		A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-ios.entitlements"; sourceTree = "<group>"; };
 		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		A8DCF831217AECB100839DA4 /* LanguageSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingController.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */,
 				A8DE10A6217B4A1600D1F654 /* AccountSettingController.swift */,
 				A8DE10AD217B76DF00D1F654 /* NotificationSettingController.swift */,
+				A8D013D4217CA4DC0099F11A /* ProfileSettingController.swift */,
 			);
 			path = SettingControllers;
 			sourceTree = "<group>";
@@ -1125,6 +1128,7 @@
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
 				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
+				A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */,
 				F2F4FFCD215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
 				F2CAE1842138E410002C04E7 /* Helpers.swift in Sources */,
 				A8DCF832217AECB100839DA4 /* LanguageSettingController.swift in Sources */,

@@ -22,6 +22,9 @@ class LanguageSettingController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.updateUI()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
     }
     
