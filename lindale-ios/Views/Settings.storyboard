@@ -516,7 +516,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="Ga1-vC-G3H">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="T43-km-Spk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="T43-km-Spk">
+                            <connections>
+                                <action selector="updateProfileInfo:" destination="ZFe-BR-iIm" id="3yb-hT-6JA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="content" destination="r2k-FW-1Sv" id="hui-Hv-toq"/>

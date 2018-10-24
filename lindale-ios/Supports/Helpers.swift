@@ -42,6 +42,24 @@ extension UITableViewController {
     }
 }
 
+extension UIViewController {
+    func showAlert(title: String, message: String) {
+        let errorAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+            errorAlert.dismiss(animated: true, completion: nil)
+        })
+        
+        errorAlert.addAction(okAction)
+        
+        if self.presentingViewController == nil {
+            self.view.window?.rootViewController?.present(errorAlert, animated: true, completion: nil)
+        }else {
+            self.present(errorAlert, animated: true, completion: nil)
+        }
+    }
+}
+
 func image_from(url: String) -> UIImage {
     let url = URL(string: url)
     do {

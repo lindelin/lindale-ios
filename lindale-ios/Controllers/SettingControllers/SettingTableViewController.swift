@@ -26,6 +26,8 @@ class SettingTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.preUpdateUI()
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.profileInfoHasUpdated, object: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -51,7 +53,7 @@ class SettingTableViewController: UITableViewController {
         }
     }
     
-    func loadData() {
+    @objc func loadData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Profile.resources { (profile) in
             if let profile = profile {

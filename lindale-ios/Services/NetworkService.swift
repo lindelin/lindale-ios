@@ -20,6 +20,7 @@ enum NetworkService {
     case resetPassword(password: Settings.Password)
     case notificationSettings
     case notificationUpdate(notificationSettings: Settings.Notification)
+    case profileInfoUpdate(profileInfo: Settings.ProfileInfo)
 }
 
 extension NetworkService: TargetType {
@@ -44,6 +45,8 @@ extension NetworkService: TargetType {
             return "/settings/password"
         case .notificationSettings, .notificationUpdate:
             return "/settings/notification"
+        case .profileInfoUpdate:
+            return "/settings/profile"
         }
     }
     
@@ -51,7 +54,7 @@ extension NetworkService: TargetType {
         switch self {
         case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate:
             return .put
         }
     }
@@ -72,12 +75,18 @@ extension NetworkService: TargetType {
             return .requestParameters(parameters: [
                 "slack": notificationSettings.slack,
                 ], encoding: JSONEncoding.default)
+        case let .profileInfoUpdate(profileInfo):
+            return .requestParameters(parameters: [
+                "name": profileInfo.name,
+                "content": profileInfo.content,
+                "company": profileInfo.company
+                ], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

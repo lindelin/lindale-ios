@@ -41,6 +41,8 @@ class ProfileTableViewController: UITableViewController {
         
         self.updateUI()
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.profileInfoHasUpdated, object: nil)
     }
     
     @objc func loadData() {

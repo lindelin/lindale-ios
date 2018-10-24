@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class ProfileSettingController: UITableViewController {
     
@@ -34,6 +35,27 @@ class ProfileSettingController: UITableViewController {
         self.organization.text = self.profile.company
     }
 
+    @IBAction func updateProfileInfo(_ sender: UIBarButtonItem) {
+        let profileInfo = Settings.ProfileInfo(name: self.name.text ?? "",
+                                               content: self.content.text ?? "",
+                                               company: self.organization.text ?? "")
+        profileInfo.update { (response) in
+            if let response = response {
+                if response["status"] == "OK" {
+                    NotificationCenter.default.post(name: LocalNotificationService.profileInfoHasUpdated, object: nil)
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                } else {
+                    KRProgressHUD.dismiss()
+                    self.showAlert(title: "Update error", message: response["messages"]!)
+                }
+            } else {
+                KRProgressHUD.dismiss()
+                self.showAlert(title: "Update error", message: "Network Error!")
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
