@@ -148,7 +148,7 @@ class MyTaskDetailController: UITableViewController {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            if section == 2 {
+            if section == 3 {
                 cellCount = 7
             } else {
                 cellCount = 1
@@ -207,7 +207,7 @@ class MyTaskDetailController: UITableViewController {
         var cell:UITableViewCell!
         
         switch indexPath.section {
-        case 0:
+        case 1:
             let id = String(describing: TaskUserInfoCell.self)
             let sectionCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! TaskUserInfoCell
             if let taskResource = self.taskResource {
@@ -219,7 +219,7 @@ class MyTaskDetailController: UITableViewController {
             sectionCell.label.textColor = Colors.themeBlue
             cell = sectionCell
             break
-        case 1:
+        case 2:
             let id = String(describing: TaskUserInfoCell.self)
             let sectionCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! TaskUserInfoCell
             if let taskResource = self.taskResource {
@@ -231,10 +231,10 @@ class MyTaskDetailController: UITableViewController {
             sectionCell.label.textColor = Colors.themeGreen
             cell = sectionCell
             break
-        case 2:
+        case 3:
             cell = self.getBasicCell(from: indexPath)
             break
-        case 3:
+        case 0:
             let id = String(describing: TaskInfoCell.self)
             let sectionCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! TaskInfoCell
             if let taskResource = self.taskResource {
