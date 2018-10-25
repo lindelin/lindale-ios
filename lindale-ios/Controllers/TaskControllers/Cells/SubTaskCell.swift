@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class SubTaskCell: UITableViewCell {
     
@@ -38,12 +39,33 @@ class SubTaskCell: UITableViewCell {
     }
     
     @IBAction func completeSwitchChanged(_ sender: UISwitch) {
+        KRProgressHUD.show(withMessage: "Updating...")
+        
         if sender.isOn {
+            self.subTask!.isFinish = TaskResource.SubTask.on
             self.content.textColor = Colors.themeBaseSub
         } else {
+            self.subTask!.isFinish = TaskResource.SubTask.off
             self.content.textColor = Colors.themeMain
         }
         
-        NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
+        self.subTask!.update { (response) in
+            if let response = response {
+                if response["status"] == "OK" {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                } else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: response["messages"])
+                    })
+                }
+            } else {
+                KRProgressHUD.dismiss({
+                    KRProgressHUD.showError(withMessage: "Network Error!")
+                })
+            }
+            NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
+        }
     }
 }

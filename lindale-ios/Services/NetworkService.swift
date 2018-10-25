@@ -21,6 +21,7 @@ enum NetworkService {
     case notificationSettings
     case notificationUpdate(notificationSettings: Settings.Notification)
     case profileInfoUpdate(profileInfo: Settings.ProfileInfo)
+    case updateSubTask(subTask: TaskResource.SubTask)
 }
 
 extension NetworkService: TargetType {
@@ -47,6 +48,8 @@ extension NetworkService: TargetType {
             return "/settings/notification"
         case .profileInfoUpdate:
             return "/settings/profile"
+        case .updateSubTask(let subTask):
+            return "/sub-tasks/\(subTask.id)"
         }
     }
     
@@ -54,7 +57,7 @@ extension NetworkService: TargetType {
         switch self {
         case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask:
             return .put
         }
     }
@@ -75,6 +78,10 @@ extension NetworkService: TargetType {
             return .requestParameters(parameters: [
                 "slack": notificationSettings.slack,
                 ], encoding: JSONEncoding.default)
+        case let .updateSubTask(subTask):
+            return .requestParameters(parameters: [
+                "is_finish": subTask.isFinish,
+                ], encoding: JSONEncoding.default)
         case let .profileInfoUpdate(profileInfo):
             return .requestParameters(parameters: [
                 "name": profileInfo.name,
@@ -86,7 +93,7 @@ extension NetworkService: TargetType {
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

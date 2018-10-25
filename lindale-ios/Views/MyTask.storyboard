@@ -314,7 +314,7 @@
                                     <outlet property="progress" destination="GZx-L8-lgI" id="AYF-YQ-nL5"/>
                                     <outlet property="startAt" destination="ShM-8W-eKe" id="Gil-uW-2AC"/>
                                     <outlet property="status" destination="3Rq-ub-3X3" id="QSn-x7-lve"/>
-                                    <outlet property="subTaskStatus" destination="6oY-BK-dy3" id="nK2-IH-veM"/>
+                                    <outlet property="subTaskStatus" destination="6oY-BK-dy3" id="9Lj-Nl-dcg"/>
                                     <outlet property="title" destination="83t-bq-0M5" id="IeI-rt-qsK"/>
                                     <outlet property="type" destination="Zlm-8a-JcB" id="brt-Wz-n3q"/>
                                     <outlet property="updateAt" destination="jUF-vA-93F" id="0lf-bk-RaJ"/>

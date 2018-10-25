@@ -34,6 +34,7 @@ struct MyTaskCollection: Codable {
         var color: Int
         var type: String
         var status: String
+        var subTaskStatus: String
         var group: String?
         var priority: String
         var isFinish: Int
@@ -53,6 +54,7 @@ struct MyTaskCollection: Codable {
             case color
             case type
             case status
+            case subTaskStatus = "sub_task_status"
             case group
             case priority
             case isFinish = "is_finish"
@@ -164,6 +166,7 @@ struct TaskResource: Codable {
     var color: Int
     var type: String
     var status: String
+    var subTaskStatus: String
     var group: String?
     var priority: String
     var isFinish: Int
@@ -185,6 +188,7 @@ struct TaskResource: Codable {
         case color
         case type
         case status
+        case subTaskStatus = "sub_task_status"
         case group
         case priority
         case isFinish = "is_finish"
@@ -218,6 +222,10 @@ struct TaskResource: Codable {
     }
     
     struct SubTask: Codable {
+        
+        static let on = 1
+        static let off = 0
+        
         var taskId: Int
         var id: Int
         var content: String
@@ -232,6 +240,29 @@ struct TaskResource: Codable {
         
         func isCompleted() -> Bool {
             return self.isFinish == 1 ? true : false
+        }
+        
+        func update(completion: @escaping ([String: String]?) -> Void) {
+            let provider = MoyaProvider<NetworkService>()
+            provider.request(.updateSubTask(subTask: self)) { result in
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let status = try! coder.decode([String: String].self, from: data)
+                        completion(status)
+                    }
+                    catch {
+                        completion(nil)
+                    }
+                // do something with the response data or statusCode
+                case let .failure(error):
+                    print(error)
+                    completion(nil)
+                }
+            }
         }
     }
     

@@ -68,6 +68,19 @@ class MyTaskDetailController: UITableViewController {
         self.taskType.textColor = Colors.get(id: self.task.color)
         self.taskProgress.progress = Float(Double(self.task.progress) / Double(100))
         self.taskProgress.progressTintColor = Colors.get(id: self.task.color)
+        self.subTaskStatus.text = self.task.subTaskStatus
+    }
+    
+    func updateHeaderView() {
+        if let taskResource = self.taskResource {
+            self.taskTitle.text = "\(taskResource.type): \(taskResource.title)"
+            self.taskTitle.textColor = Colors.get(id: taskResource.color)
+            self.taskType.text = "\(taskResource.project): #\(taskResource.id.description)"
+            self.taskType.textColor = Colors.get(id: taskResource.color)
+            self.taskProgress.setProgress(Float(Double(taskResource.progress) / Double(100)), animated: true)
+            self.taskProgress.progressTintColor = Colors.get(id: taskResource.color)
+            self.subTaskStatus.text = taskResource.subTaskStatus
+        }
     }
     
     @objc func loadData() {
@@ -77,6 +90,7 @@ class MyTaskDetailController: UITableViewController {
                 self.taskResource = taskResource
                 self.tableView.reloadData()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.updateHeaderView()
                 self.refreshControl?.endRefreshing()
             }
         }
