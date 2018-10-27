@@ -51,6 +51,26 @@ class SettingTableViewController: UITableViewController {
                 }
             }
         }
+        if indexPath.section == 2 && indexPath.row == 0 {
+            let logoutAlert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: .actionSheet)
+            
+            let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+                logoutAlert.dismiss(animated: true, completion: nil)
+            })
+            
+            let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
+                self.logout()
+            })
+            
+            logoutAlert.addAction(noAction)
+            logoutAlert.addAction(yesAction)
+            
+            if self.presentingViewController == nil {
+                self.view.window?.rootViewController?.present(logoutAlert, animated: true, completion: nil)
+            }else {
+                self.present(logoutAlert, animated: true, completion: nil)
+            }
+        }
     }
     
     @objc func loadData() {

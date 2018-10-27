@@ -21,115 +21,100 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-tl-srR" userLabel="Photo View">
-                                    <rect key="frame" x="16" y="16" width="100" height="100"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="T1T-cx-zMW">
+                                    <rect key="frame" x="16" y="16" width="343" height="100"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-sv-CA7">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-tl-srR" userLabel="Photo View">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-sv-CA7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="50"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Theme-base-sub"/>
+                                            <constraints>
+                                                <constraint firstItem="OM8-sv-CA7" firstAttribute="height" secondItem="R0D-tl-srR" secondAttribute="height" id="7K0-I1-6xL"/>
+                                                <constraint firstItem="OM8-sv-CA7" firstAttribute="centerY" secondItem="R0D-tl-srR" secondAttribute="centerY" id="OMi-ul-wXO"/>
+                                                <constraint firstItem="OM8-sv-CA7" firstAttribute="centerX" secondItem="R0D-tl-srR" secondAttribute="centerX" id="P2t-Uy-rU3"/>
+                                                <constraint firstAttribute="width" constant="100" id="UVC-5J-S0u"/>
+                                                <constraint firstAttribute="height" constant="100" id="bsg-wQ-eR8"/>
+                                                <constraint firstItem="OM8-sv-CA7" firstAttribute="width" secondItem="R0D-tl-srR" secondAttribute="width" id="ge5-ed-ykA"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="50"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.71764705880000002" green="0.68627450980000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" name="Theme-base-sub"/>
-                                    <constraints>
-                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="height" secondItem="R0D-tl-srR" secondAttribute="height" id="7K0-I1-6xL"/>
-                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="centerY" secondItem="R0D-tl-srR" secondAttribute="centerY" id="OMi-ul-wXO"/>
-                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="centerX" secondItem="R0D-tl-srR" secondAttribute="centerX" id="P2t-Uy-rU3"/>
-                                        <constraint firstAttribute="width" constant="100" id="UVC-5J-S0u"/>
-                                        <constraint firstAttribute="height" constant="100" id="bsg-wQ-eR8"/>
-                                        <constraint firstItem="OM8-sv-CA7" firstAttribute="width" secondItem="R0D-tl-srR" secondAttribute="width" id="ge5-ed-ykA"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="50"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="0.5"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.71764705880000002" green="0.68627450980000004" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b48-UX-LGh">
-                                    <rect key="frame" x="132" y="23.999999999999996" width="227" height="38.666666666666657"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5AH-M3-GlS">
-                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="38.666666666666664"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b48-UX-LGh">
+                                            <rect key="frame" x="116" y="22" width="227" height="56"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmr-6e-c59">
-                                                    <rect key="frame" x="33" y="0.0" width="10" height="19.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <color key="textColor" name="Theme-base"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOY-4b-nGQ">
-                                                    <rect key="frame" x="11.333333333333343" y="19.333333333333336" width="53" height="19.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" name="Theme-base-sub"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UgA-N4-frt">
-                                            <rect key="frame" x="75.666666666666657" y="0.0" width="75.666666666666657" height="38.666666666666664"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXj-iw-7n7">
-                                                    <rect key="frame" x="30.333333333333343" y="0.0" width="15" height="19.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <color key="textColor" name="Theme-base"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-G6-8d8">
-                                                    <rect key="frame" x="19.666666666666682" y="19.333333333333336" width="36.666666666666657" height="19.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" name="Theme-base-sub"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UGv-hV-TLP">
-                                            <rect key="frame" x="151.33333333333331" y="0.0" width="75.666666666666686" height="38.666666666666664"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB3-lU-u5I">
-                                                    <rect key="frame" x="29.333333333333371" y="0.0" width="17.333333333333329" height="19.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <color key="textColor" name="Theme-base"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODOs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsT-Bj-9fL">
-                                                    <rect key="frame" x="14.333333333333371" y="19.333333333333336" width="47" height="19.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" name="Theme-base-sub"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5AH-M3-GlS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="56"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmr-6e-c59">
+                                                            <rect key="frame" x="30.333333333333343" y="0.0" width="15" height="28.666666666666668"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                            <color key="textColor" name="Theme-base"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOY-4b-nGQ">
+                                                            <rect key="frame" x="8.3333333333333464" y="36.666666666666671" width="59.333333333333343" height="19.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" name="Theme-base-sub"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UgA-N4-frt">
+                                                    <rect key="frame" x="75.666666666666657" y="0.0" width="75.666666666666657" height="56"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXj-iw-7n7">
+                                                            <rect key="frame" x="26.666666666666686" y="0.0" width="22.666666666666671" height="28.666666666666668"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                            <color key="textColor" name="Theme-base"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-G6-8d8">
+                                                            <rect key="frame" x="17.333333333333343" y="36.666666666666671" width="41" height="19.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" name="Theme-base-sub"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UGv-hV-TLP">
+                                                    <rect key="frame" x="151.33333333333331" y="0.0" width="75.666666666666686" height="56"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB3-lU-u5I">
+                                                            <rect key="frame" x="24.666666666666686" y="0.0" width="26.333333333333329" height="28.666666666666668"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                            <color key="textColor" name="Theme-base"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODOs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsT-Bj-9fL">
+                                                            <rect key="frame" x="11.333333333333371" y="36.666666666666671" width="53" height="19.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" name="Theme-base-sub"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-pc-pVb">
-                                    <rect key="frame" x="132" y="78.666666666666671" width="227" height="24"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="24" id="Yc6-S9-w8e"/>
-                                    </constraints>
-                                    <state key="normal" title="プロフィール編集">
-                                        <color key="titleColor" name="Theme-base"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" name="Theme-base"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="4"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </button>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-na-cfg">
                                     <rect key="frame" x="16" y="172" width="343" height="29"/>
                                     <segments>
@@ -153,19 +138,14 @@
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <constraints>
                                 <constraint firstItem="AeP-na-cfg" firstAttribute="leading" secondItem="5UU-yZ-n8m" secondAttribute="leading" constant="16" id="0Hk-nq-ugS"/>
-                                <constraint firstItem="b48-UX-LGh" firstAttribute="top" secondItem="5UU-yZ-n8m" secondAttribute="top" constant="24" id="0P9-F0-3JC"/>
-                                <constraint firstAttribute="trailing" secondItem="b48-UX-LGh" secondAttribute="trailing" constant="16" id="4N7-2r-lNC"/>
-                                <constraint firstAttribute="trailing" secondItem="pzo-pc-pVb" secondAttribute="trailing" constant="16" id="6zC-Jc-Oy2"/>
-                                <constraint firstItem="pzo-pc-pVb" firstAttribute="leading" secondItem="R0D-tl-srR" secondAttribute="trailing" constant="16" id="8CR-fM-Wx6"/>
+                                <constraint firstItem="x81-5z-rvA" firstAttribute="top" secondItem="T1T-cx-zMW" secondAttribute="bottom" constant="16" id="8Mu-7d-raj"/>
                                 <constraint firstItem="x81-5z-rvA" firstAttribute="leading" secondItem="5UU-yZ-n8m" secondAttribute="leading" constant="16" id="9Cn-qM-mfF"/>
-                                <constraint firstItem="R0D-tl-srR" firstAttribute="top" secondItem="5UU-yZ-n8m" secondAttribute="top" constant="16" id="FOM-7b-wdn"/>
-                                <constraint firstItem="b48-UX-LGh" firstAttribute="leading" secondItem="R0D-tl-srR" secondAttribute="trailing" constant="16" id="Vkk-Te-DDu"/>
                                 <constraint firstAttribute="trailing" secondItem="AeP-na-cfg" secondAttribute="trailing" constant="16" id="Xav-rl-fZ0"/>
-                                <constraint firstItem="x81-5z-rvA" firstAttribute="top" secondItem="R0D-tl-srR" secondAttribute="bottom" constant="16" id="dsZ-be-dDz"/>
                                 <constraint firstAttribute="trailing" secondItem="x81-5z-rvA" secondAttribute="trailing" constant="16" id="ibI-7a-isG"/>
-                                <constraint firstItem="R0D-tl-srR" firstAttribute="leading" secondItem="5UU-yZ-n8m" secondAttribute="leading" constant="16" id="lvD-Yd-TZ5"/>
                                 <constraint firstItem="AeP-na-cfg" firstAttribute="top" secondItem="x81-5z-rvA" secondAttribute="bottom" constant="16" id="mDU-xI-UtU"/>
-                                <constraint firstItem="pzo-pc-pVb" firstAttribute="top" secondItem="b48-UX-LGh" secondAttribute="bottom" constant="16" id="pHW-Ku-s77"/>
+                                <constraint firstItem="T1T-cx-zMW" firstAttribute="top" secondItem="5UU-yZ-n8m" secondAttribute="top" constant="16" id="mos-Gr-T4k"/>
+                                <constraint firstAttribute="trailing" secondItem="T1T-cx-zMW" secondAttribute="trailing" constant="16" id="o1C-Ky-ojC"/>
+                                <constraint firstItem="T1T-cx-zMW" firstAttribute="leading" secondItem="5UU-yZ-n8m" secondAttribute="leading" constant="16" id="qcK-LL-Jxm"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -468,14 +448,7 @@
                     <tabBarItem key="tabBarItem" title="" image="user-30" id="vQF-4B-448">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Lindalë" id="3z3-fo-Z22">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" image="menu-30" id="D6w-uq-ALe">
-                            <color key="tintColor" name="Theme-base-sub"/>
-                            <connections>
-                                <action selector="logout:" destination="Dnu-SB-rQf" id="8fI-la-BV3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Lindalë" id="3z3-fo-Z22"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
@@ -513,7 +486,6 @@
     </scenes>
     <resources>
         <image name="lindale-launch" width="1500" height="1500"/>
-        <image name="menu-30" width="67.5" height="67.5"/>
         <image name="project-30" width="67.5" height="67.5"/>
         <image name="star-30" width="67.5" height="67.5"/>
         <image name="status-30" width="67.5" height="67.5"/>

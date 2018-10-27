@@ -138,6 +138,29 @@ struct ProjectCollection: Codable {
         }
     }
     
+    static func favorites(completion: @escaping ([ProjectCollection.Project]?) -> Void) {
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.favoriteProjects) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let favorites = try! coder.decode([ProjectCollection.Project].self, from: data)
+                    completion(favorites)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
     func store() {
         let coder = JSONEncoder()
         let projectCollection = try! coder.encode(self)

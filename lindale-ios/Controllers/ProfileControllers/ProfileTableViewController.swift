@@ -11,7 +11,7 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
     
     var profile: Profile? = Profile.find()
-    var favorite: [ProjectCollection.Project] = []
+    var favorites: [ProjectCollection.Project] = []
     var myProjects: [ProjectCollection.Project] = []
     var userProjects: [ProjectCollection.Project] = []
     
@@ -34,11 +34,6 @@ class ProfileTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
-        let projectCollection: ProjectCollection? = ProjectCollection.find()
-        self.favorite = projectCollection?.projects ?? []
-        self.myProjects = projectCollection?.projects ?? []
-        self.userProjects = projectCollection?.projects ?? []
-        
         self.updateUI()
         self.loadData()
         
@@ -49,27 +44,29 @@ class ProfileTableViewController: UITableViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Profile.resources { (profile) in
             if let profile = profile {
-                self.updateUI(with: profile)
+                self.profile = profile
+                self.updateUI()
                 self.refreshControl?.endRefreshing()
             } else {
                 //self.logout()
             }
         }
+        ProjectCollection.favorites { (favorites) in
+            if let favorites = favorites {
+                self.favorites = favorites
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
     }
     
-    func updateUI(with profile: Profile? = nil) {
-        if profile != nil {
-            self.profile = profile
-        }
-        if self.profile != nil {
-            self.photo.load(url: URL(string: (self.profile?.photo!)!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
-            self.projectCount.text = self.profile?.status.projectCount.description
-            self.taskCount.text = self.profile?.status.unfinishedTaskCount.description
-            self.todoCount.text = self.profile?.status.unfinishedTodoCount.description
-            self.name.text = self.profile?.name
-            
+    func updateUI() {
+        if let profile = self.profile {
+            self.photo.load(url: URL(string: (profile.photo!))!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
+            self.projectCount.text = profile.status.projectCount.description
+            self.taskCount.text = profile.status.unfinishedTaskCount.description
+            self.todoCount.text = profile.status.unfinishedTodoCount.description
+            self.name.text = profile.name
             self.tableView.reloadData()
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 
@@ -90,7 +87,13 @@ class ProfileTableViewController: UITableViewController {
             sectionCount = 1
             break
         case 2:
-            sectionCount = 2
+            sectionCount = 0
+            if self.myProjects.count > 0 {
+                sectionCount += 1
+            }
+            if self.userProjects.count > 0 {
+                sectionCount += 1
+            }
             break
         default:
             break
@@ -141,7 +144,7 @@ class ProfileTableViewController: UITableViewController {
             cellCount = 1
             break
         case 1:
-            cellCount = self.favorite.count
+            cellCount = self.favorites.count
             break
         case 2:
             if section == 0 {
@@ -184,16 +187,16 @@ class ProfileTableViewController: UITableViewController {
         case 1:
             let id = String(describing: ProfileFavoriteCell.self)
             let profileFavoriteCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileFavoriteCell
-            if self.favorite.count > 0 {
-                profileFavoriteCell.setProject(self.favorite[indexPath.row])
+            if self.favorites.count > 0 {
+                profileFavoriteCell.setProject(self.favorites[indexPath.row])
             }
             cell = profileFavoriteCell
             break
         case 2:
             let id = String(describing: ProfileFavoriteCell.self)
             let profileFavoriteCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileFavoriteCell
-            if self.favorite.count > 0 {
-                profileFavoriteCell.setProject(self.favorite[indexPath.row])
+            if self.favorites.count > 0 {
+                profileFavoriteCell.setProject(self.favorites[indexPath.row])
             }
             cell = profileFavoriteCell
             break
