@@ -855,6 +855,34 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Zxu-wL-OFV">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Tasks" image="task-24" id="9U7-HU-Z1G">
+                                <color key="tintColor" name="Theme-green"/>
+                                <connections>
+                                    <action selector="addSubTask:" destination="McX-vL-jtt" id="a4p-gx-QOA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Activities" image="speech-bubble-24" id="jus-qk-NWf">
+                                <color key="tintColor" name="Theme-blue"/>
+                                <connections>
+                                    <action selector="addActivity:" destination="McX-vL-jtt" id="oq3-0d-FIK"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Edit" image="pencil-24" id="CE2-9p-m0G">
+                                <color key="tintColor" name="Theme-yellow"/>
+                                <connections>
+                                    <action selector="editButton:" destination="McX-vL-jtt" id="skE-sD-6cW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" image="trash-24" id="i1G-aX-5Ty">
+                                <color key="tintColor" name="Theme-main"/>
+                                <connections>
+                                    <action selector="deleteButton:" destination="McX-vL-jtt" id="uEK-Xy-J0q"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="segmentedControl" destination="zRq-ml-WOL" id="Hne-9u-TIh"/>
@@ -888,7 +916,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pencil-24" width="36" height="36"/>
+        <image name="speech-bubble-24" width="36" height="36"/>
+        <image name="task-24" width="36" height="36"/>
         <image name="task-30" width="45" height="45"/>
+        <image name="trash-24" width="36" height="36"/>
         <image name="user-30" width="45" height="45"/>
         <namedColor name="Theme-background">
             <color red="0.97299998998641968" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -902,8 +934,17 @@
         <namedColor name="Theme-base-sub">
             <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Theme-blue">
+            <color red="0.49799999594688416" green="0.72899997234344482" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-green">
+            <color red="0.69800001382827759" green="0.89800000190734863" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Theme-main">
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-yellow">
+            <color red="0.96899998188018799" green="0.82700002193450928" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="Theme-base-sub"/>

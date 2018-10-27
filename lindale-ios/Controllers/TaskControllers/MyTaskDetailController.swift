@@ -325,6 +325,58 @@ class MyTaskDetailController: UITableViewController {
         return cell
     }
     
+    @IBAction func deleteButton(_ sender: UIBarButtonItem) {
+        let actionSheet = UIAlertController(title: "削除", message: "チケットを削除しますか？", preferredStyle: .actionSheet)
+        
+        let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+            actionSheet.dismiss(animated: true, completion: nil)
+        })
+        
+        let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
+            // TODO
+        })
+        
+        actionSheet.addAction(noAction)
+        actionSheet.addAction(yesAction)
+        
+        if self.presentingViewController == nil {
+            self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
+        }else {
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func editButton(_ sender: UIBarButtonItem) {
+        let actionSheet = UIAlertController(title: "編集", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "取り消し", style: .cancel, handler: { (action: UIAlertAction) in
+            actionSheet.dismiss(animated: true, completion: nil)
+        })
+        
+        let taskEditAction = UIAlertAction(title: "チケット編集", style: .default, handler: { (action: UIAlertAction) in
+            // TODO
+        })
+        
+        let completionAction = UIAlertAction(title: "完了にします", style: .default, handler: { (action: UIAlertAction) in
+            // TODO
+        })
+        
+        actionSheet.addAction(cancelAction)
+        actionSheet.addAction(taskEditAction)
+        actionSheet.addAction(completionAction)
+        
+        if self.presentingViewController == nil {
+            self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
+        }else {
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func addActivity(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func addSubTask(_ sender: UIBarButtonItem) {
+    }
     /*
     // MARK: - Navigation
 
