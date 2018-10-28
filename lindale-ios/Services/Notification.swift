@@ -9,6 +9,7 @@ import Foundation
 
 struct LocalNotificationService {
     static let subTaskHasUpdated = Notification.Name("subTaskHasUpdated")
+    static let taskHasUpdated = Notification.Name("taskHasUpdated")
     static let localeSettingsHasUpdated = Notification.Name("localeSettingsHasUpdated")
     static let profileInfoHasUpdated = Notification.Name("profileInfoHasUpdated")
 }

@@ -22,6 +22,7 @@ class MyTaskTableViewController: UITableViewController {
         self.tableView.reloadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

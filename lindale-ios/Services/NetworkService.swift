@@ -23,6 +23,8 @@ enum NetworkService {
     case notificationUpdate(notificationSettings: Settings.Notification)
     case profileInfoUpdate(profileInfo: Settings.ProfileInfo)
     case updateSubTask(subTask: TaskResource.SubTask)
+    case completeTask(task: TaskResource)
+    case deleteTask(task: TaskResource)
 }
 
 extension NetworkService: TargetType {
@@ -41,6 +43,10 @@ extension NetworkService: TargetType {
             return "/tasks"
         case .myTaskDetail(let id):
             return "/tasks/\(id)"
+        case .completeTask(let task):
+            return "/tasks/\(task.id)/complete"
+        case .deleteTask(let task):
+            return "/tasks/\(task.id)"
         case .myTodos:
             return "/todos"
         case .localeSettings, .localeUpdate:
@@ -60,14 +66,16 @@ extension NetworkService: TargetType {
         switch self {
         case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask:
             return .put
+        case .deleteTask:
+            return .delete
         }
     }
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -91,12 +99,16 @@ extension NetworkService: TargetType {
                 "content": profileInfo.content,
                 "company": profileInfo.company
                 ], encoding: JSONEncoding.default)
+        case let .completeTask(task):
+            return .requestParameters(parameters: [
+                "is_finish": task.isFinish,
+                ], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

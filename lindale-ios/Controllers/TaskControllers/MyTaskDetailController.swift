@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class MyTaskDetailController: UITableViewController {
     
@@ -33,6 +34,7 @@ class MyTaskDetailController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
     
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -333,7 +335,26 @@ class MyTaskDetailController: UITableViewController {
         })
         
         let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
-            // TODO
+            KRProgressHUD.show(withMessage: "Deleting...")
+            self.taskResource!.delete(completion: { (response) in
+                if let response = response {
+                    if response["status"] == "OK" {
+                        NotificationCenter.default.post(name: LocalNotificationService.taskHasUpdated, object: nil)
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                        })
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: response["messages"])
+                        })
+                    }
+                } else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: "Network Error!")
+                    })
+                }
+            })
         })
         
         actionSheet.addAction(noAction)
@@ -357,13 +378,58 @@ class MyTaskDetailController: UITableViewController {
             // TODO
         })
         
-        let completionAction = UIAlertAction(title: "完了にします", style: .default, handler: { (action: UIAlertAction) in
-            // TODO
-        })
-        
         actionSheet.addAction(cancelAction)
         actionSheet.addAction(taskEditAction)
-        actionSheet.addAction(completionAction)
+        
+        if self.taskResource?.progress == 100 && self.taskResource?.isFinish == 0 {
+            let completionAction = UIAlertAction(title: "完了", style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show(withMessage: "Updating...")
+                self.taskResource!.changeCompleteStatus(to: .completed, completion: { (response) in
+                    if let response = response {
+                        if response["status"] == "OK" {
+                            NotificationCenter.default.post(name: LocalNotificationService.taskHasUpdated, object: nil)
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                            })
+                        } else {
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showError(withMessage: response["messages"])
+                            })
+                        }
+                    } else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: "Network Error!")
+                        })
+                    }
+                })
+            })
+            actionSheet.addAction(completionAction)
+        }
+        
+        if self.taskResource?.isFinish == 1 {
+            let completionAction = UIAlertAction(title: "進行中にします", style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show(withMessage: "Updating...")
+                self.taskResource!.changeCompleteStatus(to: .incomplete, completion: { (response) in
+                    if let response = response {
+                        if response["status"] == "OK" {
+                            NotificationCenter.default.post(name: LocalNotificationService.taskHasUpdated, object: nil)
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                            })
+                        } else {
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showError(withMessage: response["messages"])
+                            })
+                        }
+                    } else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: "Network Error!")
+                        })
+                    }
+                })
+            })
+            actionSheet.addAction(completionAction)
+        }
         
         if self.presentingViewController == nil {
             self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)

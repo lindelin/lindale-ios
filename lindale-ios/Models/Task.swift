@@ -155,7 +155,7 @@ struct MyTaskCollection: Codable {
 struct TaskResource: Codable {
     var project: String
     var id: Int
-    var initiator: User
+    var initiator: User?
     var title: String
     var content: String?
     var startAt: String?
@@ -293,6 +293,60 @@ struct TaskResource: Codable {
                     let coder = JSONDecoder()
                     let taskResource = try! coder.decode(TaskResource.self, from: data)
                     completion(taskResource)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    enum CompleteStatus: Int {
+        case completed = 1
+        case incomplete = 0
+    }
+    
+    mutating func changeCompleteStatus(to: CompleteStatus, completion: @escaping ([String: String]?) -> Void) {
+        
+        self.isFinish = to.rawValue
+        
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.completeTask(task: self)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    func delete(completion: @escaping ([String: String]?) -> Void) {
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.deleteTask(task: self)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
                 }
                 catch {
                     completion(nil)
