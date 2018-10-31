@@ -18,26 +18,24 @@ class MyTodoTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
+        self.updateUI()
         self.loadData()
-        self.tableView.reloadData()
     }
     
     @objc func loadData() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         MyTodoCollection.resources { (myTodoCollection) in
             if let myTodoCollection = myTodoCollection {
-                self.updateUI(with: myTodoCollection)
-                self.refreshControl?.endRefreshing()
+                self.myTodoCollection = myTodoCollection
+                self.updateUI()
             } else {
-                //self.logout()
+                self.authErrorHandle()
             }
+            self.refreshControl?.endRefreshing()
         }
     }
     
-    func updateUI(with myTodoCollection: MyTodoCollection) {
-        self.myTodoCollection = myTodoCollection
+    func updateUI() {
         self.tableView.reloadData()
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
     override func didReceiveMemoryWarning() {

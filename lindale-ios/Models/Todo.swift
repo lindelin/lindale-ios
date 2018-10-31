@@ -85,8 +85,10 @@ struct MyTodoCollection: Codable {
     }
     
     static func resources(completion: @escaping (MyTodoCollection?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.myTodos) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {

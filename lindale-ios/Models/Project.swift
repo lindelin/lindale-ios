@@ -115,8 +115,10 @@ struct ProjectCollection: Codable {
     }
     
     static func resources(completion: @escaping (ProjectCollection?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.projects) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {
@@ -139,8 +141,10 @@ struct ProjectCollection: Codable {
     }
     
     static func favorites(completion: @escaping ([ProjectCollection.Project]?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.favoriteProjects) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {

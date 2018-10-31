@@ -23,27 +23,24 @@ class ProjectsViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
+        self.updateUI()
         self.loadData()
     }
     
     @objc func loadData() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         ProjectCollection.resources { (projectCollection) in
             if let projectCollection = projectCollection {
-                self.updateUI(with: projectCollection)
-                self.refreshControl?.endRefreshing()
+                self.projectCollection = projectCollection
+                self.updateUI()
             } else {
-                //self.logout()
+                self.authErrorHandle()
             }
+            self.refreshControl?.endRefreshing()
         }
     }
     
-    func updateUI(with projectCollection: ProjectCollection) {
-        OperationQueue.main.addOperation {
-            self.projectCollection = projectCollection
-            self.tableView.reloadData()
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
+    func updateUI() {
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,16 +50,10 @@ class ProjectsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return (self.projectCollection?.projects.count) ?? 0
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let id = String(describing: ProjectTableViewCell.self)
@@ -95,42 +86,6 @@ class ProjectsViewController: UITableViewController {
         
         return config
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

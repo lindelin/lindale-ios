@@ -29,7 +29,7 @@ enum NetworkService {
 
 extension NetworkService: TargetType {
     
-    var baseURL: URL { return URL(string: "\(UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!)/api")! }
+    var baseURL: URL { return URL(string: "\(UserDefaults.dataSuite.string(forOAuthKey: .clientUrl)!)/api")! }
     
     var path: String {
         switch self {
@@ -114,7 +114,7 @@ extension NetworkService: TargetType {
     }
     
     var headers: [String: String]? {
-        return ["Accept": "application/json", "Authorization": (OAuth.get()?.token())!]
+        return ["Accept": "application/json", "Authorization": OAuth.get()!.token()]
     }
 }
 // MARK: - Helpers

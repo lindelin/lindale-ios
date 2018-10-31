@@ -63,8 +63,10 @@ struct Profile: Codable {
     }
     
     static func resources(completion: @escaping (Profile?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.profile) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {
@@ -76,6 +78,9 @@ struct Profile: Codable {
                     completion(profile)
                 }
                 catch {
+                    if response.statusCode == 401 {
+                        UserDefaults.dataSuite.set(true, forOAuthKey: .hasAuthError)
+                    }
                     completion(nil)
                 }
             // do something with the response data or statusCode

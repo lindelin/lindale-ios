@@ -97,8 +97,10 @@ struct MyTaskCollection: Codable {
     }
     
     static func resources(completion: @escaping (MyTaskCollection?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.myTasks) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {
@@ -243,8 +245,10 @@ struct TaskResource: Codable {
         }
         
         func update(completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.updateSubTask(subTask: self)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
                     do {
@@ -283,8 +287,10 @@ struct TaskResource: Codable {
     }
     
     static func load(id: Int, completion: @escaping (TaskResource?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.myTaskDetail(id: id)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {
@@ -314,8 +320,10 @@ struct TaskResource: Codable {
         
         self.isFinish = to.rawValue
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.completeTask(task: self)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {
@@ -337,8 +345,10 @@ struct TaskResource: Codable {
     }
     
     func delete(completion: @escaping ([String: String]?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
         provider.request(.deleteTask(task: self)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {

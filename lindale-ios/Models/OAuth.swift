@@ -29,22 +29,21 @@ struct OAuth: Codable {
         ref.child("system").child("oauth").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
-            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientUrl.rawValue] as! String, forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)
-            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientId.rawValue] as! Int, forKey: UserDefaults.OAuthKeys.clientId.rawValue)
-            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientSecret.rawValue] as! String, forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)
+            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientUrl.rawValue] as! String, forOAuthKey: .clientUrl)
+            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientId.rawValue] as! Int, forOAuthKey: .clientId)
+            UserDefaults.dataSuite.set(value?[UserDefaults.OAuthKeys.clientSecret.rawValue] as! String, forOAuthKey: .clientSecret)
             UserDefaults.dataSuite.synchronize()
             
             if let oauth = OAuth.get() {
                 WatchSession.main.sendMessageByBackground([
                         "type": "AuthInfo",
                         "data": [
-                            UserDefaults.OAuthKeys.clientUrl.rawValue: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!,
+                            UserDefaults.OAuthKeys.clientUrl.rawValue: UserDefaults.dataSuite.string(forOAuthKey: .clientUrl)!,
                             UserDefaults.OAuthKeys.accessToken.rawValue: oauth.accessToken,
                             UserDefaults.OAuthKeys.type.rawValue: oauth.type,
                         ]
                     ])
             }
-            
             KRProgressHUD.dismiss()
         }) { (error) in
             print(error.localizedDescription)
@@ -52,10 +51,11 @@ struct OAuth: Codable {
     }
     
     static func login(email: String, password: String, success successCallback: @escaping (OAuth) -> Void,
-                        error errorCallback: @escaping () -> Void) {
-        
+                        error errorCallback: @escaping (String?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<OAuthService>()
         provider.request(.login(email: email, password: password)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch result {
             case let .success(response):
                 do {
@@ -67,17 +67,21 @@ struct OAuth: Codable {
                 }
                 catch {
                     print("error", error)
-                    errorCallback()
+                    if response.statusCode == 401 {
+                        errorCallback("The user credentials were incorrect.")
+                    } else {
+                        errorCallback(nil)
+                    }
                 }
             // do something with the response data or statusCode
             case let .failure(error):
                 print("error", error)
-                errorCallback()
+                errorCallback(nil)
             }
         }
     }
     
-    static func refresh() {
+    static func refresh(completion: @escaping (OAuth?) -> Void) {
         let provider = MoyaProvider<OAuthService>()
         provider.request(.refresh) { result in
             switch result {
@@ -86,43 +90,46 @@ struct OAuth: Codable {
                     _ = try response.filterSuccessfulStatusCodes()
                     let data = response.data
                     let coder = JSONDecoder()
-                    let token = try! coder.decode(OAuth.self, from: data)
-                    print(token)
-                    self.save(token)
+                    let oauth = try! coder.decode(OAuth.self, from: data)
+                    oauth.save()
+                    completion(oauth)
                 }
                 catch {
+                    print("error", error)
+                    completion(nil)
                 }
             // do something with the response data or statusCode
             case let .failure(error):
                 print("error", error)
+                completion(nil)
             }
         }
     }
     
-    static func save(_ oauth: OAuth) {
-        UserDefaults.dataSuite.set(oauth.accessToken, forKey: UserDefaults.OAuthKeys.accessToken.rawValue)
-        UserDefaults.dataSuite.set(oauth.type, forKey: UserDefaults.OAuthKeys.type.rawValue)
-        UserDefaults.dataSuite.set(oauth.refreshToken, forKey: UserDefaults.OAuthKeys.refreshToken.rawValue)
-        UserDefaults.dataSuite.set(oauth.expires, forKey: UserDefaults.OAuthKeys.expires.rawValue)
+    func save() {
+        UserDefaults.dataSuite.set(self.accessToken, forOAuthKey: .accessToken)
+        UserDefaults.dataSuite.set(self.type, forOAuthKey: .type)
+        UserDefaults.dataSuite.set(self.refreshToken, forOAuthKey: .refreshToken)
+        UserDefaults.dataSuite.set(self.expires, forOAuthKey: .expires)
         UserDefaults.dataSuite.synchronize()
     }
     
     static func get() -> OAuth? {
-        if UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.accessToken.rawValue) == nil {
+        if let accessToken = UserDefaults.dataSuite.string(forOAuthKey: .accessToken),
+        let type = UserDefaults.dataSuite.string(forOAuthKey: .type),
+        let refreshToken = UserDefaults.dataSuite.string(forOAuthKey: .refreshToken) {
+            let expires = UserDefaults.dataSuite.integer(forOAuthKey: .expires)
+            return OAuth(type: type, expires: expires, accessToken: accessToken, refreshToken: refreshToken)
+        } else {
             return nil
         }
-        let accessToken = UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.accessToken.rawValue) ?? nil!
-        let type = UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.type.rawValue) ?? nil!
-        let refreshToken = UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.refreshToken.rawValue) ?? nil!
-        let expires = UserDefaults.dataSuite.integer(forKey: UserDefaults.OAuthKeys.expires.rawValue)
-        return OAuth(type: type, expires: expires, accessToken: accessToken, refreshToken: refreshToken)
     }
     
     static func logout() -> Bool {
-        UserDefaults.dataSuite.removeObject(forKey: UserDefaults.OAuthKeys.accessToken.rawValue)
-        UserDefaults.dataSuite.removeObject(forKey: UserDefaults.OAuthKeys.type.rawValue)
-        UserDefaults.dataSuite.removeObject(forKey: UserDefaults.OAuthKeys.refreshToken.rawValue)
-        UserDefaults.dataSuite.removeObject(forKey: UserDefaults.OAuthKeys.expires.rawValue)
+        UserDefaults.dataSuite.removeObject(forOAuthKey: .accessToken)
+        UserDefaults.dataSuite.removeObject(forOAuthKey: .type)
+        UserDefaults.dataSuite.removeObject(forOAuthKey: .refreshToken)
+        UserDefaults.dataSuite.removeObject(forOAuthKey: .expires)
         UserDefaults.dataSuite.synchronize()
         return true
     }

@@ -30,20 +30,8 @@ extension UIImageView {
     }
 }
 
-extension UITableViewController {
-    func logout() {
-        if (OAuth.logout()) {
-            let storyboard = UIStoryboard(name:"Login", bundle: nil)
-            let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
-            loginController.hidesBottomBarWhenPushed = true
-            loginController.modalTransitionStyle = .crossDissolve
-            self.present(loginController, animated: true, completion: nil)
-        }
-    }
-}
-
 extension UIViewController {
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String?, message: String?) {
         let errorAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
@@ -56,6 +44,59 @@ extension UIViewController {
             self.view.window?.rootViewController?.present(errorAlert, animated: true, completion: nil)
         }else {
             self.present(errorAlert, animated: true, completion: nil)
+        }
+    }
+    
+    func logout() {
+        if (OAuth.logout()) {
+            let storyboard = UIStoryboard(name:"Login", bundle: nil)
+            let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
+            loginController.hidesBottomBarWhenPushed = true
+            loginController.modalTransitionStyle = .crossDissolve
+            self.present(loginController, animated: true, completion: nil)
+        }
+    }
+    
+    func authErrorHandle() {
+        if UserDefaults.dataSuite.bool(forOAuthKey: .hasAuthError) {
+            UserDefaults.dataSuite.set(false, forOAuthKey: .hasAuthError)
+            let errorAlert = UIAlertController(title: "認証エラー", message: "ログインしてください。", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                errorAlert.dismiss(animated: true, completion: nil)
+                self.logout()
+            })
+            
+            errorAlert.addAction(okAction)
+            
+            if self.presentingViewController == nil {
+                self.view.window?.rootViewController?.present(errorAlert, animated: true, completion: nil)
+            }else {
+                self.present(errorAlert, animated: true, completion: nil)
+            }
+            // TODO: 刷新令牌
+//            OAuth.refresh { (oauth) in
+//                if let _ = oauth {
+//                    self.showAlert(title: nil, message: "Network Error")
+//                } else {
+//                    let errorAlert = UIAlertController(title: "認証エラー", message: "ログインしてください。", preferredStyle: .alert)
+//
+//                    let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+//                        errorAlert.dismiss(animated: true, completion: nil)
+//                        self.logout()
+//                    })
+//
+//                    errorAlert.addAction(okAction)
+//
+//                    if self.presentingViewController == nil {
+//                        self.view.window?.rootViewController?.present(errorAlert, animated: true, completion: nil)
+//                    }else {
+//                        self.present(errorAlert, animated: true, completion: nil)
+//                    }
+//                }
+//            }
+        } else {
+            self.showAlert(title: nil, message: "Network Error")
         }
     }
 }

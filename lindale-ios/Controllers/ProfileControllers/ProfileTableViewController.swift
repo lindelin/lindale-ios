@@ -41,20 +41,20 @@ class ProfileTableViewController: UITableViewController {
     }
     
     @objc func loadData() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Profile.resources { (profile) in
             if let profile = profile {
                 self.profile = profile
                 self.updateUI()
-                self.refreshControl?.endRefreshing()
             } else {
-                //self.logout()
+                self.authErrorHandle()
             }
+            self.refreshControl?.endRefreshing()
         }
         ProjectCollection.favorites { (favorites) in
             if let favorites = favorites {
                 self.favorites = favorites
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            } else {
+                self.authErrorHandle()
             }
         }
     }

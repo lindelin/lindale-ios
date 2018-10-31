@@ -24,10 +24,29 @@ class SettingTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.preUpdateUI()
+        self.updateUI()
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.profileInfoHasUpdated, object: nil)
+    }
+    
+    @objc func loadData() {
+        Profile.resources { (profile) in
+            if let profile = profile {
+                self.profile = profile
+                self.updateUI()
+            } else {
+                self.authErrorHandle()
+            }
+        }
+    }
+    
+    func updateUI() {
+        if let profile = self.profile {
+            self.photo.load(url: URL(string: profile.photo!)!, placeholder: UIImage(named: "lindale-launch"))
+            self.name.text = profile.name
+            self.email.text = profile.email
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -70,33 +89,6 @@ class SettingTableViewController: UITableViewController {
             }else {
                 self.present(logoutAlert, animated: true, completion: nil)
             }
-        }
-    }
-    
-    @objc func loadData() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Profile.resources { (profile) in
-            if let profile = profile {
-                self.updateUI(with: profile)
-            } else {
-                //self.logout()
-            }
-        }
-    }
-    
-    func updateUI(with profile: Profile) {
-        self.profile = profile
-        self.photo.load(url: URL(string: profile.photo!)!, placeholder: UIImage(named: "lindale-launch"))
-        self.name.text = profile.name
-        self.email.text = profile.email
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
-    func preUpdateUI() {
-        if self.profile != nil {
-            self.photo.load(url: URL(string: self.profile!.photo!)!, placeholder: UIImage(named: "lindale-launch"))
-            self.name.text = self.profile!.name
-            self.email.text = self.profile!.email
         }
     }
     

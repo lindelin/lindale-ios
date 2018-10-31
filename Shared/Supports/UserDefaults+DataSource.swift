@@ -22,6 +22,27 @@ extension UserDefaults {
         case expires = "expires_in"
         case accessToken = "access_token"
         case refreshToken = "refresh_token"
+        case hasAuthError = "has_auth_error"
+    }
+    
+    func set(_ value: Any?, forOAuthKey key: OAuthKeys) {
+        self.set(value, forKey: key.rawValue)
+    }
+    
+    func string(forOAuthKey key: OAuthKeys) -> String? {
+        return self.string(forKey: key.rawValue)
+    }
+    
+    func bool(forOAuthKey key: OAuthKeys) -> Bool {
+        return self.bool(forKey: key.rawValue)
+    }
+    
+    func integer(forOAuthKey key: OAuthKeys) -> Int {
+        return self.integer(forKey: key.rawValue)
+    }
+    
+    func removeObject(forOAuthKey key: OAuthKeys) {
+        self.removeObject(forKey: key.rawValue)
     }
     
     static let dataSuite = { () -> UserDefaults in

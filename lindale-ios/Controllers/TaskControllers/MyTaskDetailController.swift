@@ -25,9 +25,11 @@ class MyTaskDetailController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setUpNavigationController()
         self.setUpTableView()
         self.setUpHeaderView()
+        
         self.loadData()
         
         refreshControl = UIRefreshControl()
@@ -86,15 +88,13 @@ class MyTaskDetailController: UITableViewController {
     }
     
     @objc func loadData() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         TaskResource.load(id: self.task.id) { (taskResource) in
             if let taskResource = taskResource {
                 self.taskResource = taskResource
-                self.tableView.reloadData()
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.updateHeaderView()
-                self.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
             }
+            self.refreshControl?.endRefreshing()
         }
     }
 

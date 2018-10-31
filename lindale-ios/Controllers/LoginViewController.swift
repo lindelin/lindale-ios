@@ -16,12 +16,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    enum keys: String {
-        case authentication = "authentication"
-    }
-    
-    fileprivate var validationMessage = "Login faild!"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let pastelView = PastelView(frame: view.bounds)
@@ -72,20 +66,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - ログイン
     @IBAction func login(_ sender: UIButton) {
-        let email = self.email.text!
-        let password = self.password.text!
+        let email = self.email.text ?? ""
+        let password = self.password.text ?? ""
         OAuth.login(email: email, password: password, success: { (oauth) in
-            OAuth.save(oauth)
+            oauth.save()
             self.toMainStoryboard()
-        }) { () in
-            self.showLoginAlert()
+        }) { (message) in
+            if let message = message {
+                self.showLoginAlert(message)
+            } else {
+                self.showLoginAlert()
+            }
         }
     }
     
     // MARK: - パスワードリセット
     @IBAction func resetPasswordButton(_ sender: Any) {
-        // TODO: authentication
-        UserDefaults.standard.set(false, forKey: LoginViewController.keys.authentication.rawValue)
         let url = "https://lindale.stg.lindelin.org/password/reset"   // 仮URL
         let safariViewController = SFSafariViewController(url: URL(string: url)!)
         let navigationController = UINavigationController(rootViewController: safariViewController)
@@ -106,8 +102,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - ログイン失敗
-    func showLoginAlert() {
-        let loginErrorAlert = UIAlertController(title: "Login error", message: self.validationMessage, preferredStyle: .alert)
+    func showLoginAlert(_ message: String? = nil) {
+        
+        let networkError = "Network Error!"
+        
+        let loginErrorAlert = UIAlertController(title: "Login error", message: message ?? networkError, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
             loginErrorAlert.dismiss(animated: true, completion: nil)
@@ -138,14 +137,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

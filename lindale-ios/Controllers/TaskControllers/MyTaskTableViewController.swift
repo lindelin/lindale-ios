@@ -18,8 +18,8 @@ class MyTaskTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
+        self.updateUI()
         self.loadData()
-        self.tableView.reloadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
@@ -31,21 +31,19 @@ class MyTaskTableViewController: UITableViewController {
     }
     
     @objc func loadData() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         MyTaskCollection.resources { (myTaskCollection) in
             if let myTaskCollection = myTaskCollection {
-                self.updateUI(with: myTaskCollection)
-                self.refreshControl?.endRefreshing()
+                self.myTaskCollection = myTaskCollection
+                self.updateUI()
             } else {
-                //self.logout()
+                self.authErrorHandle()
             }
+            self.refreshControl?.endRefreshing()
         }
     }
     
-    func updateUI(with myTaskCollection: MyTaskCollection) {
-        self.myTaskCollection = myTaskCollection
+    func updateUI() {
         self.tableView.reloadData()
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
     override func didReceiveMemoryWarning() {

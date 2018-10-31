@@ -14,7 +14,7 @@ enum OAuthService {
 }
 
 extension OAuthService: TargetType {
-    var baseURL: URL { return URL(string: UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientUrl.rawValue)!)! }
+    var baseURL: URL { return URL(string: UserDefaults.dataSuite.string(forOAuthKey: .clientUrl) ?? "")! }
     var path: String {
         switch self {
             case .login(_, _):
@@ -34,8 +34,8 @@ extension OAuthService: TargetType {
             case let .login(email, password):
                 return .requestParameters(parameters: [
                     "grant_type": "password",
-                    "client_id": UserDefaults.dataSuite.integer(forKey: UserDefaults.OAuthKeys.clientId.rawValue),
-                    "client_secret": UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)!,
+                    "client_id": UserDefaults.dataSuite.integer(forOAuthKey: .clientId),
+                    "client_secret": UserDefaults.dataSuite.string(forOAuthKey: .clientSecret) ?? "",
                     "username": email,
                     "password": password,
                     "scope": "*"
@@ -43,9 +43,9 @@ extension OAuthService: TargetType {
         case .refresh:
             return .requestParameters(parameters: [
                 "grant_type": "refresh_token",
-                "client_id": UserDefaults.dataSuite.integer(forKey: UserDefaults.OAuthKeys.clientId.rawValue),
-                "client_secret": UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.clientSecret.rawValue)!,
-                "refresh_token": UserDefaults.dataSuite.string(forKey: UserDefaults.OAuthKeys.refreshToken.rawValue) ?? nil!,
+                "client_id": UserDefaults.dataSuite.integer(forOAuthKey: .clientId),
+                "client_secret": UserDefaults.dataSuite.string(forOAuthKey: .clientSecret) ?? "",
+                "refresh_token": UserDefaults.dataSuite.string(forOAuthKey: .refreshToken) ?? "",
                 "scope": "*"
                 ], encoding: JSONEncoding.default)
             

@@ -285,7 +285,7 @@
 		F2E0D1F1214A342D00023905 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		F2E0D1F3214A342D00023905 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F2E0D1F5214A342D00023905 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F2E0D1F7214A342D00023905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../lindale-watch Extension/Info.plist"; sourceTree = "<group>"; };
+		F2E0D1F7214A342D00023905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2E0D1F8214A342D00023905 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		F2E0D204214A349500023905 /* lindale-watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-watch Extension.entitlements"; sourceTree = "<group>"; };
 		F2E0D205214A398E00023905 /* lindale-watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-watch.entitlements"; sourceTree = "<group>"; };
@@ -516,7 +516,6 @@
 				F24FB843213C0D9200045DFA /* Supports */,
 				F29DBB7521381F9E009DA744 /* AppDelegate.swift */,
 				F29DBB8421381F9F009DA744 /* Info.plist */,
-				F2E0D1F7214A342D00023905 /* Info.plist */,
 				F22364322148BB8B003D03E8 /* GoogleService-Info.plist */,
 				F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */,
 				F24FB83E213C086D00045DFA /* Assets.xcassets */,
@@ -617,6 +616,7 @@
 				F2E0D1F3214A342D00023905 /* NotificationController.swift */,
 				F2E0D1F8214A342D00023905 /* PushNotificationPayload.apns */,
 				A87EEFB2214A92F5009C8E61 /* Helpers.swift */,
+				F2E0D1F7214A342D00023905 /* Info.plist */,
 				F2E0D1F5214A342D00023905 /* Assets.xcassets */,
 			);
 			path = "lindale-watch Extension";

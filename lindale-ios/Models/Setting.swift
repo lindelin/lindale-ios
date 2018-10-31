@@ -18,8 +18,10 @@ struct Settings {
         var company: String
         
         func update(completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.profileInfoUpdate(profileInfo: self)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
                     do {
@@ -76,8 +78,10 @@ struct Settings {
         }
         
         func update(completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.notificationUpdate(notificationSettings: self)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
                     do {
@@ -99,8 +103,10 @@ struct Settings {
         }
         
         static func load(completion: @escaping (Settings.Notification?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.notificationSettings) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
                     do {
@@ -128,8 +134,10 @@ struct Settings {
         var newPasswordConfirmation: String?
         
         func save(completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.resetPassword(password: self)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
                     do {
@@ -190,8 +198,10 @@ struct Settings {
         }
         
         static func load(completion: @escaping (Settings.Locale?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.localeSettings) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
                     do {
@@ -213,8 +223,10 @@ struct Settings {
         }
         
         static func update(to language: String, completion: @escaping (String?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.localeUpdate(lang: language)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
                     do {
