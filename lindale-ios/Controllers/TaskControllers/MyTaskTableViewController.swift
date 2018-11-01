@@ -15,12 +15,14 @@ class MyTaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
         self.updateUI()
         self.loadData()
         
+        // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import KRProgressHUD
+import SCLAlertView
 
 class MyTaskDetailController: UITableViewController {
     
@@ -26,22 +27,24 @@ class MyTaskDetailController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: - Setup
         self.setUpNavigationController()
         self.setUpTableView()
         self.setUpHeaderView()
         
         self.loadData()
         
+        // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
     
+        // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        
         headerView.frame = CGRect(x: 0, y: offsetY, width: scrollView.bounds.width, height: 252)
     }
     
@@ -442,6 +445,20 @@ class MyTaskDetailController: UITableViewController {
     }
     
     @IBAction func addSubTask(_ sender: UIBarButtonItem) {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCircularIcon: false
+        )
+        // Add a text field
+        let alert = SCLAlertView(appearance: appearance)
+        let txt = alert.addTextField("内容")
+        alert.addButton("追加") {
+            print("Text value: \(txt.text)")
+        }
+        alert.showCustom("サブチケットを追加",
+                         subTitle: "内容を入力してください。",
+                         color: Colors.themeGreen,
+                         icon: UIImage(named: "task-24")!,
+                         closeButtonTitle: "取消")
     }
     /*
     // MARK: - Navigation

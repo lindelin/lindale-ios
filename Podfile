@@ -18,6 +18,7 @@ target 'lindale-ios' do
   pod 'Pastel'
   pod "KRProgressHUD"
   pod 'Down'
+  pod 'SCLAlertView'
   
   target 'lindale-watch Extension' do
       platform :watchos, '5'
