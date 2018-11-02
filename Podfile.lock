@@ -89,6 +89,7 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FoldingCell (4.0.2)
   - GoogleAppMeasurement (5.3.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -149,6 +150,7 @@ DEPENDENCIES:
   - Firebase/Performance
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - FoldingCell
   - KRProgressHUD
   - Moya
   - Pastel
@@ -172,6 +174,7 @@ SPEC REPOS:
     - FirebasePerformance
     - FirebaseRemoteConfig
     - FirebaseStorage
+    - FoldingCell
     - GoogleAppMeasurement
     - GoogleToolboxForMac
     - GoogleUtilities
@@ -203,6 +206,7 @@ SPEC CHECKSUMS:
   FirebasePerformance: 4adfe91a2c696bc43429822ad0e4aa8753b283b4
   FirebaseRemoteConfig: 7e11c65f0769c09bff6947997c209515058c5318
   FirebaseStorage: fd82e5e5c474897e19972b34b22ac0f589dce04e
+  FoldingCell: 352f0211a53f957b885a1b37d5ffa875da90bca5
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
@@ -217,6 +221,6 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
-PODFILE CHECKSUM: 4f4eb18ed9a5ba7be616819a2ae66f5322b271df
+PODFILE CHECKSUM: a49982032b614b377ab8f7a89cbed1c507f75c51
 
 COCOAPODS: 1.6.0.beta.2

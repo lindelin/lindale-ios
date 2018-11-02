@@ -450,6 +450,7 @@ class MyTaskDetailController: UITableViewController {
         let alert = SCLAlertView(appearance: appearance)
         let textField = alert.addTextField("コメント")
         alert.addButton("送信") {
+            KRProgressHUD.show(withMessage: "Sending...")
             let activity = TaskActivity(taskId: self.taskResource!.id, content: textField.text)
             activity.store(completion: { (response) in
                 NotificationCenter.default.post(name: LocalNotificationService.taskActivityHasUpdated, object: nil)

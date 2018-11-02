@@ -50,6 +50,7 @@
 		F2A4FCBA216586B100E0C35E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB8216586B100E0C35E /* Task.swift */; };
 		F2A4FCBB216586B100E0C35E /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB9216586B100E0C35E /* OAuth.swift */; };
 		F2A4FCBD216586C700E0C35E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCBC216586C700E0C35E /* NetworkService.swift */; };
+		F2B9D7E0218C49B7009A119A /* FoldingTodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B9D7DF218C49B7009A119A /* FoldingTodoCell.swift */; };
 		F2BB3AAE215215C000AB2632 /* TasksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BB3AAD215215C000AB2632 /* TasksController.swift */; };
 		F2BB3AB121524FAD00AB2632 /* DefaultTaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */; };
 		F2BB3AB3215254B100AB2632 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
@@ -263,6 +264,7 @@
 		F2A4FCB8216586B100E0C35E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F2A4FCB9216586B100E0C35E /* OAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		F2A4FCBC216586C700E0C35E /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F2B9D7DF218C49B7009A119A /* FoldingTodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTodoCell.swift; sourceTree = "<group>"; };
 		F2BB3AAD215215C000AB2632 /* TasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskRow.swift; sourceTree = "<group>"; };
 		F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				F2A39AE9214D109100BF2AF7 /* DefaultTodoCell.swift */,
+				F2B9D7DF218C49B7009A119A /* FoldingTodoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1030,6 +1033,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -1047,6 +1051,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Down.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -1129,6 +1134,7 @@
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
 				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
 				A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */,
+				F2B9D7E0218C49B7009A119A /* FoldingTodoCell.swift in Sources */,
 				F2F4FFCD215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
 				F2CAE1842138E410002C04E7 /* Helpers.swift in Sources */,
 				A8DCF832217AECB100839DA4 /* LanguageSettingController.swift in Sources */,
