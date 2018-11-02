@@ -41,6 +41,7 @@ class MyTaskDetailController: UITableViewController {
         // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskActivityHasUpdated, object: nil)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -442,6 +443,38 @@ class MyTaskDetailController: UITableViewController {
     }
     
     @IBAction func addActivity(_ sender: UIBarButtonItem) {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCircularIcon: false
+        )
+        // Add a text field
+        let alert = SCLAlertView(appearance: appearance)
+        let textField = alert.addTextField("コメント")
+        alert.addButton("送信") {
+            let activity = TaskActivity(taskId: self.taskResource!.id, content: textField.text)
+            activity.store(completion: { (response) in
+                NotificationCenter.default.post(name: LocalNotificationService.taskActivityHasUpdated, object: nil)
+                if let response = response {
+                    if response["status"] == "OK" {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                        })
+                    } else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: response["messages"])
+                        })
+                    }
+                } else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: "Network Error!")
+                    })
+                }
+            })
+        }
+        alert.showCustom("アクティビティーを追加",
+                         subTitle: "コメントを入力してください。",
+                         color: Colors.themeBlue,
+                         icon: UIImage(named: "task-24")!,
+                         closeButtonTitle: "取消")
     }
     
     @IBAction func addSubTask(_ sender: UIBarButtonItem) {
@@ -450,9 +483,28 @@ class MyTaskDetailController: UITableViewController {
         )
         // Add a text field
         let alert = SCLAlertView(appearance: appearance)
-        let txt = alert.addTextField("内容")
+        let textField = alert.addTextField("内容")
         alert.addButton("追加") {
-            print("Text value: \(txt.text)")
+            KRProgressHUD.show(withMessage: "Adding...")
+            let subTask = TaskResource.SubTask(taskId: self.taskResource!.id, content: textField.text)
+            subTask.store(completion: { (response) in
+                NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
+                if let response = response {
+                    if response["status"] == "OK" {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                        })
+                    } else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: response["messages"])
+                        })
+                    }
+                } else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: "Network Error!")
+                    })
+                }
+            })
         }
         alert.showCustom("サブチケットを追加",
                          subTitle: "内容を入力してください。",
@@ -460,6 +512,66 @@ class MyTaskDetailController: UITableViewController {
                          icon: UIImage(named: "task-24")!,
                          closeButtonTitle: "取消")
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        var config = UISwipeActionsConfiguration(actions: [])
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            break
+        case 1:
+            let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (_, _, completion) in
+                let actionSheet = UIAlertController(title: "削除", message: "サブチケットを削除しますか？", preferredStyle: .actionSheet)
+    
+                let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+                    actionSheet.dismiss(animated: true, completion: nil)
+                })
+                
+                let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
+                    KRProgressHUD.show(withMessage: "Deleting...")
+                    let cell = self.tableView.cellForRow(at: indexPath) as! SubTaskCell
+                    let subTask = cell.subTask!
+                    subTask.delete(completion: { (response) in
+                        if let response = response {
+                            if response["status"] == "OK" {
+                                NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
+                                KRProgressHUD.dismiss({
+                                    KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                                })
+                            } else {
+                                KRProgressHUD.dismiss({
+                                    KRProgressHUD.showError(withMessage: response["messages"])
+                                })
+                            }
+                        } else {
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showError(withMessage: "Network Error!")
+                            })
+                        }
+                    })
+                })
+                
+                actionSheet.addAction(noAction)
+                actionSheet.addAction(yesAction)
+                
+                if self.presentingViewController == nil {
+                    self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
+                }else {
+                    self.present(actionSheet, animated: true, completion: nil)
+                }
+            }
+            deleteAction.backgroundColor = UIColor(named: "Theme-main")
+            config = UISwipeActionsConfiguration(actions: [deleteAction])
+            break
+        case 2:
+            break
+        default:
+            break
+        }
+        
+        return config
+    }
+    
     /*
     // MARK: - Navigation
 

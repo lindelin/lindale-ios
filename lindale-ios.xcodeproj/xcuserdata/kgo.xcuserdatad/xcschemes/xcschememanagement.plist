@@ -7,9 +7,19 @@
 		<key>lindale-intents.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>35</integer>
+			<integer>37</integer>
+		</dict>
+		<key>lindale-intents.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>37</integer>
 		</dict>
 		<key>lindale-intentsUI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>38</integer>
+		</dict>
+		<key>lindale-intentsUI.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>38</integer>
@@ -22,9 +32,19 @@
 		<key>lindale-watch (Notification).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>37</integer>
+			<integer>36</integer>
+		</dict>
+		<key>lindale-watch (Notification).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>36</integer>
 		</dict>
 		<key>lindale-watch-intents.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>39</integer>
+		</dict>
+		<key>lindale-watch-intents.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>39</integer>
@@ -32,7 +52,12 @@
 		<key>lindale-watch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>36</integer>
+			<integer>35</integer>
+		</dict>
+		<key>lindale-watch.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>35</integer>
 		</dict>
 	</dict>
 </dict>

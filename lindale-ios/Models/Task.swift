@@ -233,6 +233,13 @@ struct TaskResource: Codable {
         var content: String
         var isFinish: Int
         
+        init(taskId: Int, content: String?) {
+            self.taskId = taskId
+            self.content = content ?? ""
+            self.id = 0
+            self.isFinish = 0
+        }
+        
         enum CodingKeys: String, CodingKey {
             case taskId = "task_id"
             case id
@@ -244,10 +251,61 @@ struct TaskResource: Codable {
             return self.isFinish == 1 ? true : false
         }
         
+        func store(completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let provider = MoyaProvider<NetworkService>()
+            provider.request(.storeSubTask(subTask: self)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let status = try! coder.decode([String: String].self, from: data)
+                        completion(status)
+                    }
+                    catch {
+                        print(error)
+                        completion(nil)
+                    }
+                // do something with the response data or statusCode
+                case let .failure(error):
+                    print(error)
+                    completion(nil)
+                }
+            }
+        }
+        
         func update(completion: @escaping ([String: String]?) -> Void) {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
             provider.request(.updateSubTask(subTask: self)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let status = try! coder.decode([String: String].self, from: data)
+                        completion(status)
+                    }
+                    catch {
+                        completion(nil)
+                    }
+                // do something with the response data or statusCode
+                case let .failure(error):
+                    print(error)
+                    completion(nil)
+                }
+            }
+        }
+        
+        func delete(completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let provider = MoyaProvider<NetworkService>()
+            provider.request(.deleteSubTask(subTask: self)) { result in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
@@ -359,6 +417,42 @@ struct TaskResource: Codable {
                     completion(status)
                 }
                 catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+}
+
+struct TaskActivity {
+    var taskId: Int
+    var content: String
+    
+    init(taskId: Int, content: String?) {
+        self.taskId = taskId
+        self.content = content ?? ""
+    }
+    
+    func store(completion: @escaping ([String: String]?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.storeActivity(activity: self)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
+                }
+                catch {
+                    print(error)
                     completion(nil)
                 }
             // do something with the response data or statusCode
