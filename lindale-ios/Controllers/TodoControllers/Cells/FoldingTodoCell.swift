@@ -20,6 +20,7 @@ class FoldingTodoCell: FoldingCell {
     @IBOutlet weak var colorBar: UIView!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var contentDetail: UILabel!
+    @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var initiatorName: UILabel!
@@ -28,6 +29,7 @@ class FoldingTodoCell: FoldingCell {
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var list: UILabel!
     @IBOutlet weak var updateAtDetail: UILabel!
+    @IBOutlet weak var updateButton: UIButton!
     
 
     override func awakeFromNib() {
@@ -56,24 +58,20 @@ class FoldingTodoCell: FoldingCell {
         self.color.backgroundColor = Colors.get(id: todo.color)
         self.colorBar.backgroundColor = Colors.get(id: todo.color)
         self.colorView.backgroundColor = Colors.get(id: todo.color)
+        self.updateButton.backgroundColor = Colors.get(id: todo.color)
         self.contentDetail.text = todo.content
-        self.userName.text = todo.userName
-        self.userEmail.text = "todo@lindelin.org"
-        self.initiatorName.text = todo.initiatorName
-        self.initiatorEmail.text = "todo@lindelin.org"
+        self.userPhoto.load(url: URL(string: todo.user.photo!)!, placeholder: UIImage(named: "user-30"))
+        self.userName.text = todo.user.name
+        self.userEmail.text = todo.user.email
+        self.initiatorName.text = todo.initiator?.name
+        self.initiatorEmail.text = todo.initiator?.email
         self.statusDetail.text = todo.status
         self.type.text = todo.type
         self.list.text = todo.listName
         self.updateAtDetail.text = todo.updatedAt
     }
-
-}
-
-// MARK: - Actions ⚡️
-
-extension FoldingTodoCell {
     
-    @IBAction func buttonHandler(_: AnyObject) {
-        print("tap")
+    // MARK: - Actions ⚡️
+    @IBAction func buttonHandler(_ sender: UIButton) {
     }
 }

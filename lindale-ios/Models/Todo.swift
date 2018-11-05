@@ -22,7 +22,7 @@ struct MyTodoCollection: Codable {
     
     struct Todo: Codable {
         var id: Int
-        var initiatorName: String?
+        var initiator: User?
         var content: String?
         var details: String?
         var type: String
@@ -30,13 +30,13 @@ struct MyTodoCollection: Codable {
         var action: Int
         var color: Int
         var listName: String?
-        var userName: String
+        var user: User
         var projectName: String
         var updatedAt: String
         
         enum CodingKeys: String, CodingKey {
             case id
-            case initiatorName = "initiator_name"
+            case initiator
             case content
             case details
             case type
@@ -44,9 +44,33 @@ struct MyTodoCollection: Codable {
             case action
             case color
             case listName = "list_name"
-            case userName = "user_name"
+            case user
             case projectName = "project_name"
             case updatedAt = "updated_at"
+        }
+        
+        struct User: Codable {
+            var id: Int
+            var name: String
+            var email: String
+            var photo: String?
+            var content: String?
+            var company: String?
+            var location: String?
+            var created: String
+            var updated: String
+            
+            enum CodingKeys: String, CodingKey {
+                case id
+                case name
+                case email
+                case photo
+                case content
+                case company
+                case location
+                case created = "created_at"
+                case updated = "updated_at"
+            }
         }
     }
     

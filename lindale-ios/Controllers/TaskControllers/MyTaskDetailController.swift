@@ -340,7 +340,15 @@ class MyTaskDetailController: UITableViewController {
         
         let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
             KRProgressHUD.show(withMessage: "Deleting...")
-            self.taskResource!.delete(completion: { (response) in
+            
+            guard let taskResource = self.taskResource else {
+                KRProgressHUD.dismiss({
+                    KRProgressHUD.showError(withMessage: "Network Error!")
+                })
+                return
+            }
+            
+            taskResource.delete(completion: { (response) in
                 if let response = response {
                     if response["status"] == "OK" {
                         NotificationCenter.default.post(name: LocalNotificationService.taskHasUpdated, object: nil)
@@ -388,6 +396,7 @@ class MyTaskDetailController: UITableViewController {
         if self.taskResource?.progress == 100 && self.taskResource?.isFinish == 0 {
             let completionAction = UIAlertAction(title: "完了", style: .default, handler: { (action: UIAlertAction) in
                 KRProgressHUD.show(withMessage: "Updating...")
+                
                 self.taskResource!.changeCompleteStatus(to: .completed, completion: { (response) in
                     if let response = response {
                         if response["status"] == "OK" {
@@ -451,7 +460,15 @@ class MyTaskDetailController: UITableViewController {
         let textField = alert.addTextField("コメント")
         alert.addButton("送信") {
             KRProgressHUD.show(withMessage: "Sending...")
-            let activity = TaskActivity(taskId: self.taskResource!.id, content: textField.text)
+            
+            guard let taskResource = self.taskResource else {
+                KRProgressHUD.dismiss({
+                    KRProgressHUD.showError(withMessage: "Network Error!")
+                })
+                return
+            }
+            
+            let activity = TaskActivity(taskId: taskResource.id, content: textField.text)
             activity.store(completion: { (response) in
                 NotificationCenter.default.post(name: LocalNotificationService.taskActivityHasUpdated, object: nil)
                 if let response = response {
@@ -487,7 +504,15 @@ class MyTaskDetailController: UITableViewController {
         let textField = alert.addTextField("内容")
         alert.addButton("追加") {
             KRProgressHUD.show(withMessage: "Adding...")
-            let subTask = TaskResource.SubTask(taskId: self.taskResource!.id, content: textField.text)
+            
+            guard let taskResource = self.taskResource else {
+                KRProgressHUD.dismiss({
+                    KRProgressHUD.showError(withMessage: "Network Error!")
+                })
+                return
+            }
+            
+            let subTask = TaskResource.SubTask(taskId: taskResource.id, content: textField.text)
             subTask.store(completion: { (response) in
                 NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
                 if let response = response {

@@ -125,6 +125,33 @@ class MyTodoTableViewController: UITableViewController {
             tableView.endUpdates()
         }, completion: nil)
     }
+    
+    // MARK: - 右滑菜单
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (_, _, completion) in
+            let actionSheet = UIAlertController(title: "削除", message: "TODOを削除しますか？", preferredStyle: .actionSheet)
+            
+            let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+                actionSheet.dismiss(animated: true, completion: nil)
+            })
+            
+            let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
+                
+            })
+            
+            actionSheet.addAction(noAction)
+            actionSheet.addAction(yesAction)
+            
+            if self.presentingViewController == nil {
+                self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
+            }else {
+                self.present(actionSheet, animated: true, completion: nil)
+            }
+        }
+        deleteAction.backgroundColor = UIColor(named: "Theme-main")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 
     /*
     // MARK: - Navigation
