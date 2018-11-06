@@ -28,6 +28,8 @@ enum NetworkService {
     case storeSubTask(subTask: TaskResource.SubTask)
     case deleteSubTask(subTask: TaskResource.SubTask)
     case storeActivity(activity: TaskActivity)
+    case deleteTodo(todo: MyTodoCollection.Todo)
+    case changeTodoColor(todo: MyTodoCollection.Todo, colorId: Int)
 }
 
 extension NetworkService: TargetType {
@@ -68,6 +70,10 @@ extension NetworkService: TargetType {
             return "/tasks/\(subTask.taskId)/sub-task"
         case .storeActivity(let activity):
             return "/tasks/\(activity.taskId)/activities"
+        case .deleteTodo(let todo):
+            return "/todos/\(todo.id)"
+        case .changeTodoColor(let todo, _):
+            return "/todos/\(todo.id)/change-color"
         }
     }
     
@@ -75,9 +81,9 @@ extension NetworkService: TargetType {
         switch self {
         case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor:
             return .put
-        case .deleteTask, .deleteSubTask:
+        case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
         case .storeSubTask, .storeActivity:
             return .post
@@ -86,7 +92,7 @@ extension NetworkService: TargetType {
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -122,12 +128,16 @@ extension NetworkService: TargetType {
             return .requestParameters(parameters: [
                 "content": activity.content,
                 ], encoding: JSONEncoding.default)
+        case let .changeTodoColor(_ , colorId):
+            return .requestParameters(parameters: [
+                "color_id": colorId,
+                ], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

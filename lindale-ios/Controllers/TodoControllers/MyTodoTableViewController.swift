@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import KRProgressHUD
+import SCLAlertView
 
 class MyTodoTableViewController: UITableViewController {
     
@@ -30,6 +32,8 @@ class MyTodoTableViewController: UITableViewController {
         
         self.updateUI()
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.todoHasUpdated, object: nil)
     }
     
     private func setup() {
@@ -126,6 +130,54 @@ class MyTodoTableViewController: UITableViewController {
         }, completion: nil)
     }
     
+    // MARK: - 左滑菜单
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+        let colorChangeActon = UIContextualAction(style: .normal, title: "Color") { (_, _, completion) in
+            let alert = SCLAlertView()
+            
+            for id in Colors.ids() {
+                alert.addButton("", backgroundColor: Colors.get(id: id), textColor: nil, showTimeout: nil, action: {
+                    KRProgressHUD.show(withMessage: "Updating...")
+                    guard let todo = cell.todo else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: "Network Error!")
+                        })
+                        return
+                    }
+                    
+                    todo.changeColor(colorId: id, completion: { (response) in
+                        if let response = response {
+                            if response["status"] == "OK" {
+                                NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                                KRProgressHUD.dismiss({
+                                    KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                                })
+                            } else {
+                                KRProgressHUD.dismiss({
+                                    KRProgressHUD.showError(withMessage: response["messages"])
+                                })
+                            }
+                        } else {
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showError(withMessage: "Network Error!")
+                            })
+                        }
+                    })
+                })
+            }
+            
+            alert.showCustom("カラー変更",
+                             subTitle: "カラーを選んでください。",
+                             color: Colors.get(id: cell.todo!.color),
+                             icon: UIImage(),
+                             closeButtonTitle: "取消")
+        }
+        colorChangeActon.backgroundColor = Colors.get(id: cell.todo!.color)
+        return UISwipeActionsConfiguration(actions: [colorChangeActon])
+    }
+    
     // MARK: - 右滑菜单
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -137,7 +189,34 @@ class MyTodoTableViewController: UITableViewController {
             })
             
             let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show(withMessage: "Deleting...")
+                let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
                 
+                guard let todo = cell.todo else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: "Network Error!")
+                    })
+                    return
+                }
+                
+                todo.delete(completion: { (response) in
+                    if let response = response {
+                        if response["status"] == "OK" {
+                            NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                            })
+                        } else {
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showError(withMessage: response["messages"])
+                            })
+                        }
+                    } else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: "Network Error!")
+                        })
+                    }
+                })
             })
             
             actionSheet.addAction(noAction)

@@ -38,6 +38,10 @@ class Colors {
             return self.themeBase
         }
     }
+    
+    static func ids() -> [Int] {
+        return [1, 2, 3, 4, 5, 6]
+    }
 }
 
 class Actions {

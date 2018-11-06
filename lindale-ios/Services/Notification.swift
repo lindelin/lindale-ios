@@ -13,4 +13,5 @@ struct LocalNotificationService {
     static let localeSettingsHasUpdated = Notification.Name("localeSettingsHasUpdated")
     static let profileInfoHasUpdated = Notification.Name("profileInfoHasUpdated")
     static let taskActivityHasUpdated = Notification.Name("taskActivityHasUpdated")
+    static let todoHasUpdated = Notification.Name("todoHasUpdated")
 }

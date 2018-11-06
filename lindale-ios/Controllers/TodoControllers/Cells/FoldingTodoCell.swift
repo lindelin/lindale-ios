@@ -11,6 +11,8 @@ import UIKit
 
 class FoldingTodoCell: FoldingCell {
     
+    var todo: MyTodoCollection.Todo?
+    
     @IBOutlet weak var id: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var projectName: UILabel!
@@ -50,6 +52,9 @@ class FoldingTodoCell: FoldingCell {
     }
     
     func setCell(todo: MyTodoCollection.Todo) {
+        
+        self.todo = todo
+        
         self.id.text = "#\(todo.id)"
         self.status.text = todo.status
         self.projectName.text = todo.projectName

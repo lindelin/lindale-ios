@@ -72,6 +72,56 @@ struct MyTodoCollection: Codable {
                 case updated = "updated_at"
             }
         }
+        
+        func delete(completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let provider = MoyaProvider<NetworkService>()
+            provider.request(.deleteTodo(todo: self)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let status = try! coder.decode([String: String].self, from: data)
+                        completion(status)
+                    }
+                    catch {
+                        completion(nil)
+                    }
+                // do something with the response data or statusCode
+                case let .failure(error):
+                    print(error)
+                    completion(nil)
+                }
+            }
+        }
+        
+        func changeColor(colorId: Int, completion: @escaping ([String: String]?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let provider = MoyaProvider<NetworkService>()
+            provider.request(.changeTodoColor(todo: self, colorId: colorId)) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let status = try! coder.decode([String: String].self, from: data)
+                        completion(status)
+                    }
+                    catch {
+                        completion(nil)
+                    }
+                // do something with the response data or statusCode
+                case let .failure(error):
+                    print(error)
+                    completion(nil)
+                }
+            }
+        }
     }
     
     struct Links: Codable {
