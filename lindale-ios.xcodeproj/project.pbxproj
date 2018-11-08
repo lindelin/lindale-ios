@@ -36,6 +36,7 @@
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
 		F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */; };
+		F21C92072194336A00961362 /* FoldingTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C92062194336A00961362 /* FoldingTaskCell.swift */; };
 		F22364332148BB8B003D03E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22364322148BB8B003D03E8 /* GoogleService-Info.plist */; };
 		F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */; };
 		F23226C32170908400846250 /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23226C22170908400846250 /* ActivityViewCell.swift */; };
@@ -248,6 +249,7 @@
 		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21C50CB21420CBE008218F4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		F21C92062194336A00961362 /* FoldingTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTaskCell.swift; sourceTree = "<group>"; };
 		F22364322148BB8B003D03E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavoriteCell.swift; sourceTree = "<group>"; };
 		F23226C22170908400846250 /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 				A86384042171CBC900837E1B /* TaskInfoCell.swift */,
 				A89F87D521722D0A004ADEA4 /* SubTaskCell.swift */,
 				A89F87D921726541004ADEA4 /* TaskActivityCell.swift */,
+				F21C92062194336A00961362 /* FoldingTaskCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1139,6 +1142,7 @@
 				F2CAE1842138E410002C04E7 /* Helpers.swift in Sources */,
 				A8DCF832217AECB100839DA4 /* LanguageSettingController.swift in Sources */,
 				A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */,
+				F21C92072194336A00961362 /* FoldingTaskCell.swift in Sources */,
 				F2F46BA6214BAA53005CD8A9 /* DefaultTaskCell.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				F2F4FFD2215E246800D5F197 /* Intents.intentdefinition in Sources */,

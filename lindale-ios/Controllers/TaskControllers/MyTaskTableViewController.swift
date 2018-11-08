@@ -59,11 +59,15 @@ class MyTaskTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return (self.myTaskCollection?.tasks.count) ?? 0
     }
+    
+    override func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 520
+    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let id = String(describing: DefaultTaskCell.self)
-        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! DefaultTaskCell
+        let id = String(describing: FoldingTaskCell.self)
+        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! FoldingTaskCell
         
         cell.setCell(task: (self.myTaskCollection?.tasks[indexPath.row])!)
         
