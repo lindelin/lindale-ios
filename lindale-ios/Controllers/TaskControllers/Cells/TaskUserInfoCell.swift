@@ -27,9 +27,9 @@ class TaskUserInfoCell: UITableViewCell {
     
     func setCell(task: MyTaskCollection.Task, isInitiator: Bool = false) {
         if isInitiator {
-            self.name.text = task.userName
+            self.name.text = task.user?.name
         } else {
-            self.name.text = task.initiatorName
+            self.name.text = task.initiator?.name
         }
     }
     

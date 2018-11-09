@@ -261,8 +261,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Sy-mV-9nl" userLabel="bar">
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="49"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lindalë Project #31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1p-g9-8K9">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="49"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lindalë Project #31" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="e1p-g9-8K9">
+                                                                    <rect key="frame" x="12" y="0.0" width="536" height="49"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="18"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -272,8 +272,8 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="e1p-g9-8K9" secondAttribute="bottom" id="FiJ-U9-Hxj"/>
                                                                 <constraint firstItem="e1p-g9-8K9" firstAttribute="top" secondItem="3Sy-mV-9nl" secondAttribute="top" id="FlK-lu-cus"/>
-                                                                <constraint firstItem="e1p-g9-8K9" firstAttribute="leading" secondItem="3Sy-mV-9nl" secondAttribute="leading" id="IbV-t7-4Io"/>
-                                                                <constraint firstAttribute="trailing" secondItem="e1p-g9-8K9" secondAttribute="trailing" id="toh-zv-Now"/>
+                                                                <constraint firstItem="e1p-g9-8K9" firstAttribute="leading" secondItem="3Sy-mV-9nl" secondAttribute="leading" constant="12" id="IbV-t7-4Io"/>
+                                                                <constraint firstAttribute="trailing" secondItem="e1p-g9-8K9" secondAttribute="trailing" constant="12" id="toh-zv-Now"/>
                                                                 <constraint firstAttribute="height" constant="49" id="ze2-JB-ECx"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
@@ -283,12 +283,9 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="JfQ-hO-Lef">
-                                                            <rect key="frame" x="0.0" y="49" width="560" height="116"/>
-                                                        </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WC2-5B-o66">
                                                             <rect key="frame" x="0.0" y="49" width="560" height="116"/>
-                                                            <color key="backgroundColor" name="Theme-sub"/>
+                                                            <color key="backgroundColor" name="Theme-background"/>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDZ-Fg-UOn">
                                                             <rect key="frame" x="12" y="61" width="536" height="24"/>
@@ -300,12 +297,8 @@
                                                     <color key="backgroundColor" red="0.36470588240000001" green="0.29411764709999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="3Sy-mV-9nl" firstAttribute="leading" secondItem="jOx-tR-GrX" secondAttribute="leading" id="4JZ-Te-FPE"/>
-                                                        <constraint firstItem="JfQ-hO-Lef" firstAttribute="top" secondItem="3Sy-mV-9nl" secondAttribute="bottom" id="6At-ni-Xg4"/>
                                                         <constraint firstItem="3Sy-mV-9nl" firstAttribute="top" secondItem="jOx-tR-GrX" secondAttribute="top" id="6a8-fV-uvW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="JfQ-hO-Lef" secondAttribute="trailing" id="K9F-EF-EBq"/>
-                                                        <constraint firstAttribute="bottom" secondItem="JfQ-hO-Lef" secondAttribute="bottom" id="LSm-hO-axN"/>
                                                         <constraint firstAttribute="trailing" secondItem="WC2-5B-o66" secondAttribute="trailing" id="SAP-6D-W4B"/>
-                                                        <constraint firstItem="JfQ-hO-Lef" firstAttribute="leading" secondItem="jOx-tR-GrX" secondAttribute="leading" id="U18-IF-JmW"/>
                                                         <constraint firstItem="oDZ-Fg-UOn" firstAttribute="leading" secondItem="jOx-tR-GrX" secondAttribute="leading" constant="12" id="Xpb-Gu-OEy"/>
                                                         <constraint firstAttribute="trailing" secondItem="3Sy-mV-9nl" secondAttribute="trailing" id="a69-aS-8MP"/>
                                                         <constraint firstItem="oDZ-Fg-UOn" firstAttribute="top" secondItem="3Sy-mV-9nl" secondAttribute="bottom" constant="12" id="azR-zq-Pn1"/>
@@ -691,7 +684,6 @@
     </scenes>
     <resources>
         <image name="dots" width="14" height="84"/>
-        <image name="image" width="681" height="330"/>
         <image name="todo-30" width="45" height="45"/>
         <image name="user-30" width="45" height="45"/>
         <namedColor name="Theme-background">
@@ -708,9 +700,6 @@
         </namedColor>
         <namedColor name="Theme-main">
             <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Theme-sub">
-            <color red="0.94099998474121094" green="0.9179999828338623" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="Theme-base-sub"/>

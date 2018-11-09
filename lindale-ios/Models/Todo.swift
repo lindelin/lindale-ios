@@ -30,7 +30,7 @@ struct MyTodoCollection: Codable {
         var action: Int
         var color: Int
         var listName: String?
-        var user: User
+        var user: User?
         var projectName: String
         var updatedAt: String
         

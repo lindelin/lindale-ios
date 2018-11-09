@@ -16,7 +16,6 @@ class FoldingTaskCell: UITableViewCell {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var colorBar: UIView!
     @IBOutlet weak var projectNameAndCode: UILabel!
-    @IBOutlet weak var progress: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var subTaskStatus: UILabel!
@@ -51,17 +50,21 @@ class FoldingTaskCell: UITableViewCell {
         self.task = task
         self.colorView.backgroundColor = Colors.get(id: task.color)
         self.colorBar.backgroundColor = Colors.get(id: task.color)
-        self.projectNameAndCode.text = "\(task.projectName) #\(task.id)"
-        self.progress.text = "\(task.progress)%"
+        self.projectNameAndCode.text = "\(task.projectName) #\(task.id)" 
         self.title.text = "\(task.type): \(task.title)"
         self.progressBar.progress = Float(Double(task.progress) / Double(100))
         self.progressBar.progressTintColor = Colors.get(id: task.color)
         self.subTaskStatus.text = task.subTaskStatus
+        self.userPhoto.load(url: URL(string: task.user?.photo ?? "")!, placeholder: UIImage(named: "user-30"))
+        self.userName.text = task.user?.name
+        self.userEmail.text = task.user?.email
+        self.initiatorName.text = task.initiator?.name
+        self.initiatorEmail.text = task.initiator?.email
         self.status.text = task.status
         self.priority.text = task.priority
-        self.group.text = task.group ?? "None"
-        self.startAt.text = task.startAt
-        self.endAt.text = task.endAt
+        self.group.text = task.group ?? "N/A"
+        self.startAt.text = task.startAt ?? "N/A"
+        self.endAt.text = task.endAt ?? "N/A"
         self.updatedAt.text = task.updatedAt
     }
 

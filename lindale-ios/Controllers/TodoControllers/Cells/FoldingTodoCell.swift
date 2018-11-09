@@ -65,9 +65,9 @@ class FoldingTodoCell: FoldingCell {
         self.colorView.backgroundColor = Colors.get(id: todo.color)
         self.updateButton.backgroundColor = Colors.get(id: todo.color)
         self.contentDetail.text = todo.content
-        self.userPhoto.load(url: URL(string: todo.user.photo!)!, placeholder: UIImage(named: "user-30"))
-        self.userName.text = todo.user.name
-        self.userEmail.text = todo.user.email
+        self.userPhoto.load(url: URL(string: todo.user?.photo ?? "")!, placeholder: UIImage(named: "user-30"))
+        self.userName.text = todo.user?.name
+        self.userEmail.text = todo.user?.email
         self.initiatorName.text = todo.initiator?.name
         self.initiatorEmail.text = todo.initiator?.email
         self.statusDetail.text = todo.status

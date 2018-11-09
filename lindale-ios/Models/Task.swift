@@ -23,14 +23,14 @@ struct MyTaskCollection: Codable {
     struct Task: Codable {
         var projectName: String
         var id: Int
-        var initiatorName: String
+        var initiator: User?
         var title: String
         var content: String?
         var startAt: String?
         var endAt: String?
         var cost: Int
         var progress: Int
-        var userName: String
+        var user: User?
         var color: Int
         var type: String
         var status: String
@@ -43,14 +43,14 @@ struct MyTaskCollection: Codable {
         enum CodingKeys: String, CodingKey {
             case projectName = "project_name"
             case id
-            case initiatorName = "initiator_name"
+            case initiator
             case title
             case content
             case startAt = "start_at"
             case endAt = "end_at"
             case cost
             case progress
-            case userName = "user_name"
+            case user
             case color
             case type
             case status
@@ -59,6 +59,30 @@ struct MyTaskCollection: Codable {
             case priority
             case isFinish = "is_finish"
             case updatedAt = "updated_at"
+        }
+    }
+    
+    struct User: Codable {
+        var id: Int
+        var name: String
+        var email: String
+        var photo: String?
+        var content: String?
+        var company: String?
+        var location: String?
+        var created: String
+        var updated: String
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case email
+            case photo
+            case content
+            case company
+            case location
+            case created = "created_at"
+            case updated = "updated_at"
         }
     }
     
@@ -164,7 +188,7 @@ struct TaskResource: Codable {
     var endAt: String?
     var cost: Int
     var progress: Int
-    var user: User
+    var user: User?
     var color: Int
     var type: String
     var status: String
