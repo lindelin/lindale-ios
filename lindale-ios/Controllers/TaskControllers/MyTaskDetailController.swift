@@ -560,6 +560,8 @@ class MyTaskDetailController: UITableViewController {
                     subTask.delete(completion: { (response) in
                         if let response = response {
                             if response["status"] == "OK" {
+                                self.taskResource?.subTasks.remove(at: indexPath.row)
+                                self.tableView.deleteRows(at: [indexPath], with: .automatic)
                                 NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
                                 KRProgressHUD.dismiss({
                                     KRProgressHUD.showSuccess(withMessage: response["messages"]!)
