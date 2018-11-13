@@ -25,7 +25,8 @@ class MyTodoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
+        self.setupTableView()
+        self.setupNavigation()
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
@@ -36,7 +37,14 @@ class MyTodoTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.todoHasUpdated, object: nil)
     }
     
-    private func setup() {
+    private func setupNavigation() {
+        let titleImageView = UIImageView(image: UIImage(named: "logo"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = titleImageView
+    }
+    
+    private func setupTableView() {
         cellHeights = Array(repeating: Const.closeCellHeight, count: (self.myTodoCollection?.todos.count) ?? Const.rowsCount)
         tableView.estimatedRowHeight = Const.closeCellHeight
         tableView.rowHeight = UITableView.automaticDimension

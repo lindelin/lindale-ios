@@ -18,6 +18,8 @@ class SettingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupNavigation()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,6 +30,13 @@ class SettingTableViewController: UITableViewController {
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.profileInfoHasUpdated, object: nil)
+    }
+    
+    private func setupNavigation() {
+        let titleImageView = UIImageView(image: UIImage(named: "logo"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = titleImageView
     }
     
     @objc func loadData() {

@@ -25,6 +25,8 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupNavigation()
+        
         // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
@@ -34,6 +36,13 @@ class ProfileTableViewController: UITableViewController {
         
         // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.profileInfoHasUpdated, object: nil)
+    }
+    
+    private func setupNavigation() {
+        let titleImageView = UIImageView(image: UIImage(named: "logo"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = titleImageView
     }
     
     @objc func loadData() {

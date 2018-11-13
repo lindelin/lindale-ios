@@ -18,6 +18,7 @@ class MyTaskTableViewController: UITableViewController {
         
         // MARK: - Setup
         tableView.rowHeight = UITableView.automaticDimension
+        self.setupNavigation()
         
         // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
@@ -29,6 +30,13 @@ class MyTaskTableViewController: UITableViewController {
         // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
+    }
+    
+    private func setupNavigation() {
+        let titleImageView = UIImageView(image: UIImage(named: "logo"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = titleImageView
     }
     
     override func viewWillAppear(_ animated: Bool) {
