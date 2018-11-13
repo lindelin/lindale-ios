@@ -10,8 +10,14 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func load(url: URL, placeholder: UIImage?, cache: URLCache? = nil) {
+    func load(url: URL?, placeholder: UIImage?, cache: URLCache? = nil) {
         let cache = cache ?? URLCache.shared
+        
+        guard let url = url else {
+            self.image = placeholder
+            return
+        }
+        
         let request = URLRequest(url: url)
         if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
             self.image = image

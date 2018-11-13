@@ -56,7 +56,21 @@ class MyTodoTableViewController: UITableViewController {
     }
     
     func updateUI() {
+        cellHeights = Array(repeating: Const.closeCellHeight, count: (self.myTodoCollection?.todos.count) ?? Const.rowsCount)
         self.tableView.reloadData()
+    }
+    
+    func loadMoreData(url: String) {
+        KRProgressHUD.show(withMessage: "Loding...")
+        MyTodoCollection.more(nextUrl: url) { (myTodoCollection) in
+            if let myTodoCollection = myTodoCollection {
+                self .myTodoCollection?.links = myTodoCollection.links
+                self .myTodoCollection?.meta = myTodoCollection.meta
+                self .myTodoCollection?.todos.append(contentsOf: myTodoCollection.todos)
+                self.updateUI()
+                KRProgressHUD.dismiss()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,6 +86,17 @@ class MyTodoTableViewController: UITableViewController {
     }
     
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let myTodoCollection = self.myTodoCollection {
+            let lastCell = myTodoCollection.todos.count - 1
+            if lastCell == indexPath.row {
+                guard let nextPage = myTodoCollection.links.next else {
+                    return
+                }
+                self.loadMoreData(url: nextPage)
+            }
+        }
+        
         guard case let cell as FoldingTodoCell = cell else {
             return
         }

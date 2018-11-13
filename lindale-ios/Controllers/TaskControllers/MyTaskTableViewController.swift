@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class MyTaskTableViewController: UITableViewController {
     
@@ -39,6 +40,7 @@ class MyTaskTableViewController: UITableViewController {
         MyTaskCollection.resources { (myTaskCollection) in
             if let myTaskCollection = myTaskCollection {
                 self.myTaskCollection = myTaskCollection
+                print(myTaskCollection.meta)
                 self.updateUI()
             } else {
                 self.authErrorHandle()
@@ -76,6 +78,31 @@ class MyTaskTableViewController: UITableViewController {
         cell.setCell(task: (self.myTaskCollection?.tasks[indexPath.row])!)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let myTaskCollection = self.myTaskCollection {
+            let lastCell = myTaskCollection.tasks.count - 1
+            if lastCell == indexPath.row {
+                guard let nextPage = myTaskCollection.links.next else {
+                    return
+                }
+                self.loadMoreData(url: nextPage)
+            }
+        }
+    }
+    
+    func loadMoreData(url: String) {
+        KRProgressHUD.show(withMessage: "Loding...")
+        MyTaskCollection.more(nextUrl: url) { (myTaskCollection) in
+            if let myTaskCollection = myTaskCollection {
+                self .myTaskCollection?.links = myTaskCollection.links
+                self .myTaskCollection?.meta = myTaskCollection.meta
+                self .myTaskCollection?.tasks.append(contentsOf: myTaskCollection.tasks)
+                self.updateUI()
+                KRProgressHUD.dismiss()
+            }
+        }
     }
 
     // MARK: - Navigation

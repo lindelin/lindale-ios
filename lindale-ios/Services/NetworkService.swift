@@ -146,6 +146,27 @@ extension NetworkService: TargetType {
         return ["Accept": "application/json", "Authorization": OAuth.get()!.token()]
     }
 }
+
+enum LoadMoreService {
+    case load(url: String)
+}
+
+extension LoadMoreService: TargetType {
+    var baseURL: URL {
+        switch self {
+        case .load(let url):
+            return URL(string: url)!
+        }
+    }
+    var path: String { return "" }
+    var method: Moya.Method { return .get }
+    var sampleData: Data { return "Half measures are as bad as nothing at all.".utf8Encoded }
+    var task: Task { return .requestPlain }
+    var headers: [String: String]? {
+        return ["Accept": "application/json", "Authorization": OAuth.get()!.token()]
+    }
+}
+
 // MARK: - Helpers
 private extension String {
     var urlEscaped: String {

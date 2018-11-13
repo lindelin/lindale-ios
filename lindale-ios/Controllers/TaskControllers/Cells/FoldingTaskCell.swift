@@ -55,7 +55,7 @@ class FoldingTaskCell: UITableViewCell {
         self.progressBar.progress = Float(Double(task.progress) / Double(100))
         self.progressBar.progressTintColor = Colors.get(id: task.color)
         self.subTaskStatus.text = task.subTaskStatus
-        self.userPhoto.load(url: URL(string: task.user?.photo ?? "")!, placeholder: UIImage(named: "user-30"))
+        self.userPhoto.load(url: URL(string: task.user?.photo ?? ""), placeholder: UIImage(named: "user-30"))
         self.userName.text = task.user?.name
         self.userEmail.text = task.user?.email
         self.initiatorName.text = task.initiator?.name

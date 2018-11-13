@@ -146,6 +146,31 @@ struct MyTaskCollection: Codable {
         }
     }
     
+    static func more(nextUrl url: String, completion: @escaping (MyTaskCollection?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let provider = MoyaProvider<LoadMoreService>()
+        provider.request(.load(url: url)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let myTaskCollection = try! coder.decode(MyTaskCollection.self, from: data)
+                    completion(myTaskCollection)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
     func store() {
         let coder = JSONEncoder()
         let myTaskCollection = try! coder.encode(self)
