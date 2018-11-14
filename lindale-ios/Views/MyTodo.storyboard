@@ -533,7 +533,7 @@
                                                                 <constraint firstAttribute="height" constant="41" id="xJv-JO-Ja5"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
-                                                            <state key="normal" title="UPDATE">
+                                                            <state key="normal" title="COMPLETE">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>

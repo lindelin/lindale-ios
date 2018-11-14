@@ -8,6 +8,7 @@
 
 import FoldingCell
 import UIKit
+import KRProgressHUD
 
 class FoldingTodoCell: FoldingCell {
     
@@ -78,5 +79,32 @@ class FoldingTodoCell: FoldingCell {
     
     // MARK: - Actions ⚡️
     @IBAction func buttonHandler(_ sender: UIButton) {
+        KRProgressHUD.show(withMessage: "Updating...")
+        
+        guard let todo = self.todo else {
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showError(withMessage: "Network Error!")
+            })
+            return
+        }
+        
+        todo.complete(completion: { (response) in
+            if let response = response {
+                if response["status"] == "OK" {
+                    NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                } else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: response["messages"])
+                    })
+                }
+            } else {
+                KRProgressHUD.dismiss({
+                    KRProgressHUD.showError(withMessage: "Network Error!")
+                })
+            }
+        })
     }
 }
