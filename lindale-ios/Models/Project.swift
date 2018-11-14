@@ -140,6 +140,32 @@ struct ProjectCollection: Codable {
         }
     }
     
+    static func more(nextUrl url: String, completion: @escaping (ProjectCollection?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let provider = MoyaProvider<LoadMoreService>()
+        provider.request(.load(url: url)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let projectCollection = try! coder.decode(ProjectCollection.self, from: data)
+                    projectCollection.store()
+                    completion(projectCollection)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
     static func favorites(completion: @escaping ([ProjectCollection.Project]?) -> Void) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()

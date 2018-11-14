@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class ProjectsViewController: UITableViewController {
     
@@ -89,6 +90,31 @@ class ProjectsViewController: UITableViewController {
         let config = UISwipeActionsConfiguration(actions: [shareAction])
         
         return config
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let projectCollection = self.projectCollection {
+            let lastCell = projectCollection.projects.count - 1
+            if lastCell == indexPath.row {
+                guard let nextPage = projectCollection.links.next else {
+                    return
+                }
+                self.loadMoreData(url: nextPage)
+            }
+        }
+    }
+    
+    func loadMoreData(url: String) {
+        KRProgressHUD.show(withMessage: "Loding...")
+        ProjectCollection.more(nextUrl: url) { (projectCollection) in
+            if let projectCollection = projectCollection {
+                self .projectCollection?.links = projectCollection.links
+                self .projectCollection?.meta = projectCollection.meta
+                self .projectCollection?.projects.append(contentsOf: projectCollection.projects)
+                self.updateUI()
+                KRProgressHUD.dismiss()
+            }
+        }
     }
 
     /*
