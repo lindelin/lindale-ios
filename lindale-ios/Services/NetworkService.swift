@@ -28,9 +28,10 @@ enum NetworkService {
     case storeSubTask(subTask: TaskResource.SubTask)
     case deleteSubTask(subTask: TaskResource.SubTask)
     case storeActivity(activity: TaskActivity)
-    case deleteTodo(todo: MyTodoCollection.Todo)
-    case changeTodoColor(todo: MyTodoCollection.Todo, colorId: Int)
-    case updateTodoToFinished(todo: MyTodoCollection.Todo)
+    case deleteTodo(todo: Todo)
+    case changeTodoColor(todo: Todo, colorId: Int)
+    case updateTodoToFinished(todo: Todo)
+    case todoEditResource
 }
 
 extension NetworkService: TargetType {
@@ -77,12 +78,14 @@ extension NetworkService: TargetType {
             return "/todos/\(todo.id)/change-color"
         case .updateTodoToFinished(let todo):
             return "/todos/\(todo.id)/finished"
+        case .todoEditResource:
+            return "/todos/edit-resource"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource:
             return .get
         case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished:
             return .put
@@ -95,7 +98,7 @@ extension NetworkService: TargetType {
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -140,7 +143,7 @@ extension NetworkService: TargetType {
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

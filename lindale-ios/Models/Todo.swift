@@ -20,135 +20,6 @@ struct MyTodoCollection: Codable {
         case meta
     }
     
-    struct Todo: Codable {
-        var id: Int
-        var initiator: User?
-        var content: String?
-        var details: String?
-        var type: String
-        var status: String
-        var action: Int
-        var color: Int
-        var listName: String?
-        var user: User?
-        var projectName: String
-        var updatedAt: String
-        
-        enum CodingKeys: String, CodingKey {
-            case id
-            case initiator
-            case content
-            case details
-            case type
-            case status
-            case action
-            case color
-            case listName = "list_name"
-            case user
-            case projectName = "project_name"
-            case updatedAt = "updated_at"
-        }
-        
-        struct User: Codable {
-            var id: Int
-            var name: String
-            var email: String
-            var photo: String?
-            var content: String?
-            var company: String?
-            var location: String?
-            var created: String
-            var updated: String
-            
-            enum CodingKeys: String, CodingKey {
-                case id
-                case name
-                case email
-                case photo
-                case content
-                case company
-                case location
-                case created = "created_at"
-                case updated = "updated_at"
-            }
-        }
-        
-        func delete(completion: @escaping ([String: String]?) -> Void) {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            let provider = MoyaProvider<NetworkService>()
-            provider.request(.deleteTodo(todo: self)) { result in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                switch result {
-                case let .success(response):
-                    do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let status = try! coder.decode([String: String].self, from: data)
-                        completion(status)
-                    }
-                    catch {
-                        completion(nil)
-                    }
-                // do something with the response data or statusCode
-                case let .failure(error):
-                    print(error)
-                    completion(nil)
-                }
-            }
-        }
-        
-        func changeColor(colorId: Int, completion: @escaping ([String: String]?) -> Void) {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            let provider = MoyaProvider<NetworkService>()
-            provider.request(.changeTodoColor(todo: self, colorId: colorId)) { result in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                switch result {
-                case let .success(response):
-                    do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let status = try! coder.decode([String: String].self, from: data)
-                        completion(status)
-                    }
-                    catch {
-                        completion(nil)
-                    }
-                // do something with the response data or statusCode
-                case let .failure(error):
-                    print(error)
-                    completion(nil)
-                }
-            }
-        }
-        
-        func complete(completion: @escaping ([String: String]?) -> Void) {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            let provider = MoyaProvider<NetworkService>()
-            provider.request(.updateTodoToFinished(todo: self)) { result in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                switch result {
-                case let .success(response):
-                    do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let status = try! coder.decode([String: String].self, from: data)
-                        completion(status)
-                    }
-                    catch {
-                        completion(nil)
-                    }
-                // do something with the response data or statusCode
-                case let .failure(error):
-                    print(error)
-                    completion(nil)
-                }
-            }
-        }
-    }
-    
     struct Links: Codable {
         var first: String?
         var last: String?
@@ -253,6 +124,154 @@ struct MyTodoCollection: Codable {
             return myTodoCollection
         } catch {
             return nil
+        }
+    }
+}
+
+struct Todo: Codable {
+    var id: Int
+    var initiator: User?
+    var content: String?
+    var details: String?
+    var type: String
+    var status: String
+    var action: Int
+    var color: Int
+    var listName: String?
+    var user: User?
+    var projectName: String
+    var updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case initiator
+        case content
+        case details
+        case type
+        case status
+        case action
+        case color
+        case listName = "list_name"
+        case user
+        case projectName = "project_name"
+        case updatedAt = "updated_at"
+    }
+    
+    func delete(completion: @escaping ([String: String]?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.deleteTodo(todo: self)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    func changeColor(colorId: Int, completion: @escaping ([String: String]?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.changeTodoColor(todo: self, colorId: colorId)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    func complete(completion: @escaping ([String: String]?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.updateTodoToFinished(todo: self)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    struct EditResources: Codable {
+        var statuses:[Status]
+        
+        enum CodingKeys: String, CodingKey {
+            case statuses
+        }
+        
+        struct Status: Codable {
+            var id: Int
+            var name: String
+            
+            enum CodingKeys: String, CodingKey {
+                case id
+                case name
+            }
+        }
+        
+        static func load(completion: @escaping (EditResources?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let provider = MoyaProvider<NetworkService>()
+            provider.request(.todoEditResource) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let editResources = try! coder.decode(EditResources.self, from: data)
+                        completion(editResources)
+                    }
+                    catch {
+                        completion(nil)
+                    }
+                // do something with the response data or statusCode
+                case let .failure(error):
+                    print(error)
+                    completion(nil)
+                }
+            }
         }
     }
 }

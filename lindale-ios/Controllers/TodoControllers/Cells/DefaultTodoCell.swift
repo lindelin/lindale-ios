@@ -29,7 +29,7 @@ class DefaultTodoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCell(todo: MyTodoCollection.Todo) {
+    func setCell(todo: Todo) {
         self.statusView.backgroundColor = Colors.get(id: todo.color)
         self.line.backgroundColor = Colors.get(id: todo.color)
         self.statusName.text = todo.status

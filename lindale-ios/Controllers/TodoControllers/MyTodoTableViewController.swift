@@ -263,18 +263,37 @@ class MyTodoTableViewController: UITableViewController {
                 self.present(actionSheet, animated: true, completion: nil)
             }
         }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
+            let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+            Todo.EditResources.load(completion: { (resource) in
+                if let resource = resource {
+                    self.performSegue(withIdentifier: "TodoEditSegue", sender: ["cell": cell, "resource": resource])
+                }
+            })
+        }
+        
         deleteAction.backgroundColor = UIColor(named: "Theme-main")
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 
-    /*
     // MARK: - Navigation
+    @IBAction func unwindToTodoList(unwindSegue: UIStoryboardSegue) {
+        
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "TodoEditSegue" {
+            let destination = segue.destination as! UINavigationController
+            let todoEditViewController = destination.viewControllers.first as! TodoEditViewController
+            
+            guard let sender = sender as? Dictionary<String, Any> else {
+                return
+            }
+            
+            todoEditViewController.cell = sender["cell"] as? FoldingTodoCell
+            todoEditViewController.editResource = sender["resource"] as? Todo.EditResources
+        }
     }
-    */
-
 }

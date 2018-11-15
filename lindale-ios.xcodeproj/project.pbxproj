@@ -57,6 +57,8 @@
 		F2BB3AB3215254B100AB2632 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		F2BB3AB42152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F2BB3AB52152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
+		F2C12C96219D1B23002B58C2 /* TodoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C95219D1B23002B58C2 /* TodoEditViewController.swift */; };
+		F2C12C98219D5264002B58C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
 		F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */; };
 		F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CAE17221382EC7002C04E7 /* Login.storyboard */; };
 		F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE1772138414C002C04E7 /* UIHelpers.swift */; };
@@ -269,6 +271,8 @@
 		F2B9D7DF218C49B7009A119A /* FoldingTodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTodoCell.swift; sourceTree = "<group>"; };
 		F2BB3AAD215215C000AB2632 /* TasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskRow.swift; sourceTree = "<group>"; };
+		F2C12C95219D1B23002B58C2 /* TodoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditViewController.swift; sourceTree = "<group>"; };
+		F2C12C97219D5264002B58C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F2CAE17221382EC7002C04E7 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F2CAE1772138414C002C04E7 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
@@ -532,6 +536,7 @@
 			children = (
 				F2A39AE8214D106B00BF2AF7 /* Cells */,
 				F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */,
+				F2C12C95219D1B23002B58C2 /* TodoEditViewController.swift */,
 			);
 			path = TodoControllers;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				F2DF020B214E1249003E0033 /* Todo.swift */,
 				A8DCF833217AF88300839DA4 /* Setting.swift */,
 				A8DE10AA217B63C300D1F654 /* Errors.swift */,
+				F2C12C97219D5264002B58C2 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1122,6 +1128,7 @@
 			files = (
 				A86384052171CBC900837E1B /* TaskInfoCell.swift in Sources */,
 				F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */,
+				F2C12C96219D1B23002B58C2 /* TodoEditViewController.swift in Sources */,
 				A89F87DA21726541004ADEA4 /* TaskActivityCell.swift in Sources */,
 				A8DCF834217AF88300839DA4 /* Setting.swift in Sources */,
 				F2403B312147B77E004BF3C8 /* Profile.swift in Sources */,
@@ -1147,6 +1154,7 @@
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				F2F4FFD2215E246800D5F197 /* Intents.intentdefinition in Sources */,
 				A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */,
+				F2C12C98219D5264002B58C2 /* User.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
 				F2F4FFE3216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
 				A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */,

@@ -12,7 +12,7 @@ import KRProgressHUD
 
 class FoldingTodoCell: FoldingCell {
     
-    var todo: MyTodoCollection.Todo?
+    var todo: Todo?
     
     @IBOutlet weak var id: UILabel!
     @IBOutlet weak var status: UILabel!
@@ -52,7 +52,7 @@ class FoldingTodoCell: FoldingCell {
         // Configure the view for the selected state
     }
     
-    func setCell(todo: MyTodoCollection.Todo) {
+    func setCell(todo: Todo) {
         
         self.todo = todo
         
