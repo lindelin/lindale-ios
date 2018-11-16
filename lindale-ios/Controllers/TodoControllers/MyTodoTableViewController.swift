@@ -20,7 +20,7 @@ class MyTodoTableViewController: UITableViewController {
     
     var cellHeights: [CGFloat] = []
     
-    var myTodoCollection: MyTodoCollection? = MyTodoCollection.find()
+    var myTodoCollection: MyTodoCollection?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,6 @@ class MyTodoTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
-        self.updateUI()
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.todoHasUpdated, object: nil)
@@ -52,20 +51,23 @@ class MyTodoTableViewController: UITableViewController {
     }
     
     @objc func loadData() {
+        KRProgressHUD.show(withMessage: "Loding...")
         MyTodoCollection.resources { (myTodoCollection) in
             if let myTodoCollection = myTodoCollection {
                 self.myTodoCollection = myTodoCollection
                 self.updateUI()
             } else {
+                self.myTodoCollection = MyTodoCollection.find()
                 self.authErrorHandle()
             }
             self.refreshControl?.endRefreshing()
+            KRProgressHUD.dismiss()
         }
     }
     
     func updateUI() {
         cellHeights = Array(repeating: Const.closeCellHeight, count: (self.myTodoCollection?.todos.count) ?? Const.rowsCount)
-        self.tableView.reloadData()
+        self.tableView.reloadDataWithAnimate(.liftUpFromBottum, animationTime: 0.5, interval: 0.05)
     }
     
     func loadMoreData(url: String) {
@@ -125,12 +127,6 @@ class MyTodoTableViewController: UITableViewController {
         cell.durationsForCollapsedState = durations
         cell.setCell(todo: self.myTodoCollection!.todos[indexPath.row])
         return cell
-//        let id = String(describing: DefaultTodoCell.self)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! DefaultTodoCell
-//
-//        cell.setCell(todo: (self.myTodoCollection?.todos[indexPath.row])!)
-//
-//        return cell
     }
     
     override func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

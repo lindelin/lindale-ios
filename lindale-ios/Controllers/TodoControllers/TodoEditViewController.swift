@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class TodoEditViewController: UITableViewController {
     
@@ -17,6 +18,8 @@ class TodoEditViewController: UITableViewController {
     @IBOutlet weak var status: UIPickerView!
     @IBOutlet weak var color: UIPickerView!
     @IBOutlet weak var detail: UITextView!
+    
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +43,34 @@ class TodoEditViewController: UITableViewController {
     }
     
     @IBAction func update(_ sender: Any) {
-        if var todo = self.cell.todo {
-            todo.content = self.content.text
-            print(self.status.selectedRow(inComponent: 0))
-
+        if let todo = self.cell.todo {
+            KRProgressHUD.show(withMessage: "Updating...")
+            let register = TodoRegister(id: todo.id,
+                                        content: self.content.text,
+                                        details: self.detail.text,
+                                        statusId: self.editResource.statuses[self.status.selectedRow(inComponent: 0)].id,
+                                        colorId: self.color.selectedRow(inComponent: 0) + 1,
+                                        listId: nil,
+                                        userId: nil)
+            register.update { (response) in
+                if let response = response {
+                    if response["status"] == "OK" {
+                        NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                        })
+                        self.performSegue(withIdentifier: "UnwindToTodoList", sender: self)
+                    } else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: response["messages"])
+                        })
+                    }
+                } else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: "Network Error!")
+                    })
+                }
+            }
         }
     }
     /*

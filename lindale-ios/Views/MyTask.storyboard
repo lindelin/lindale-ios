@@ -813,7 +813,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="uZh-x3-fGD">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="uZh-x3-fGD">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -848,7 +848,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zRq-ml-WOL">
-                                    <rect key="frame" x="16" y="207" width="343" height="38"/>
+                                    <rect key="frame" x="16" y="207" width="343" height="970"/>
                                     <segments>
                                         <segment title="Overview"/>
                                         <segment title="Check Points"/>

@@ -711,7 +711,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xlz-U7-gnh">
-                                                    <rect key="frame" x="0.0" y="-58" width="375" height="216"/>
+                                                    <rect key="frame" x="0.0" y="-58.5" width="375" height="216.5"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="Uwe-tb-VmM" id="EQP-rs-duP"/>
                                                         <outlet property="delegate" destination="Uwe-tb-VmM" id="9S3-lb-8sV"/>
@@ -791,16 +791,17 @@
                     <navigationItem key="navigationItem" title="Edit" id="Dxv-6b-bgu">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jAP-Mk-PgR">
                             <connections>
-                                <segue destination="3rv-Sx-TDQ" kind="unwind" unwindAction="unwindToTodoListWithUnwindSegue:" id="bM9-a4-pLn"/>
+                                <segue destination="3rv-Sx-TDQ" kind="unwind" identifier="UnwindToTodoList" unwindAction="unwindToTodoListWithUnwindSegue:" id="bM9-a4-pLn"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Update" id="h44-vv-xIZ">
                             <connections>
-                                <action selector="update:" destination="Uwe-tb-VmM" id="Das-4q-jB4"/>
+                                <action selector="update:" destination="Uwe-tb-VmM" id="ceL-bV-O2l"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="jAP-Mk-PgR" id="4Se-gg-AXj"/>
                         <outlet property="color" destination="B9X-KD-7eg" id="t51-q5-3ed"/>
                         <outlet property="content" destination="tn1-f1-pO5" id="0Ve-Xo-M1W"/>
                         <outlet property="detail" destination="eJd-YP-45b" id="baz-PI-18I"/>

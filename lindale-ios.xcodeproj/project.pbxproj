@@ -41,6 +41,7 @@
 		F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */; };
 		F23226C32170908400846250 /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23226C22170908400846250 /* ActivityViewCell.swift */; };
 		F2403B312147B77E004BF3C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2403B302147B77E004BF3C8 /* Profile.swift */; };
+		F2423E96219EAE8600868F00 /* UITabelView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
@@ -256,6 +257,7 @@
 		F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavoriteCell.swift; sourceTree = "<group>"; };
 		F23226C22170908400846250 /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
 		F2403B302147B77E004BF3C8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabelView+Animation.swift"; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				F2CAE1832138E410002C04E7 /* Helpers.swift */,
 				F2CAE1772138414C002C04E7 /* UIHelpers.swift */,
 				A8D5A026214422E1002E8D52 /* UITheme.swift */,
+				F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -1172,6 +1175,7 @@
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
 				A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */,
+				F2423E96219EAE8600868F00 /* UITabelView+Animation.swift in Sources */,
 				A8DE10AB217B63C300D1F654 /* Errors.swift in Sources */,
 				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,
 				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,

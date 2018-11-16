@@ -10,7 +10,7 @@ import UIKit
 import KRProgressHUD
 import SCLAlertView
 
-class MyTaskDetailController: UITableViewController {
+class MyTaskDetailController: UITableViewController, UINavigationControllerDelegate {
     
     var headerView: UIView!
     
@@ -63,7 +63,7 @@ class MyTaskDetailController: UITableViewController {
         //        navigationController?.navigationBar.prefersLargeTitles = true
         //        navigationItem.searchController = UISearchController(searchResultsController: nil)
         //        navigationItem.hidesSearchBarWhenScrolling = false
-        
+        navigationController?.delegate = self
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -610,4 +610,15 @@ class MyTaskDetailController: UITableViewController {
     }
     */
 
+}
+
+extension MyTaskDetailController {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is MyTaskTableViewController {
+            navigationController.navigationBar.setBackgroundImage(nil, for: .default)
+            navigationController.navigationBar.shadowImage = nil
+            let controller = viewController as! MyTaskTableViewController
+            controller.loadData()
+        }
+    }
 }

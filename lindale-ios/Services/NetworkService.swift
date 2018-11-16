@@ -32,6 +32,7 @@ enum NetworkService {
     case changeTodoColor(todo: Todo, colorId: Int)
     case updateTodoToFinished(todo: Todo)
     case todoEditResource
+    case todoUpdate(todo: TodoRegister)
 }
 
 extension NetworkService: TargetType {
@@ -78,6 +79,8 @@ extension NetworkService: TargetType {
             return "/todos/\(todo.id)/change-color"
         case .updateTodoToFinished(let todo):
             return "/todos/\(todo.id)/finished"
+        case .todoUpdate(let todo):
+            return "/todos/\(todo.id!)"
         case .todoEditResource:
             return "/todos/edit-resource"
         }
@@ -87,7 +90,7 @@ extension NetworkService: TargetType {
         switch self {
         case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate:
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
@@ -138,12 +141,21 @@ extension NetworkService: TargetType {
             return .requestParameters(parameters: [
                 "color_id": colorId,
                 ], encoding: JSONEncoding.default)
+        case let .todoUpdate(todo):
+            return .requestParameters(parameters: [
+                "content": todo.content as Any,
+                "details": todo.details as Any,
+                "status_id": todo.statusId as Any,
+                "user_id": todo.userId as Any,
+                "color_id": todo.colorId as Any,
+                "list_id": todo.listId as Any
+                ], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

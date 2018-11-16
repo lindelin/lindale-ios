@@ -11,7 +11,7 @@ import KRProgressHUD
 
 class MyTaskTableViewController: UITableViewController {
     
-    var myTaskCollection: MyTaskCollection? = MyTaskCollection.find()
+    var myTaskCollection: MyTaskCollection?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,11 @@ class MyTaskTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
-        self.updateUI()
         self.loadData()
         
         // MARK: - Notification Center Config
-        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
+        // NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
+        // NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
     }
     
     private func setupNavigation() {
@@ -39,26 +38,23 @@ class MyTaskTableViewController: UITableViewController {
         navigationItem.titleView = titleImageView
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
-    }
-    
     @objc func loadData() {
+        KRProgressHUD.show(withMessage: "Loding...")
         MyTaskCollection.resources { (myTaskCollection) in
             if let myTaskCollection = myTaskCollection {
                 self.myTaskCollection = myTaskCollection
-                print(myTaskCollection.meta)
                 self.updateUI()
             } else {
+                self.myTaskCollection = MyTaskCollection.find()
                 self.authErrorHandle()
             }
             self.refreshControl?.endRefreshing()
+            KRProgressHUD.dismiss()
         }
     }
     
     func updateUI() {
-        self.tableView.reloadData()
+        self.tableView.reloadDataWithAnimate(.liftUpFromBottum, animationTime: 0.5, interval: 0.05)
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,6 +115,10 @@ class MyTaskTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! FoldingTaskCell
         let task = cell.task!
         performSegue(withIdentifier: "ShowTaskDetail", sender: task)
+    }
+    
+    @IBAction func unwindToTaskList(unwindSegue: UIStoryboardSegue) {
+        print(unwindSegue)
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
