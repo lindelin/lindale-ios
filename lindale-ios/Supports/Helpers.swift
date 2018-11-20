@@ -107,12 +107,10 @@ extension UIViewController {
     }
 }
 
-func image_from(url: String) -> UIImage {
-    let url = URL(string: url)
-    do {
-        let data = try Data(contentsOf: url!)
-        return UIImage(data: data)!
-    } catch {
+func image_from(url: URL?) -> UIImage {
+    guard let url = url, let data =  try? Data(contentsOf: url) else {
         return #imageLiteral(resourceName: "lindale-launch")
     }
+    
+    return UIImage(data: data)!
 }

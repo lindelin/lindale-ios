@@ -96,7 +96,7 @@ class MyTaskTableViewController: UITableViewController {
         }
     }
     
-    func loadMoreData(url: String) {
+    func loadMoreData(url: URL) {
         KRProgressHUD.show(withMessage: "Loding...")
         MyTaskCollection.more(nextUrl: url) { (myTaskCollection) in
             if let myTaskCollection = myTaskCollection {

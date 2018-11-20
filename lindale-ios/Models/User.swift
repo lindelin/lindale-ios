@@ -6,11 +6,13 @@
 //  Copyright © 2018 lindelin. All rights reserved.
 //
 
+import UIKit
+
 struct User: Codable {
     var id: Int
     var name: String
     var email: String
-    var photo: String?
+    var photo: URL
     var content: String?
     var company: String?
     var location: String?

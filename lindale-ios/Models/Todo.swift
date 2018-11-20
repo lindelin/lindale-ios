@@ -21,10 +21,10 @@ struct MyTodoCollection: Codable {
     }
     
     struct Links: Codable {
-        var first: String?
-        var last: String?
-        var prev: String?
-        var next: String?
+        var first: URL?
+        var last: URL?
+        var prev: URL?
+        var next: URL?
         
         enum CodingKeys: String, CodingKey {
             case first
@@ -80,7 +80,7 @@ struct MyTodoCollection: Codable {
         }
     }
     
-    static func more(nextUrl url: String, completion: @escaping (MyTodoCollection?) -> Void) {
+    static func more(nextUrl url: URL, completion: @escaping (MyTodoCollection?) -> Void) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<LoadMoreService>()
         provider.request(.load(url: url)) { result in

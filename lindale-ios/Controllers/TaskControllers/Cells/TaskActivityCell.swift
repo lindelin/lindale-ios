@@ -28,7 +28,7 @@ class TaskActivityCell: UITableViewCell {
     }
 
     func setCell(taskActivity: TaskResource.TaskActivity) {
-        self.photo.load(url: URL(string: taskActivity.user.photo!)!, placeholder: UIImage(named: "user-30"))
+        self.photo.load(url: taskActivity.user.photo, placeholder: UIImage(named: "user-30"))
         self.name.text = taskActivity.user.name
         self.date.text = taskActivity.updateAt
         self.content.attributedText = try? Down(markdownString: taskActivity.content).toAttributedString()

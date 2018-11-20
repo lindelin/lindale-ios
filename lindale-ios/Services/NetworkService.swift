@@ -25,9 +25,9 @@ enum NetworkService {
     case updateSubTask(subTask: TaskResource.SubTask)
     case completeTask(task: TaskResource)
     case deleteTask(task: TaskResource)
-    case storeSubTask(subTask: TaskResource.SubTask)
+    case storeSubTask(subTask: SubTaskRegister)
     case deleteSubTask(subTask: TaskResource.SubTask)
-    case storeActivity(activity: TaskActivity)
+    case storeActivity(activity: TaskActivityRegister)
     case deleteTodo(todo: Todo)
     case changeTodoColor(todo: Todo, colorId: Int)
     case updateTodoToFinished(todo: Todo)
@@ -166,14 +166,14 @@ extension NetworkService: TargetType {
 }
 
 enum LoadMoreService {
-    case load(url: String)
+    case load(url: URL)
 }
 
 extension LoadMoreService: TargetType {
     var baseURL: URL {
         switch self {
         case .load(let url):
-            return URL(string: url)!
+            return url
         }
     }
     var path: String { return "" }

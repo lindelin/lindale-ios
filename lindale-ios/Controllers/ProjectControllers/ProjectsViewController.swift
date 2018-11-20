@@ -72,7 +72,7 @@ class ProjectsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let shareAction = UIContextualAction(style: .normal, title: "Share") { (_, _, completion) in
             let text = "\(self.projectCollection?.projects[indexPath.row].title ?? ""):https://lindale.stg.lindelin.org/projects/\(self.projectCollection?.projects[indexPath.row].id.description ?? "")"
-            let image = image_from(url: (self.projectCollection?.projects[indexPath.row].image)!)
+            let image = image_from(url: (self.projectCollection?.projects[indexPath.row].image))
             let activity = UIActivityViewController(activityItems: [text, image], applicationActivities: nil)
             
             if let pc = activity.popoverPresentationController {
@@ -85,7 +85,7 @@ class ProjectsViewController: UITableViewController {
             self.present(activity, animated: true)
         }
         
-        shareAction.backgroundColor = UIColor(named: "Theme-main")
+        shareAction.backgroundColor = Colors.themeMain
         
         let config = UISwipeActionsConfiguration(actions: [shareAction])
         
@@ -104,7 +104,7 @@ class ProjectsViewController: UITableViewController {
         }
     }
     
-    func loadMoreData(url: String) {
+    func loadMoreData(url: URL) {
         KRProgressHUD.show(withMessage: "Loding...")
         ProjectCollection.more(nextUrl: url) { (projectCollection) in
             if let projectCollection = projectCollection {

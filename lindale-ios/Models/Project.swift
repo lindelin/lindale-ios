@@ -26,7 +26,7 @@ struct ProjectCollection: Codable {
         var content: String?
         var start: String?
         var end: String?
-        var image: String?
+        var image: URL
         var pl: User
         var sl: User?
         var type: String?
@@ -54,37 +54,13 @@ struct ProjectCollection: Codable {
             case created = "created_at"
             case updated = "updated_at"
         }
-        
-        struct User: Codable {
-            var id: Int
-            var name: String
-            var email: String
-            var photo: String?
-            var content: String?
-            var company: String?
-            var location: String?
-            var created: String
-            var updated: String
-            
-            enum CodingKeys: String, CodingKey {
-                case id
-                case name
-                case email
-                case photo
-                case content
-                case company
-                case location
-                case created = "created_at"
-                case updated = "updated_at"
-            }
-        }
     }
     
     struct Links: Codable {
-        var first: String?
-        var last: String?
-        var prev: String?
-        var next: String?
+        var first: URL?
+        var last: URL?
+        var prev: URL?
+        var next: URL?
         
         enum CodingKeys: String, CodingKey {
             case first
@@ -140,7 +116,7 @@ struct ProjectCollection: Codable {
         }
     }
     
-    static func more(nextUrl url: String, completion: @escaping (ProjectCollection?) -> Void) {
+    static func more(nextUrl url: URL, completion: @escaping (ProjectCollection?) -> Void) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<LoadMoreService>()
         provider.request(.load(url: url)) { result in

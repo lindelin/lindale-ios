@@ -468,7 +468,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                 return
             }
             
-            let activity = TaskActivity(taskId: taskResource.id, content: textField.text)
+            let activity = TaskActivityRegister(taskId: taskResource.id, content: textField.text)
             activity.store(completion: { (response) in
                 NotificationCenter.default.post(name: LocalNotificationService.taskActivityHasUpdated, object: nil)
                 if let response = response {
@@ -512,7 +512,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                 return
             }
             
-            let subTask = TaskResource.SubTask(taskId: taskResource.id, content: textField.text)
+            let subTask = SubTaskRegister(taskId: taskResource.id, content: textField.text)
             subTask.store(completion: { (response) in
                 NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
                 if let response = response {
@@ -588,7 +588,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                     self.present(actionSheet, animated: true, completion: nil)
                 }
             }
-            deleteAction.backgroundColor = UIColor(named: "Theme-main")
+            deleteAction.backgroundColor = Colors.themeMain
             config = UISwipeActionsConfiguration(actions: [deleteAction])
             break
         case 2:

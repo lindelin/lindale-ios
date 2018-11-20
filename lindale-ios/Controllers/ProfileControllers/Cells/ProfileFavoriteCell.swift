@@ -28,7 +28,7 @@ class ProfileFavoriteCell: UITableViewCell {
     }
     
     func setProject(_ project: ProjectCollection.Project) {
-        self.projectImage.load(url: URL(string: project.image!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
+        self.projectImage.load(url: project.image, placeholder: #imageLiteral(resourceName: "lindale-launch"))
         self.name.text = project.title
         self.type.text = project.type
         self.tasks.text = project.taskStatus

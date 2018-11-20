@@ -33,9 +33,9 @@ class TaskUserInfoCell: UITableViewCell {
         }
     }
     
-    func setCell(user: TaskResource.User?) {
+    func setCell(user: User?) {
         if let user = user {
-            self.photo.load(url: URL(string: user.photo!)!, placeholder: UIImage(named: "user-30"))
+            self.photo.load(url: user.photo, placeholder: UIImage(named: "user-30"))
             self.name.text = "\(user.name)（\(user.email)）"
         } else {
             self.photo.image = UIImage(named: "user-30")

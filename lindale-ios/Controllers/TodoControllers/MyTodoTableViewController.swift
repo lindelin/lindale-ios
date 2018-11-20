@@ -70,7 +70,7 @@ class MyTodoTableViewController: UITableViewController {
         self.tableView.reloadDataWithAnimate(.liftUpFromBottum, animationTime: 0.5, interval: 0.05)
     }
     
-    func loadMoreData(url: String) {
+    func loadMoreData(url: URL) {
         KRProgressHUD.show(withMessage: "Loding...")
         MyTodoCollection.more(nextUrl: url) { (myTodoCollection) in
             if let myTodoCollection = myTodoCollection {
@@ -269,7 +269,8 @@ class MyTodoTableViewController: UITableViewController {
             })
         }
         
-        deleteAction.backgroundColor = UIColor(named: "Theme-main")
+        editAction.backgroundColor = Colors.themeYellow
+        deleteAction.backgroundColor = Colors.themeMain
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 

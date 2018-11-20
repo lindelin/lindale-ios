@@ -25,6 +25,6 @@ class MainController: UITabBarController {
     }
     
     func setupTabBar() {
-        mainTabBar.unselectedItemTintColor = UIColor(named: "Theme-base-sub")
+        mainTabBar.unselectedItemTintColor = Colors.themeBaseSub
     }
 }

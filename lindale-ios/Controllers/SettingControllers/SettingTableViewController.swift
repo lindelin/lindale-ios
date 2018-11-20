@@ -52,7 +52,7 @@ class SettingTableViewController: UITableViewController {
     
     func updateUI() {
         if let profile = self.profile {
-            self.photo.load(url: URL(string: profile.photo!)!, placeholder: UIImage(named: "lindale-launch"))
+            self.photo.load(url: profile.photo, placeholder: UIImage(named: "lindale-launch"))
             self.name.text = profile.name
             self.email.text = profile.email
         }

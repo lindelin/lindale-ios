@@ -35,7 +35,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     func setCell(project: ProjectCollection.Project) {
         self.projectImage.image = #imageLiteral(resourceName: "lindale-launch")
-        self.projectImage.load(url: URL(string: project.image!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
+        self.projectImage.load(url: project.image, placeholder: #imageLiteral(resourceName: "lindale-launch"))
         self.type.text = project.type
         self.status.text = project.status ?? "New"
         self.title.text = project.title
@@ -43,7 +43,7 @@ class ProjectTableViewCell: UITableViewCell {
         self.progressText.text = project.progress!.description + "%"
         self.taskStatus.text = project.taskStatus
         self.todoStatus.text = project.todoStatus
-        self.plImage.load(url: URL(string: project.pl.photo!)!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
+        self.plImage.load(url: project.pl.photo, placeholder: #imageLiteral(resourceName: "lindale-launch"))
         self.plName.text = project.pl.name
     }
 }

@@ -66,7 +66,7 @@ class ProfileTableViewController: UITableViewController {
     
     func updateUI() {
         if let profile = self.profile {
-            self.photo.load(url: URL(string: (profile.photo!))!, placeholder: #imageLiteral(resourceName: "lindale-launch"))
+            self.photo.load(url: profile.photo, placeholder: #imageLiteral(resourceName: "lindale-launch"))
             self.projectCount.text = profile.status.projectCount.description
             self.taskCount.text = profile.status.unfinishedTaskCount.description
             self.todoCount.text = profile.status.unfinishedTodoCount.description
