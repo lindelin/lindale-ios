@@ -32,6 +32,7 @@ enum NetworkService {
     case changeTodoColor(todo: Todo, colorId: Int)
     case updateTodoToFinished(todo: Todo)
     case todoEditResource
+    case taskEditResource(task: TaskResource)
     case todoUpdate(todo: TodoRegister)
 }
 
@@ -83,12 +84,14 @@ extension NetworkService: TargetType {
             return "/todos/\(todo.id!)"
         case .todoEditResource:
             return "/todos/edit-resource"
+        case .taskEditResource(let task):
+            return "/tasks/\(task.id)/edit-resource"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource:
             return .get
         case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate:
             return .put
@@ -101,7 +104,7 @@ extension NetworkService: TargetType {
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -155,7 +158,7 @@ extension NetworkService: TargetType {
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate, .taskEditResource:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

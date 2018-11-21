@@ -387,7 +387,14 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
         })
         
         let taskEditAction = UIAlertAction(title: "チケット編集", style: .default, handler: { (action: UIAlertAction) in
-            // TODO
+            guard let taskResource = self.taskResource else {
+                return
+            }
+            TaskResource.EditResources.load(task: taskResource, completion: { (resource) in
+                if let resource = resource {
+                    self.performSegue(withIdentifier: "TaskEditSegue", sender: ["task": taskResource, "resource": resource])
+                }
+            })
         })
         
         actionSheet.addAction(cancelAction)
@@ -600,23 +607,37 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
         return config
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "TaskEditSegue" {
+            let destination = segue.destination as! MyTaskEditViewController
+            
+            guard let sender = sender as? Dictionary<String, Any> else {
+                return
+            }
+            
+            destination.taskResource = sender["task"] as? TaskResource
+            destination.editResource = sender["resource"] as? TaskResource.EditResources
+        }
     }
-    */
 
 }
 
 extension MyTaskDetailController {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if viewController is MyTaskTableViewController {
+        if viewController is MyTaskDetailController {
+            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationController.navigationBar.shadowImage = UIImage()
+        } else {
             navigationController.navigationBar.setBackgroundImage(nil, for: .default)
             navigationController.navigationBar.shadowImage = nil
+        }
+        
+        if viewController is MyTaskTableViewController {
             let controller = viewController as! MyTaskTableViewController
             controller.loadData()
         }

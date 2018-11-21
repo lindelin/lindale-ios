@@ -396,16 +396,16 @@ struct TaskResource: Codable {
     }
     
     struct EditResources: Codable {
-        var users:[User]
+        var users: [User]
         
         enum CodingKeys: String, CodingKey {
             case users
         }
         
-        static func load(completion: @escaping (EditResources?) -> Void) {
+        static func load(task: TaskResource, completion: @escaping (EditResources?) -> Void) {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let provider = MoyaProvider<NetworkService>()
-            provider.request(.todoEditResource) { result in
+            provider.request(.taskEditResource(task: task)) { result in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case let .success(response):
