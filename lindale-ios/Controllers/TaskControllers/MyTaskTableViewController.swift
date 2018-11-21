@@ -11,7 +11,7 @@ import KRProgressHUD
 
 class MyTaskTableViewController: UITableViewController {
     
-    var myTaskCollection: MyTaskCollection?
+    var myTaskCollection: MyTaskCollection? = MyTaskCollection.find()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +43,17 @@ class MyTaskTableViewController: UITableViewController {
         MyTaskCollection.resources { (myTaskCollection) in
             if let myTaskCollection = myTaskCollection {
                 self.myTaskCollection = myTaskCollection
-                self.updateUI()
             } else {
-                self.myTaskCollection = MyTaskCollection.find()
                 self.authErrorHandle()
             }
             self.refreshControl?.endRefreshing()
+            self.updateUI()
             KRProgressHUD.dismiss()
         }
     }
     
     func updateUI() {
-        self.tableView.reloadDataWithAnimate(.liftUpFromBottum, animationTime: 0.5, interval: 0.05)
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

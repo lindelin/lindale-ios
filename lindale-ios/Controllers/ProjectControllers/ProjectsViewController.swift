@@ -22,7 +22,6 @@ class ProjectsViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
-        self.updateUI()
         self.loadData()
     }
     
@@ -34,14 +33,17 @@ class ProjectsViewController: UITableViewController {
     }
     
     @objc func loadData() {
+        KRProgressHUD.show(withMessage: "Loding...")
         ProjectCollection.resources { (projectCollection) in
             if let projectCollection = projectCollection {
                 self.projectCollection = projectCollection
-                self.updateUI()
+                
             } else {
                 self.authErrorHandle()
             }
             self.refreshControl?.endRefreshing()
+            self.updateUI()
+            KRProgressHUD.dismiss()
         }
     }
     

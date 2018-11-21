@@ -20,7 +20,7 @@ class MyTodoTableViewController: UITableViewController {
     
     var cellHeights: [CGFloat] = []
     
-    var myTodoCollection: MyTodoCollection?
+    var myTodoCollection: MyTodoCollection? = MyTodoCollection.find()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,19 +55,18 @@ class MyTodoTableViewController: UITableViewController {
         MyTodoCollection.resources { (myTodoCollection) in
             if let myTodoCollection = myTodoCollection {
                 self.myTodoCollection = myTodoCollection
-                self.updateUI()
             } else {
-                self.myTodoCollection = MyTodoCollection.find()
                 self.authErrorHandle()
             }
             self.refreshControl?.endRefreshing()
+            self.updateUI()
             KRProgressHUD.dismiss()
         }
     }
     
     func updateUI() {
         cellHeights = Array(repeating: Const.closeCellHeight, count: (self.myTodoCollection?.todos.count) ?? Const.rowsCount)
-        self.tableView.reloadDataWithAnimate(.liftUpFromBottum, animationTime: 0.5, interval: 0.05)
+        self.tableView.reloadData()
     }
     
     func loadMoreData(url: URL) {
