@@ -82,6 +82,7 @@
 		F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D206214A3F3E00023905 /* WatchService.swift */; };
 		F2E0D20A214A401800023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D209214A401800023905 /* WatchService.swift */; };
 		F2E156BC216DDDAE001E4535 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E156BB216DDDAE001E4535 /* MenuController.swift */; };
+		F2E8CA4921A5348000F3AEBD /* MyTaskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */; };
 		F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8131216C8069009B0DDD /* ProgressController.swift */; };
 		F2EC8134216C868D009B0DDD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8133216C868D009B0DDD /* Profile.swift */; };
 		F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */; };
@@ -302,6 +303,7 @@
 		F2E0D206214A3F3E00023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E156BB216DDDAE001E4535 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyTaskEditViewController.swift; path = "/Users/kgo/Documents/Project/App/lindale-ios/lindale-ios/Controllers/TaskControllers/MyTaskEditViewController.swift"; sourceTree = "<absolute>"; };
 		F2EC8131216C8069009B0DDD /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		F2EC8133216C868D009B0DDD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTask.storyboard; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 				F2F46BA4214BAA29005CD8A9 /* Cells */,
 				F2F46BA2214BAA21005CD8A9 /* MyTaskTableViewController.swift */,
 				A8250EC1217195C50084C5CE /* MyTaskDetailController.swift */,
+				F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */,
 			);
 			path = TaskControllers;
 			sourceTree = "<group>";
@@ -1160,6 +1163,7 @@
 				F2C12C98219D5264002B58C2 /* User.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
 				F2F4FFE3216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
+				F2E8CA4921A5348000F3AEBD /* MyTaskEditViewController.swift in Sources */,
 				A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */,
 				F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */,
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,

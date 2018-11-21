@@ -394,6 +394,39 @@ struct TaskResource: Codable {
             }
         }
     }
+    
+    struct EditResources: Codable {
+        var users:[User]
+        
+        enum CodingKeys: String, CodingKey {
+            case users
+        }
+        
+        static func load(completion: @escaping (EditResources?) -> Void) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let provider = MoyaProvider<NetworkService>()
+            provider.request(.todoEditResource) { result in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                switch result {
+                case let .success(response):
+                    do {
+                        _ = try response.filterSuccessfulStatusCodes()
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let editResources = try! coder.decode(EditResources.self, from: data)
+                        completion(editResources)
+                    }
+                    catch {
+                        completion(nil)
+                    }
+                // do something with the response data or statusCode
+                case let .failure(error):
+                    print(error)
+                    completion(nil)
+                }
+            }
+        }
+    }
 }
 
 struct TaskActivityRegister {
