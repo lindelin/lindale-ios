@@ -22,7 +22,7 @@ struct MyTodoCollection: Codable {
     
     struct Todo: Codable {
         var id: Int
-        var initiatorName: String?
+        var initiator: User?
         var content: String
         var details: String?
         var type: String
@@ -30,13 +30,13 @@ struct MyTodoCollection: Codable {
         var action: Int
         var color: Int
         var listName: String?
-        var userName: String
+        var user: User?
         var projectName: String
         var updatedAt: String
         
         enum CodingKeys: String, CodingKey {
             case id
-            case initiatorName = "initiator_name"
+            case initiator
             case content
             case details
             case type
@@ -44,43 +44,9 @@ struct MyTodoCollection: Codable {
             case action
             case color
             case listName = "list_name"
-            case userName = "user_name"
+            case user
             case projectName = "project_name"
             case updatedAt = "updated_at"
-        }
-    }
-    
-    struct Links: Codable {
-        var first: String?
-        var last: String?
-        var prev: String?
-        var next: String?
-        
-        enum CodingKeys: String, CodingKey {
-            case first
-            case last
-            case prev
-            case next
-        }
-    }
-    
-    struct Meta: Codable {
-        var currentPage: Int?
-        var from: Int?
-        var lastPage: Int?
-        var path: String?
-        var perPage: Int?
-        var to: Int?
-        var total: Int?
-        
-        enum CodingKeys: String, CodingKey {
-            case currentPage = "current_page"
-            case from
-            case lastPage = "last_page"
-            case path
-            case perPage = "per_page"
-            case to
-            case total
         }
     }
     

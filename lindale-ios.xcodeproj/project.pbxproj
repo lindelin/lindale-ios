@@ -82,6 +82,10 @@
 		F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D206214A3F3E00023905 /* WatchService.swift */; };
 		F2E0D20A214A401800023905 /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0D209214A401800023905 /* WatchService.swift */; };
 		F2E156BC216DDDAE001E4535 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E156BB216DDDAE001E4535 /* MenuController.swift */; };
+		F2E1FE1D21ABA55D0033F8B3 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1FE1C21ABA55D0033F8B3 /* Other.swift */; };
+		F2E1FE2021ABA6B20033F8B3 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1FE1C21ABA55D0033F8B3 /* Other.swift */; };
+		F2E1FE2121ABA7080033F8B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
+		F2E1FE2221ABA70C0033F8B3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
 		F2E8CA4921A5348000F3AEBD /* MyTaskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */; };
 		F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8131216C8069009B0DDD /* ProgressController.swift */; };
 		F2EC8134216C868D009B0DDD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8133216C868D009B0DDD /* Profile.swift */; };
@@ -303,6 +307,7 @@
 		F2E0D206214A3F3E00023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E156BB216DDDAE001E4535 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		F2E1FE1C21ABA55D0033F8B3 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
 		F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyTaskEditViewController.swift; path = "/Users/kgo/Documents/Project/App/lindale-ios/lindale-ios/Controllers/TaskControllers/MyTaskEditViewController.swift"; sourceTree = "<absolute>"; };
 		F2EC8131216C8069009B0DDD /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		F2EC8133216C868D009B0DDD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -599,8 +604,6 @@
 				F2F46BA7214BAD04005CD8A9 /* Task.swift */,
 				F2DF020B214E1249003E0033 /* Todo.swift */,
 				A8DCF833217AF88300839DA4 /* Setting.swift */,
-				A8DE10AA217B63C300D1F654 /* Errors.swift */,
-				F2C12C97219D5264002B58C2 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -645,6 +648,16 @@
 				F2E0D209214A401800023905 /* WatchService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F2E1FE1F21ABA61C0033F8B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8DE10AA217B63C300D1F654 /* Errors.swift */,
+				F2C12C97219D5264002B58C2 /* User.swift */,
+				F2E1FE1C21ABA55D0033F8B3 /* Other.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F2F46BA1214BA9E5005CD8A9 /* TaskControllers */ = {
@@ -706,6 +719,7 @@
 		F2F4FFC5215E16E300D5F197 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F2E1FE1F21ABA61C0033F8B3 /* Models */,
 				F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */,
 				F2F4FFDD2160EC0900D5F197 /* Shortcuts.swift */,
 				F2F4FFD82160EB2100D5F197 /* ShortcutManager.swift */,
@@ -1149,6 +1163,7 @@
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
 				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
+				F2E1FE1D21ABA55D0033F8B3 /* Other.swift in Sources */,
 				A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */,
 				F2B9D7E0218C49B7009A119A /* FoldingTodoCell.swift in Sources */,
 				F2F4FFCD215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
@@ -1191,8 +1206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E1FE2021ABA6B20033F8B3 /* Other.swift in Sources */,
 				F2F4FFDF2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */,
+				F2E1FE2121ABA7080033F8B3 /* User.swift in Sources */,
 				F2BB3AAE215215C000AB2632 /* TasksController.swift in Sources */,
 				F2F4FFD3215E246800D5F197 /* Intents.intentdefinition in Sources */,
 				F2F4FFCE215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
@@ -1209,6 +1226,7 @@
 				F2A4FCBA216586B100E0C35E /* Task.swift in Sources */,
 				F2E0D1F4214A342D00023905 /* NotificationController.swift in Sources */,
 				F2F4FFDA2160EB2100D5F197 /* ShortcutManager.swift in Sources */,
+				F2E1FE2221ABA70C0033F8B3 /* Errors.swift in Sources */,
 				F2E0D20A214A401800023905 /* WatchService.swift in Sources */,
 				F2E0D1F2214A342D00023905 /* ExtensionDelegate.swift in Sources */,
 				F2EC8134216C868D009B0DDD /* Profile.swift in Sources */,

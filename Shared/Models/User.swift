@@ -6,7 +6,7 @@
 //  Copyright © 2018 lindelin. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct User: Codable {
     var id: Int

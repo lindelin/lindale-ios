@@ -23,17 +23,18 @@ struct MyTaskCollection: Codable {
     struct Task: Codable {
         var projectName: String
         var id: Int
-        var initiatorName: String
+        var initiator: User?
         var title: String
         var content: String?
         var startAt: String?
         var endAt: String?
         var cost: Int
         var progress: Int
-        var userName: String
+        var user: User?
         var color: Int
         var type: String
         var status: String
+        var subTaskStatus: String
         var group: String?
         var priority: String
         var isFinish: Int
@@ -42,55 +43,22 @@ struct MyTaskCollection: Codable {
         enum CodingKeys: String, CodingKey {
             case projectName = "project_name"
             case id
-            case initiatorName = "initiator_name"
+            case initiator
             case title
             case content
             case startAt = "start_at"
             case endAt = "end_at"
             case cost
             case progress
-            case userName = "user_name"
+            case user
             case color
             case type
             case status
+            case subTaskStatus = "sub_task_status"
             case group
             case priority
             case isFinish = "is_finish"
             case updatedAt = "updated_at"
-        }
-    }
-    
-    struct Links: Codable {
-        var first: String?
-        var last: String?
-        var prev: String?
-        var next: String?
-        
-        enum CodingKeys: String, CodingKey {
-            case first
-            case last
-            case prev
-            case next
-        }
-    }
-    
-    struct Meta: Codable {
-        var currentPage: Int?
-        var from: Int?
-        var lastPage: Int?
-        var path: String?
-        var perPage: Int?
-        var to: Int?
-        var total: Int?
-        
-        enum CodingKeys: String, CodingKey {
-            case currentPage = "current_page"
-            case from
-            case lastPage = "last_page"
-            case path
-            case perPage = "per_page"
-            case to
-            case total
         }
     }
     

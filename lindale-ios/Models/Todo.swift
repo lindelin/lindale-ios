@@ -20,40 +20,6 @@ struct MyTodoCollection: Codable {
         case meta
     }
     
-    struct Links: Codable {
-        var first: URL?
-        var last: URL?
-        var prev: URL?
-        var next: URL?
-        
-        enum CodingKeys: String, CodingKey {
-            case first
-            case last
-            case prev
-            case next
-        }
-    }
-    
-    struct Meta: Codable {
-        var currentPage: Int?
-        var from: Int?
-        var lastPage: Int?
-        var path: String?
-        var perPage: Int?
-        var to: Int?
-        var total: Int?
-        
-        enum CodingKeys: String, CodingKey {
-            case currentPage = "current_page"
-            case from
-            case lastPage = "last_page"
-            case path
-            case perPage = "per_page"
-            case to
-            case total
-        }
-    }
-    
     static func resources(completion: @escaping (MyTodoCollection?) -> Void) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let provider = MoyaProvider<NetworkService>()
@@ -131,7 +97,7 @@ struct MyTodoCollection: Codable {
 struct Todo: Codable {
     var id: Int
     var initiator: User?
-    var content: String?
+    var content: String
     var details: String?
     var type: String
     var status: String
