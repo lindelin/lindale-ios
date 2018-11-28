@@ -484,9 +484,8 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                             KRProgressHUD.showSuccess(withMessage: response["messages"]!)
                         })
                     } else {
-                        KRProgressHUD.dismiss({
-                            KRProgressHUD.showError(withMessage: response["messages"])
-                        })
+                        KRProgressHUD.dismiss()
+                        self.showAlert(title: "error", message: response["messages"]!)
                     }
                 } else {
                     KRProgressHUD.dismiss({
@@ -528,9 +527,8 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                             KRProgressHUD.showSuccess(withMessage: response["messages"]!)
                         })
                     } else {
-                        KRProgressHUD.dismiss({
-                            KRProgressHUD.showError(withMessage: response["messages"])
-                        })
+                        KRProgressHUD.dismiss()
+                        self.showAlert(title: "error", message: response["messages"]!)
                     }
                 } else {
                     KRProgressHUD.dismiss({
@@ -608,6 +606,9 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
     }
     
     // MARK: - Navigation
+    
+    @IBAction func unwindToTaskDetail(unwindSegue: UIStoryboardSegue) {
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -635,11 +636,6 @@ extension MyTaskDetailController {
         } else {
             navigationController.navigationBar.setBackgroundImage(nil, for: .default)
             navigationController.navigationBar.shadowImage = nil
-        }
-        
-        if viewController is MyTaskTableViewController {
-            let controller = viewController as! MyTaskTableViewController
-            controller.loadData()
         }
     }
 }

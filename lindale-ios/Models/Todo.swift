@@ -266,8 +266,21 @@ struct TodoRegister {
                     completion(status)
                 }
                 catch {
-                    print(error)
-                    completion(nil)
+                    if response.statusCode == 422 {
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let errors = try! coder.decode(InputError.self, from: data)
+                        var message: String = ""
+                        for errors in errors.errors {
+                            for error in errors.value {
+                                message += error
+                            }
+                        }
+                        completion(["status": errors.message, "messages": message])
+                    } else {
+                        print(error)
+                        completion(nil)
+                    }
                 }
             // do something with the response data or statusCode
             case let .failure(error):

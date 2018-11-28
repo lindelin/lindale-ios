@@ -1501,7 +1501,11 @@
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit" id="fij-Gq-WAy">
-                        <barButtonItem key="rightBarButtonItem" title="Update" id="Qki-PY-53v"/>
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="Qki-PY-53v">
+                            <connections>
+                                <action selector="updateTask:" destination="tcu-IE-Qdi" id="ZWL-WT-Hti"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>

@@ -419,8 +419,21 @@ struct TaskActivityRegister {
                     completion(status)
                 }
                 catch {
-                    print(error)
-                    completion(nil)
+                    if response.statusCode == 422 {
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let errors = try! coder.decode(InputError.self, from: data)
+                        var message: String = ""
+                        for errors in errors.errors {
+                            for error in errors.value {
+                                message += error
+                            }
+                        }
+                        completion(["status": errors.message, "messages": message])
+                    } else {
+                        print(error)
+                        completion(nil)
+                    }
                 }
             // do something with the response data or statusCode
             case let .failure(error):
@@ -432,13 +445,8 @@ struct TaskActivityRegister {
 }
 
 struct SubTaskRegister {
-    var taskId: Int
-    var content: String
-    
-    init(taskId: Int, content: String?) {
-        self.taskId = taskId
-        self.content = content ?? ""
-    }
+    var taskId: Int?
+    var content: String?
     
     func store(completion: @escaping ([String: String]?) -> Void) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -455,8 +463,75 @@ struct SubTaskRegister {
                     completion(status)
                 }
                 catch {
-                    print(error)
-                    completion(nil)
+                    if response.statusCode == 422 {
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let errors = try! coder.decode(InputError.self, from: data)
+                        var message: String = ""
+                        for errors in errors.errors {
+                            for error in errors.value {
+                                message += error
+                            }
+                        }
+                        completion(["status": errors.message, "messages": message])
+                    } else {
+                        print(error)
+                        completion(nil)
+                    }
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+}
+
+struct TaskRegister {
+    var id: Int?
+    var title: String?
+    var content: String?
+    var startAt: Date?
+    var endAt: Date?
+    var cost: Int?
+    var groupId: Int?
+    var typeId: Int?
+    var userId: Int?
+    var statusId: Int?
+    var priorityId: Int?
+    var colorId: Int?
+    
+    func update(completion: @escaping ([String: String]?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let provider = MoyaProvider<NetworkService>()
+        provider.request(.taskUpdate(task: self)) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
+                }
+                catch {
+                    if response.statusCode == 422 {
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let errors = try! coder.decode(InputError.self, from: data)
+                        var message: String = ""
+                        for errors in errors.errors {
+                            for error in errors.value {
+                                message += error
+                            }
+                        }
+                        completion(["status": errors.message, "messages": message])
+                    } else {
+                        print(error)
+                        completion(nil)
+                    }
                 }
             // do something with the response data or statusCode
             case let .failure(error):

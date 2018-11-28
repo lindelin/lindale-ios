@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class MyTaskEditViewController: UITableViewController {
     
@@ -36,6 +37,42 @@ class MyTaskEditViewController: UITableViewController {
         self.taskContent.text = self.taskResource.content
     }
 
+    @IBAction func updateTask(_ sender: UIBarButtonItem) {
+        let user = self.editResource.users[self.userPicker.selectedRow(inComponent: 0)]
+        let colorId = self.colorPicker.selectedRow(inComponent: 0) + 1
+        KRProgressHUD.show(withMessage: "Updating...")
+        let register = TaskRegister(id: self.taskResource.id,
+                                    title: self.taskTitle.text,
+                                    content: self.taskContent.text,
+                                    startAt: nil,
+                                    endAt: nil,
+                                    cost: nil,
+                                    groupId: nil,
+                                    typeId: nil,
+                                    userId: user.id,
+                                    statusId: nil,
+                                    priorityId: nil,
+                                    colorId: colorId)
+        register.update { (response) in
+            if let response = response {
+                if response["status"] == "OK" {
+                    NotificationCenter.default.post(name: LocalNotificationService.taskHasUpdated, object: nil)
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    KRProgressHUD.dismiss()
+                    self.showAlert(title: "Update error", message: response["messages"]!)
+                }
+            } else {
+                KRProgressHUD.dismiss({
+                    KRProgressHUD.showError(withMessage: "Network Error!")
+                })
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

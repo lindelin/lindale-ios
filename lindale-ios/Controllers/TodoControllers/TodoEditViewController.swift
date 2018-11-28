@@ -61,9 +61,8 @@ class TodoEditViewController: UITableViewController {
                         })
                         self.performSegue(withIdentifier: "UnwindToTodoList", sender: self)
                     } else {
-                        KRProgressHUD.dismiss({
-                            KRProgressHUD.showError(withMessage: response["messages"])
-                        })
+                        KRProgressHUD.dismiss()
+                        self.showAlert(title: "Update error", message: response["messages"]!)
                     }
                 } else {
                     KRProgressHUD.dismiss({

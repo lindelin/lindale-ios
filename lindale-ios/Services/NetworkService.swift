@@ -34,6 +34,7 @@ enum NetworkService {
     case todoEditResource
     case taskEditResource(task: TaskResource)
     case todoUpdate(todo: TodoRegister)
+    case taskUpdate(task: TaskRegister)
 }
 
 extension NetworkService: TargetType {
@@ -71,7 +72,7 @@ extension NetworkService: TargetType {
         case .deleteSubTask(let subTask):
             return "/sub-tasks/\(subTask.id)"
         case .storeSubTask(let subTask):
-            return "/tasks/\(subTask.taskId)/sub-task"
+            return "/tasks/\(subTask.taskId!)/sub-task"
         case .storeActivity(let activity):
             return "/tasks/\(activity.taskId)/activities"
         case .deleteTodo(let todo):
@@ -86,6 +87,8 @@ extension NetworkService: TargetType {
             return "/todos/edit-resource"
         case .taskEditResource(let task):
             return "/tasks/\(task.id)/edit-resource"
+        case .taskUpdate(let task):
+            return "/tasks/\(task.id!)"
         }
     }
     
@@ -93,7 +96,7 @@ extension NetworkService: TargetType {
         switch self {
         case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate, .taskUpdate:
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
@@ -153,12 +156,26 @@ extension NetworkService: TargetType {
                 "color_id": todo.colorId as Any,
                 "list_id": todo.listId as Any
                 ], encoding: JSONEncoding.default)
+        case let .taskUpdate(task):
+            return .requestParameters(parameters: [
+                "group_id": task.groupId as Any,
+                "title": task.title as Any,
+                "content": task.content as Any,
+                "start_at": task.startAt as Any,
+                "end_at": task.endAt as Any,
+                "cost": task.cost as Any,
+                "type_id": task.typeId as Any,
+                "user_id": task.userId as Any,
+                "status_id": task.statusId as Any,
+                "priority_id": task.priorityId as Any,
+                "color_id": task.colorId as Any
+                ], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate, .taskEditResource:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate, .taskEditResource, .taskUpdate:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }
