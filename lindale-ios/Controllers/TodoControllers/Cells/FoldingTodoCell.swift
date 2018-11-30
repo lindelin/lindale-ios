@@ -36,7 +36,7 @@ class FoldingTodoCell: FoldingCell {
     
 
     override func awakeFromNib() {
-        foregroundView.layer.cornerRadius = 10
+        foregroundView.layer.cornerRadius = 5
         foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
     }

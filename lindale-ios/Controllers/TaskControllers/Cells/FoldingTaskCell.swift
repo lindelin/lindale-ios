@@ -33,7 +33,7 @@ class FoldingTaskCell: UITableViewCell {
     
     
     override func awakeFromNib() {
-        card.layer.cornerRadius = 10
+        card.layer.cornerRadius = 5
         card.layer.masksToBounds = true
         super.awakeFromNib()
         // Initialization code
