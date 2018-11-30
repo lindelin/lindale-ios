@@ -54,22 +54,17 @@ class MyTaskEditViewController: UITableViewController {
                                     priorityId: nil,
                                     colorId: colorId)
         register.update { (response) in
-            if let response = response {
-                if response["status"] == "OK" {
-                    NotificationCenter.default.post(name: LocalNotificationService.taskHasUpdated, object: nil)
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                    })
-                    self.navigationController?.popViewController(animated: true)
-                } else {
-                    KRProgressHUD.dismiss()
-                    self.showAlert(title: "Update error", message: response["messages"]!)
-                }
-            } else {
-                KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Network Error!")
-                })
+            guard response["status"] == "OK" else {
+                KRProgressHUD.dismiss()
+                self.showAlert(title: "Update error", message: response["messages"]!)
+                return
             }
+            
+            NotificationCenter.default.post(name: LocalNotificationService.taskHasUpdated, object: nil)
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+            })
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

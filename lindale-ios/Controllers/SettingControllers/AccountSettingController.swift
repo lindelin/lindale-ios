@@ -39,19 +39,16 @@ class AccountSettingController: UITableViewController, UITextFieldDelegate {
                                          newPassword: self.newPassword.text,
                                          newPasswordConfirmation: self.confirmPassword.text)
         password.save { (response) in
-            if let response = response {
-                if response["status"] == "OK" {
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                    })
-                } else {
-                    KRProgressHUD.dismiss()
-                    self.showAlert(title: "Save error", message: response["messages"]!)
-                }
-            } else {
+            guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Save error", message: "Network Error!")
+                self.showAlert(title: "Save error", message: response["messages"]!)
+                return
             }
+            
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+            })
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

@@ -53,25 +53,21 @@ class TodoEditViewController: UITableViewController {
                                         listId: nil,
                                         userId: nil)
             register.update { (response) in
-                if let response = response {
-                    if response["status"] == "OK" {
-                        NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
-                        KRProgressHUD.dismiss({
-                            KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                        })
-                        self.performSegue(withIdentifier: "UnwindToTodoList", sender: self)
-                    } else {
-                        KRProgressHUD.dismiss()
-                        self.showAlert(title: "Update error", message: response["messages"]!)
-                    }
-                } else {
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showError(withMessage: "Network Error!")
-                    })
+                guard response["status"] == "OK" else {
+                    KRProgressHUD.dismiss()
+                    self.showAlert(title: "Update error", message: response["messages"]!)
+                    return
                 }
+                
+                NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                KRProgressHUD.dismiss({
+                    KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                })
+                self.performSegue(withIdentifier: "UnwindToTodoList", sender: self)
             }
         }
     }
+    
     /*
     // MARK: - Navigation
 

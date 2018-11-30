@@ -40,15 +40,17 @@ class NotificationSettingController: UITableViewController {
         }
         
         self.notificationSettings.update { (response) in
-            if let response = response {
+            guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss({
-                    KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    KRProgressHUD.showError(withMessage: response["messages"])
                 })
-            } else {
-                KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Update Filed!")
-                })
+                return
             }
+            
+            NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+            })
         }
     }
     

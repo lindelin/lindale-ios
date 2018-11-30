@@ -57,79 +57,39 @@ struct ProjectCollection: Codable {
     }
     
     static func resources(completion: @escaping (ProjectCollection?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.projects) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let projectCollection = try! coder.decode(ProjectCollection.self, from: data)
-                    projectCollection.store()
-                    completion(projectCollection)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
+        NetworkProvider.main.data(request: .projects) { (data) in
+            guard let data = data else {
                 completion(nil)
+                return
             }
+        
+            let projectCollection = try! JSONDecoder.main.decode(ProjectCollection.self, from: data)
+            projectCollection.store()
+            completion(projectCollection)
         }
     }
     
     static func more(nextUrl url: URL, completion: @escaping (ProjectCollection?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<LoadMoreService>()
-        provider.request(.load(url: url)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let projectCollection = try! coder.decode(ProjectCollection.self, from: data)
-                    projectCollection.store()
-                    completion(projectCollection)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
+        NetworkProvider.main.moreData(request: .load(url: url)) { (data) in
+            guard let data = data else {
                 completion(nil)
+                return
             }
+            
+            let projectCollection = try! JSONDecoder.main.decode(ProjectCollection.self, from: data)
+            completion(projectCollection)
         }
     }
     
     static func favorites(completion: @escaping ([ProjectCollection.Project]?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.favoriteProjects) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let favorites = try! coder.decode([ProjectCollection.Project].self, from: data)
-                    completion(favorites)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
+        NetworkProvider.main.data(request: .favoriteProjects) { (data) in
+            guard let data = data else {
                 completion(nil)
+                return
             }
+            
+            let favorites = try! JSONDecoder.main.decode([ProjectCollection.Project].self, from: data)
+            completion(favorites)
         }
     }
     

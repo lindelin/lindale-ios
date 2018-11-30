@@ -41,20 +41,16 @@ class ProfileSettingController: UITableViewController {
                                                content: self.content.text ?? "",
                                                company: self.organization.text ?? "")
         profileInfo.update { (response) in
-            if let response = response {
-                if response["status"] == "OK" {
-                    NotificationCenter.default.post(name: LocalNotificationService.profileInfoHasUpdated, object: nil)
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                    })
-                } else {
-                    KRProgressHUD.dismiss()
-                    self.showAlert(title: "Update error", message: response["messages"]!)
-                }
-            } else {
+            guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Update error", message: "Network Error!")
+                self.showAlert(title: "Update error", message: response["messages"]!)
+                return
             }
+            
+            NotificationCenter.default.post(name: LocalNotificationService.profileInfoHasUpdated, object: nil)
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+            })
         }
     }
     /*

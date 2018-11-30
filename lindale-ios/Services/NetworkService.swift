@@ -215,3 +215,96 @@ private extension String {
         return data(using: .utf8)!
     }
 }
+
+class NetworkProvider {
+    
+    static let main = NetworkProvider()
+    
+    let provider = MoyaProvider<NetworkService>()
+    let loadMoreProvider = MoyaProvider<LoadMoreService>()
+    
+    func data(request: NetworkService, completion: @escaping (Data?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        provider.request(request) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    completion(data)
+                }
+                catch {
+                    if response.statusCode == 401 {
+                        UserDefaults.dataSuite.set(true, forOAuthKey: .hasAuthError)
+                    }
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    func moreData(request: LoadMoreService, completion: @escaping (Data?) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        loadMoreProvider.request(request) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    completion(data)
+                }
+                catch {
+                    completion(nil)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    func message(request: NetworkService, completion: @escaping ([String: String]) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        provider.request(request) { result in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusCodes()
+                    let data = response.data
+                    let coder = JSONDecoder()
+                    let status = try! coder.decode([String: String].self, from: data)
+                    completion(status)
+                }
+                catch {
+                    if response.statusCode == 422 {
+                        let data = response.data
+                        let coder = JSONDecoder()
+                        let errors = try! coder.decode(InputError.self, from: data)
+                        var message: String = ""
+                        for errors in errors.errors {
+                            for error in errors.value {
+                                message += error
+                            }
+                        }
+                        completion(["status": errors.message, "messages": message])
+                    } else {
+                        print(error)
+                        completion(["status": "NG", "messages": "Network Error!"])
+                    }
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                completion(["status": "NG", "messages": "Network Error!"])
+            }
+        }
+    }
+}

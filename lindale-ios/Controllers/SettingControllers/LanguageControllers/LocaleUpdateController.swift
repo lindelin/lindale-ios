@@ -47,14 +47,17 @@ class LocaleUpdateController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         KRProgressHUD.show(withMessage: "Updating...")
         let option = self.localeSettings.optionObjs()[indexPath.row]
-        Settings.Locale.update(to: option.key) { (status) in
-            if let _ = status {
-                self.localeSettings.currentLanguage = option.key
-                self.localeSettings.currentLanguageName = option.value
-                tableView.reloadData()
-                NotificationCenter.default.post(name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
+        Settings.Locale.update(to: option.key) { (response) in
+            guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
+                self.showAlert(title: "Update error", message: response["messages"]!)
+                return
             }
+            KRProgressHUD.dismiss()
+            self.localeSettings.currentLanguage = option.key
+            self.localeSettings.currentLanguageName = option.value
+            tableView.reloadData()
+            NotificationCenter.default.post(name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
         }
     }
 

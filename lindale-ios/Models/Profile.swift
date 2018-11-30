@@ -63,31 +63,15 @@ struct Profile: Codable {
     }
     
     static func resources(completion: @escaping (Profile?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.profile) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let profile = try! coder.decode(Profile.self, from: data)
-                    profile.store()
-                    completion(profile)
-                }
-                catch {
-                    if response.statusCode == 401 {
-                        UserDefaults.dataSuite.set(true, forOAuthKey: .hasAuthError)
-                    }
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
+        NetworkProvider.main.data(request: .profile) { (data) in
+            guard let data = data else {
                 completion(nil)
+                return
             }
+            
+            let profile = try! JSONDecoder.main.decode(Profile.self, from: data)
+            profile.store()
+            completion(profile)
         }
     }
     

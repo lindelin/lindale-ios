@@ -33,17 +33,14 @@ class ProjectsViewController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loding...")
         ProjectCollection.resources { (projectCollection) in
-            if let projectCollection = projectCollection {
-                self.projectCollection = projectCollection
-                
-            } else {
+            guard let projectCollection = projectCollection else {
                 self.authErrorHandle()
+                return
             }
-            self.refreshControl?.endRefreshing()
+            self.projectCollection = projectCollection
             self.updateUI()
-            KRProgressHUD.dismiss()
+            self.refreshControl?.endRefreshing()
         }
     }
     

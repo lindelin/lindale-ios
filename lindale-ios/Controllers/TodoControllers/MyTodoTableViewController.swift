@@ -53,12 +53,14 @@ class MyTodoTableViewController: UITableViewController {
     @objc func loadData() {
         KRProgressHUD.show(withMessage: "Loding...")
         MyTodoCollection.resources { (myTodoCollection) in
-            if let myTodoCollection = myTodoCollection {
-                self.myTodoCollection = myTodoCollection
-            } else {
-                self.authErrorHandle()
-            }
             self.refreshControl?.endRefreshing()
+            
+            guard let myTodoCollection = myTodoCollection else {
+                self.authErrorHandle()
+                return
+            }
+            
+            self.myTodoCollection = myTodoCollection
             self.updateUI()
             KRProgressHUD.dismiss()
         }
@@ -176,22 +178,17 @@ class MyTodoTableViewController: UITableViewController {
                     }
                     
                     todo.changeColor(colorId: id, completion: { (response) in
-                        if let response = response {
-                            if response["status"] == "OK" {
-                                NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
-                                KRProgressHUD.dismiss({
-                                    KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                                })
-                            } else {
-                                KRProgressHUD.dismiss({
-                                    KRProgressHUD.showError(withMessage: response["messages"])
-                                })
-                            }
-                        } else {
+                        guard response["status"] == "OK" else {
                             KRProgressHUD.dismiss({
-                                KRProgressHUD.showError(withMessage: "Network Error!")
+                                KRProgressHUD.showError(withMessage: response["messages"])
                             })
+                            return
                         }
+                        
+                        NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                        })
                     })
                 })
             }
@@ -228,24 +225,19 @@ class MyTodoTableViewController: UITableViewController {
                 }
                 
                 todo.delete(completion: { (response) in
-                    if let response = response {
-                        if response["status"] == "OK" {
-                            self.myTodoCollection?.todos.remove(at: indexPath.row)
-                            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                            NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
-                            KRProgressHUD.dismiss({
-                                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                            })
-                        } else {
-                            KRProgressHUD.dismiss({
-                                KRProgressHUD.showError(withMessage: response["messages"])
-                            })
-                        }
-                    } else {
+                    guard response["status"] == "OK" else {
                         KRProgressHUD.dismiss({
-                            KRProgressHUD.showError(withMessage: "Network Error!")
+                            KRProgressHUD.showError(withMessage: response["messages"])
                         })
+                        return
                     }
+                    
+                    self.myTodoCollection?.todos.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
                 })
             })
             
@@ -259,6 +251,7 @@ class MyTodoTableViewController: UITableViewController {
             }
         }
         
+        // TODO: - 代码优化
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
             let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
             Todo.EditResources.load(completion: { (resource) in

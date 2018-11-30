@@ -29,6 +29,7 @@ class MyTaskTableViewController: UITableViewController {
         // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasDeleted, object: nil)
     }
     
     private func setupNavigation() {
@@ -39,16 +40,16 @@ class MyTaskTableViewController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loding...")
         MyTaskCollection.resources { (myTaskCollection) in
-            if let myTaskCollection = myTaskCollection {
-                self.myTaskCollection = myTaskCollection
-            } else {
-                self.authErrorHandle()
-            }
             self.refreshControl?.endRefreshing()
+            
+            guard let myTaskCollection = myTaskCollection else {
+                self.authErrorHandle()
+                return
+            }
+            
+            self.myTaskCollection = myTaskCollection
             self.updateUI()
-            KRProgressHUD.dismiss()
         }
     }
     

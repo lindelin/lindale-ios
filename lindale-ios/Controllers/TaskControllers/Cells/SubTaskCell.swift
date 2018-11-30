@@ -51,21 +51,17 @@ class SubTaskCell: UITableViewCell {
         
         self.subTask!.update { (response) in
             NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
-            if let response = response {
-                if response["status"] == "OK" {
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                    })
-                } else {
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showError(withMessage: response["messages"])
-                    })
-                }
-            } else {
+            
+            guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Network Error!")
+                    KRProgressHUD.showError(withMessage: response["messages"])
                 })
+                return
             }
+            
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+            })
         }
     }
 }

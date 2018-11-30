@@ -114,3 +114,7 @@ func image_from(url: URL?) -> UIImage {
     
     return UIImage(data: data)!
 }
+
+extension JSONDecoder {
+    static let main = JSONDecoder()
+}

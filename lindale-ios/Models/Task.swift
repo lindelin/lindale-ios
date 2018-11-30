@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import KRProgressHUD
 
 struct MyTaskCollection: Codable {
     var tasks: [Task]
@@ -63,53 +64,28 @@ struct MyTaskCollection: Codable {
     }
     
     static func resources(completion: @escaping (MyTaskCollection?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.myTasks) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let myTaskCollection = try! coder.decode(MyTaskCollection.self, from: data)
-                    myTaskCollection.store()
-                    completion(myTaskCollection)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
+        NetworkProvider.main.data(request: .myTasks) { (data) in
+            
+            guard let data = data else {
                 completion(nil)
+                return
             }
+            
+            let myTaskCollection = try! JSONDecoder.main.decode(MyTaskCollection.self, from: data)
+            myTaskCollection.store()
+            completion(myTaskCollection)
         }
     }
     
     static func more(nextUrl url: URL, completion: @escaping (MyTaskCollection?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<LoadMoreService>()
-        provider.request(.load(url: url)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let myTaskCollection = try! coder.decode(MyTaskCollection.self, from: data)
-                    completion(myTaskCollection)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
+        NetworkProvider.main.moreData(request: .load(url: url)) { (data) in
+            guard let data = data else {
                 completion(nil)
+                return
             }
+            
+            let myTaskCollection = try! JSONDecoder.main.decode(MyTaskCollection.self, from: data)
+            completion(myTaskCollection)
         }
     }
     
@@ -211,53 +187,15 @@ struct TaskResource: Codable {
             return self.isFinish == 1 ? true : false
         }
         
-        func update(completion: @escaping ([String: String]?) -> Void) {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            let provider = MoyaProvider<NetworkService>()
-            provider.request(.updateSubTask(subTask: self)) { result in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                switch result {
-                case let .success(response):
-                    do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let status = try! coder.decode([String: String].self, from: data)
-                        completion(status)
-                    }
-                    catch {
-                        completion(nil)
-                    }
-                // do something with the response data or statusCode
-                case let .failure(error):
-                    print(error)
-                    completion(nil)
-                }
+        func update(completion: @escaping ([String: String]) -> Void) {
+            NetworkProvider.main.message(request: .updateSubTask(subTask: self)) { (status) in
+                completion(status)
             }
         }
         
-        func delete(completion: @escaping ([String: String]?) -> Void) {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            let provider = MoyaProvider<NetworkService>()
-            provider.request(.deleteSubTask(subTask: self)) { result in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                switch result {
-                case let .success(response):
-                    do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let status = try! coder.decode([String: String].self, from: data)
-                        completion(status)
-                    }
-                    catch {
-                        completion(nil)
-                    }
-                // do something with the response data or statusCode
-                case let .failure(error):
-                    print(error)
-                    completion(nil)
-                }
+        func delete(completion: @escaping ([String: String]) -> Void) {
+            NetworkProvider.main.message(request: .deleteSubTask(subTask: self)) { (status) in
+                completion(status)
             }
         }
     }
@@ -279,27 +217,15 @@ struct TaskResource: Codable {
     }
     
     static func load(id: Int, completion: @escaping (TaskResource?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.myTaskDetail(id: id)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let taskResource = try! coder.decode(TaskResource.self, from: data)
-                    completion(taskResource)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
+        NetworkProvider.main.data(request: .myTaskDetail(id: id)) { (data) in
+            
+            guard let data = data else {
                 completion(nil)
+                return
             }
+            
+            let taskResource = try! JSONDecoder.main.decode(TaskResource.self, from: data)
+            completion(taskResource)
         }
     }
     
@@ -308,56 +234,18 @@ struct TaskResource: Codable {
         case incomplete = 0
     }
     
-    mutating func changeCompleteStatus(to: CompleteStatus, completion: @escaping ([String: String]?) -> Void) {
+    mutating func changeCompleteStatus(to: CompleteStatus, completion: @escaping ([String: String]) -> Void) {
         
         self.isFinish = to.rawValue
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.completeTask(task: self)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let status = try! coder.decode([String: String].self, from: data)
-                    completion(status)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
-                completion(nil)
-            }
+        NetworkProvider.main.message(request: .completeTask(task: self)) { (status) in
+            completion(status)
         }
     }
     
-    func delete(completion: @escaping ([String: String]?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.deleteTask(task: self)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let status = try! coder.decode([String: String].self, from: data)
-                    completion(status)
-                }
-                catch {
-                    completion(nil)
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
-                completion(nil)
-            }
+    func delete(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .deleteTask(task: self)) { (status) in
+            completion(status)
         }
     }
     
@@ -369,27 +257,14 @@ struct TaskResource: Codable {
         }
         
         static func load(task: TaskResource, completion: @escaping (EditResources?) -> Void) {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            let provider = MoyaProvider<NetworkService>()
-            provider.request(.taskEditResource(task: task)) { result in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                switch result {
-                case let .success(response):
-                    do {
-                        _ = try response.filterSuccessfulStatusCodes()
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let editResources = try! coder.decode(EditResources.self, from: data)
-                        completion(editResources)
-                    }
-                    catch {
-                        completion(nil)
-                    }
-                // do something with the response data or statusCode
-                case let .failure(error):
-                    print(error)
+            NetworkProvider.main.data(request: .taskEditResource(task: task)) { (data) in
+                guard let data = data else {
                     completion(nil)
+                    return
                 }
+                
+                let editResources = try! JSONDecoder.main.decode(EditResources.self, from: data)
+                completion(editResources)
             }
         }
     }
@@ -404,42 +279,9 @@ struct TaskActivityRegister {
         self.content = content ?? ""
     }
     
-    func store(completion: @escaping ([String: String]?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.storeActivity(activity: self)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let status = try! coder.decode([String: String].self, from: data)
-                    completion(status)
-                }
-                catch {
-                    if response.statusCode == 422 {
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let errors = try! coder.decode(InputError.self, from: data)
-                        var message: String = ""
-                        for errors in errors.errors {
-                            for error in errors.value {
-                                message += error
-                            }
-                        }
-                        completion(["status": errors.message, "messages": message])
-                    } else {
-                        print(error)
-                        completion(nil)
-                    }
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
-                completion(nil)
-            }
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeActivity(activity: self)) { (status) in
+            completion(status)
         }
     }
 }
@@ -448,42 +290,9 @@ struct SubTaskRegister {
     var taskId: Int?
     var content: String?
     
-    func store(completion: @escaping ([String: String]?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.storeSubTask(subTask: self)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let status = try! coder.decode([String: String].self, from: data)
-                    completion(status)
-                }
-                catch {
-                    if response.statusCode == 422 {
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let errors = try! coder.decode(InputError.self, from: data)
-                        var message: String = ""
-                        for errors in errors.errors {
-                            for error in errors.value {
-                                message += error
-                            }
-                        }
-                        completion(["status": errors.message, "messages": message])
-                    } else {
-                        print(error)
-                        completion(nil)
-                    }
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
-                completion(nil)
-            }
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeSubTask(subTask: self)) { (status) in
+            completion(status)
         }
     }
 }
@@ -502,42 +311,9 @@ struct TaskRegister {
     var priorityId: Int?
     var colorId: Int?
     
-    func update(completion: @escaping ([String: String]?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let provider = MoyaProvider<NetworkService>()
-        provider.request(.taskUpdate(task: self)) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            switch result {
-            case let .success(response):
-                do {
-                    _ = try response.filterSuccessfulStatusCodes()
-                    let data = response.data
-                    let coder = JSONDecoder()
-                    let status = try! coder.decode([String: String].self, from: data)
-                    completion(status)
-                }
-                catch {
-                    if response.statusCode == 422 {
-                        let data = response.data
-                        let coder = JSONDecoder()
-                        let errors = try! coder.decode(InputError.self, from: data)
-                        var message: String = ""
-                        for errors in errors.errors {
-                            for error in errors.value {
-                                message += error
-                            }
-                        }
-                        completion(["status": errors.message, "messages": message])
-                    } else {
-                        print(error)
-                        completion(nil)
-                    }
-                }
-            // do something with the response data or statusCode
-            case let .failure(error):
-                print(error)
-                completion(nil)
-            }
+    func update(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .taskUpdate(task: self)) { (status) in
+            completion(status)
         }
     }
 }

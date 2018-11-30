@@ -47,20 +47,20 @@ class ProfileTableViewController: UITableViewController {
     
     @objc func loadData() {
         Profile.resources { (profile) in
-            if let profile = profile {
-                self.profile = profile
-                self.updateUI()
-            } else {
+            guard let profile = profile else {
                 self.authErrorHandle()
+                return
             }
+            self.profile = profile
+            self.updateUI()
             self.refreshControl?.endRefreshing()
         }
         ProjectCollection.favorites { (favorites) in
-            if let favorites = favorites {
-                self.favorites = favorites
-            } else {
+            guard let favorites = favorites else {
                 self.authErrorHandle()
+                return
             }
+            self.favorites = favorites
         }
     }
     

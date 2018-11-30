@@ -89,22 +89,17 @@ class FoldingTodoCell: FoldingCell {
         }
         
         todo.complete(completion: { (response) in
-            if let response = response {
-                if response["status"] == "OK" {
-                    NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
-                    })
-                } else {
-                    KRProgressHUD.dismiss({
-                        KRProgressHUD.showError(withMessage: response["messages"])
-                    })
-                }
-            } else {
+            guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Network Error!")
+                    KRProgressHUD.showError(withMessage: response["messages"])
                 })
+                return
             }
+            
+            NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+            })
         })
     }
 }
