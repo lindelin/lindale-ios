@@ -39,6 +39,7 @@
 		F21C92072194336A00961362 /* FoldingTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C92062194336A00961362 /* FoldingTaskCell.swift */; };
 		F22364332148BB8B003D03E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22364322148BB8B003D03E8 /* GoogleService-Info.plist */; };
 		F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */; };
+		F22A715221B5236100B90C19 /* ProjectDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22A715121B5236100B90C19 /* ProjectDetailController.swift */; };
 		F23226C32170908400846250 /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23226C22170908400846250 /* ActivityViewCell.swift */; };
 		F2403B312147B77E004BF3C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2403B302147B77E004BF3C8 /* Profile.swift */; };
 		F2423E96219EAE8600868F00 /* UITabelView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */; };
@@ -52,6 +53,11 @@
 		F2A4FCBA216586B100E0C35E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB8216586B100E0C35E /* Task.swift */; };
 		F2A4FCBB216586B100E0C35E /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB9216586B100E0C35E /* OAuth.swift */; };
 		F2A4FCBD216586C700E0C35E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCBC216586C700E0C35E /* NetworkService.swift */; };
+		F2B273CA21B65661007153D7 /* ProjectTopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B273C921B65661007153D7 /* ProjectTopController.swift */; };
+		F2B273CC21B65688007153D7 /* ProjectInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B273CB21B65688007153D7 /* ProjectInfoController.swift */; };
+		F2B273CE21B656AB007153D7 /* ProjectTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B273CD21B656AB007153D7 /* ProjectTaskController.swift */; };
+		F2B273D021B656C4007153D7 /* ProjectTodoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B273CF21B656C4007153D7 /* ProjectTodoController.swift */; };
+		F2B273D221B656E8007153D7 /* ProjectSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B273D121B656E8007153D7 /* ProjectSettingsController.swift */; };
 		F2B9D7E0218C49B7009A119A /* FoldingTodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B9D7DF218C49B7009A119A /* FoldingTodoCell.swift */; };
 		F2BB3AAE215215C000AB2632 /* TasksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BB3AAD215215C000AB2632 /* TasksController.swift */; };
 		F2BB3AB121524FAD00AB2632 /* DefaultTaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */; };
@@ -260,6 +266,7 @@
 		F21C92062194336A00961362 /* FoldingTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTaskCell.swift; sourceTree = "<group>"; };
 		F22364322148BB8B003D03E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F22364342148F06E003D03E8 /* ProfileFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavoriteCell.swift; sourceTree = "<group>"; };
+		F22A715121B5236100B90C19 /* ProjectDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailController.swift; sourceTree = "<group>"; };
 		F23226C22170908400846250 /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
 		F2403B302147B77E004BF3C8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabelView+Animation.swift"; sourceTree = "<group>"; };
@@ -275,6 +282,11 @@
 		F2A4FCB8216586B100E0C35E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F2A4FCB9216586B100E0C35E /* OAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		F2A4FCBC216586C700E0C35E /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F2B273C921B65661007153D7 /* ProjectTopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTopController.swift; sourceTree = "<group>"; };
+		F2B273CB21B65688007153D7 /* ProjectInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoController.swift; sourceTree = "<group>"; };
+		F2B273CD21B656AB007153D7 /* ProjectTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTaskController.swift; sourceTree = "<group>"; };
+		F2B273CF21B656C4007153D7 /* ProjectTodoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTodoController.swift; sourceTree = "<group>"; };
+		F2B273D121B656E8007153D7 /* ProjectSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingsController.swift; sourceTree = "<group>"; };
 		F2B9D7DF218C49B7009A119A /* FoldingTodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTodoCell.swift; sourceTree = "<group>"; };
 		F2BB3AAD215215C000AB2632 /* TasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskRow.swift; sourceTree = "<group>"; };
@@ -452,8 +464,10 @@
 		F24EC78F2140C05D00FB0FE9 /* ProjectControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2B273C821B65620007153D7 /* ProjectDetailControllers */,
 				A876AA74214CA4F300425ECA /* Cells */,
 				F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */,
+				F22A715121B5236100B90C19 /* ProjectDetailController.swift */,
 			);
 			path = ProjectControllers;
 			sourceTree = "<group>";
@@ -526,6 +540,7 @@
 		F29DBB7421381F9E009DA744 /* lindale-ios */ = {
 			isa = PBXGroup;
 			children = (
+				F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */,
 				A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */,
 				F2CAE17B21384A74002C04E7 /* Models */,
 				F2CAE16721382704002C04E7 /* Views */,
@@ -571,6 +586,18 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F2B273C821B65620007153D7 /* ProjectDetailControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2B273C921B65661007153D7 /* ProjectTopController.swift */,
+				F2B273CB21B65688007153D7 /* ProjectInfoController.swift */,
+				F2B273CD21B656AB007153D7 /* ProjectTaskController.swift */,
+				F2B273CF21B656C4007153D7 /* ProjectTodoController.swift */,
+				F2B273D121B656E8007153D7 /* ProjectSettingsController.swift */,
+			);
+			path = ProjectDetailControllers;
+			sourceTree = "<group>";
+		};
 		F2BB3AAF21524F7300AB2632 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,7 +610,6 @@
 		F2CAE16721382704002C04E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */,
 				F29DBB7921381F9E009DA744 /* Main.storyboard */,
 				F2CAE17221382EC7002C04E7 /* Login.storyboard */,
 				A8F3563221400486006204D3 /* Project.storyboard */,
@@ -1069,6 +1095,7 @@
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-iOS/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Result-iOS/Result.framework",
@@ -1087,6 +1114,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1159,11 +1187,15 @@
 				F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */,
 				F2F4FFC7215E179C00D5F197 /* NSUserActivity+IntentData.swift in Sources */,
 				A8DE10AE217B76DF00D1F654 /* NotificationSettingController.swift in Sources */,
+				F2B273D221B656E8007153D7 /* ProjectSettingsController.swift in Sources */,
+				F2B273D021B656C4007153D7 /* ProjectTodoController.swift in Sources */,
 				F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */,
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
 				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
 				F2E1FE1D21ABA55D0033F8B3 /* Other.swift in Sources */,
+				F2B273CA21B65661007153D7 /* ProjectTopController.swift in Sources */,
+				F22A715221B5236100B90C19 /* ProjectDetailController.swift in Sources */,
 				A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */,
 				F2B9D7E0218C49B7009A119A /* FoldingTodoCell.swift in Sources */,
 				F2F4FFCD215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
@@ -1183,10 +1215,12 @@
 				F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */,
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,
 				A8DCF837217AFDF500839DA4 /* LocaleUpdateController.swift in Sources */,
+				F2B273CE21B656AB007153D7 /* ProjectTaskController.swift in Sources */,
 				A8DE10A7217B4A1600D1F654 /* AccountSettingController.swift in Sources */,
 				F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */,
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
 				F23226C32170908400846250 /* ActivityViewCell.swift in Sources */,
+				F2B273CC21B65688007153D7 /* ProjectInfoController.swift in Sources */,
 				F2CAE18821390ECC002C04E7 /* Project.swift in Sources */,
 				A86384012171C6AC00837E1B /* TaskBasicInfoCell.swift in Sources */,
 				A89F87D621722D0A004ADEA4 /* SubTaskCell.swift in Sources */,

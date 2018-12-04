@@ -20,6 +20,7 @@ target 'lindale-ios' do
   pod 'Down'
   pod 'SCLAlertView'
   pod 'FoldingCell'
+  pod 'PageMenu'
   
   target 'lindale-watch Extension' do
       platform :watchos, '5'

@@ -91,3 +91,9 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+class Size {
+    static var naviBarHeight: CGFloat {
+        return UIApplication.shared.statusBarFrame.height + 44
+    }
+}

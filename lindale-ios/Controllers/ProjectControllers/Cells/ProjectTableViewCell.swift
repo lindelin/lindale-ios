@@ -9,6 +9,9 @@
 import UIKit
 
 class ProjectTableViewCell: UITableViewCell {
+    
+    var project: ProjectCollection.Project?
+    
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var status: UILabel!
@@ -23,8 +26,7 @@ class ProjectTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.progress.transform = self.progress.transform.scaledBy(x: 1, y: 3
-        )
+        self.progress.transform = self.progress.transform.scaledBy(x: 1, y: 3)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,6 +36,7 @@ class ProjectTableViewCell: UITableViewCell {
     }
     
     func setCell(project: ProjectCollection.Project) {
+        self.project = project
         self.projectImage.image = #imageLiteral(resourceName: "lindale-launch")
         self.projectImage.load(url: project.image, placeholder: #imageLiteral(resourceName: "lindale-launch"))
         self.type.text = project.type
