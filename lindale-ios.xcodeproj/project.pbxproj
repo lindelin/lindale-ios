@@ -48,6 +48,7 @@
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
 		F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */; };
 		F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */; };
+		F29F00AB21B7870600228E61 /* ProjectDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29F00AA21B7870600228E61 /* ProjectDetail.storyboard */; };
 		F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A39AE9214D109100BF2AF7 /* DefaultTodoCell.swift */; };
 		F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */; };
 		F2A4FCBA216586B100E0C35E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB8216586B100E0C35E /* Task.swift */; };
@@ -277,6 +278,7 @@
 		F29DBB7D21381F9E009DA744 /* lindale_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = lindale_ios.xcdatamodel; sourceTree = "<group>"; };
 		F29DBB8221381F9F009DA744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F29DBB8421381F9F009DA744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F29F00AA21B7870600228E61 /* ProjectDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDetail.storyboard; sourceTree = "<group>"; };
 		F2A39AE9214D109100BF2AF7 /* DefaultTodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTodoCell.swift; sourceTree = "<group>"; };
 		F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoTableViewController.swift; sourceTree = "<group>"; };
 		F2A4FCB8216586B100E0C35E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -556,6 +558,14 @@
 			path = "lindale-ios";
 			sourceTree = "<group>";
 		};
+		F29F00A921B786BE00228E61 /* ProjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				F29F00AA21B7870600228E61 /* ProjectDetail.storyboard */,
+			);
+			path = ProjectDetails;
+			sourceTree = "<group>";
+		};
 		F2A39AE7214D104600BF2AF7 /* TodoControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +620,7 @@
 		F2CAE16721382704002C04E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F29F00A921B786BE00228E61 /* ProjectDetails */,
 				F29DBB7921381F9E009DA744 /* Main.storyboard */,
 				F2CAE17221382EC7002C04E7 /* Login.storyboard */,
 				A8F3563221400486006204D3 /* Project.storyboard */,
@@ -1003,6 +1014,7 @@
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
 				F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */,
 				F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */,
+				F29F00AB21B7870600228E61 /* ProjectDetail.storyboard in Resources */,
 				F22364332148BB8B003D03E8 /* GoogleService-Info.plist in Resources */,
 				A876AA78214CA69300425ECA /* Settings.storyboard in Resources */,
 			);

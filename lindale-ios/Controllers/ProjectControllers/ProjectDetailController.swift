@@ -42,31 +42,33 @@ class ProjectDetailController: UIViewController {
 
     func setUpPageMenu() {
         
-        let topController = self.storyboard?.instantiateViewController(withIdentifier: ProjectTopController.identity) as! ProjectTopController
+        let storyboard = UIStoryboard(name: "ProjectDetail", bundle: nil)
+        
+        let topController = storyboard.instantiateViewController(withIdentifier: ProjectTopController.identity) as! ProjectTopController
         topController.parentNavigationController = self.navigationController
         topController.project = self.project
         topController.title = "Top"
         controllers.append(topController)
         
-        let infoController = self.storyboard?.instantiateViewController(withIdentifier: ProjectInfoController.identity) as! ProjectInfoController
+        let infoController = storyboard.instantiateViewController(withIdentifier: ProjectInfoController.identity) as! ProjectInfoController
         infoController.parentNavigationController = self.navigationController
         infoController.project = self.project
         infoController.title = "Info"
         controllers.append(infoController)
         
-        let taskController = self.storyboard?.instantiateViewController(withIdentifier: ProjectTaskController.identity) as! ProjectTaskController
+        let taskController = storyboard.instantiateViewController(withIdentifier: ProjectTaskController.identity) as! ProjectTaskController
         taskController.parentNavigationController = self.navigationController
         taskController.project = self.project
         taskController.title = "Tasks"
         controllers.append(taskController)
         
-        let todoController = self.storyboard?.instantiateViewController(withIdentifier: ProjectTodoController.identity) as! ProjectTodoController
+        let todoController = storyboard.instantiateViewController(withIdentifier: ProjectTodoController.identity) as! ProjectTodoController
         todoController.parentNavigationController = self.navigationController
         todoController.project = self.project
         todoController.title = "TODOs"
         controllers.append(todoController)
         
-        let settingsController = self.storyboard?.instantiateViewController(withIdentifier: ProjectSettingsController.identity) as! ProjectSettingsController
+        let settingsController = storyboard.instantiateViewController(withIdentifier: ProjectSettingsController.identity) as! ProjectSettingsController
         settingsController.parentNavigationController = self.navigationController
         settingsController.project = self.project
         settingsController.title = "Settings"
