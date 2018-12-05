@@ -24,14 +24,6 @@ class ProjectTopController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        if offsetY == -20 {
-            scrollView.contentOffset.y
-                = 0.0
-        }
-    }
 
     // MARK: - Table view data source
 

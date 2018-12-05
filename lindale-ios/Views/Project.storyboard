@@ -329,6 +329,14 @@
                                 <action selector="backToProjectList:" destination="hhW-Ra-vIo" id="fMJ-bV-TNO"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="add-30" id="yNW-9p-avm">
+                                <color key="tintColor" name="Theme-green"/>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="bell-30" id="ygD-ml-uMV">
+                                <color key="tintColor" name="Theme-yellow"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmF-aQ-wTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,7 +379,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDj-Zf-0D5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4423" y="323"/>
+            <point key="canvasLocation" x="4422" y="323"/>
         </scene>
         <!--Project Info Controller-->
         <scene sceneID="nBJ-Xl-dOc">
@@ -558,7 +566,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-30" width="67.5" height="67.5"/>
         <image name="back-30" width="67.5" height="67.5"/>
+        <image name="bell-30" width="67.5" height="67.5"/>
         <image name="lindale-launch" width="1500" height="1500"/>
         <image name="project-30" width="67.5" height="67.5"/>
         <namedColor name="Theme-background">
@@ -584,6 +594,9 @@
         </namedColor>
         <namedColor name="Theme-main">
             <color red="0.80000000000000004" green="0.26666666666666666" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-yellow">
+            <color red="0.96862745098039216" green="0.76078431372549016" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="Theme-base-sub"/>

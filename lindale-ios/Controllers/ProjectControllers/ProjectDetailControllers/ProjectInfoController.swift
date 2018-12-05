@@ -17,7 +17,6 @@ class ProjectInfoController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.tableView.contentInset)
     }
 
     /*

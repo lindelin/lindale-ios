@@ -18,9 +18,9 @@ target 'lindale-ios' do
   pod 'Pastel'
   pod "KRProgressHUD"
   pod 'Down'
-  pod 'SCLAlertView'
+  pod 'SCLAlertView' , :git => 'https://github.com/lindelea/SCLAlertView-Swift'
   pod 'FoldingCell'
-  pod 'PageMenu'
+  pod 'PageMenu' , :git => 'https://github.com/orazz/PageMenu'
   
   target 'lindale-watch Extension' do
       platform :watchos, '5'
