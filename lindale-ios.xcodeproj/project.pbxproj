@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17BDDCE3D42C9CA389E34039 /* Pods_lindale_watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */; };
 		8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8729374BB005277964279 /* Pods_lindale_ios.framework */; };
 		A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8250EC1217195C50084C5CE /* MyTaskDetailController.swift */; };
 		A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852D219214802AC00C2221D /* ProfileStatusCell.swift */; };
@@ -25,6 +24,7 @@
 		A89F87D821723C02004ADEA4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D721723C02004ADEA4 /* Notification.swift */; };
 		A89F87DA21726541004ADEA4 /* TaskActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D921726541004ADEA4 /* TaskActivityCell.swift */; };
 		A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */; };
+		A8CE9CA821BA5CB700AF6767 /* MyTaskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CE9CA721BA5CB700AF6767 /* MyTaskEditViewController.swift */; };
 		A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D013D4217CA4DC0099F11A /* ProfileSettingController.swift */; };
 		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		A8DCF832217AECB100839DA4 /* LanguageSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF831217AECB100839DA4 /* LanguageSettingController.swift */; };
@@ -93,7 +93,6 @@
 		F2E1FE2021ABA6B20033F8B3 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1FE1C21ABA55D0033F8B3 /* Other.swift */; };
 		F2E1FE2121ABA7080033F8B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
 		F2E1FE2221ABA70C0033F8B3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
-		F2E8CA4921A5348000F3AEBD /* MyTaskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */; };
 		F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8131216C8069009B0DDD /* ProgressController.swift */; };
 		F2EC8134216C868D009B0DDD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8133216C868D009B0DDD /* Profile.swift */; };
 		F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */; };
@@ -223,13 +222,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BC686EC0AF598B7D343767 /* Pods-lindale-watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		1DE79AC8CC869206DDDC1367 /* Pods-lindale-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		224C4B79498BE156AF63A518 /* Pods-lindale-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosTests/Pods-lindale-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		25C11AAE04F70EA3B05BC8A9 /* Pods-lindale-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.release.xcconfig"; sourceTree = "<group>"; };
-		7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A8250EC1217195C50084C5CE /* MyTaskDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskDetailController.swift; sourceTree = "<group>"; };
 		A852D219214802AC00C2221D /* ProfileStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatusCell.swift; sourceTree = "<group>"; };
@@ -239,8 +233,6 @@
 		A876AA75214CA57200425ECA /* MyTodo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTodo.storyboard; sourceTree = "<group>"; };
 		A876AA77214CA69300425ECA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		A87EEFB2214A92F5009C8E61 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		A87EEFB6214AADEF009C8E61 /* YOChartImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YOChartImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A87EEFB8214AAF1F009C8E61 /* YOChartImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YOChartImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A880F778216B4B33007791DD /* SyncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncController.swift; sourceTree = "<group>"; };
 		A880F77A216B95AC007791DD /* DefaultTodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTodoRow.swift; sourceTree = "<group>"; };
 		A880F77C216B9685007791DD /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
@@ -249,6 +241,7 @@
 		A89F87D721723C02004ADEA4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A89F87D921726541004ADEA4 /* TaskActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActivityCell.swift; sourceTree = "<group>"; };
 		A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		A8CE9CA721BA5CB700AF6767 /* MyTaskEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskEditViewController.swift; sourceTree = "<group>"; };
 		A8D013D4217CA4DC0099F11A /* ProfileSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingController.swift; sourceTree = "<group>"; };
 		A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-ios.entitlements"; sourceTree = "<group>"; };
 		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
@@ -259,9 +252,7 @@
 		A8DE10AA217B63C300D1F654 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A8DE10AD217B76DF00D1F654 /* NotificationSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingController.swift; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
-		A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-iosUITests/Pods-lindale-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
-		CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21C50CB21420CBE008218F4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		F21C92062194336A00961362 /* FoldingTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTaskCell.swift; sourceTree = "<group>"; };
@@ -322,7 +313,6 @@
 		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E156BB216DDDAE001E4535 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		F2E1FE1C21ABA55D0033F8B3 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
-		F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyTaskEditViewController.swift; path = "/Users/kgo/Documents/Project/App/lindale-ios/lindale-ios/Controllers/TaskControllers/MyTaskEditViewController.swift"; sourceTree = "<absolute>"; };
 		F2EC8131216C8069009B0DDD /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		F2EC8133216C868D009B0DDD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTask.storyboard; sourceTree = "<group>"; };
@@ -372,7 +362,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17BDDCE3D42C9CA389E34039 /* Pods_lindale_watch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,12 +393,7 @@
 		2AD403BAF9D095B63F73CE11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A87EEFB8214AAF1F009C8E61 /* YOChartImageKit.framework */,
-				A87EEFB6214AADEF009C8E61 /* YOChartImageKit.framework */,
 				F6B8729374BB005277964279 /* Pods_lindale_ios.framework */,
-				039314AA598293ED206836AC /* Pods_lindale_iosTests.framework */,
-				CE9A355DF75511D212BD9428 /* Pods_lindale_iosUITests.framework */,
-				7F5BA4B166B89195491F1EF6 /* Pods_lindale_watch_Extension.framework */,
 				F2F4FF9C215E160E00D5F197 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
@@ -542,18 +526,17 @@
 		F29DBB7421381F9E009DA744 /* lindale-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */,
-				A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */,
 				F2CAE17B21384A74002C04E7 /* Models */,
 				F2CAE16721382704002C04E7 /* Views */,
 				F24FB842213C0D5C00045DFA /* Controllers */,
 				F24FB841213C0D3500045DFA /* Services */,
 				F24FB843213C0D9200045DFA /* Supports */,
+				F24FB83E213C086D00045DFA /* Assets.xcassets */,
 				F29DBB7521381F9E009DA744 /* AppDelegate.swift */,
+				A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */,
 				F29DBB8421381F9F009DA744 /* Info.plist */,
 				F22364322148BB8B003D03E8 /* GoogleService-Info.plist */,
 				F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */,
-				F24FB83E213C086D00045DFA /* Assets.xcassets */,
 			);
 			path = "lindale-ios";
 			sourceTree = "<group>";
@@ -621,6 +604,7 @@
 			isa = PBXGroup;
 			children = (
 				F29F00A921B786BE00228E61 /* ProjectDetails */,
+				F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */,
 				F29DBB7921381F9E009DA744 /* Main.storyboard */,
 				F2CAE17221382EC7002C04E7 /* Login.storyboard */,
 				A8F3563221400486006204D3 /* Project.storyboard */,
@@ -703,7 +687,7 @@
 				F2F46BA4214BAA29005CD8A9 /* Cells */,
 				F2F46BA2214BAA21005CD8A9 /* MyTaskTableViewController.swift */,
 				A8250EC1217195C50084C5CE /* MyTaskDetailController.swift */,
-				F2E8CA4821A5348000F3AEBD /* MyTaskEditViewController.swift */,
+				A8CE9CA721BA5CB700AF6767 /* MyTaskEditViewController.swift */,
 			);
 			path = TaskControllers;
 			sourceTree = "<group>";
@@ -780,10 +764,6 @@
 			children = (
 				80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */,
 				7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */,
-				224C4B79498BE156AF63A518 /* Pods-lindale-iosTests.debug.xcconfig */,
-				1DE79AC8CC869206DDDC1367 /* Pods-lindale-iosTests.release.xcconfig */,
-				A9745B5D943619C8C875DC1A /* Pods-lindale-iosUITests.debug.xcconfig */,
-				25C11AAE04F70EA3B05BC8A9 /* Pods-lindale-iosUITests.release.xcconfig */,
 				19BC686EC0AF598B7D343767 /* Pods-lindale-watch Extension.debug.xcconfig */,
 				B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */,
 			);
@@ -1197,6 +1177,7 @@
 				F2F46BA3214BAA21005CD8A9 /* MyTaskTableViewController.swift in Sources */,
 				F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */,
 				F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */,
+				A8CE9CA821BA5CB700AF6767 /* MyTaskEditViewController.swift in Sources */,
 				F2F4FFC7215E179C00D5F197 /* NSUserActivity+IntentData.swift in Sources */,
 				A8DE10AE217B76DF00D1F654 /* NotificationSettingController.swift in Sources */,
 				F2B273D221B656E8007153D7 /* ProjectSettingsController.swift in Sources */,
@@ -1222,7 +1203,6 @@
 				F2C12C98219D5264002B58C2 /* User.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
 				F2F4FFE3216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
-				F2E8CA4921A5348000F3AEBD /* MyTaskEditViewController.swift in Sources */,
 				A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */,
 				F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */,
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,
