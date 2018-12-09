@@ -96,4 +96,6 @@ class Size {
     static var naviBarHeight: CGFloat {
         return UIApplication.shared.statusBarFrame.height + 44
     }
+    
+    static var tabBarHeight: CGFloat = 49
 }

@@ -14,41 +14,97 @@ class ProjectTopController: UITableViewController {
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
+    var projectTopResource: ProjectTopResource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.loadData()
+    }
+    
+    @objc func loadData() {
+        ProjectTopResource.load(project: self.project) { (projectTopResource) in
+            guard let projectTopResource = projectTopResource else {
+                self.authErrorHandle()
+                return
+            }
+            self.projectTopResource = projectTopResource
+            self.updateUI()
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func updateUI() {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        guard let projectTopResource = self.projectTopResource else {
+            return 0
+        }
+        if projectTopResource.milestones.count > 0 {
+            return 4
+        }
+        
         return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        guard let projectTopResource = self.projectTopResource else {
+            return 0
+        }
+        
+        switch section {
+        case 2:
+            return projectTopResource.milestones.count
+        default:
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath)
-
-        cell.textLabel?.text = "sdfasdfasdf"
-
+        
+        var cell: UITableViewCell!
+        
+        guard let projectTopResource = self.projectTopResource else {
+            return cell
+        }
+        
+        switch indexPath.section {
+        case 0:
+            let projectStatusCell = tableView.dequeueReusableCell(withIdentifier: ProjectStatusCell.identity, for: indexPath) as! ProjectStatusCell
+            projectStatusCell.update(status: projectTopResource.status)
+            cell = projectStatusCell
+            break
+        case 1:
+            let projectProgressCell = tableView.dequeueReusableCell(withIdentifier: ProjectProgressCell.identity, for: indexPath) as! ProjectProgressCell
+            projectProgressCell.updateStatus(projectTopResource.progress)
+            cell = projectProgressCell
+            break
+        case 2:
+            let projectMilestoneCell = tableView.dequeueReusableCell(withIdentifier: ProjectMilestoneCell.identity, for: indexPath) as! ProjectMilestoneCell
+            projectMilestoneCell.update(with: projectTopResource.milestones[indexPath.row])
+            cell = projectMilestoneCell
+            break
+        case 3:
+            let projectActivityCell = tableView.dequeueReusableCell(withIdentifier: ProjectActivityCell.identity, for: indexPath) as! ProjectActivityCell
+            projectActivityCell.update(html: projectTopResource.activity)
+            cell = projectActivityCell
+            break
+        default:
+            let projectStatusCell = tableView.dequeueReusableCell(withIdentifier: ProjectStatusCell.identity, for: indexPath) as! ProjectStatusCell
+            projectStatusCell.update(status: projectTopResource.status)
+            cell = projectStatusCell
+            break
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ProjectDetail", bundle: nil)
-        let contorller = storyboard.instantiateViewController(withIdentifier: "TTT")
-        self.parentNavigationController?.pushViewController(contorller, animated: true)
     }
     
     /*

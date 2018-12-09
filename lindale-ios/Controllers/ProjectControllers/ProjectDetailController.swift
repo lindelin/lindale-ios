@@ -74,7 +74,7 @@ class ProjectDetailController: UIViewController {
         settingsController.title = "Settings"
         controllers.append(settingsController)
         
-        self.pageMenu = CAPSPageMenu(viewControllers: self.controllers, frame: CGRect(x: 0, y: Size.naviBarHeight, width: self.view.frame.width, height: self.view.frame.height - Size.naviBarHeight), pageMenuOptions: self.pageMenuOption)
+        self.pageMenu = CAPSPageMenu(viewControllers: self.controllers, frame: CGRect(x: 0, y: Size.naviBarHeight, width: self.view.frame.width, height: self.view.frame.height - Size.naviBarHeight - Size.tabBarHeight), pageMenuOptions: self.pageMenuOption)
         self.view.addSubview(self.pageMenu.view)
     }
     

@@ -13,6 +13,8 @@
 		A86384012171C6AC00837E1B /* TaskBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86384002171C6AC00837E1B /* TaskBasicInfoCell.swift */; };
 		A86384032171CB7F00837E1B /* TaskUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86384022171CB7F00837E1B /* TaskUserInfoCell.swift */; };
 		A86384052171CBC900837E1B /* TaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86384042171CBC900837E1B /* TaskInfoCell.swift */; };
+		A864B33E21BBF8F500F55537 /* ProjectStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864B33D21BBF8F500F55537 /* ProjectStatusCell.swift */; };
+		A864B34021BBFF1B00F55537 /* ProjectActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864B33F21BBFF1B00F55537 /* ProjectActivityCell.swift */; };
 		A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA75214CA57200425ECA /* MyTodo.storyboard */; };
 		A876AA78214CA69300425ECA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A876AA77214CA69300425ECA /* Settings.storyboard */; };
 		A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EEFB2214A92F5009C8E61 /* Helpers.swift */; };
@@ -25,6 +27,8 @@
 		A89F87DA21726541004ADEA4 /* TaskActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F87D921726541004ADEA4 /* TaskActivityCell.swift */; };
 		A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */; };
 		A8CE9CA821BA5CB700AF6767 /* MyTaskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CE9CA721BA5CB700AF6767 /* MyTaskEditViewController.swift */; };
+		A8CE9CAB21BA781B00AF6767 /* ProjectProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CE9CAA21BA781B00AF6767 /* ProjectProgressCell.swift */; };
+		A8CE9CAD21BA7F4500AF6767 /* ProjectMilestoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CE9CAC21BA7F4500AF6767 /* ProjectMilestoneCell.swift */; };
 		A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D013D4217CA4DC0099F11A /* ProfileSettingController.swift */; };
 		A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		A8DCF832217AECB100839DA4 /* LanguageSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF831217AECB100839DA4 /* LanguageSettingController.swift */; };
@@ -230,6 +234,8 @@
 		A86384002171C6AC00837E1B /* TaskBasicInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBasicInfoCell.swift; sourceTree = "<group>"; };
 		A86384022171CB7F00837E1B /* TaskUserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUserInfoCell.swift; sourceTree = "<group>"; };
 		A86384042171CBC900837E1B /* TaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfoCell.swift; sourceTree = "<group>"; };
+		A864B33D21BBF8F500F55537 /* ProjectStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatusCell.swift; sourceTree = "<group>"; };
+		A864B33F21BBFF1B00F55537 /* ProjectActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectActivityCell.swift; sourceTree = "<group>"; };
 		A876AA75214CA57200425ECA /* MyTodo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTodo.storyboard; sourceTree = "<group>"; };
 		A876AA77214CA69300425ECA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		A87EEFB2214A92F5009C8E61 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -242,6 +248,8 @@
 		A89F87D921726541004ADEA4 /* TaskActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActivityCell.swift; sourceTree = "<group>"; };
 		A8C0447B2153DF3B00A75FC1 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		A8CE9CA721BA5CB700AF6767 /* MyTaskEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskEditViewController.swift; sourceTree = "<group>"; };
+		A8CE9CAA21BA781B00AF6767 /* ProjectProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectProgressCell.swift; sourceTree = "<group>"; };
+		A8CE9CAC21BA7F4500AF6767 /* ProjectMilestoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMilestoneCell.swift; sourceTree = "<group>"; };
 		A8D013D4217CA4DC0099F11A /* ProfileSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingController.swift; sourceTree = "<group>"; };
 		A8D5A02521441CDE002E8D52 /* lindale-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-ios.entitlements"; sourceTree = "<group>"; };
 		A8D5A026214422E1002E8D52 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
@@ -429,6 +437,17 @@
 			path = SettingControllers;
 			sourceTree = "<group>";
 		};
+		A8CE9CA921BA77A800AF6767 /* TopCells */ = {
+			isa = PBXGroup;
+			children = (
+				A8CE9CAA21BA781B00AF6767 /* ProjectProgressCell.swift */,
+				A8CE9CAC21BA7F4500AF6767 /* ProjectMilestoneCell.swift */,
+				A864B33D21BBF8F500F55537 /* ProjectStatusCell.swift */,
+				A864B33F21BBFF1B00F55537 /* ProjectActivityCell.swift */,
+			);
+			path = TopCells;
+			sourceTree = "<group>";
+		};
 		A8DCF835217AFDB400839DA4 /* LanguageControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +601,7 @@
 		F2B273C821B65620007153D7 /* ProjectDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8CE9CA921BA77A800AF6767 /* TopCells */,
 				F2B273C921B65661007153D7 /* ProjectTopController.swift */,
 				F2B273CB21B65688007153D7 /* ProjectInfoController.swift */,
 				F2B273CD21B656AB007153D7 /* ProjectTaskController.swift */,
@@ -1176,6 +1196,7 @@
 				F2F4FFD92160EB2100D5F197 /* ShortcutManager.swift in Sources */,
 				F2F46BA3214BAA21005CD8A9 /* MyTaskTableViewController.swift in Sources */,
 				F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */,
+				A864B34021BBFF1B00F55537 /* ProjectActivityCell.swift in Sources */,
 				F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */,
 				A8CE9CA821BA5CB700AF6767 /* MyTaskEditViewController.swift in Sources */,
 				F2F4FFC7215E179C00D5F197 /* NSUserActivity+IntentData.swift in Sources */,
@@ -1184,8 +1205,10 @@
 				F2B273D021B656C4007153D7 /* ProjectTodoController.swift in Sources */,
 				F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */,
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
+				A8CE9CAD21BA7F4500AF6767 /* ProjectMilestoneCell.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
 				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
+				A8CE9CAB21BA781B00AF6767 /* ProjectProgressCell.swift in Sources */,
 				F2E1FE1D21ABA55D0033F8B3 /* Other.swift in Sources */,
 				F2B273CA21B65661007153D7 /* ProjectTopController.swift in Sources */,
 				F22A715221B5236100B90C19 /* ProjectDetailController.swift in Sources */,
@@ -1211,6 +1234,7 @@
 				A8DE10A7217B4A1600D1F654 /* AccountSettingController.swift in Sources */,
 				F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */,
 				F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */,
+				A864B33E21BBF8F500F55537 /* ProjectStatusCell.swift in Sources */,
 				F23226C32170908400846250 /* ActivityViewCell.swift in Sources */,
 				F2B273CC21B65688007153D7 /* ProjectInfoController.swift in Sources */,
 				F2CAE18821390ECC002C04E7 /* Project.swift in Sources */,

@@ -168,7 +168,7 @@ class ProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell:UITableViewCell!
+        var cell: UITableViewCell!
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:

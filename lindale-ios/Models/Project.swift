@@ -115,3 +115,65 @@ struct ProjectCollection: Codable {
         }
     }
 }
+
+struct ProjectTopResource: Codable {
+    var status: Status
+    var progress: Progress
+    var milestones: [Milestone]
+    var activity: String
+    
+    static func load(project: ProjectCollection.Project, completion: @escaping (ProjectTopResource?) -> Void) {
+        NetworkProvider.main.data(request: .projectTopResources(project: project)) { (data) in
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            let projectTopResource = try! JSONDecoder.main.decode(ProjectTopResource.self, from: data)
+            completion(projectTopResource)
+        }
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case status
+        case progress
+        case milestones
+        case activity
+    }
+    
+    struct Status: Codable {
+        var task: String
+        var todo: String
+        var event: String
+        
+        enum CodingKeys: String, CodingKey {
+            case task
+            case todo
+            case event
+        }
+    }
+    
+    struct Progress: Codable {
+        var total: Int
+        var task: Int
+        var todo: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case total
+            case task
+            case todo
+        }
+    }
+    
+    struct Milestone: Codable {
+        var title: String
+        var type: String
+        var progress: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case title
+            case type
+            case progress
+        }
+    }
+}
