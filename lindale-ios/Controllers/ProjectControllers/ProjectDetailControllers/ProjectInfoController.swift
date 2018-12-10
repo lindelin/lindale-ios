@@ -7,16 +7,42 @@
 //
 
 import UIKit
+import Down
 
 class ProjectInfoController: UITableViewController {
     
     static let identity = "ProjectInfo"
     
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var pl: UILabel!
+    @IBOutlet weak var sl: UILabel!
+    @IBOutlet weak var startAt: UILabel!
+    @IBOutlet weak var endAt: UILabel!
+    @IBOutlet weak var contents: UILabel!
+    
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        self.image.load(url: self.project.image, placeholder: UIImage(named: "lindale-launch"))
+        self.pl.text = project.pl.name
+        self.sl.text = project.sl?.name
+        self.startAt.text = project.start
+        self.endAt.text = project.end
+        
+        if let content = project.content {
+            let md = Down(markdownString: content)
+            self.contents.attributedText = try? md.toAttributedString()
+        } else {
+            self.contents.text = nil
+        }
     }
 
     /*

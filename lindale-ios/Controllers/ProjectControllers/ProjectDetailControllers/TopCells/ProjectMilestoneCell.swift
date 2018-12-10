@@ -36,6 +36,8 @@ class ProjectMilestoneCell: UITableViewCell {
     func update(with milestone: ProjectTopResource.Milestone) {
         self.title.text = milestone.title
         self.type.text = milestone.type
+        self.type.textColor = Colors.get(id: milestone.typeColor)
+        self.progress.progressTintColor = Colors.get(id: milestone.color)
         self.progress.setProgress(Float(milestone.progress), animated: false)
     }
 }

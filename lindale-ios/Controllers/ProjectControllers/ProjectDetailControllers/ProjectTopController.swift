@@ -41,14 +41,32 @@ class ProjectTopController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        guard let projectTopResource = self.projectTopResource else {
-            return 0
-        }
-        if projectTopResource.milestones.count > 0 {
-            return 4
-        }
-        
-        return 3
+        return 4
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
+        -> String? {
+            
+            var title = ""
+            
+            switch section {
+            case 0:
+                title = "ステータス"
+                break
+            case 1:
+                title = "進捗"
+                break
+            case 2:
+                title = "マイルストーン"
+                break
+            case 3:
+                title = "アクティビティ"
+                break
+            default:
+                break
+            }
+            
+            return title
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

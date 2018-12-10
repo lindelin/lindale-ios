@@ -167,12 +167,16 @@ struct ProjectTopResource: Codable {
     
     struct Milestone: Codable {
         var title: String
+        var color: Int
         var type: String
+        var typeColor: Int
         var progress: Int
         
         enum CodingKeys: String, CodingKey {
             case title
+            case color
             case type
+            case typeColor = "type_color"
             case progress
         }
     }

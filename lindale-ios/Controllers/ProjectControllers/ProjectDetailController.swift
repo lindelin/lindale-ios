@@ -53,7 +53,7 @@ class ProjectDetailController: UIViewController {
         let infoController = storyboard.instantiateViewController(withIdentifier: ProjectInfoController.identity) as! ProjectInfoController
         infoController.parentNavigationController = self.navigationController
         infoController.project = self.project
-        infoController.title = "Info"
+        infoController.title = "Overview"
         controllers.append(infoController)
         
         let taskController = storyboard.instantiateViewController(withIdentifier: ProjectTaskController.identity) as! ProjectTaskController
