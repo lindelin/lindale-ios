@@ -44,9 +44,9 @@ class ProjectProgressCell: UITableViewCell {
     }
     
     func updateStatus(_ progress: ProjectTopResource.Progress) {
-        self.totalProgressBar.setProgress(Float(progress.total), animated: false)
-        self.taskProgressBar.setProgress(Float(progress.task), animated: false)
-        self.todoProgressBar.setProgress(Float(progress.todo), animated: false)
+        self.totalProgressBar.setProgress(Float(Double(progress.total) / Double(100)), animated: false)
+        self.taskProgressBar.setProgress(Float(Double(progress.task) / Double(100)), animated: false)
+        self.todoProgressBar.setProgress(Float(Double(progress.todo) / Double(100)), animated: false)
         self.totalProgress.text = "\(progress.total)%"
         self.taskProgress.text = "\(progress.task)%"
         self.todoProgress.text = "\(progress.todo)%"

@@ -38,6 +38,6 @@ class ProjectMilestoneCell: UITableViewCell {
         self.type.text = milestone.type
         self.type.textColor = Colors.get(id: milestone.typeColor)
         self.progress.progressTintColor = Colors.get(id: milestone.color)
-        self.progress.setProgress(Float(milestone.progress), animated: false)
+        self.progress.setProgress(Float(Double(milestone.progress) / Double(100)), animated: false)
     }
 }

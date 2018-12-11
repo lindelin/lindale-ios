@@ -18,18 +18,25 @@ class ProjectTopController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: - Refresh Control Config
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
         self.loadData()
     }
     
     @objc func loadData() {
         ProjectTopResource.load(project: self.project) { (projectTopResource) in
+            self.refreshControl?.endRefreshing()
+            
             guard let projectTopResource = projectTopResource else {
                 self.authErrorHandle()
                 return
             }
+            
             self.projectTopResource = projectTopResource
             self.updateUI()
-            self.refreshControl?.endRefreshing()
         }
     }
     

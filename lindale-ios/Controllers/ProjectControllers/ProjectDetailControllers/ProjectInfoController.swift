@@ -41,8 +41,10 @@ class ProjectInfoController: UITableViewController {
             let md = Down(markdownString: content)
             self.contents.attributedText = try? md.toAttributedString()
         } else {
-            self.contents.text = nil
+            self.contents.text = "なし"
         }
+        
+        self.tableView.reloadData()
     }
 
     /*
