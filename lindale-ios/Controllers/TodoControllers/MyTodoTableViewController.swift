@@ -51,7 +51,6 @@ class MyTodoTableViewController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loding...")
         MyTodoCollection.resources { (myTodoCollection) in
             self.refreshControl?.endRefreshing()
             
@@ -62,7 +61,6 @@ class MyTodoTableViewController: UITableViewController {
             
             self.myTodoCollection = myTodoCollection
             self.updateUI()
-            KRProgressHUD.dismiss()
         }
     }
     

@@ -97,5 +97,13 @@ class Size {
         return UIApplication.shared.statusBarFrame.height + 44
     }
     
-    static var tabBarHeight: CGFloat = 49
+    static var tabBarHeight: CGFloat {
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let bottomPadding = window?.safeAreaInsets.bottom
+            return (bottomPadding ?? 0) + 49
+        }
+        
+        return 49
+    }
 }

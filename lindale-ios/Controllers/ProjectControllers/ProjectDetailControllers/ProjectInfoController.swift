@@ -8,6 +8,7 @@
 
 import UIKit
 import Down
+import KRProgressHUD
 
 class ProjectInfoController: UITableViewController {
     
@@ -25,25 +26,30 @@ class ProjectInfoController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.updateUI()
-        }
+        self.loadData()
     }
     
-    func updateUI() {
+    @objc func loadData() {
+        KRProgressHUD.show(withMessage: "Loading...")
         self.image.load(url: self.project.image, placeholder: UIImage(named: "lindale-launch"))
         self.pl.text = project.pl.name
         self.sl.text = project.sl?.name
         self.startAt.text = project.start
         self.endAt.text = project.end
         
-        if let content = project.content {
-            let md = Down(markdownString: content)
-            self.contents.attributedText = try? md.toAttributedString()
-        } else {
-            self.contents.text = "なし"
+        DispatchQueue.main.async {
+            if let content = self.project.content {
+                let md = Down(markdownString: content)
+                self.contents.attributedText = try? md.toAttributedString()
+            } else {
+                self.contents.text = "なし"
+            }
+            self.updateUI()
+            KRProgressHUD.dismiss()
         }
-        
+    }
+    
+    func updateUI() {
         self.tableView.reloadData()
     }
 

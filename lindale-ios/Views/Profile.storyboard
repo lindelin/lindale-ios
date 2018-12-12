@@ -174,7 +174,7 @@
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="i3b-8o-Xrh">
                                                             <rect key="frame" x="88" y="8.3333333333333321" width="207" height="2"/>
                                                             <color key="progressTintColor" name="Theme-green"/>
-                                                            <color key="trackTintColor" name="Theme-background"/>
+                                                            <color key="trackTintColor" name="Theme-sub"/>
                                                         </progressView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WT0-CG-JJk">
                                                             <rect key="frame" x="311" y="2.333333333333333" width="32" height="14.333333333333336"/>
@@ -202,7 +202,7 @@
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I5n-jO-u1k">
                                                             <rect key="frame" x="88" y="8.3333333333333357" width="207" height="2"/>
                                                             <color key="progressTintColor" name="Theme-yellow"/>
-                                                            <color key="trackTintColor" name="Theme-background"/>
+                                                            <color key="trackTintColor" name="Theme-sub"/>
                                                         </progressView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="di4-Jm-GZH">
                                                             <rect key="frame" x="311" y="2.3333333333333366" width="32" height="14.333333333333336"/>
@@ -230,7 +230,7 @@
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-GO-sGa">
                                                             <rect key="frame" x="88" y="8.3333333333333428" width="207" height="2"/>
                                                             <color key="progressTintColor" name="Theme-main"/>
-                                                            <color key="trackTintColor" name="Theme-background"/>
+                                                            <color key="trackTintColor" name="Theme-sub"/>
                                                         </progressView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cm7-22-Gcb">
                                                             <rect key="frame" x="311" y="2.3333333333333437" width="32" height="14.333333333333336"/>
@@ -509,6 +509,9 @@
         </namedColor>
         <namedColor name="Theme-main">
             <color red="0.80000000000000004" green="0.26666666666666666" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-sub">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-yellow">
             <color red="0.96862745098039216" green="0.76078431372549016" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

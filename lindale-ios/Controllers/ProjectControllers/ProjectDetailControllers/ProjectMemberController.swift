@@ -1,21 +1,21 @@
 //
-//  ProjectTaskController.swift
+//  ProjectMemberController.swift
 //  lindale-ios
 //
-//  Created by Jie Wu on 2018/12/04.
+//  Created by Jie Wu on 2018/12/12.
 //  Copyright © 2018 lindelin. All rights reserved.
 //
 
 import UIKit
 import KRProgressHUD
 
-class ProjectTaskController: UITableViewController {
+class ProjectMemberController: UITableViewController {
     
-    static let identity = "ProjectTasks"
+    static let identity = "ProjectMember"
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
-    var taskGroupCollection: TaskGroupCollection?
+    var projectMember: ProjectMember?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +29,16 @@ class ProjectTaskController: UITableViewController {
     
     @objc func loadData() {
         KRProgressHUD.show(withMessage: "Loading...")
-        TaskGroup.resources(project: self.project) { (taskGroupCollection) in
+        ProjectMember.resources(project: self.project) { (projectMember) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()
             
-            guard let taskGroupCollection = taskGroupCollection else {
+            guard let projectMember = projectMember else {
                 self.authErrorHandle()
                 return
             }
             
-            self.taskGroupCollection = taskGroupCollection
+            self.projectMember = projectMember
             self.updateUI()
         }
     }
@@ -51,20 +51,32 @@ class ProjectTaskController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let taskGroupCollection = self.taskGroupCollection else {
+        guard let projectMember = self.projectMember else {
             return 0
         }
         
-        return taskGroupCollection.groups.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TaskGroupCell.identity, for: indexPath) as! TaskGroupCell
+        if let _ = projectMember.sl {
+            return projectMember.members.count + 2
+        }
         
-        cell.backgroundColor = .clear
-
-        cell.update(group: self.taskGroupCollection!.groups[indexPath.row])
-
+        return projectMember.members.count + 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProjectMemberCell.identity, for: indexPath) as! ProjectMemberCell
+        
+        var leaderCount: Int {
+            return self.projectMember!.sl == nil ? 1 : 2
+        }
+        
+        if indexPath.row == 0 {
+            cell.update(user: self.projectMember!.pl, role: .pl)
+        } else if let sl = self.projectMember!.sl, indexPath.row == 1 {
+            cell.update(user: sl, role: .sl)
+        } else {
+            cell.update(user: self.projectMember!.members[indexPath.row - leaderCount], role: .mb)
+        }
+        
         return cell
     }
 

@@ -85,6 +85,11 @@
 		F2CAE18821390ECC002C04E7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18721390ECC002C04E7 /* Project.swift */; };
 		F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */; };
 		F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */; };
+		F2D684E121C0B15A0094D5B9 /* ProjectWikiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D684E021C0B15A0094D5B9 /* ProjectWikiController.swift */; };
+		F2D684E321C0B9710094D5B9 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D684E221C0B9710094D5B9 /* Wiki.swift */; };
+		F2D684E621C0EE660094D5B9 /* ProjectMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D684E521C0EE660094D5B9 /* ProjectMemberCell.swift */; };
+		F2D684E821C0F15F0094D5B9 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D684E721C0F15F0094D5B9 /* Member.swift */; };
+		F2D684EA21C0F3980094D5B9 /* ProjectMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D684E921C0F3980094D5B9 /* ProjectMemberController.swift */; };
 		F2DF020C214E1249003E0033 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DF020B214E1249003E0033 /* Todo.swift */; };
 		F2E0D1E2214A342C00023905 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E0D1E0214A342C00023905 /* Interface.storyboard */; };
 		F2E0D1E4214A342D00023905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E0D1E3214A342D00023905 /* Assets.xcassets */; };
@@ -310,6 +315,11 @@
 		F2CAE18721390ECC002C04E7 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		F2CAE18D21393610002C04E7 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		F2D684E021C0B15A0094D5B9 /* ProjectWikiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWikiController.swift; sourceTree = "<group>"; };
+		F2D684E221C0B9710094D5B9 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
+		F2D684E521C0EE660094D5B9 /* ProjectMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMemberCell.swift; sourceTree = "<group>"; };
+		F2D684E721C0F15F0094D5B9 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		F2D684E921C0F3980094D5B9 /* ProjectMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMemberController.swift; sourceTree = "<group>"; };
 		F2DF020B214E1249003E0033 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		F2E0D1DE214A342C00023905 /* lindale-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E0D1E1214A342C00023905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -617,12 +627,15 @@
 		F2B273C821B65620007153D7 /* ProjectDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2D684E421C0EE390094D5B9 /* MemberCells */,
 				F289596B21BFAD3A00A1F1A7 /* TaskCells */,
 				A8CE9CA921BA77A800AF6767 /* TopCells */,
 				F2B273C921B65661007153D7 /* ProjectTopController.swift */,
 				F2B273CB21B65688007153D7 /* ProjectInfoController.swift */,
 				F2B273CD21B656AB007153D7 /* ProjectTaskController.swift */,
 				F2B273CF21B656C4007153D7 /* ProjectTodoController.swift */,
+				F2D684E921C0F3980094D5B9 /* ProjectMemberController.swift */,
+				F2D684E021C0B15A0094D5B9 /* ProjectWikiController.swift */,
 				F2B273D121B656E8007153D7 /* ProjectSettingsController.swift */,
 			);
 			path = ProjectDetailControllers;
@@ -663,8 +676,18 @@
 				F2DF020B214E1249003E0033 /* Todo.swift */,
 				A8DCF833217AF88300839DA4 /* Setting.swift */,
 				F289596921BFA9A000A1F1A7 /* TaskGroup.swift */,
+				F2D684E221C0B9710094D5B9 /* Wiki.swift */,
+				F2D684E721C0F15F0094D5B9 /* Member.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F2D684E421C0EE390094D5B9 /* MemberCells */ = {
+			isa = PBXGroup;
+			children = (
+				F2D684E521C0EE660094D5B9 /* ProjectMemberCell.swift */,
+			);
+			path = MemberCells;
 			sourceTree = "<group>";
 		};
 		F2E0D1DF214A342C00023905 /* lindale-watch */ = {
@@ -1219,7 +1242,9 @@
 				F2CAE1782138414C002C04E7 /* UIHelpers.swift in Sources */,
 				A8CE9CA821BA5CB700AF6767 /* MyTaskEditViewController.swift in Sources */,
 				F2F4FFC7215E179C00D5F197 /* NSUserActivity+IntentData.swift in Sources */,
+				F2D684E121C0B15A0094D5B9 /* ProjectWikiController.swift in Sources */,
 				A8DE10AE217B76DF00D1F654 /* NotificationSettingController.swift in Sources */,
+				F2D684E621C0EE660094D5B9 /* ProjectMemberCell.swift in Sources */,
 				F2B273D221B656E8007153D7 /* ProjectSettingsController.swift in Sources */,
 				F2B273D021B656C4007153D7 /* ProjectTodoController.swift in Sources */,
 				F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */,
@@ -1239,9 +1264,11 @@
 				A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */,
 				F21C92072194336A00961362 /* FoldingTaskCell.swift in Sources */,
 				F2F46BA6214BAA53005CD8A9 /* DefaultTaskCell.swift in Sources */,
+				F2D684E821C0F15F0094D5B9 /* Member.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				F2F4FFD2215E246800D5F197 /* Intents.intentdefinition in Sources */,
 				A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */,
+				F2D684E321C0B9710094D5B9 /* Wiki.swift in Sources */,
 				F2C12C98219D5264002B58C2 /* User.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
 				F2F4FFE3216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
@@ -1269,6 +1296,7 @@
 				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,
 				F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */,
 				A86384032171CB7F00837E1B /* TaskUserInfoCell.swift in Sources */,
+				F2D684EA21C0F3980094D5B9 /* ProjectMemberController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

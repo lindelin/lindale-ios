@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class ProjectTopController: UITableViewController {
     
@@ -27,8 +28,10 @@ class ProjectTopController: UITableViewController {
     }
     
     @objc func loadData() {
+        KRProgressHUD.show(withMessage: "Loading...")
         ProjectTopResource.load(project: self.project) { (projectTopResource) in
             self.refreshControl?.endRefreshing()
+            KRProgressHUD.dismiss()
             
             guard let projectTopResource = projectTopResource else {
                 self.authErrorHandle()

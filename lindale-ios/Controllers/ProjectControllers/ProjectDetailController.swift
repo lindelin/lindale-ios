@@ -68,6 +68,18 @@ class ProjectDetailController: UIViewController {
         todoController.title = "TODOs"
         controllers.append(todoController)
         
+        let memberController = storyboard.instantiateViewController(withIdentifier: ProjectMemberController.identity) as! ProjectMemberController
+        memberController.parentNavigationController = self.navigationController
+        memberController.project = self.project
+        memberController.title = "Members"
+        controllers.append(memberController)
+        
+        let wikiController = storyboard.instantiateViewController(withIdentifier: ProjectWikiController.identity) as! ProjectWikiController
+        wikiController.parentNavigationController = self.navigationController
+        wikiController.project = self.project
+        wikiController.title = "Wiki"
+        controllers.append(wikiController)
+        
         let settingsController = storyboard.instantiateViewController(withIdentifier: ProjectSettingsController.identity) as! ProjectSettingsController
         settingsController.parentNavigationController = self.navigationController
         settingsController.project = self.project

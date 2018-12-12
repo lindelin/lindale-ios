@@ -1,21 +1,21 @@
 //
-//  ProjectTaskController.swift
+//  ProjectWikiController.swift
 //  lindale-ios
 //
-//  Created by Jie Wu on 2018/12/04.
+//  Created by Jie Wu on 2018/12/12.
 //  Copyright © 2018 lindelin. All rights reserved.
 //
 
 import UIKit
 import KRProgressHUD
 
-class ProjectTaskController: UITableViewController {
+class ProjectWikiController: UITableViewController {
     
-    static let identity = "ProjectTasks"
+    static let identity = "ProjectWiki"
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
-    var taskGroupCollection: TaskGroupCollection?
+    var wikiTypes: [WikiType]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +29,16 @@ class ProjectTaskController: UITableViewController {
     
     @objc func loadData() {
         KRProgressHUD.show(withMessage: "Loading...")
-        TaskGroup.resources(project: self.project) { (taskGroupCollection) in
+        WikiType.resources(project: self.project) { (wikiTypes) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()
             
-            guard let taskGroupCollection = taskGroupCollection else {
+            guard let wikiTypes = wikiTypes else {
                 self.authErrorHandle()
                 return
             }
             
-            self.taskGroupCollection = taskGroupCollection
+            self.wikiTypes = wikiTypes
             self.updateUI()
         }
     }
@@ -51,19 +51,19 @@ class ProjectTaskController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let taskGroupCollection = self.taskGroupCollection else {
+        guard let wikiTypes = self.wikiTypes else {
             return 0
         }
         
-        return taskGroupCollection.groups.count
+        return wikiTypes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TaskGroupCell.identity, for: indexPath) as! TaskGroupCell
-        
-        cell.backgroundColor = .clear
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WikiTypeCell", for: indexPath)
 
-        cell.update(group: self.taskGroupCollection!.groups[indexPath.row])
+        cell.textLabel?.text = self.wikiTypes![indexPath.row].name
+        cell.imageView?.image = UIImage(named: "book-30")
+        cell.imageView?.tintColor = Colors.themeMain
 
         return cell
     }
