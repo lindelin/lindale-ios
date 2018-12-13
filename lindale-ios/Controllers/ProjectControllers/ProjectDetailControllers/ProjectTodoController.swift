@@ -7,46 +7,145 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class ProjectTodoController: UITableViewController {
+    
+    enum Const {
+        static let closeCellHeight: CGFloat = 179
+        static let openCellHeight: CGFloat = 488
+        static let rowsCount = 10
+    }
+    
+    var cellHeights: [CGFloat] = []
     
     static let identity = "ProjectTodos"
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
+    var todoCollection: TodoCollection?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.setupTableView()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
+        self.loadData()
+    }
+    
+    private func setupTableView() {
+        cellHeights = Array(repeating: Const.closeCellHeight, count: (self.todoCollection?.todos.count) ?? Const.rowsCount)
+        tableView.estimatedRowHeight = Const.closeCellHeight
+        tableView.rowHeight = UITableView.automaticDimension
+        //tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+    }
+    
+    @objc func loadData() {
+        TodoCollection.resources(project: self.project) { (todoCollection) in
+            self.refreshControl?.endRefreshing()
+            
+            guard let todoCollection = todoCollection else {
+                self.authErrorHandle()
+                return
+            }
+            
+            self.todoCollection = todoCollection
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        cellHeights = Array(repeating: Const.closeCellHeight, count: (self.todoCollection?.todos.count) ?? Const.rowsCount)
+        self.tableView.reloadData()
+    }
+    
+    func loadMoreData(url: URL) {
+        KRProgressHUD.show(withMessage: "Loding...")
+        TodoCollection.more(nextUrl: url) { (todoCollection) in
+            if let todoCollection = todoCollection {
+                self .todoCollection?.links = todoCollection.links
+                self .todoCollection?.meta = todoCollection.meta
+                self .todoCollection?.todos.append(contentsOf: todoCollection.todos)
+                self.updateUI()
+                KRProgressHUD.dismiss()
+            }
+        }
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (self.todoCollection?.todos.count) ?? 0
     }
 
-    /*
+    override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let todoCollection = self.todoCollection {
+            let lastCell = todoCollection.todos.count - 1
+            if lastCell == indexPath.row {
+                guard let nextPage = todoCollection.links.next else {
+                    return
+                }
+                self.loadMoreData(url: nextPage)
+            }
+        }
+        
+        guard case let cell as FoldingTodoCell = cell else {
+            return
+        }
+        
+        cell.backgroundColor = .clear
+        
+        if cellHeights[indexPath.row] == Const.closeCellHeight {
+            cell.unfold(false, animated: false, completion: nil)
+        } else {
+            cell.unfold(true, animated: false, completion: nil)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingTodoCell", for: indexPath) as! FoldingTodoCell
+        let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+        cell.durationsForExpandedState = durations
+        cell.durationsForCollapsedState = durations
+        cell.setCell(todo: self.todoCollection!.todos[indexPath.row])
         return cell
     }
-    */
-
+    
+    override func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeights[indexPath.row]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+        
+        if cell.isAnimating() {
+            return
+        }
+        
+        var duration = 0.0
+        let cellIsCollapsed = cellHeights[indexPath.row] == Const.closeCellHeight
+        if cellIsCollapsed {
+            cellHeights[indexPath.row] = Const.openCellHeight
+            cell.unfold(true, animated: true, completion: nil)
+            duration = 0.5
+        } else {
+            cellHeights[indexPath.row] = Const.closeCellHeight
+            cell.unfold(false, animated: true, completion: nil)
+            duration = 0.8
+        }
+        
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }, completion: nil)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

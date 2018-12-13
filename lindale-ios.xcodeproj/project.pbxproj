@@ -51,11 +51,17 @@
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F289596A21BFA9A000A1F1A7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596921BFA9A000A1F1A7 /* TaskGroup.swift */; };
 		F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */; };
+		F298A57121C23FE40047D79F /* ProjectTop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57021C23FE40047D79F /* ProjectTop.storyboard */; };
+		F298A57321C243290047D79F /* ProjectInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57221C243290047D79F /* ProjectInfo.storyboard */; };
+		F298A57521C243FF0047D79F /* ProjectTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57421C243FF0047D79F /* ProjectTask.storyboard */; };
+		F298A57721C244820047D79F /* ProjectTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57621C244820047D79F /* ProjectTodo.storyboard */; };
+		F298A57921C2453E0047D79F /* ProjectMember.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57821C2453E0047D79F /* ProjectMember.storyboard */; };
+		F298A57B21C245AA0047D79F /* ProjectWiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57A21C245AA0047D79F /* ProjectWiki.storyboard */; };
+		F298A57D21C246350047D79F /* ProjectSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57C21C246350047D79F /* ProjectSettings.storyboard */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
 		F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */; };
 		F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */; };
-		F29F00AB21B7870600228E61 /* ProjectDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29F00AA21B7870600228E61 /* ProjectDetail.storyboard */; };
 		F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A39AE9214D109100BF2AF7 /* DefaultTodoCell.swift */; };
 		F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */; };
 		F2A4FCBA216586B100E0C35E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4FCB8216586B100E0C35E /* Task.swift */; };
@@ -282,13 +288,19 @@
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
+		F298A57021C23FE40047D79F /* ProjectTop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectTop.storyboard; sourceTree = "<group>"; };
+		F298A57221C243290047D79F /* ProjectInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectInfo.storyboard; sourceTree = "<group>"; };
+		F298A57421C243FF0047D79F /* ProjectTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectTask.storyboard; sourceTree = "<group>"; };
+		F298A57621C244820047D79F /* ProjectTodo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectTodo.storyboard; sourceTree = "<group>"; };
+		F298A57821C2453E0047D79F /* ProjectMember.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectMember.storyboard; sourceTree = "<group>"; };
+		F298A57A21C245AA0047D79F /* ProjectWiki.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectWiki.storyboard; sourceTree = "<group>"; };
+		F298A57C21C246350047D79F /* ProjectSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectSettings.storyboard; sourceTree = "<group>"; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F29DBB7A21381F9E009DA744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F29DBB7D21381F9E009DA744 /* lindale_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = lindale_ios.xcdatamodel; sourceTree = "<group>"; };
 		F29DBB8221381F9F009DA744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F29DBB8421381F9F009DA744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F29F00AA21B7870600228E61 /* ProjectDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDetail.storyboard; sourceTree = "<group>"; };
 		F2A39AE9214D109100BF2AF7 /* DefaultTodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTodoCell.swift; sourceTree = "<group>"; };
 		F2A39AEB214D120000BF2AF7 /* MyTodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoTableViewController.swift; sourceTree = "<group>"; };
 		F2A4FCB8216586B100E0C35E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -589,7 +601,13 @@
 		F29F00A921B786BE00228E61 /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
-				F29F00AA21B7870600228E61 /* ProjectDetail.storyboard */,
+				F298A57021C23FE40047D79F /* ProjectTop.storyboard */,
+				F298A57221C243290047D79F /* ProjectInfo.storyboard */,
+				F298A57421C243FF0047D79F /* ProjectTask.storyboard */,
+				F298A57621C244820047D79F /* ProjectTodo.storyboard */,
+				F298A57821C2453E0047D79F /* ProjectMember.storyboard */,
+				F298A57A21C245AA0047D79F /* ProjectWiki.storyboard */,
+				F298A57C21C246350047D79F /* ProjectSettings.storyboard */,
 			);
 			path = ProjectDetails;
 			sourceTree = "<group>";
@@ -1047,16 +1065,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F298A57721C244820047D79F /* ProjectTodo.storyboard in Resources */,
+				F298A57B21C245AA0047D79F /* ProjectWiki.storyboard in Resources */,
 				F29DBB8321381F9F009DA744 /* LaunchScreen.storyboard in Resources */,
 				F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */,
 				F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */,
+				F298A57521C243FF0047D79F /* ProjectTask.storyboard in Resources */,
 				A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */,
 				A8F3563321400486006204D3 /* Project.storyboard in Resources */,
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
 				F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */,
 				F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */,
-				F29F00AB21B7870600228E61 /* ProjectDetail.storyboard in Resources */,
+				F298A57321C243290047D79F /* ProjectInfo.storyboard in Resources */,
+				F298A57D21C246350047D79F /* ProjectSettings.storyboard in Resources */,
 				F22364332148BB8B003D03E8 /* GoogleService-Info.plist in Resources */,
+				F298A57121C23FE40047D79F /* ProjectTop.storyboard in Resources */,
+				F298A57921C2453E0047D79F /* ProjectMember.storyboard in Resources */,
 				A876AA78214CA69300425ECA /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,52 +42,79 @@ class ProjectDetailController: UIViewController {
 
     func setUpPageMenu() {
         
-        let storyboard = UIStoryboard(name: "ProjectDetail", bundle: nil)
-        
-        let topController = storyboard.instantiateViewController(withIdentifier: ProjectTopController.identity) as! ProjectTopController
-        topController.parentNavigationController = self.navigationController
-        topController.project = self.project
-        topController.title = "Top"
-        controllers.append(topController)
-        
-        let infoController = storyboard.instantiateViewController(withIdentifier: ProjectInfoController.identity) as! ProjectInfoController
-        infoController.parentNavigationController = self.navigationController
-        infoController.project = self.project
-        infoController.title = "Overview"
-        controllers.append(infoController)
-        
-        let taskController = storyboard.instantiateViewController(withIdentifier: ProjectTaskController.identity) as! ProjectTaskController
-        taskController.parentNavigationController = self.navigationController
-        taskController.project = self.project
-        taskController.title = "Tasks"
-        controllers.append(taskController)
-        
-        let todoController = storyboard.instantiateViewController(withIdentifier: ProjectTodoController.identity) as! ProjectTodoController
-        todoController.parentNavigationController = self.navigationController
-        todoController.project = self.project
-        todoController.title = "TODOs"
-        controllers.append(todoController)
-        
-        let memberController = storyboard.instantiateViewController(withIdentifier: ProjectMemberController.identity) as! ProjectMemberController
-        memberController.parentNavigationController = self.navigationController
-        memberController.project = self.project
-        memberController.title = "Members"
-        controllers.append(memberController)
-        
-        let wikiController = storyboard.instantiateViewController(withIdentifier: ProjectWikiController.identity) as! ProjectWikiController
-        wikiController.parentNavigationController = self.navigationController
-        wikiController.project = self.project
-        wikiController.title = "Wiki"
-        controllers.append(wikiController)
-        
-        let settingsController = storyboard.instantiateViewController(withIdentifier: ProjectSettingsController.identity) as! ProjectSettingsController
-        settingsController.parentNavigationController = self.navigationController
-        settingsController.project = self.project
-        settingsController.title = "Settings"
-        controllers.append(settingsController)
+        self.setUpProjectTop()
+        self.setUpProjectInfo()
+        self.setUpProjectTask()
+        self.setUpProjectTodo()
+        self.setUpProjectMember()
+        self.setUpProjectWiki()
+        //self.setUpProjectSettings()
         
         self.pageMenu = CAPSPageMenu(viewControllers: self.controllers, frame: CGRect(x: 0, y: Size.naviBarHeight, width: self.view.frame.width, height: self.view.frame.height - Size.naviBarHeight - Size.tabBarHeight), pageMenuOptions: self.pageMenuOption)
         self.view.addSubview(self.pageMenu.view)
+    }
+    
+    private func setUpProjectTop() {
+        let storyboard = UIStoryboard(name: "ProjectTop", bundle: nil)
+        let contorller = storyboard.instantiateViewController(withIdentifier: ProjectTopController.identity) as! ProjectTopController
+        contorller.parentNavigationController = self.navigationController
+        contorller.project = self.project
+        contorller.title = "Top"
+        controllers.append(contorller)
+    }
+    
+    private func setUpProjectInfo() {
+        let storyboard = UIStoryboard(name: "ProjectInfo", bundle: nil)
+        let contorller = storyboard.instantiateViewController(withIdentifier: ProjectInfoController.identity) as! ProjectInfoController
+        contorller.parentNavigationController = self.navigationController
+        contorller.project = self.project
+        contorller.title = "Overview"
+        controllers.append(contorller)
+    }
+    
+    private func setUpProjectTask() {
+        let storyboard = UIStoryboard(name: "ProjectTask", bundle: nil)
+        let contorller = storyboard.instantiateViewController(withIdentifier: ProjectTaskController.identity) as! ProjectTaskController
+        contorller.parentNavigationController = self.navigationController
+        contorller.project = self.project
+        contorller.title = "Tasks"
+        controllers.append(contorller)
+    }
+    
+    private func setUpProjectTodo() {
+        let storyboard = UIStoryboard(name: "ProjectTodo", bundle: nil)
+        let contorller = storyboard.instantiateViewController(withIdentifier: ProjectTodoController.identity) as! ProjectTodoController
+        contorller.parentNavigationController = self.navigationController
+        contorller.project = self.project
+        contorller.title = "TODOs"
+        controllers.append(contorller)
+    }
+    
+    private func setUpProjectMember() {
+        let storyboard = UIStoryboard(name: "ProjectMember", bundle: nil)
+        let contorller = storyboard.instantiateViewController(withIdentifier: ProjectMemberController.identity) as! ProjectMemberController
+        contorller.parentNavigationController = self.navigationController
+        contorller.project = self.project
+        contorller.title = "Members"
+        controllers.append(contorller)
+    }
+    
+    private func setUpProjectWiki() {
+        let storyboard = UIStoryboard(name: "ProjectWiki", bundle: nil)
+        let contorller = storyboard.instantiateViewController(withIdentifier: ProjectWikiController.identity) as! ProjectWikiController
+        contorller.parentNavigationController = self.navigationController
+        contorller.project = self.project
+        contorller.title = "Wiki"
+        controllers.append(contorller)
+    }
+    
+    private func setUpProjectSettings() {
+        let storyboard = UIStoryboard(name: "ProjectSettings", bundle: nil)
+        let contorller = storyboard.instantiateViewController(withIdentifier: ProjectSettingsController.identity) as! ProjectSettingsController
+        contorller.parentNavigationController = self.navigationController
+        contorller.project = self.project
+        contorller.title = "Settings"
+        controllers.append(contorller)
     }
     
     func setUpNavigationBar() {

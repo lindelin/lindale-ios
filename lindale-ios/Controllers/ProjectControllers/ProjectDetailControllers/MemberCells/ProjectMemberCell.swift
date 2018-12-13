@@ -20,7 +20,7 @@ class ProjectMemberCell: UITableViewCell {
     enum Role: String {
         case pl = "pl-30"
         case sl = "sl-30"
-        case mb = "user-30"
+        case mb = "member-30"
     }
     
     override func awakeFromNib() {

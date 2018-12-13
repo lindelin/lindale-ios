@@ -68,6 +68,42 @@ struct MyTodoCollection: Codable {
     }
 }
 
+struct TodoCollection: Codable {
+    var todos: [Todo]
+    var links: Links
+    var meta: Meta
+    
+    enum CodingKeys: String, CodingKey {
+        case todos = "data"
+        case links
+        case meta
+    }
+    
+    static func resources(project: ProjectCollection.Project, completion: @escaping (TodoCollection?) -> Void) {
+        NetworkProvider.main.data(request: .projectTodos(project: project)) { (data) in
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            let todoCollection = try! JSONDecoder.main.decode(TodoCollection.self, from: data)
+            completion(todoCollection)
+        }
+    }
+    
+    static func more(nextUrl url: URL, completion: @escaping (TodoCollection?) -> Void) {
+        NetworkProvider.main.moreData(request: .load(url: url)) { (data) in
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            let todoCollection = try! JSONDecoder.main.decode(TodoCollection.self, from: data)
+            completion(todoCollection)
+        }
+    }
+}
+
 struct Todo: Codable {
     var id: Int
     var initiator: User?
