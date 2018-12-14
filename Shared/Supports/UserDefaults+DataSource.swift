@@ -23,6 +23,8 @@ extension UserDefaults {
         case accessToken = "access_token"
         case refreshToken = "refresh_token"
         case hasAuthError = "has_auth_error"
+        case fcmToken = "fcm_token"
+        case didOpenPushNotification
     }
     
     func set(_ value: Any?, forOAuthKey key: OAuthKeys) {

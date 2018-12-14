@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import os.log
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // MARK: - Firebase 設定
         FirebaseApp.configure()
-        // Messaging.messaging().delegate = self
+        Messaging.messaging().delegate = self
+        // [START register_for_notifications]
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        let unUserNotificationCenter = UNUserNotificationCenter.current()
+        unUserNotificationCenter.requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        unUserNotificationCenter.delegate = self
+        
+        application.registerForRemoteNotifications()
+        // [END register_for_notifications]
         
         // MARK: - Oauth 設定
         OAuth.configure()
@@ -68,6 +79,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
+        print("APNs token retrieved: \(token)")
+        
+        Messaging.messaging().shouldEstablishDirectChannel = true
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
     }
 
     // MARK: - Core Data stack
@@ -117,3 +166,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let badgeCount = notification.request.content.badge?.intValue
+        
+        var badges = UIApplication.shared.applicationIconBadgeNumber
+        if let count = badgeCount {
+            badges += count
+        }
+        UIApplication.shared.applicationIconBadgeNumber = badges
+        // アプリ起動中でも通知をアラート表示する
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // 通知が開封された時（通知が開封されたことを真偽値で判断して表示する下タブを分岐する）
+        UserDefaults.standard.set(true, forOAuthKey: .didOpenPushNotification)
+        UserDefaults.standard.synchronize()
+    }
+}
+
+extension AppDelegate : MessagingDelegate {
+    // [START refresh_token]
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
+        UserDefaults.standard.synchronize()
+    }
+    // [END refresh_token]
+    // [START ios_10_data_message]
+    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
+    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Received data message: \(remoteMessage.appData)")
+    }
+    // [END ios_10_data_message]
+}
