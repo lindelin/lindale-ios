@@ -370,11 +370,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
         actionSheet.addAction(noAction)
         actionSheet.addAction(yesAction)
         
-        if self.presentingViewController == nil {
-            self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
-        }else {
-            self.present(actionSheet, animated: true, completion: nil)
-        }
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
@@ -446,11 +442,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
             actionSheet.addAction(completionAction)
         }
         
-        if self.presentingViewController == nil {
-            self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
-        }else {
-            self.present(actionSheet, animated: true, completion: nil)
-        }
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func addActivity(_ sender: UIBarButtonItem) {
@@ -567,11 +559,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                 actionSheet.addAction(noAction)
                 actionSheet.addAction(yesAction)
                 
-                if self.presentingViewController == nil {
-                    self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
-                }else {
-                    self.present(actionSheet, animated: true, completion: nil)
-                }
+                self.present(actionSheet, animated: true, completion: nil)
             }
             deleteAction.backgroundColor = Colors.themeMain
             config = UISwipeActionsConfiguration(actions: [deleteAction])

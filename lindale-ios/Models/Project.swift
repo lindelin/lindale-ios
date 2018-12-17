@@ -97,7 +97,7 @@ struct ProjectCollection: Codable {
         let coder = JSONEncoder()
         let projectCollection = try! coder.encode(self)
         let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        let archiveURL = cachesDirectory.appendingPathComponent("ProjectCollection").appendingPathExtension("json")
+        let archiveURL = cachesDirectory.appendingPathComponent("ProjectCollection-\(UserDefaults.standard.string(forOAuthKey: .userName) ?? "")").appendingPathExtension("json")
         try! projectCollection.write(to: archiveURL)
         print("保存成功：", archiveURL)
     }
@@ -106,7 +106,7 @@ struct ProjectCollection: Codable {
         let coder = JSONDecoder()
         do {
             let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-            let archiveURL = cachesDirectory.appendingPathComponent("ProjectCollection").appendingPathExtension("json")
+            let archiveURL = cachesDirectory.appendingPathComponent("ProjectCollection-\(UserDefaults.standard.string(forOAuthKey: .userName) ?? "")").appendingPathExtension("json")
             let data = try Data(contentsOf: archiveURL)
             let projectCollection = try coder.decode(ProjectCollection.self, from: data)
             return projectCollection

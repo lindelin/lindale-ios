@@ -20,15 +20,15 @@ class SettingTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.setupNavigation()
+        
+        // MARK: - Refresh Control Config
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.updateUI()
         self.loadData()
         
+        // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.profileInfoHasUpdated, object: nil)
     }
     
@@ -41,12 +41,15 @@ class SettingTableViewController: UITableViewController {
     
     @objc func loadData() {
         Profile.resources { (profile) in
-            if let profile = profile {
-                self.profile = profile
-                self.updateUI()
-            } else {
+            self.refreshControl?.endRefreshing()
+            
+            guard let profile = profile else {
                 self.authErrorHandle()
+                return
             }
+            
+            self.profile = profile
+            self.updateUI()
         }
     }
     
@@ -93,11 +96,7 @@ class SettingTableViewController: UITableViewController {
             logoutAlert.addAction(noAction)
             logoutAlert.addAction(yesAction)
             
-            if self.presentingViewController == nil {
-                self.view.window?.rootViewController?.present(logoutAlert, animated: true, completion: nil)
-            }else {
-                self.present(logoutAlert, animated: true, completion: nil)
-            }
+            self.present(logoutAlert, animated: true, completion: nil)
         }
     }
     

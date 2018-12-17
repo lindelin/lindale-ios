@@ -46,20 +46,17 @@ extension UIViewController {
         
         errorAlert.addAction(okAction)
         
-        if self.presentingViewController == nil {
-            self.view.window?.rootViewController?.present(errorAlert, animated: true, completion: nil)
-        }else {
-            self.present(errorAlert, animated: true, completion: nil)
-        }
+        self.present(errorAlert, animated: true, completion: nil)
     }
     
     func logout() {
         if (OAuth.logout()) {
             let storyboard = UIStoryboard(name:"Login", bundle: nil)
             let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
-            loginController.hidesBottomBarWhenPushed = true
-            loginController.modalTransitionStyle = .crossDissolve
-            self.present(loginController, animated: true, completion: nil)
+            UIView.transition(from: self.tabBarController!.view, to: loginController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
+                _ in
+                UIApplication.shared.keyWindow?.rootViewController = loginController
+            })
         }
     }
     
@@ -75,11 +72,7 @@ extension UIViewController {
             
             errorAlert.addAction(okAction)
             
-            if self.presentingViewController == nil {
-                self.view.window?.rootViewController?.present(errorAlert, animated: true, completion: nil)
-            }else {
-                self.present(errorAlert, animated: true, completion: nil)
-            }
+            self.present(errorAlert, animated: true, completion: nil)
             // TODO: 刷新令牌
 //            OAuth.refresh { (oauth) in
 //                if let _ = oauth {

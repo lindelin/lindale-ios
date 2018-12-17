@@ -242,11 +242,7 @@ class MyTodoTableViewController: UITableViewController {
             actionSheet.addAction(noAction)
             actionSheet.addAction(yesAction)
             
-            if self.presentingViewController == nil {
-                self.view.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
-            }else {
-                self.present(actionSheet, animated: true, completion: nil)
-            }
+            self.present(actionSheet, animated: true, completion: nil)
         }
         
         // TODO: - 代码优化

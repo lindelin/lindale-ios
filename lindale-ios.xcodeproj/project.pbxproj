@@ -58,6 +58,7 @@
 		F298A57921C2453E0047D79F /* ProjectMember.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57821C2453E0047D79F /* ProjectMember.storyboard */; };
 		F298A57B21C245AA0047D79F /* ProjectWiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57A21C245AA0047D79F /* ProjectWiki.storyboard */; };
 		F298A57D21C246350047D79F /* ProjectSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57C21C246350047D79F /* ProjectSettings.storyboard */; };
+		F29DA32621C73CD1005D941A /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29DA32521C73CD1005D941A /* AuthenticationServices.framework */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
 		F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */; };
@@ -295,6 +296,7 @@
 		F298A57821C2453E0047D79F /* ProjectMember.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectMember.storyboard; sourceTree = "<group>"; };
 		F298A57A21C245AA0047D79F /* ProjectWiki.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectWiki.storyboard; sourceTree = "<group>"; };
 		F298A57C21C246350047D79F /* ProjectSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectSettings.storyboard; sourceTree = "<group>"; };
+		F29DA32521C73CD1005D941A /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F29DBB7A21381F9E009DA744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29DA32621C73CD1005D941A /* AuthenticationServices.framework in Frameworks */,
 				8C2301F51F4B1F6B9C8A3AB6 /* Pods_lindale_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +433,7 @@
 		2AD403BAF9D095B63F73CE11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F29DA32521C73CD1005D941A /* AuthenticationServices.framework */,
 				F6B8729374BB005277964279 /* Pods_lindale_ios.framework */,
 				F2F4FF9C215E160E00D5F197 /* IntentsUI.framework */,
 				614D5C5FEFCD1C563C0B21C5 /* Pods_lindale_watch_Extension.framework */,
@@ -554,13 +558,13 @@
 		F29DBB6921381F9E009DA744 = {
 			isa = PBXGroup;
 			children = (
+				F2F4FFC5215E16E300D5F197 /* Shared */,
 				F29DBB7421381F9E009DA744 /* lindale-ios */,
 				F2F4FF93215E160E00D5F197 /* lindale-intents */,
 				F2F4FF9E215E160E00D5F197 /* lindale-intentsUI */,
 				F2E0D1DF214A342C00023905 /* lindale-watch */,
 				F2E0D1EE214A342D00023905 /* lindale-watch Extension */,
 				F2F4FFB9215E169E00D5F197 /* lindale-watch-intents */,
-				F2F4FFC5215E16E300D5F197 /* Shared */,
 				F29DBB7321381F9E009DA744 /* Products */,
 				F8CFDFCDA1536707DF277018 /* Pods */,
 				2AD403BAF9D095B63F73CE11 /* Frameworks */,
@@ -983,10 +987,16 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.AutoFillCredentialProvider = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 							com.apple.Siri = {

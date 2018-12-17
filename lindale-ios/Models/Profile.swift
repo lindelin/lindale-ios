@@ -79,7 +79,7 @@ struct Profile: Codable {
         let coder = JSONEncoder()
         let profile = try! coder.encode(self)
         let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        let archiveURL = cachesDirectory.appendingPathComponent("Profile").appendingPathExtension("json")
+        let archiveURL = cachesDirectory.appendingPathComponent("Profile-\(UserDefaults.standard.string(forOAuthKey: .userName) ?? "")").appendingPathExtension("json")
         try! profile.write(to: archiveURL)
         print("保存成功：", archiveURL)
     }
@@ -88,7 +88,7 @@ struct Profile: Codable {
         let coder = JSONDecoder()
         do {
             let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-            let archiveURL = cachesDirectory.appendingPathComponent("Profile").appendingPathExtension("json")
+            let archiveURL = cachesDirectory.appendingPathComponent("Profile-\(UserDefaults.standard.string(forOAuthKey: .userName) ?? "")").appendingPathExtension("json")
             let data = try Data(contentsOf: archiveURL)
             let profile = try coder.decode(Profile.self, from: data)
             return profile

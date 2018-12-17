@@ -34,13 +34,15 @@ class ProjectsViewController: UITableViewController {
     
     @objc func loadData() {
         ProjectCollection.resources { (projectCollection) in
+            self.refreshControl?.endRefreshing()
+            
             guard let projectCollection = projectCollection else {
                 self.authErrorHandle()
                 return
             }
+            
             self.projectCollection = projectCollection
             self.updateUI()
-            self.refreshControl?.endRefreshing()
         }
     }
     

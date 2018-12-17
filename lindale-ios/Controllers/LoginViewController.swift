@@ -38,7 +38,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view.
         self.setup()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +68,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let email = self.email.text ?? ""
         let password = self.password.text ?? ""
         OAuth.login(email: email, password: password, success: { (oauth) in
+            UserDefaults.standard.set(email, forOAuthKey: .userName)
             oauth.save()
             self.toMainStoryboard()
         }) { (message) in
@@ -82,8 +82,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - パスワードリセット
     @IBAction func resetPasswordButton(_ sender: Any) {
-        let url = "https://lindale.stg.lindelin.org/password/reset"   // 仮URL
-        let safariViewController = SFSafariViewController(url: URL(string: url)!)
+        let url = URL(string: "https://lindale.stg.lindelin.org/password/reset")!   // 仮URL
+        let safariViewController = SFSafariViewController(url: url)
         let navigationController = UINavigationController(rootViewController: safariViewController)
         navigationController.setNavigationBarHidden(true, animated: false)
         self.present(navigationController, animated: true, completion: nil)
@@ -91,14 +91,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Main 画面遷移
     func toMainStoryboard() {
-        if self.presentingViewController == nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
-            mainController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            self.present(mainController, animated: true, completion: nil)
-        }else {
-            self.dismiss(animated: true, completion: nil)
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
+        UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
+            _ in
+            UIApplication.shared.keyWindow?.rootViewController = mainController
+        })
     }
     
     // MARK: - ログイン失敗
@@ -114,11 +112,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         loginErrorAlert.addAction(okAction)
         
-        if self.presentingViewController == nil {
-            self.view.window?.rootViewController?.present(loginErrorAlert, animated: true, completion: nil)
-        }else {
-            self.present(loginErrorAlert, animated: true, completion: nil)
-        }
+        self.present(loginErrorAlert, animated: true, completion: nil)
     }
     
     // MARK: - Doneボタン押下でキーボードを閉じる
