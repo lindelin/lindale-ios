@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options: authOptions,
             completionHandler: {_, _ in })
         unUserNotificationCenter.delegate = self
-        
         application.registerForRemoteNotifications()
         // [END register_for_notifications]
         
@@ -139,47 +138,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-}
-
-extension AppDelegate : UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        let badgeCount = notification.request.content.badge?.intValue
-        
-        var badges = UIApplication.shared.applicationIconBadgeNumber
-        if let count = badgeCount {
-            badges += count
-        }
-        
-        UIApplication.shared.applicationIconBadgeNumber = badges
-        // アプリ起動中でも通知をアラート表示する
-        completionHandler([.alert, .badge, .sound])
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // 通知が開封された時（通知が開封されたことを真偽値で判断して表示する下タブを分岐する）
-        UserDefaults.standard.set(true, forOAuthKey: .didOpenPushNotification)
-        UserDefaults.standard.synchronize()
-    }
-}
-
-extension AppDelegate : MessagingDelegate {
-    // [START refresh_token]
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        if UserDefaults.standard.string(forOAuthKey: .fcmToken) == nil {
-            print("Firebase registration token: \(fcmToken)")
-            UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
-            UserDefaults.standard.synchronize()
-        }
-    }
-    // [END refresh_token]
-    // [START ios_10_data_message]
-    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
-    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
-    }
-    // [END ios_10_data_message]
 }

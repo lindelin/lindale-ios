@@ -113,6 +113,7 @@
 		F2E1FE2121ABA7080033F8B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
 		F2E1FE2221ABA70C0033F8B3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
 		F2E94DF721C897F400722DC3 /* Others.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E94DF621C897F400722DC3 /* Others.swift */; };
+		F2E94DF921CA3BF400722DC3 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E94DF821CA3BF400722DC3 /* PushNotificationService.swift */; };
 		F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8131216C8069009B0DDD /* ProgressController.swift */; };
 		F2EC8134216C868D009B0DDD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8133216C868D009B0DDD /* Profile.swift */; };
 		F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */; };
@@ -353,6 +354,7 @@
 		F2E156BB216DDDAE001E4535 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		F2E1FE1C21ABA55D0033F8B3 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
 		F2E94DF621C897F400722DC3 /* Others.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Others.swift; sourceTree = "<group>"; };
+		F2E94DF821CA3BF400722DC3 /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		F2EC8131216C8069009B0DDD /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		F2EC8133216C868D009B0DDD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTask.storyboard; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				F2CAE17F21384B22002C04E7 /* OAuthService.swift */,
 				F2E0D206214A3F3E00023905 /* WatchService.swift */,
 				A89F87D721723C02004ADEA4 /* Notification.swift */,
+				F2E94DF821CA3BF400722DC3 /* PushNotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1291,6 +1294,7 @@
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				A8CE9CAD21BA7F4500AF6767 /* ProjectMilestoneCell.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,
+				F2E94DF921CA3BF400722DC3 /* PushNotificationService.swift in Sources */,
 				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
 				A8CE9CAB21BA781B00AF6767 /* ProjectProgressCell.swift in Sources */,
 				F2E1FE1D21ABA55D0033F8B3 /* Other.swift in Sources */,
