@@ -40,6 +40,7 @@ enum NetworkService {
     case projectWikiTypes(project: ProjectCollection.Project)
     case projectMembers(project: ProjectCollection.Project)
     case projectTodos(project: ProjectCollection.Project)
+    case storeDeviceToken(device: Device)
 }
 
 extension NetworkService: TargetType {
@@ -104,6 +105,8 @@ extension NetworkService: TargetType {
             return "/projects/\(project.id)/members"
         case .projectTodos(let project):
             return "/projects/\(project.id)/todos"
+        case .storeDeviceToken:
+            return "/device-token"
         }
     }
     
@@ -115,7 +118,7 @@ extension NetworkService: TargetType {
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity:
+        case .storeSubTask, .storeActivity, .storeDeviceToken:
             return .post
         }
     }
@@ -185,12 +188,19 @@ extension NetworkService: TargetType {
                 "priority_id": task.priorityId as Any,
                 "color_id": task.colorId as Any
                 ], encoding: JSONEncoding.default)
+        case let .storeDeviceToken(device):
+            return .requestParameters(parameters: [
+                "token": device.token,
+                "name": device.name,
+                "type": device.type,
+                "revoked": false
+                ], encoding: JSONEncoding.default)
         }
     }
     
     var sampleData: Data {
         switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate, .taskEditResource, .taskUpdate, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos:
+            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate, .taskEditResource, .taskUpdate, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .storeDeviceToken:
                 return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

@@ -70,6 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         OAuth.login(email: email, password: password, success: { (oauth) in
             UserDefaults.standard.set(email, forOAuthKey: .userName)
             oauth.save()
+            self.setPushNotification()
             self.toMainStoryboard()
         }) { (message) in
             if let message = message {
@@ -87,6 +88,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let navigationController = UINavigationController(rootViewController: safariViewController)
         navigationController.setNavigationBarHidden(true, animated: false)
         self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func setPushNotification() {
+        if let fcmToken = UserDefaults.standard.string(forOAuthKey: .fcmToken) {
+            DispatchQueue.main.async {
+                Device(token: fcmToken).store(completion: { (response) in
+                    guard response["status"] == "OK" else {
+                        print("Store Firebase token Error: \(String(describing: response["messages"]))")
+                        return
+                    }
+                    print("Store Firebase token OK: \(String(describing: response["messages"]))")
+                })
+            }
+        }
     }
     
     // MARK: - Main 画面遷移

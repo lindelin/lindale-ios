@@ -112,6 +112,7 @@
 		F2E1FE2021ABA6B20033F8B3 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1FE1C21ABA55D0033F8B3 /* Other.swift */; };
 		F2E1FE2121ABA7080033F8B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
 		F2E1FE2221ABA70C0033F8B3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
+		F2E94DF721C897F400722DC3 /* Others.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E94DF621C897F400722DC3 /* Others.swift */; };
 		F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8131216C8069009B0DDD /* ProgressController.swift */; };
 		F2EC8134216C868D009B0DDD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8133216C868D009B0DDD /* Profile.swift */; };
 		F2F46BA0214B9AF3005CD8A9 /* MyTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */; };
@@ -351,6 +352,7 @@
 		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E156BB216DDDAE001E4535 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		F2E1FE1C21ABA55D0033F8B3 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
+		F2E94DF621C897F400722DC3 /* Others.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Others.swift; sourceTree = "<group>"; };
 		F2EC8131216C8069009B0DDD /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		F2EC8133216C868D009B0DDD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2F46B9F214B9AF3005CD8A9 /* MyTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTask.storyboard; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 				F289596921BFA9A000A1F1A7 /* TaskGroup.swift */,
 				F2D684E221C0B9710094D5B9 /* Wiki.swift */,
 				F2D684E721C0F15F0094D5B9 /* Member.swift */,
+				F2E94DF621C897F400722DC3 /* Others.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1329,6 +1332,7 @@
 				A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */,
 				F2423E96219EAE8600868F00 /* UITabelView+Animation.swift in Sources */,
 				A8DE10AB217B63C300D1F654 /* Errors.swift in Sources */,
+				F2E94DF721C897F400722DC3 /* Others.swift in Sources */,
 				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,
 				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,
 				F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */,
