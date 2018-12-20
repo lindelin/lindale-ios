@@ -335,6 +335,7 @@
 		F2480BD121CB777C006A2222 /* lindale-task-notification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "lindale-task-notification.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2480BD321CB777C006A2222 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		F2480BD521CB777C006A2222 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2480BDC21CB9014006A2222 /* lindale-task-notification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-task-notification.entitlements"; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
@@ -589,6 +590,7 @@
 		F2480BD221CB777C006A2222 /* lindale-task-notification */ = {
 			isa = PBXGroup;
 			children = (
+				F2480BDC21CB9014006A2222 /* lindale-task-notification.entitlements */,
 				F2480BD321CB777C006A2222 /* NotificationService.swift */,
 				F2480BD521CB777C006A2222 /* Info.plist */,
 			);
@@ -1133,6 +1135,11 @@
 					};
 					F2480BD021CB777C006A2222 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F29DBB7121381F9E009DA744 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1758,6 +1765,7 @@
 		F2480BDA21CB777C006A2222 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "lindale-task-notification/lindale-task-notification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDZ72V563C;
 				INFOPLIST_FILE = "lindale-task-notification/Info.plist";
@@ -1780,6 +1788,7 @@
 		F2480BDB21CB777C006A2222 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "lindale-task-notification/lindale-task-notification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDZ72V563C;
 				INFOPLIST_FILE = "lindale-task-notification/Info.plist";
