@@ -39,6 +39,7 @@
 		A8DE10AB217B63C300D1F654 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
 		A8DE10AE217B76DF00D1F654 /* NotificationSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AD217B76DF00D1F654 /* NotificationSettingController.swift */; };
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
+		F0668A91440CE9A0660885D4 /* Pods_lindale_task_notification_ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C551063F4944463BFA0D104B /* Pods_lindale_task_notification_ui.framework */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
 		F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */; };
 		F21C92072194336A00961362 /* FoldingTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C92062194336A00961362 /* FoldingTaskCell.swift */; };
@@ -48,6 +49,19 @@
 		F23226C32170908400846250 /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23226C22170908400846250 /* ActivityViewCell.swift */; };
 		F2403B312147B77E004BF3C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2403B302147B77E004BF3C8 /* Profile.swift */; };
 		F2423E96219EAE8600868F00 /* UITabelView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */; };
+		F2480BA521CB252E006A2222 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2480BA421CB252E006A2222 /* UserNotifications.framework */; };
+		F2480BA721CB252E006A2222 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2480BA621CB252E006A2222 /* UserNotificationsUI.framework */; };
+		F2480BAA21CB252E006A2222 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BA921CB252E006A2222 /* NotificationViewController.swift */; };
+		F2480BAD21CB252E006A2222 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2480BAB21CB252E006A2222 /* MainInterface.storyboard */; };
+		F2480BB121CB252E006A2222 /* lindale-task-notification-ui.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2480BA321CB252E006A2222 /* lindale-task-notification-ui.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2480BBC21CB4439006A2222 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
+		F2480BBD21CB443D006A2222 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
+		F2480BBE21CB4440006A2222 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1FE1C21ABA55D0033F8B3 /* Other.swift */; };
+		F2480BC921CB45AD006A2222 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BC821CB45AD006A2222 /* NetworkService.swift */; };
+		F2480BCA21CB4618006A2222 /* UserDefaults+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFCC215E1B7000D5F197 /* UserDefaults+DataSource.swift */; };
+		F2480BCC21CB4650006A2222 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BCB21CB4650006A2222 /* OAuth.swift */; };
+		F2480BD421CB777C006A2222 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BD321CB777C006A2222 /* NotificationService.swift */; };
+		F2480BD821CB777C006A2222 /* lindale-task-notification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2480BD121CB777C006A2222 /* lindale-task-notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F289596A21BFA9A000A1F1A7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596921BFA9A000A1F1A7 /* TaskGroup.swift */; };
 		F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */; };
@@ -157,6 +171,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F2480BAF21CB252E006A2222 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F29DBB6A21381F9E009DA744 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2480BA221CB252E006A2222;
+			remoteInfo = "lindale-task-notification-ui";
+		};
+		F2480BD621CB777C006A2222 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F29DBB6A21381F9E009DA744 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2480BD021CB777C006A2222;
+			remoteInfo = "lindale-task-notification";
+		};
 		F2E0D1EC214A342D00023905 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F29DBB6A21381F9E009DA744 /* Project object */;
@@ -223,6 +251,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				F2480BD821CB777C006A2222 /* lindale-task-notification.appex in Embed App Extensions */,
+				F2480BB121CB252E006A2222 /* lindale-task-notification-ui.appex in Embed App Extensions */,
 				F2F4FFAA215E160E00D5F197 /* lindale-intents.appex in Embed App Extensions */,
 				F2F4FFA7215E160E00D5F197 /* lindale-intentsUI.appex in Embed App Extensions */,
 			);
@@ -279,6 +309,9 @@
 		A8DE10AD217B76DF00D1F654 /* NotificationSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingController.swift; sourceTree = "<group>"; };
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
 		B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
+		B89A1D9D23CC8EFED529339B /* Pods-lindale-task-notification-ui.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-task-notification-ui.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-task-notification-ui/Pods-lindale-task-notification-ui.debug.xcconfig"; sourceTree = "<group>"; };
+		C551063F4944463BFA0D104B /* Pods_lindale_task_notification_ui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_task_notification_ui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC65720F13234EFF2390E9DB /* Pods-lindale-task-notification-ui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-task-notification-ui.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-task-notification-ui/Pods-lindale-task-notification-ui.release.xcconfig"; sourceTree = "<group>"; };
 		F21C50CB21420CBE008218F4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		F21C92062194336A00961362 /* FoldingTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTaskCell.swift; sourceTree = "<group>"; };
@@ -288,6 +321,20 @@
 		F23226C22170908400846250 /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
 		F2403B302147B77E004BF3C8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabelView+Animation.swift"; sourceTree = "<group>"; };
+		F2480BA321CB252E006A2222 /* lindale-task-notification-ui.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "lindale-task-notification-ui.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2480BA421CB252E006A2222 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		F2480BA621CB252E006A2222 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		F2480BA921CB252E006A2222 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		F2480BAC21CB252E006A2222 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F2480BAE21CB252E006A2222 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2480BB521CB254A006A2222 /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2480BB721CB266F006A2222 /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2480BB921CB269A006A2222 /* lindale-task-notification-ui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-task-notification-ui.entitlements"; sourceTree = "<group>"; };
+		F2480BC821CB45AD006A2222 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F2480BCB21CB4650006A2222 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
+		F2480BD121CB777C006A2222 /* lindale-task-notification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "lindale-task-notification.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2480BD321CB777C006A2222 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F2480BD521CB777C006A2222 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
@@ -392,6 +439,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2480BA021CB252E006A2222 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2480BA721CB252E006A2222 /* UserNotificationsUI.framework in Frameworks */,
+				F2480BA521CB252E006A2222 /* UserNotifications.framework in Frameworks */,
+				F0668A91440CE9A0660885D4 /* Pods_lindale_task_notification_ui.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2480BCE21CB777C006A2222 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F29DBB6F21381F9E009DA744 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,10 +501,15 @@
 		2AD403BAF9D095B63F73CE11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2480BB721CB266F006A2222 /* Moya.framework */,
+				F2480BB521CB254A006A2222 /* Moya.framework */,
 				F29DA32521C73CD1005D941A /* AuthenticationServices.framework */,
 				F6B8729374BB005277964279 /* Pods_lindale_ios.framework */,
 				F2F4FF9C215E160E00D5F197 /* IntentsUI.framework */,
 				614D5C5FEFCD1C563C0B21C5 /* Pods_lindale_watch_Extension.framework */,
+				F2480BA421CB252E006A2222 /* UserNotifications.framework */,
+				F2480BA621CB252E006A2222 /* UserNotificationsUI.framework */,
+				C551063F4944463BFA0D104B /* Pods_lindale_task_notification_ui.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -502,6 +571,28 @@
 				F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */,
 			);
 			path = ProfileControllers;
+			sourceTree = "<group>";
+		};
+		F2480BA821CB252E006A2222 /* lindale-task-notification-ui */ = {
+			isa = PBXGroup;
+			children = (
+				F2480BB921CB269A006A2222 /* lindale-task-notification-ui.entitlements */,
+				F2480BA921CB252E006A2222 /* NotificationViewController.swift */,
+				F2480BAB21CB252E006A2222 /* MainInterface.storyboard */,
+				F2480BAE21CB252E006A2222 /* Info.plist */,
+				F2480BC821CB45AD006A2222 /* NetworkService.swift */,
+				F2480BCB21CB4650006A2222 /* OAuth.swift */,
+			);
+			path = "lindale-task-notification-ui";
+			sourceTree = "<group>";
+		};
+		F2480BD221CB777C006A2222 /* lindale-task-notification */ = {
+			isa = PBXGroup;
+			children = (
+				F2480BD321CB777C006A2222 /* NotificationService.swift */,
+				F2480BD521CB777C006A2222 /* Info.plist */,
+			);
+			path = "lindale-task-notification";
 			sourceTree = "<group>";
 		};
 		F24EC78F2140C05D00FB0FE9 /* ProjectControllers */ = {
@@ -570,6 +661,8 @@
 				F2E0D1DF214A342C00023905 /* lindale-watch */,
 				F2E0D1EE214A342D00023905 /* lindale-watch Extension */,
 				F2F4FFB9215E169E00D5F197 /* lindale-watch-intents */,
+				F2480BA821CB252E006A2222 /* lindale-task-notification-ui */,
+				F2480BD221CB777C006A2222 /* lindale-task-notification */,
 				F29DBB7321381F9E009DA744 /* Products */,
 				F8CFDFCDA1536707DF277018 /* Pods */,
 				2AD403BAF9D095B63F73CE11 /* Frameworks */,
@@ -585,6 +678,8 @@
 				F2F4FF92215E160E00D5F197 /* lindale-intents.appex */,
 				F2F4FF9B215E160E00D5F197 /* lindale-intentsUI.appex */,
 				F2F4FFB8215E169D00D5F197 /* lindale-watch-intents.appex */,
+				F2480BA321CB252E006A2222 /* lindale-task-notification-ui.appex */,
+				F2480BD121CB777C006A2222 /* lindale-task-notification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -855,6 +950,8 @@
 				7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */,
 				19BC686EC0AF598B7D343767 /* Pods-lindale-watch Extension.debug.xcconfig */,
 				B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */,
+				B89A1D9D23CC8EFED529339B /* Pods-lindale-task-notification-ui.debug.xcconfig */,
+				CC65720F13234EFF2390E9DB /* Pods-lindale-task-notification-ui.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -862,6 +959,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F2480BA221CB252E006A2222 /* lindale-task-notification-ui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2480BB421CB252E006A2222 /* Build configuration list for PBXNativeTarget "lindale-task-notification-ui" */;
+			buildPhases = (
+				AE8B2F10A6649FBF9806F73B /* [CP] Check Pods Manifest.lock */,
+				F2480B9F21CB252E006A2222 /* Sources */,
+				F2480BA021CB252E006A2222 /* Frameworks */,
+				F2480BA121CB252E006A2222 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lindale-task-notification-ui";
+			productName = "lindale-task-notification-ui";
+			productReference = F2480BA321CB252E006A2222 /* lindale-task-notification-ui.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F2480BD021CB777C006A2222 /* lindale-task-notification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2480BD921CB777C006A2222 /* Build configuration list for PBXNativeTarget "lindale-task-notification" */;
+			buildPhases = (
+				F2480BCD21CB777C006A2222 /* Sources */,
+				F2480BCE21CB777C006A2222 /* Frameworks */,
+				F2480BCF21CB777C006A2222 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lindale-task-notification";
+			productName = "lindale-task-notification";
+			productReference = F2480BD121CB777C006A2222 /* lindale-task-notification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F29DBB7121381F9E009DA744 /* lindale-ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F29DBB9D21381F9F009DA744 /* Build configuration list for PBXNativeTarget "lindale-ios" */;
@@ -880,6 +1012,8 @@
 				F2E0D1FA214A342D00023905 /* PBXTargetDependency */,
 				F2F4FFA6215E160E00D5F197 /* PBXTargetDependency */,
 				F2F4FFA9215E160E00D5F197 /* PBXTargetDependency */,
+				F2480BB021CB252E006A2222 /* PBXTargetDependency */,
+				F2480BD721CB777C006A2222 /* PBXTargetDependency */,
 			);
 			name = "lindale-ios";
 			productName = "lindale-ios";
@@ -982,10 +1116,24 @@
 		F29DBB6A21381F9E009DA744 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = lindelin;
 				TargetAttributes = {
+					F2480BA221CB252E006A2222 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					F2480BD021CB777C006A2222 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					F29DBB7121381F9E009DA744 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
@@ -1075,11 +1223,28 @@
 				F2F4FF91215E160E00D5F197 /* lindale-intents */,
 				F2F4FF9A215E160E00D5F197 /* lindale-intentsUI */,
 				F2F4FFB7215E169D00D5F197 /* lindale-watch-intents */,
+				F2480BA221CB252E006A2222 /* lindale-task-notification-ui */,
+				F2480BD021CB777C006A2222 /* lindale-task-notification */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F2480BA121CB252E006A2222 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2480BAD21CB252E006A2222 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2480BCF21CB777C006A2222 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F29DBB7021381F9E009DA744 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1223,6 +1388,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AE8B2F10A6649FBF9806F73B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lindale-task-notification-ui-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B11178A88AE765E69D083935 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1266,6 +1453,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F2480B9F21CB252E006A2222 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2480BC921CB45AD006A2222 /* NetworkService.swift in Sources */,
+				F2480BCC21CB4650006A2222 /* OAuth.swift in Sources */,
+				F2480BBE21CB4440006A2222 /* Other.swift in Sources */,
+				F2480BBC21CB4439006A2222 /* Errors.swift in Sources */,
+				F2480BCA21CB4618006A2222 /* UserDefaults+DataSource.swift in Sources */,
+				F2480BBD21CB443D006A2222 /* User.swift in Sources */,
+				F2480BAA21CB252E006A2222 /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2480BCD21CB777C006A2222 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2480BD421CB777C006A2222 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F29DBB6E21381F9E009DA744 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1418,6 +1627,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F2480BB021CB252E006A2222 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2480BA221CB252E006A2222 /* lindale-task-notification-ui */;
+			targetProxy = F2480BAF21CB252E006A2222 /* PBXContainerItemProxy */;
+		};
+		F2480BD721CB777C006A2222 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2480BD021CB777C006A2222 /* lindale-task-notification */;
+			targetProxy = F2480BD621CB777C006A2222 /* PBXContainerItemProxy */;
+		};
 		F2E0D1ED214A342D00023905 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F2E0D1E9214A342D00023905 /* lindale-watch Extension */;
@@ -1446,6 +1665,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F2480BAB21CB252E006A2222 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2480BAC21CB252E006A2222 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		F29DBB7921381F9E009DA744 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1481,6 +1708,96 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F2480BB221CB252E006A2222 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B89A1D9D23CC8EFED529339B /* Pods-lindale-task-notification-ui.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "lindale-task-notification-ui/lindale-task-notification-ui.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				INFOPLIST_FILE = "lindale-task-notification-ui/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.lindale-task-notification-ui";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2480BB321CB252E006A2222 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC65720F13234EFF2390E9DB /* Pods-lindale-task-notification-ui.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "lindale-task-notification-ui/lindale-task-notification-ui.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				INFOPLIST_FILE = "lindale-task-notification-ui/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.lindale-task-notification-ui";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F2480BDA21CB777C006A2222 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				INFOPLIST_FILE = "lindale-task-notification/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.lindale-task-notification";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2480BDB21CB777C006A2222 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDZ72V563C;
+				INFOPLIST_FILE = "lindale-task-notification/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.lindale-task-notification";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F29DBB9B21381F9F009DA744 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1865,6 +2182,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F2480BB421CB252E006A2222 /* Build configuration list for PBXNativeTarget "lindale-task-notification-ui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2480BB221CB252E006A2222 /* Debug */,
+				F2480BB321CB252E006A2222 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2480BD921CB777C006A2222 /* Build configuration list for PBXNativeTarget "lindale-task-notification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2480BDA21CB777C006A2222 /* Debug */,
+				F2480BDB21CB777C006A2222 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F29DBB6D21381F9E009DA744 /* Build configuration list for PBXProject "lindale-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
