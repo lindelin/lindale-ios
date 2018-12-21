@@ -62,6 +62,10 @@
 		F2480BCC21CB4650006A2222 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BCB21CB4650006A2222 /* OAuth.swift */; };
 		F2480BD421CB777C006A2222 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BD321CB777C006A2222 /* NotificationService.swift */; };
 		F2480BD821CB777C006A2222 /* lindale-task-notification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2480BD121CB777C006A2222 /* lindale-task-notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2480BDE21CC7A0E006A2222 /* SharedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BDD21CC7A0E006A2222 /* SharedHelpers.swift */; };
+		F2480BDF21CC7A27006A2222 /* SharedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BDD21CC7A0E006A2222 /* SharedHelpers.swift */; };
+		F2480BE321CC8349006A2222 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
+		F2480BE521CC84D6006A2222 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F289596A21BFA9A000A1F1A7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596921BFA9A000A1F1A7 /* TaskGroup.swift */; };
 		F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */; };
@@ -336,6 +340,7 @@
 		F2480BD321CB777C006A2222 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		F2480BD521CB777C006A2222 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2480BDC21CB9014006A2222 /* lindale-task-notification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-task-notification.entitlements"; sourceTree = "<group>"; };
+		F2480BDD21CC7A0E006A2222 /* SharedHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpers.swift; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
@@ -941,6 +946,7 @@
 			children = (
 				F2F4FFC6215E179C00D5F197 /* NSUserActivity+IntentData.swift */,
 				F2F4FFCC215E1B7000D5F197 /* UserDefaults+DataSource.swift */,
+				F2480BDD21CC7A0E006A2222 /* SharedHelpers.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -1241,6 +1247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2480BE521CC84D6006A2222 /* Assets.xcassets in Resources */,
 				F2480BAD21CB252E006A2222 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1467,8 +1474,10 @@
 				F2480BC921CB45AD006A2222 /* NetworkService.swift in Sources */,
 				F2480BCC21CB4650006A2222 /* OAuth.swift in Sources */,
 				F2480BBE21CB4440006A2222 /* Other.swift in Sources */,
+				F2480BDE21CC7A0E006A2222 /* SharedHelpers.swift in Sources */,
 				F2480BBC21CB4439006A2222 /* Errors.swift in Sources */,
 				F2480BCA21CB4618006A2222 /* UserDefaults+DataSource.swift in Sources */,
+				F2480BE321CC8349006A2222 /* UITheme.swift in Sources */,
 				F2480BBD21CB443D006A2222 /* User.swift in Sources */,
 				F2480BAA21CB252E006A2222 /* NotificationViewController.swift in Sources */,
 			);
@@ -1513,6 +1522,7 @@
 				F2E94DF921CA3BF400722DC3 /* PushNotificationService.swift in Sources */,
 				A89F87D821723C02004ADEA4 /* Notification.swift in Sources */,
 				A8CE9CAB21BA781B00AF6767 /* ProjectProgressCell.swift in Sources */,
+				F2480BDF21CC7A27006A2222 /* SharedHelpers.swift in Sources */,
 				F2E1FE1D21ABA55D0033F8B3 /* Other.swift in Sources */,
 				F2B273CA21B65661007153D7 /* ProjectTopController.swift in Sources */,
 				F22A715221B5236100B90C19 /* ProjectDetailController.swift in Sources */,

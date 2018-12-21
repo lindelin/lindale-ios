@@ -19,7 +19,6 @@ class NotificationService: UNNotificationServiceExtension {
         
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            //bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
             
             let imageKey = AnyHashable("gcm.notification.image")
             
@@ -30,7 +29,7 @@ class NotificationService: UNNotificationServiceExtension {
                         do {
                             let writePath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("push.png")
                             try data.write(to: writePath)
-                            let attachment = try UNNotificationAttachment(identifier: "nnsnodnb_demo", url: writePath, options: nil)
+                            let attachment = try UNNotificationAttachment(identifier: "PUSHER_ICON", url: writePath, options: nil)
                             bestAttemptContent.attachments = [attachment]
                             contentHandler(bestAttemptContent)
                         } catch let error as NSError {

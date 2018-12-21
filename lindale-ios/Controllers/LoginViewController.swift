@@ -9,6 +9,7 @@
 import UIKit
 import Pastel
 import SafariServices
+import UserNotifications
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -106,6 +107,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Main 画面遷移
     func toMainStoryboard() {
+        // [START register_for_notifications]
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        let unUserNotificationCenter = UNUserNotificationCenter.current()
+        unUserNotificationCenter.requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        unUserNotificationCenter.delegate = appDelegate
+        UIApplication.shared.registerForRemoteNotifications()
+        // [END register_for_notifications]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
         UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {

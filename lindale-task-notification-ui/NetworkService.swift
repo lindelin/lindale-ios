@@ -10,7 +10,8 @@ import UIKit
 import Moya
 
 enum NetworkService {
-    case projects
+    case updateTodoToFinished(todo: NotificationViewController.Todo)
+    
 }
 
 extension NetworkService: TargetType {
@@ -19,28 +20,28 @@ extension NetworkService: TargetType {
     
     var path: String {
         switch self {
-        case .projects:
-            return "/projects"
+        case .updateTodoToFinished(let todo):
+            return "/todos/\(todo.id)/finished"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects:
-            return .get
+        case .updateTodoToFinished:
+            return .put
         }
     }
     
     var task: Task {
         switch self {
-        case .projects:
+        case .updateTodoToFinished:
             return .requestPlain
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .projects:
+        case .updateTodoToFinished:
             return "Half measures are as bad as nothing at all.".utf8Encoded
         }
     }

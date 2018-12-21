@@ -22,15 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: - Firebase 設定
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
-        // [START register_for_notifications]
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        let unUserNotificationCenter = UNUserNotificationCenter.current()
-        unUserNotificationCenter.requestAuthorization(
-            options: authOptions,
-            completionHandler: {_, _ in })
-        unUserNotificationCenter.delegate = self
-        application.registerForRemoteNotifications()
-        // [END register_for_notifications]
         
         // MARK: - Oauth 設定
         OAuth.configure()
@@ -51,6 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name:"Login", bundle: nil)
             let loginController = storyboard.instantiateViewController(withIdentifier: "Login")
             window?.rootViewController = loginController
+        } else {
+            // [START register_for_notifications]
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            let unUserNotificationCenter = UNUserNotificationCenter.current()
+            unUserNotificationCenter.requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            unUserNotificationCenter.delegate = self
+            application.registerForRemoteNotifications()
+            // [END register_for_notifications]
         }
         
         return true

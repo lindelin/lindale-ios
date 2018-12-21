@@ -6,7 +6,6 @@
 //  Copyright © 2018年 lindelin. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension UIImageView {
@@ -98,16 +97,4 @@ extension UIViewController {
             self.showAlert(title: nil, message: "Network Error")
         }
     }
-}
-
-func image_from(url: URL?) -> UIImage {
-    guard let url = url, let data =  try? Data(contentsOf: url) else {
-        return #imageLiteral(resourceName: "lindale-launch")
-    }
-    
-    return UIImage(data: data)!
-}
-
-extension JSONDecoder {
-    static let main = JSONDecoder()
 }
