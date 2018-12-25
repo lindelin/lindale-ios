@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F2480BD021CB777C006A2222"
-               BuildableName = "lindale-notification.appex"
-               BlueprintName = "lindale-notification"
+               BlueprintIdentifier = "F2F4FF91215E160E00D5F197"
+               BuildableName = "lindale-intents.appex"
+               BlueprintName = "lindale-intents"
                ReferencedContainer = "container:lindale-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F2480BD021CB777C006A2222"
-            BuildableName = "lindale-notification.appex"
-            BlueprintName = "lindale-notification"
+            BlueprintIdentifier = "F2F4FF91215E160E00D5F197"
+            BuildableName = "lindale-intents.appex"
+            BlueprintName = "lindale-intents"
             ReferencedContainer = "container:lindale-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,7 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
-      launchAutomaticallySubstyle = "2"
-      notificationPayloadFile = "lindale-watch Extension/PushNotificationPayload.apns">
+      launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
