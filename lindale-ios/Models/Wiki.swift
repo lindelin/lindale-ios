@@ -30,3 +30,35 @@ struct WikiType: Codable {
         }
     }
 }
+
+struct Wiki: Codable {
+    var id: Int
+    var title: String
+    var content:String
+    var image: URL?
+    var user: User
+    var project: Int
+    var updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case content
+        case image
+        case user
+        case project
+        case updatedAt = "update_at"
+    }
+    
+    static func resources(project: ProjectCollection.Project, type: WikiType, completion: @escaping ([Wiki]?) -> Void) {
+        NetworkProvider.main.data(request: .projectWikis(project: project, type: type)) { (data) in
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            let wikis = try! JSONDecoder.main.decode([Wiki].self, from: data)
+            completion(wikis)
+        }
+    }
+}

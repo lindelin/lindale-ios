@@ -41,6 +41,7 @@ enum NetworkService {
     case projectMembers(project: ProjectCollection.Project)
     case projectTodos(project: ProjectCollection.Project)
     case storeDeviceToken(device: Device)
+    case projectWikis(project: ProjectCollection.Project, type: WikiType)
 }
 
 extension NetworkService: TargetType {
@@ -107,12 +108,14 @@ extension NetworkService: TargetType {
             return "/projects/\(project.id)/todos"
         case .storeDeviceToken:
             return "/device-token"
+        case .projectWikis(let project, let type):
+            return "/projects/\(project.id)/wikis/types/\(type.id)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis:
             return .get
         case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate, .taskUpdate:
             return .put
@@ -125,7 +128,7 @@ extension NetworkService: TargetType {
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -199,10 +202,7 @@ extension NetworkService: TargetType {
     }
     
     var sampleData: Data {
-        switch self {
-            case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .localeUpdate, .resetPassword, .notificationSettings, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .favoriteProjects, .completeTask, .deleteTask, .storeSubTask, .deleteSubTask, .storeActivity, .deleteTodo, .changeTodoColor, .updateTodoToFinished, .todoEditResource, .todoUpdate, .taskEditResource, .taskUpdate, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .storeDeviceToken:
-                return "Half measures are as bad as nothing at all.".utf8Encoded
-        }
+        return "Half measures are as bad as nothing at all.".utf8Encoded
     }
     
     var headers: [String: String]? {
