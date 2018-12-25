@@ -21,6 +21,7 @@ class FoldingTodoCell: FoldingCell {
     @IBOutlet weak var contents: UILabel!
     @IBOutlet weak var color: UIView!
     @IBOutlet weak var colorBar: UIView!
+    @IBOutlet weak var colorBarTitle: UILabel!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var contentDetail: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
@@ -63,6 +64,7 @@ class FoldingTodoCell: FoldingCell {
         self.contents.text = todo.content
         self.color.backgroundColor = Colors.get(id: todo.color)
         self.colorBar.backgroundColor = Colors.get(id: todo.color)
+        self.colorBarTitle.text = "\(todo.projectName) #\(todo.id)"
         self.colorView.backgroundColor = Colors.get(id: todo.color)
         self.updateButton.backgroundColor = Colors.get(id: todo.color)
         self.contentDetail.text = todo.content

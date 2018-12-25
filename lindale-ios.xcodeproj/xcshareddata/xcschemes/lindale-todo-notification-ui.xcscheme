@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F2480BA221CB252E006A2222"
-               BuildableName = "lindale-task-notification-ui.appex"
-               BlueprintName = "lindale-task-notification-ui"
+               BuildableName = "lindale-todo-notification-ui.appex"
+               BlueprintName = "lindale-todo-notification-ui"
                ReferencedContainer = "container:lindale-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F2480BA221CB252E006A2222"
-            BuildableName = "lindale-task-notification-ui.appex"
-            BlueprintName = "lindale-task-notification-ui"
+            BuildableName = "lindale-todo-notification-ui.appex"
+            BlueprintName = "lindale-todo-notification-ui"
             ReferencedContainer = "container:lindale-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

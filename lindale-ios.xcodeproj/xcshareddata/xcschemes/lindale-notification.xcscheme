@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F2480BD021CB777C006A2222"
-               BuildableName = "lindale-task-notification.appex"
-               BlueprintName = "lindale-task-notification"
+               BuildableName = "lindale-notification.appex"
+               BlueprintName = "lindale-notification"
                ReferencedContainer = "container:lindale-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F2480BD021CB777C006A2222"
-            BuildableName = "lindale-task-notification.appex"
-            BlueprintName = "lindale-task-notification"
+            BuildableName = "lindale-notification.appex"
+            BlueprintName = "lindale-notification"
             ReferencedContainer = "container:lindale-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

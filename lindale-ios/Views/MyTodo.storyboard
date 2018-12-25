@@ -623,6 +623,7 @@
                                 <connections>
                                     <outlet property="color" destination="4T1-Ag-EoR" id="QLv-TO-5g2"/>
                                     <outlet property="colorBar" destination="3Sy-mV-9nl" id="V8X-wV-JzO"/>
+                                    <outlet property="colorBarTitle" destination="e1p-g9-8K9" id="hUr-VE-bBo"/>
                                     <outlet property="colorView" destination="jOx-tR-GrX" id="7qY-Bz-Fli"/>
                                     <outlet property="containerView" destination="VDV-xN-QPZ" id="UFI-TJ-bqz"/>
                                     <outlet property="containerViewTop" destination="XKh-77-agD" id="8CC-Cg-umN"/>
@@ -855,19 +856,19 @@
         <image name="todo-30" width="45" height="45"/>
         <image name="user-30" width="45" height="45"/>
         <namedColor name="Theme-background">
-            <color red="0.97299998998641968" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base">
-            <color red="0.32199999690055847" green="0.23899999260902405" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.011764705882352941" green="0.10196078431372549" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base-optional">
-            <color red="0.39599999785423279" green="0.30199998617172241" blue="0.56499999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.26666666666666666" green="0.30980392156862746" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base-sub">
-            <color red="0.71799999475479126" green="0.68599998950958252" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-main">
-            <color red="0.92199999094009399" green="0.3529999852180481" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000000000000004" green="0.26666666666666666" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="Theme-base-sub"/>
