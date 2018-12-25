@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="4516" y="190"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Project Wikis Controller-->
         <scene sceneID="sZA-dv-Zrx">
             <objects>
-                <tableViewController storyboardIdentifier="ProjectWikis" id="wMz-04-Lr4" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProjectWikis" id="wMz-04-Lr4" customClass="ProjectWikisController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rrc-G1-Non">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -7,46 +7,65 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class ProjectWikisController: UITableViewController {
 
-    static let identity = "ProjectWiki"
+    static let identity = "ProjectWikis"
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
-    var wikiTypes: WikiType!
+    var wikiType: WikiType!
+    var wikis: [Wiki]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // MARK: - Refresh Control Config
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
+        self.loadData()
+    }
+    
+    @objc func loadData() {
+        KRProgressHUD.show(withMessage: "Loading...")
+        Wiki.resources(project: self.project, type: self.wikiType) { (wikis) in
+            self.refreshControl?.endRefreshing()
+            KRProgressHUD.dismiss()
+            
+            guard let wikis = wikis else {
+                self.authErrorHandle()
+                return
+            }
+            
+            self.wikis = wikis
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let wikis = self.wikis else {
+            return 0
+        }
+        
+        return wikis.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WikiCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = self.wikis![indexPath.row].title
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

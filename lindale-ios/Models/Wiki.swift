@@ -47,7 +47,7 @@ struct Wiki: Codable {
         case image
         case user
         case project
-        case updatedAt = "update_at"
+        case updatedAt = "updated_at"
     }
     
     static func resources(project: ProjectCollection.Project, type: WikiType, completion: @escaping ([Wiki]?) -> Void) {

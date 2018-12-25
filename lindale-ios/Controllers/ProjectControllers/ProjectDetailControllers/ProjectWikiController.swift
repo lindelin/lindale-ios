@@ -67,6 +67,16 @@ class ProjectWikiController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = self.wikiTypes![indexPath.row]
+        let storyboard = UIStoryboard(name: "ProjectWiki", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: ProjectWikisController.identity) as! ProjectWikisController
+        controller.parentNavigationController = self.parentNavigationController
+        controller.project = self.project
+        controller.wikiType = type
+        self.parentNavigationController?.pushViewController(controller, animated: true)
+    }
 
     /*
     // MARK: - Navigation
