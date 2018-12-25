@@ -336,10 +336,8 @@
 		A8F3563221400486006204D3 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
 		B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		B5C8169C64F2212B000F5B5D /* Pods-lindale-todo-notification-ui.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-todo-notification-ui.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-todo-notification-ui/Pods-lindale-todo-notification-ui.debug.xcconfig"; sourceTree = "<group>"; };
-		B89A1D9D23CC8EFED529339B /* Pods-lindale-task-notification-ui.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-task-notification-ui.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-task-notification-ui/Pods-lindale-task-notification-ui.debug.xcconfig"; sourceTree = "<group>"; };
 		C551063F4944463BFA0D104B /* Pods_lindale_task_notification_ui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_task_notification_ui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83C01E35B85D5AA4AABA982 /* Pods-lindale-todo-notification-ui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-todo-notification-ui.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-todo-notification-ui/Pods-lindale-todo-notification-ui.release.xcconfig"; sourceTree = "<group>"; };
-		CC65720F13234EFF2390E9DB /* Pods-lindale-task-notification-ui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-task-notification-ui.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-task-notification-ui/Pods-lindale-task-notification-ui.release.xcconfig"; sourceTree = "<group>"; };
 		D651A55321D20AD300506B0C /* ProjectWikisController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWikisController.swift; sourceTree = "<group>"; };
 		F21C50CB21420CBE008218F4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -1014,8 +1012,6 @@
 				7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */,
 				19BC686EC0AF598B7D343767 /* Pods-lindale-watch Extension.debug.xcconfig */,
 				B1E1EABB4EECFC6B36E744B5 /* Pods-lindale-watch Extension.release.xcconfig */,
-				B89A1D9D23CC8EFED529339B /* Pods-lindale-task-notification-ui.debug.xcconfig */,
-				CC65720F13234EFF2390E9DB /* Pods-lindale-task-notification-ui.release.xcconfig */,
 				B5C8169C64F2212B000F5B5D /* Pods-lindale-todo-notification-ui.debug.xcconfig */,
 				C83C01E35B85D5AA4AABA982 /* Pods-lindale-todo-notification-ui.release.xcconfig */,
 			);
@@ -1431,7 +1427,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-watchOS/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result-watchOS/Result.framework",
@@ -1444,7 +1440,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */ = {
@@ -1453,7 +1449,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
@@ -1492,7 +1488,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE8B2F10A6649FBF9806F73B /* [CP] Check Pods Manifest.lock */ = {

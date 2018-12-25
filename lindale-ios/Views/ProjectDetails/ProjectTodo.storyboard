@@ -623,6 +623,7 @@
                                 <connections>
                                     <outlet property="color" destination="gM2-ng-fn5" id="QZU-Tl-7cA"/>
                                     <outlet property="colorBar" destination="wNE-fQ-Ukc" id="9ku-dc-2Le"/>
+                                    <outlet property="colorBarTitle" destination="4KL-dD-gpU" id="l0b-G1-lth"/>
                                     <outlet property="colorView" destination="D7h-Gx-Py5" id="wTO-SM-NdU"/>
                                     <outlet property="containerView" destination="nJ6-bc-rK1" id="9Ai-ks-muD"/>
                                     <outlet property="containerViewTop" destination="CQD-ed-nlK" id="28u-k1-BzF"/>

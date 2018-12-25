@@ -12,7 +12,7 @@
 		<key>lindale-intents.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>42</integer>
+			<integer>5</integer>
 		</dict>
 		<key>lindale-intentsUI.xcscheme</key>
 		<dict>
@@ -22,27 +22,32 @@
 		<key>lindale-intentsUI.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>43</integer>
+			<integer>6</integer>
 		</dict>
 		<key>lindale-ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>lindale-ios.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>33</integer>
+		</dict>
 		<key>lindale-notification.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>39</integer>
+			<integer>2</integer>
 		</dict>
 		<key>lindale-task-notification-ui.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>45</integer>
+			<integer>7</integer>
 		</dict>
 		<key>lindale-todo-notification-ui.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>38</integer>
+			<integer>1</integer>
 		</dict>
 		<key>lindale-watch (Notification).xcscheme</key>
 		<dict>
@@ -52,7 +57,7 @@
 		<key>lindale-watch (Notification).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>41</integer>
+			<integer>4</integer>
 		</dict>
 		<key>lindale-watch-intents.xcscheme</key>
 		<dict>
@@ -62,7 +67,7 @@
 		<key>lindale-watch-intents.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>44</integer>
+			<integer>46</integer>
 		</dict>
 		<key>lindale-watch.xcscheme</key>
 		<dict>
@@ -72,7 +77,7 @@
 		<key>lindale-watch.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>40</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 </dict>
