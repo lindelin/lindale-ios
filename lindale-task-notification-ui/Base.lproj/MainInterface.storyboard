@@ -25,7 +25,7 @@
         <!--Notification View Controller-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <viewController id="M4Y-Lb-cyx" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="lindale_task_notification_ui" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="M4Y-Lb-cyx" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="lindale_task_notification_ui" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="479"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -450,6 +450,24 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="479"/>
+                    <connections>
+                        <outlet property="colorBar" destination="8tV-2l-B3D" id="FZI-Wc-Jn4"/>
+                        <outlet property="endAt" destination="Ttb-Ah-Klr" id="ngl-L8-0F1"/>
+                        <outlet property="group" destination="7RV-F1-fO5" id="3Di-Aa-7dw"/>
+                        <outlet property="initiatorEmail" destination="xXO-cx-iMC" id="zge-Kj-8ny"/>
+                        <outlet property="initiatorName" destination="CAt-M1-QGL" id="KMD-M1-zUH"/>
+                        <outlet property="priority" destination="Xfw-EO-1C6" id="RuD-fw-Cth"/>
+                        <outlet property="progressBar" destination="j3w-sM-RnJ" id="dtH-Qc-gTG"/>
+                        <outlet property="projectNameAndCode" destination="oWb-00-I7h" id="21f-kV-7Pb"/>
+                        <outlet property="startAt" destination="j5x-gY-9NS" id="0a5-5K-ryI"/>
+                        <outlet property="status" destination="WwL-kD-SUW" id="DLc-V3-R32"/>
+                        <outlet property="subTaskStatus" destination="b9h-o9-1ol" id="SlZ-MO-Qxk"/>
+                        <outlet property="taskTitle" destination="qGu-fm-sUV" id="eBO-Wr-Pdv"/>
+                        <outlet property="updatedAt" destination="THS-qC-UAh" id="xpl-Rd-V06"/>
+                        <outlet property="userEmail" destination="A3n-Xu-YIp" id="aS0-0I-tq2"/>
+                        <outlet property="userName" destination="z8p-RU-fKe" id="MSy-CT-e5M"/>
+                        <outlet property="userPhoto" destination="lB5-BD-F3U" id="L01-Fh-Rdh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
