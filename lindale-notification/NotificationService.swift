@@ -1,6 +1,6 @@
 //
 //  NotificationService.swift
-//  lindale-task-notification
+//  lindale-notification
 //
 //  Created by Jie Wu on 2018/12/20.
 //  Copyright © 2018 lindelin. All rights reserved.

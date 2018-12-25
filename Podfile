@@ -27,7 +27,7 @@ target 'lindale-watch Extension' do
   pod 'Moya'
 end
 
-target 'lindale-task-notification-ui' do
+target 'lindale-todo-notification-ui' do
   pod 'Moya'
 end
 

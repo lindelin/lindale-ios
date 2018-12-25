@@ -1,6 +1,6 @@
 //
 //  NotificationViewController.swift
-//  lindale-task-notification-ui
+//  lindale-todo-notification-ui
 //
 //  Created by Jie Wu on 2018/12/20.
 //  Copyright © 2018 lindelin. All rights reserved.
