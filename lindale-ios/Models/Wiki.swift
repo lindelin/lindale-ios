@@ -34,7 +34,8 @@ struct WikiType: Codable {
 struct Wiki: Codable {
     var id: Int
     var title: String
-    var content:String
+    var content: String
+    var originalContent: String
     var image: URL?
     var user: User
     var project: Int
@@ -44,6 +45,7 @@ struct Wiki: Codable {
         case id
         case title
         case content
+        case originalContent = "original_content"
         case image
         case user
         case project
@@ -59,6 +61,31 @@ struct Wiki: Codable {
             
             let wikis = try! JSONDecoder.main.decode([Wiki].self, from: data)
             completion(wikis)
+        }
+    }
+    
+    static func find(id: Int, completion: @escaping (Wiki?) -> Void) {
+        NetworkProvider.main.data(request: .wikiDetail(id: id)) { (data) in
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            let wiki = try! JSONDecoder.main.decode(Wiki.self, from: data)
+            completion(wiki)
+        }
+    }
+}
+
+struct WikiRegister {
+    var id: Int?
+    var title: String?
+    var content: String?
+    var typeId: Int?
+    
+    func update(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .updateWiki(wiki: self)) { (status) in
+            completion(status)
         }
     }
 }

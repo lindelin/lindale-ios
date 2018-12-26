@@ -28,10 +28,27 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
         
         // Do any additional setup after loading the view.
         self.updateUI()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.wikiHasUpdated, object: nil)
     }
     
     private func setupNavigation() {
         self.navigationItem.title = self.wiki.title
+        let editButton = UIBarButtonItem(image: UIImage(named: "pencil-24"), style: .plain, target: self, action: #selector(self.editButtonTapped))
+        self.navigationItem.rightBarButtonItem = editButton
+    }
+    
+    @objc func loadData() {
+        Wiki.find(id: wiki.id) { (wiki) in
+            
+            guard let wiki = wiki else {
+                self.authErrorHandle()
+                return
+            }
+            
+            self.wiki = wiki
+            self.updateUI()
+        }
     }
     
     func updateUI() {
@@ -55,7 +72,16 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
         
         decisionHandler(.cancel)
     }
-
+    
+    @objc func editButtonTapped() {
+        let wiki = self.wiki
+        let storyboard = UIStoryboard(name: "ProjectWiki", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: ProjectWikiEditController.identity) as! ProjectWikiEditController
+        controller.parentNavigationController = self.parentNavigationController
+        controller.wiki = wiki
+        self.parentNavigationController?.pushViewController(controller, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

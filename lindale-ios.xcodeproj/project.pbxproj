@@ -41,6 +41,7 @@
 		A8F3563321400486006204D3 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F3563221400486006204D3 /* Project.storyboard */; };
 		D651A55421D20AD300506B0C /* ProjectWikisController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D651A55321D20AD300506B0C /* ProjectWikisController.swift */; };
 		D651A55721D3285A00506B0C /* ProjectWikiDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D651A55621D3285A00506B0C /* ProjectWikiDetailController.swift */; };
+		D651A55921D35C8B00506B0C /* ProjectWikiEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D651A55821D35C8B00506B0C /* ProjectWikiEditController.swift */; };
 		E8E88D59EFAEA74F3C465AE3 /* Pods_lindale_watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B4650AEF65AC0DC13FD3AD /* Pods_lindale_watch_Extension.framework */; };
 		F21C50CC21420CBE008218F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21C50CB21420CBE008218F4 /* Profile.storyboard */; };
 		F21C50CF21420DBB008218F4 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */; };
@@ -341,6 +342,7 @@
 		C83C01E35B85D5AA4AABA982 /* Pods-lindale-todo-notification-ui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lindale-todo-notification-ui.release.xcconfig"; path = "Pods/Target Support Files/Pods-lindale-todo-notification-ui/Pods-lindale-todo-notification-ui.release.xcconfig"; sourceTree = "<group>"; };
 		D651A55321D20AD300506B0C /* ProjectWikisController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWikisController.swift; sourceTree = "<group>"; };
 		D651A55621D3285A00506B0C /* ProjectWikiDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWikiDetailController.swift; sourceTree = "<group>"; };
+		D651A55821D35C8B00506B0C /* ProjectWikiEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWikiEditController.swift; sourceTree = "<group>"; };
 		F21C50CB21420CBE008218F4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F21C50CE21420DBB008218F4 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		F21C92062194336A00961362 /* FoldingTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTaskCell.swift; sourceTree = "<group>"; };
@@ -818,6 +820,7 @@
 				F2B273D121B656E8007153D7 /* ProjectSettingsController.swift */,
 				D651A55321D20AD300506B0C /* ProjectWikisController.swift */,
 				D651A55621D3285A00506B0C /* ProjectWikiDetailController.swift */,
+				D651A55821D35C8B00506B0C /* ProjectWikiEditController.swift */,
 			);
 			path = ProjectDetailControllers;
 			sourceTree = "<group>";
@@ -1596,6 +1599,7 @@
 				A8DCF834217AF88300839DA4 /* Setting.swift in Sources */,
 				F2403B312147B77E004BF3C8 /* Profile.swift in Sources */,
 				F2CAE1822138B559002C04E7 /* MainController.swift in Sources */,
+				D651A55921D35C8B00506B0C /* ProjectWikiEditController.swift in Sources */,
 				F2F4FFD92160EB2100D5F197 /* ShortcutManager.swift in Sources */,
 				F2F46BA3214BAA21005CD8A9 /* MyTaskTableViewController.swift in Sources */,
 				F2CAE18C21391905002C04E7 /* ProjectsViewController.swift in Sources */,

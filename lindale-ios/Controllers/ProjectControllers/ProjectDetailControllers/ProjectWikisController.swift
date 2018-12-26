@@ -28,6 +28,8 @@ class ProjectWikisController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.wikiHasUpdated, object: nil)
     }
     
     private func setupNavigation() {
