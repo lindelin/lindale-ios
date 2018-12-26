@@ -32,7 +32,7 @@
 		<key>lindale-ios.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>33</integer>
+			<integer>8</integer>
 		</dict>
 		<key>lindale-notification.xcscheme_^#shared#^_</key>
 		<dict>
@@ -67,7 +67,7 @@
 		<key>lindale-watch-intents.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>46</integer>
+			<integer>47</integer>
 		</dict>
 		<key>lindale-watch.xcscheme</key>
 		<dict>

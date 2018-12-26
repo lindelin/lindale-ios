@@ -2101,7 +2101,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80834410CF37731B85DB0A37 /* Pods-lindale-ios.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "lindale-ios/lindale-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2125,7 +2125,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F27E2C47B186AB1908D614A /* Pods-lindale-ios.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "lindale-ios/lindale-ios.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";

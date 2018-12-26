@@ -1,30 +1,30 @@
 PODS:
   - Alamofire (4.8.0)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
   - Down (0.6.2)
-  - Firebase/Core (5.14.0):
+  - Fabric (1.7.13)
+  - Firebase/Core (5.15.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.4.0)
-  - Firebase/CoreOnly (5.14.0):
-    - FirebaseCore (= 5.1.9)
-  - Firebase/Crash (5.14.0):
-    - Firebase/Core
-    - FirebaseCrash (= 3.1.1)
-  - Firebase/Database (5.14.0):
+  - Firebase/CoreOnly (5.15.0):
+    - FirebaseCore (= 5.1.10)
+  - Firebase/Database (5.15.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (= 5.0.4)
-  - Firebase/DynamicLinks (5.14.0):
+  - Firebase/DynamicLinks (5.15.0):
     - Firebase/CoreOnly
     - FirebaseDynamicLinks (= 3.3.0)
-  - Firebase/Messaging (5.14.0):
+  - Firebase/Messaging (5.15.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.2.2)
-  - Firebase/Performance (5.14.0):
+  - Firebase/Performance (5.15.0):
     - Firebase/Core
-    - FirebasePerformance (= 2.2.1)
-  - Firebase/RemoteConfig (5.14.0):
+    - FirebasePerformance (= 2.2.2)
+  - Firebase/RemoteConfig (5.15.0):
     - Firebase/Core
     - FirebaseRemoteConfig (= 3.1.0)
-  - Firebase/Storage (5.14.0):
+  - Firebase/Storage (5.15.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.3)
   - FirebaseABTesting (2.0.0):
@@ -41,14 +41,8 @@ PODS:
     - nanopb (~> 0.3)
   - FirebaseAnalyticsInterop (1.1.0)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.1.9):
+  - FirebaseCore (5.1.10):
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseCrash (3.1.1):
-    - FirebaseAnalytics (~> 5.1)
-    - FirebaseInstanceID (~> 3.2)
-    - GoogleToolboxForMac/Logger (~> 2.1)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - Protobuf (~> 3.5)
   - FirebaseDatabase (5.0.4):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.1)
@@ -68,8 +62,8 @@ PODS:
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Reachability (~> 5.2)
     - Protobuf (~> 3.1)
-  - FirebasePerformance (2.2.1):
-    - FirebaseAnalytics (~> 5.3)
+  - FirebasePerformance (2.2.2):
+    - FirebaseAnalytics (~> 5.4)
     - FirebaseInstanceID (~> 3.3)
     - FirebaseRemoteConfig (~> 3.1)
     - GoogleToolboxForMac/Logger (~> 2.1)
@@ -143,9 +137,10 @@ PODS:
   - SCLAlertView (0.8.1)
 
 DEPENDENCIES:
+  - Crashlytics (~> 3.9.3)
   - Down
+  - Fabric (~> 1.7.2)
   - Firebase/Core
-  - Firebase/Crash
   - Firebase/Database
   - Firebase/DynamicLinks
   - Firebase/Messaging
@@ -162,14 +157,15 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Crashlytics
     - Down
+    - Fabric
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
     - FirebaseAuthInterop
     - FirebaseCore
-    - FirebaseCrash
     - FirebaseDatabase
     - FirebaseDynamicLinks
     - FirebaseInstanceID
@@ -207,19 +203,20 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Down: 8c59a03cb229ef28dfa774b2132da860f3dee0ac
-  Firebase: 963d5685fae888a56d6d4d9cfce6b9c976958798
+  Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
+  Firebase: 8bb9268bff82374f2cbaaabb143e725743c316ae
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
   FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 8f49b70f57ab5cbb032ef41d64992ded21606459
-  FirebaseCrash: 011365f2c0dfac64315109103ed350bacfcdc03f
+  FirebaseCore: 35747502d9e8c6ee217385ad04446c7c2aaf9c5c
   FirebaseDatabase: 0621689f77528d62b47e1c06ca737c4c19275d1a
   FirebaseDynamicLinks: c713da5f75c324f38fb2d57164bbc1c461aa6739
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FirebaseMessaging: b412996f6a09337d232bb3a6676ce4d1f353d024
-  FirebasePerformance: 071ef097e7fb2d4f2f27fac1d4ed72ae3dd737d7
+  FirebasePerformance: 6f77b930f982a54ad487d3de5523ce641db9dcc9
   FirebaseRemoteConfig: 7e11c65f0769c09bff6947997c209515058c5318
   FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   FoldingCell: 352f0211a53f957b885a1b37d5ffa875da90bca5
@@ -238,6 +235,6 @@ SPEC CHECKSUMS:
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   SCLAlertView: 9fea8ac145c0bd4989ef6abe1d3859b48f458986
 
-PODFILE CHECKSUM: 36c8395b5343090fc233eec45ac3a47be6b89237
+PODFILE CHECKSUM: 942325a315bb789071656527d53abedbabccd206
 
 COCOAPODS: 1.6.0.beta.2
