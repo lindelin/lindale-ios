@@ -51,6 +51,7 @@ class ProjectDetailController: UIViewController {
         //self.setUpProjectSettings()
         
         self.pageMenu = CAPSPageMenu(viewControllers: self.controllers, frame: CGRect(x: 0, y: Size.naviBarHeight, width: self.view.frame.width, height: self.view.frame.height - Size.naviBarHeight - Size.tabBarHeight), pageMenuOptions: self.pageMenuOption)
+        self.pageMenu.controllerScrollView.isScrollEnabled = false
         self.view.addSubview(self.pageMenu.view)
     }
     

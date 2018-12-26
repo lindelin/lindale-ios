@@ -152,10 +152,12 @@ struct Todo: Codable {
     }
     
     struct EditResources: Codable {
-        var statuses:[Status]
+        var statuses: [Status]
+        var users: [User]
         
         enum CodingKeys: String, CodingKey {
             case statuses
+            case users
         }
         
         struct Status: Codable {

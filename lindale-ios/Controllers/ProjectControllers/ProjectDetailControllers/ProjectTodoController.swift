@@ -8,6 +8,7 @@
 
 import UIKit
 import KRProgressHUD
+import SCLAlertView
 
 class ProjectTodoController: UITableViewController {
     
@@ -34,6 +35,8 @@ class ProjectTodoController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.todoHasUpdated, object: nil)
     }
     
     private func setupTableView() {
@@ -146,40 +149,112 @@ class ProjectTodoController: UITableViewController {
         }, completion: nil)
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // MARK: - 左滑菜单
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+        let colorChangeActon = UIContextualAction(style: .normal, title: "Color") { (_, _, completion) in
+            let alert = SCLAlertView()
+            
+            for id in Colors.ids() {
+                alert.addButton("", backgroundColor: Colors.get(id: id), textColor: nil, showTimeout: nil, action: {
+                    KRProgressHUD.show(withMessage: "Updating...")
+                    guard let todo = cell.todo else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: "Network Error!")
+                        })
+                        return
+                    }
+                    
+                    todo.changeColor(colorId: id, completion: { (response) in
+                        guard response["status"] == "OK" else {
+                            KRProgressHUD.dismiss({
+                                KRProgressHUD.showError(withMessage: response["messages"])
+                            })
+                            return
+                        }
+                        
+                        NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                        })
+                    })
+                })
+            }
+            
+            alert.showCustom("カラー変更",
+                             subTitle: "カラーを選んでください。",
+                             color: Colors.get(id: cell.todo!.color),
+                             icon: UIImage(),
+                             closeButtonTitle: "取消")
+        }
+        colorChangeActon.backgroundColor = Colors.get(id: cell.todo!.color)
+        return UISwipeActionsConfiguration(actions: [colorChangeActon])
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // MARK: - 右滑菜单
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (_, _, completion) in
+            let actionSheet = UIAlertController(title: "削除", message: "TODOを削除しますか？", preferredStyle: .actionSheet)
+            
+            let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+                actionSheet.dismiss(animated: true, completion: nil)
+            })
+            
+            let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show(withMessage: "Deleting...")
+                let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+                
+                guard let todo = cell.todo else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: "Network Error!")
+                    })
+                    return
+                }
+                
+                todo.delete(completion: { (response) in
+                    guard response["status"] == "OK" else {
+                        KRProgressHUD.dismiss({
+                            KRProgressHUD.showError(withMessage: response["messages"])
+                        })
+                        return
+                    }
+                    
+                    self.todoCollection?.todos.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                })
+            })
+            
+            actionSheet.addAction(noAction)
+            actionSheet.addAction(yesAction)
+            
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+        
+        // TODO: - 代码优化
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
+            let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+            Todo.EditResources.load(completion: { (resource) in
+                if let resource = resource {
+                    let storyboard = UIStoryboard(name: "ProjectTodo", bundle: nil)
+                    let controller = storyboard.instantiateViewController(withIdentifier: ProjectTodoEditController.identity) as! ProjectTodoEditController
+                    controller.parentNavigationController = self.parentNavigationController
+                    controller.cell = cell
+                    controller.editResource = resource
+                    self.parentNavigationController?.pushViewController(controller, animated: true)
+                }
+            })
+        }
+        
+        editAction.backgroundColor = Colors.themeYellow
+        deleteAction.backgroundColor = Colors.themeMain
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

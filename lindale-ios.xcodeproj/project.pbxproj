@@ -79,6 +79,7 @@
 		F2480BE321CC8349006A2222 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		F2480BE521CC84D6006A2222 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
+		F266D35521D3608F0057E0FA /* ProjectTodoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F266D35421D3608F0057E0FA /* ProjectTodoEditController.swift */; };
 		F289596A21BFA9A000A1F1A7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596921BFA9A000A1F1A7 /* TaskGroup.swift */; };
 		F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */; };
 		F298A57121C23FE40047D79F /* ProjectTop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57021C23FE40047D79F /* ProjectTop.storyboard */; };
@@ -367,6 +368,7 @@
 		F2480BDC21CB9014006A2222 /* lindale-notification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-notification.entitlements"; sourceTree = "<group>"; };
 		F2480BDD21CC7A0E006A2222 /* SharedHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpers.swift; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F266D35421D3608F0057E0FA /* ProjectTodoEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTodoEditController.swift; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
 		F298A57021C23FE40047D79F /* ProjectTop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectTop.storyboard; sourceTree = "<group>"; };
@@ -811,6 +813,7 @@
 				F2D684E021C0B15A0094D5B9 /* ProjectWikiController.swift */,
 				F2B273D121B656E8007153D7 /* ProjectSettingsController.swift */,
 				D651A55321D20AD300506B0C /* ProjectWikisController.swift */,
+				F266D35421D3608F0057E0FA /* ProjectTodoEditController.swift */,
 			);
 			path = ProjectDetailControllers;
 			sourceTree = "<group>";
@@ -1629,6 +1632,7 @@
 				F2D684E321C0B9710094D5B9 /* Wiki.swift in Sources */,
 				F2C12C98219D5264002B58C2 /* User.swift in Sources */,
 				F29DBB7E21381F9E009DA744 /* lindale_ios.xcdatamodeld in Sources */,
+				F266D35521D3608F0057E0FA /* ProjectTodoEditController.swift in Sources */,
 				F2F4FFE3216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
 				A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */,
 				F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */,
