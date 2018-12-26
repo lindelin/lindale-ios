@@ -21,11 +21,17 @@ class ProjectWikisController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupNavigation()
+        
         // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
         self.loadData()
+    }
+    
+    private func setupNavigation() {
+        self.navigationItem.title = self.wikiType.name
     }
     
     @objc func loadData() {
@@ -63,8 +69,19 @@ class ProjectWikisController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WikiCell", for: indexPath)
 
         cell.textLabel?.text = self.wikis![indexPath.row].title
+        cell.imageView?.image = UIImage(named: "wiki-30")
+        cell.imageView?.tintColor = Colors.themeMain
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let wiki = self.wikis![indexPath.row]
+        let storyboad = UIStoryboard(name: "ProjectWiki", bundle: nil)
+        let controller = storyboad.instantiateViewController(withIdentifier: ProjectWikiDetailController.identity) as! ProjectWikiDetailController
+        controller.parentNavigationController = self.parentNavigationController
+        controller.wiki = wiki
+        self.parentNavigationController?.pushViewController(controller, animated: true)
     }
 
     /*
