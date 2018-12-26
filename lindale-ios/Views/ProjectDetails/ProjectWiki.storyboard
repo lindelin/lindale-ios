@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,6 +82,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekx-FF-euW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5268" y="189"/>
+        </scene>
+        <!--Project Wiki Detail Controller-->
+        <scene sceneID="M1Z-AP-4re">
+            <objects>
+                <viewController storyboardIdentifier="ProjectWikiDetail" id="SKC-wh-uEj" customClass="ProjectWikiDetailController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dew-xu-Jfu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NG-r3-c00">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g7v-HS-8Em" firstAttribute="trailing" secondItem="9NG-r3-c00" secondAttribute="trailing" id="Woh-UP-dMY"/>
+                            <constraint firstItem="9NG-r3-c00" firstAttribute="leading" secondItem="g7v-HS-8Em" secondAttribute="leading" id="i4w-lR-cjZ"/>
+                            <constraint firstItem="9NG-r3-c00" firstAttribute="top" secondItem="g7v-HS-8Em" secondAttribute="top" id="rnq-aL-y09"/>
+                            <constraint firstItem="g7v-HS-8Em" firstAttribute="bottom" secondItem="9NG-r3-c00" secondAttribute="bottom" id="wXt-ra-8Vx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g7v-HS-8Em"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="wikiContents" destination="9NG-r3-c00" id="v6A-Jb-vlt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cl8-wb-XQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6006" y="188"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="9Nw-NK-tll">
+            <objects>
+                <tableViewController storyboardIdentifier="ProjectWikiEdit" id="BMG-TR-GWF" customClass="ProjectWikiEditController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="VTn-c0-Fzv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Title" id="mri-Bk-RM2">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="yeQ-eG-nyx">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yeQ-eG-nyx" id="1m1-ZD-Qy3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o2y-fo-Vig">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="bT2-9f-mez"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="wikiTitle:" destination="XEj-8i-PtV" eventType="editingDidEnd" id="n8E-gk-ydW"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="o2y-fo-Vig" secondAttribute="bottom" id="hZg-Hb-UAP"/>
+                                                <constraint firstItem="o2y-fo-Vig" firstAttribute="leading" secondItem="1m1-ZD-Qy3" secondAttribute="leading" constant="8" id="jXK-dk-xog"/>
+                                                <constraint firstItem="o2y-fo-Vig" firstAttribute="top" secondItem="1m1-ZD-Qy3" secondAttribute="top" id="t7k-UF-ben"/>
+                                                <constraint firstAttribute="trailing" secondItem="o2y-fo-Vig" secondAttribute="trailing" constant="8" id="tim-Ow-Kc6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Content" id="MLt-mN-ty8">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="400" id="hYr-QH-JMQ">
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hYr-QH-JMQ" id="3wM-A0-ZwT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="399.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bw0-O0-kdm">
+                                                    <rect key="frame" x="4" y="0.0" width="367" height="399.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Bw0-O0-kdm" firstAttribute="top" secondItem="3wM-A0-ZwT" secondAttribute="top" id="3cg-cP-iYO"/>
+                                                <constraint firstAttribute="trailing" secondItem="Bw0-O0-kdm" secondAttribute="trailing" constant="4" id="97M-08-GkK"/>
+                                                <constraint firstAttribute="bottom" secondItem="Bw0-O0-kdm" secondAttribute="bottom" id="9qq-Bu-i0m"/>
+                                                <constraint firstItem="Bw0-O0-kdm" firstAttribute="leading" secondItem="3wM-A0-ZwT" secondAttribute="leading" constant="4" id="aC3-7e-hgO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="BMG-TR-GWF" id="mZr-37-Y32"/>
+                            <outlet property="delegate" destination="BMG-TR-GWF" id="j2Y-AQ-tA5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit" id="QWO-CI-VWj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="f5X-D8-w2x"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="wikiContent" destination="Bw0-O0-kdm" id="v4N-99-yqF"/>
+                        <outlet property="wikiTitle" destination="o2y-fo-Vig" id="Ryl-a0-VZL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhN-D8-gp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XEj-8i-PtV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6758" y="188"/>
         </scene>
     </scenes>
 </document>
