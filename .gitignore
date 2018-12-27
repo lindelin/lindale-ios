@@ -81,4 +81,5 @@ iOSInjectionProject/
 *.swp
 !.gitkeep
 .DS_Store
+Podfile.lock
 GoogleService-Info.plist
