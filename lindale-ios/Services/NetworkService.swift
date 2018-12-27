@@ -31,7 +31,7 @@ enum NetworkService {
     case deleteTodo(todo: Todo)
     case changeTodoColor(todo: Todo, colorId: Int)
     case updateTodoToFinished(todo: Todo)
-    case todoEditResource
+    case todoEditResource(todo: Todo)
     case taskEditResource(task: TaskResource)
     case todoUpdate(todo: TodoRegister)
     case taskUpdate(task: TaskRegister)
@@ -92,8 +92,8 @@ extension NetworkService: TargetType {
             return "/todos/\(todo.id)/finished"
         case .todoUpdate(let todo):
             return "/todos/\(todo.id!)"
-        case .todoEditResource:
-            return "/todos/edit-resource"
+        case .todoEditResource(let todo):
+            return "/todos/\(todo.id)/edit-resource"
         case .taskEditResource(let task):
             return "/tasks/\(task.id)/edit-resource"
         case .taskUpdate(let task):
