@@ -34,7 +34,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         // アプリ起動中でも通知をアラート表示する
-        completionHandler([.alert, .badge, .sound])
+        completionHandler([.alert])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

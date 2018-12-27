@@ -23,8 +23,8 @@ extension UserDefaults {
         case accessToken = "access_token"
         case refreshToken = "refresh_token"
         case hasAuthError = "has_auth_error"
+        case hasAuthorizationError = "has_authorization_error"
         case fcmToken = "fcm_token"
-        case didOpenPushNotification
         case userName = "user_name"
     }
     

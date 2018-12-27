@@ -277,6 +277,9 @@ class NetworkProvider {
                     if response.statusCode == 401 {
                         UserDefaults.dataSuite.set(true, forOAuthKey: .hasAuthError)
                     }
+                    if response.statusCode == 403 {
+                        UserDefaults.dataSuite.set(true, forOAuthKey: .hasAuthorizationError)
+                    }
                     completion(nil)
                     print(error)
                 }

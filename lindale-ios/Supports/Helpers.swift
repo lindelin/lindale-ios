@@ -66,6 +66,17 @@ extension UIViewController {
 //                    }
 //                }
 //            }
+        } else if UserDefaults.dataSuite.bool(forOAuthKey: .hasAuthorizationError) {
+            UserDefaults.dataSuite.set(false, forOAuthKey: .hasAuthorizationError)
+            let errorAlert = UIAlertController(title: "権限エラー", message: "権限がありません。", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                errorAlert.dismiss(animated: true, completion: nil)
+            })
+            
+            errorAlert.addAction(okAction)
+            
+            self.present(errorAlert, animated: true, completion: nil)
         } else {
             self.showAlert(title: nil, message: "Network Error")
         }
