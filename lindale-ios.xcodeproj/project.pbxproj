@@ -2224,7 +2224,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch app ex dev";
+				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch app ex";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2250,7 +2250,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch app ex dev";
+				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch app ex";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2373,7 +2373,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp.watchkitextension.lindale-watch-intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch siri";
+				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch app siri";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2399,7 +2399,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.lindale-ios.watchkitapp.watchkitextension.lindale-watch-intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch siri";
+				PROVISIONING_PROFILE_SPECIFIER = "Lindale watch app siri";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
