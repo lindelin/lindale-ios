@@ -248,7 +248,7 @@ class MyTodoTableViewController: UITableViewController {
         // TODO: - 代码优化
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
             let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
-            Todo.EditResources.load(completion: { (resource) in
+            Todo.EditResources.load(todo: cell.todo!, completion: { (resource) in
                 if let resource = resource {
                     self.performSegue(withIdentifier: "TodoEditSegue", sender: ["cell": cell, "resource": resource])
                 }

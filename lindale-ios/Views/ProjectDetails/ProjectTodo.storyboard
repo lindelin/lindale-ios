@@ -699,10 +699,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="担当者" id="ywx-VC-MkC">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="cFL-4F-NxS">
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cFL-4F-NxS" id="U2O-f4-dIZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9H3-yg-1Ya">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="en3-OY-FdM" id="j8X-12-Gti"/>
+                                                        <outlet property="delegate" destination="en3-OY-FdM" id="Pqy-MA-Jwm"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9H3-yg-1Ya" firstAttribute="top" secondItem="U2O-f4-dIZ" secondAttribute="top" id="9A6-hG-jid"/>
+                                                <constraint firstAttribute="trailing" secondItem="9H3-yg-1Ya" secondAttribute="trailing" id="CkK-6r-y8N"/>
+                                                <constraint firstAttribute="bottom" secondItem="9H3-yg-1Ya" secondAttribute="bottom" id="Mx4-LO-yM8"/>
+                                                <constraint firstItem="9H3-yg-1Ya" firstAttribute="leading" secondItem="U2O-f4-dIZ" secondAttribute="leading" id="qlA-BX-J7m"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="ステータス" id="XJm-a4-Vdp">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="4g3-z4-amt">
-                                        <rect key="frame" x="0.0" y="155.5" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="311.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4g3-z4-amt" id="URT-iU-pr9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -729,7 +756,7 @@
                             <tableViewSection headerTitle="色" id="oHU-Ja-Wmv">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="y0g-1m-bfe">
-                                        <rect key="frame" x="0.0" y="311.5" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="467.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y0g-1m-bfe" id="Cxq-aL-L2e">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -756,7 +783,7 @@
                             <tableViewSection headerTitle="詳細" id="6qL-Bp-KiS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="160" id="dCb-3f-zMJ">
-                                        <rect key="frame" x="0.0" y="467.5" width="375" height="160"/>
+                                        <rect key="frame" x="0.0" y="623.5" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dCb-3f-zMJ" id="NYx-00-I9U">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
@@ -795,6 +822,7 @@
                         <outlet property="content" destination="Heq-GN-Ycw" id="z2Z-mM-JDg"/>
                         <outlet property="detail" destination="o88-3b-0Y6" id="b5r-yj-ZIu"/>
                         <outlet property="status" destination="cuY-ei-etX" id="jv9-Xf-xND"/>
+                        <outlet property="user" destination="9H3-yg-1Ya" id="kb9-AK-0Dh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWl-P4-XfU" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -238,8 +238,10 @@ class ProjectTodoController: UITableViewController {
         
         // TODO: - 代码优化
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
+            KRProgressHUD.show(withMessage: "Loading...")
             let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
-            Todo.EditResources.load(completion: { (resource) in
+            Todo.EditResources.load(todo: cell.todo!, completion: { (resource) in
+                KRProgressHUD.dismiss()
                 if let resource = resource {
                     let storyboard = UIStoryboard(name: "ProjectTodo", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: ProjectTodoEditController.identity) as! ProjectTodoEditController

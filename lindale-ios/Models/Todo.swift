@@ -170,8 +170,8 @@ struct Todo: Codable {
             }
         }
         
-        static func load(completion: @escaping (EditResources?) -> Void) {
-            NetworkProvider.main.data(request: .todoEditResource) { (data) in
+        static func load(todo: Todo, completion: @escaping (EditResources?) -> Void) {
+            NetworkProvider.main.data(request: .todoEditResource(todo: todo)) { (data) in
                 guard let data = data else {
                     completion(nil)
                     return

@@ -15,6 +15,7 @@ class TodoEditViewController: UITableViewController {
     var editResource: Todo.EditResources!
 
     @IBOutlet weak var content: UITextField!
+    @IBOutlet weak var user: UIPickerView!
     @IBOutlet weak var status: UIPickerView!
     @IBOutlet weak var color: UIPickerView!
     @IBOutlet weak var detail: UITextView!
@@ -27,6 +28,8 @@ class TodoEditViewController: UITableViewController {
         self.tableView.keyboardDismissMode = .onDrag
         
         self.updateUI()
+        
+        print(self.editResource)
     }
 
     func updateUI() {
@@ -35,6 +38,11 @@ class TodoEditViewController: UITableViewController {
             for status in self.editResource.statuses {
                 if status.name == todo.status {
                     self.status.selectRow(status.id - 1, inComponent: 0, animated: true)
+                }
+            }
+            for (index, user) in self.editResource.users.enumerated() {
+                if user.id == todo.user?.id {
+                    self.user.selectRow(index, inComponent: 0, animated: true)
                 }
             }
             self.color.selectRow(todo.color - 1 , inComponent: 0, animated: true)
@@ -51,7 +59,7 @@ class TodoEditViewController: UITableViewController {
                                         statusId: self.editResource.statuses[self.status.selectedRow(inComponent: 0)].id,
                                         colorId: self.color.selectedRow(inComponent: 0) + 1,
                                         listId: nil,
-                                        userId: nil)
+                                        userId: self.editResource.users[self.user.selectedRow(inComponent: 0)].id)
             register.update { (response) in
                 guard response["status"] == "OK" else {
                     KRProgressHUD.dismiss()
@@ -92,6 +100,8 @@ extension TodoEditViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             return self.editResource.statuses.count
         case 2:
             return Colors.ids().count
+        case 3:
+            return self.editResource.users.count
         default:
             return 0
         }
@@ -110,6 +120,12 @@ extension TodoEditViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 .foregroundColor : Colors.get(id: row + 1),
                 ]
             let string = NSAttributedString(string: "■", attributes:stringAttributes)
+            return string
+        case 3:
+            let stringAttributes: [NSAttributedString.Key : Any] = [
+                .foregroundColor : Colors.themeMain,
+                ]
+            let string = NSAttributedString(string: self.editResource.users[row].name, attributes:stringAttributes)
             return string
         default:
             return nil
