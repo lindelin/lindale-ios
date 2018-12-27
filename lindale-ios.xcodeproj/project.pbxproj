@@ -1441,7 +1441,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-watchOS/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result-watchOS/Result.framework",
@@ -1454,7 +1454,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */ = {
@@ -1463,7 +1463,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
@@ -1502,7 +1502,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE8B2F10A6649FBF9806F73B /* [CP] Check Pods Manifest.lock */ = {
