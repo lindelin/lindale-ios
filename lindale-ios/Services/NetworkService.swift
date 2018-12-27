@@ -14,6 +14,7 @@ enum NetworkService {
     case favoriteProjects
     case profile
     case myTasks
+    case groupTasks(group: TaskGroup)
     case myTodos
     case myTaskDetail(id: Int)
     case localeSettings
@@ -60,6 +61,8 @@ extension NetworkService: TargetType {
             return "/profile"
         case .myTasks:
             return "/tasks"
+        case .groupTasks(let group):
+            return "/tasks/group/\(group.id)"
         case .myTaskDetail(let id):
             return "/tasks/\(id)"
         case .completeTask(let task):
@@ -121,7 +124,7 @@ extension NetworkService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail:
+        case .projects, .profile, .myTasks, .myTodos, .groupTasks, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail:
             return .get
         case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate, .taskUpdate, .updateWiki:
             return .put
@@ -134,7 +137,7 @@ extension NetworkService: TargetType {
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .groupTasks, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -275,6 +278,7 @@ class NetworkProvider {
                         UserDefaults.dataSuite.set(true, forOAuthKey: .hasAuthError)
                     }
                     completion(nil)
+                    print(error)
                 }
             // do something with the response data or statusCode
             case let .failure(error):

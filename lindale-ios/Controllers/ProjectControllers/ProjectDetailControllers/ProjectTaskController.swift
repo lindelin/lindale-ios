@@ -67,6 +67,16 @@ class ProjectTaskController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! TaskGroupCell
+        let storyboard = UIStoryboard(name: "ProjectTask", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: ProjectGroupTasksController.identity) as! ProjectGroupTasksController
+        controller.parentNavigationController = self.parentNavigationController
+        controller.project = self.project
+        controller.taskGroup = cell.group
+        self.parentNavigationController?.pushViewController(controller, animated: true)
+    }
 
     /*
     // MARK: - Navigation

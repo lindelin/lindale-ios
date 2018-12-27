@@ -76,6 +76,19 @@ struct MyTaskCollection: Codable {
         }
     }
     
+    static func resources(group: TaskGroup, completion: @escaping (MyTaskCollection?) -> Void) {
+        NetworkProvider.main.data(request: .groupTasks(group: group)) { (data) in
+            
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            let myTaskCollection = try! JSONDecoder.main.decode(MyTaskCollection.self, from: data)
+            completion(myTaskCollection)
+        }
+    }
+    
     static func more(nextUrl url: URL, completion: @escaping (MyTaskCollection?) -> Void) {
         NetworkProvider.main.moreData(request: .load(url: url)) { (data) in
             guard let data = data else {

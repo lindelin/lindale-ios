@@ -47,6 +47,7 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
             }
             
             self.wiki = wiki
+            self.setupNavigation()
             self.updateUI()
         }
     }
