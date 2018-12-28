@@ -8,7 +8,6 @@
 
 import UIKit
 import KRProgressHUD
-import CircleMenu
 
 class ProjectTaskController: UITableViewController {
     
