@@ -22,6 +22,33 @@ class ProjectTodoController: UITableViewController {
     
     static let identity = "ProjectTodos"
     
+    var addBtn = UIButton(type: .custom)
+    
+    func floatingButton() {
+        
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        
+        addBtn.frame = CGRect(x: window.frame.width - 64 - 20 ,
+                              y: window.frame.height - Size.tabBarHeight - 64 - 20,
+                              width: 64,
+                              height: 64)
+        
+        addBtn.backgroundColor = Colors.themeGreen
+        addBtn.setImage(UIImage(named: "plus-56"), for: .normal)
+        addBtn.tintColor = UIColor.white
+        addBtn.clipsToBounds = true
+        addBtn.layer.cornerRadius = addBtn.frame.size.width / 2.0
+        addBtn.layer.shadowRadius = 10
+        addBtn.layer.shadowOpacity = 0.3
+        addBtn.layer.shadowColor = Colors.themeBaseSub.cgColor
+        addBtn.layer.shadowOffset = CGSize(width: 2, height: 2)
+        addBtn.addTarget(self, action: #selector(self.addButtonTapped), for: .touchUpInside)
+        
+        window.addSubview(addBtn)
+    }
+    
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
     var todoCollection: TodoCollection?
@@ -37,6 +64,29 @@ class ProjectTodoController: UITableViewController {
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.todoHasUpdated, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        floatingButton()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        addBtn.removeFromSuperview()
+    }
+    
+    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        UIView.transition(with: addBtn, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.addBtn.isHidden = true
+        })
+        
+    }
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        UIView.transition(with: addBtn, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.addBtn.isHidden = false
+        })
     }
     
     private func setupTableView() {
@@ -258,14 +308,8 @@ class ProjectTodoController: UITableViewController {
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: -  Add Button
+    @objc func addButtonTapped() {
+        // TODO
     }
-    */
-
 }
