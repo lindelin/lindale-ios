@@ -26,7 +26,7 @@ class ProjectTaskController: UITableViewController {
                               y: window.frame.height - Size.tabBarHeight - 64 - 20,
                               width: 64,
                               height: 64)
-        //btn.setTitle("+", for: .normal)
+        
         addBtn.backgroundColor = Colors.themeGreen
         addBtn.setImage(UIImage(named: "plus-56"), for: .normal)
         addBtn.tintColor = UIColor.white
@@ -36,6 +36,7 @@ class ProjectTaskController: UITableViewController {
         addBtn.layer.shadowOpacity = 0.3
         addBtn.layer.shadowColor = Colors.themeBaseSub.cgColor
         addBtn.layer.shadowOffset = CGSize(width: 2, height: 2)
+        addBtn.addTarget(self, action: #selector(self.addButtonTapped), for: .touchUpInside)
         
         window.addSubview(addBtn)
     }
@@ -128,14 +129,8 @@ class ProjectTaskController: UITableViewController {
         self.parentNavigationController?.pushViewController(controller, animated: true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: -  Add Button
+    @objc func addButtonTapped() {
+        // TODO
     }
-    */
-
 }
