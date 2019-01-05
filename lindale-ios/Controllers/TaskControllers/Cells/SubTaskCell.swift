@@ -53,7 +53,7 @@ class SubTaskCell: UITableViewCell {
             NotificationCenter.default.post(name: LocalNotificationService.subTaskHasUpdated, object: nil)
             
             guard response["status"] == "OK" else {
-                KRProgressHUD.dismiss({
+                KRProgressHUD.set(duration: 2.0).dismiss({
                     KRProgressHUD.showError(withMessage: response["messages"])
                 })
                 return
