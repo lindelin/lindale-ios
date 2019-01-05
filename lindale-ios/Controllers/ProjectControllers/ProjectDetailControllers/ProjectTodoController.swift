@@ -218,7 +218,7 @@ class ProjectTodoController: UITableViewController {
                     
                     todo.changeColor(colorId: id, completion: { (response) in
                         guard response["status"] == "OK" else {
-                            KRProgressHUD.dismiss({
+                            KRProgressHUD.set(duration: 2.0).dismiss({
                                 KRProgressHUD.showError(withMessage: response["messages"])
                             })
                             return
@@ -265,7 +265,7 @@ class ProjectTodoController: UITableViewController {
                 
                 todo.delete(completion: { (response) in
                     guard response["status"] == "OK" else {
-                        KRProgressHUD.dismiss({
+                        KRProgressHUD.set(duration: 2.0).dismiss({
                             KRProgressHUD.showError(withMessage: response["messages"])
                         })
                         return

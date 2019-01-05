@@ -407,7 +407,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                 
                 self.taskResource!.changeCompleteStatus(to: .completed, completion: { (response) in
                     guard response["status"] == "OK" else {
-                        KRProgressHUD.dismiss({
+                        KRProgressHUD.set(duration: 2.0).dismiss({
                             KRProgressHUD.showError(withMessage: response["messages"])
                         })
                         return
@@ -427,7 +427,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                 KRProgressHUD.show(withMessage: "Updating...")
                 self.taskResource!.changeCompleteStatus(to: .incomplete, completion: { (response) in
                     guard response["status"] == "OK" else {
-                        KRProgressHUD.dismiss({
+                        KRProgressHUD.set(duration: 2.0).dismiss({
                             KRProgressHUD.showError(withMessage: response["messages"])
                         })
                         return
@@ -541,7 +541,7 @@ class MyTaskDetailController: UITableViewController, UINavigationControllerDeleg
                     let subTask = cell.subTask!
                     subTask.delete(completion: { (response) in
                         guard response["status"] == "OK" else {
-                            KRProgressHUD.dismiss({
+                            KRProgressHUD.set(duration: 2.0).dismiss({
                                 KRProgressHUD.showError(withMessage: response["messages"])
                             })
                             return
