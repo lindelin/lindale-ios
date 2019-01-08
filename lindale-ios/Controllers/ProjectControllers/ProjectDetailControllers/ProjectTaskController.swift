@@ -13,39 +13,14 @@ class ProjectTaskController: UITableViewController {
     
     static let identity = "ProjectTasks"
     
-    var addBtn = UIButton(type: .custom)
-    
-    func floatingButton() {
-        
-        guard let window = UIApplication.shared.keyWindow else {
-            return
-        }
-        
-        addBtn.frame = CGRect(x: window.frame.width - 64 - 20 ,
-                              y: window.frame.height - Size.tabBarHeight - 64 - 20,
-                              width: 64,
-                              height: 64)
-        
-        addBtn.backgroundColor = Colors.themeGreen
-        addBtn.setImage(UIImage(named: "plus-56"), for: .normal)
-        addBtn.tintColor = UIColor.white
-        addBtn.clipsToBounds = true
-        addBtn.layer.cornerRadius = addBtn.frame.size.width / 2.0
-        addBtn.layer.shadowRadius = 10
-        addBtn.layer.shadowOpacity = 0.3
-        addBtn.layer.shadowColor = Colors.themeBaseSub.cgColor
-        addBtn.layer.shadowOffset = CGSize(width: 2, height: 2)
-        addBtn.addTarget(self, action: #selector(self.addButtonTapped), for: .touchUpInside)
-        
-        window.addSubview(addBtn)
-    }
-    
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
     var taskGroupCollection: TaskGroupCollection?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupFloatyButton()
         
         // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
@@ -54,27 +29,20 @@ class ProjectTaskController: UITableViewController {
         self.loadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        floatingButton()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        addBtn.removeFromSuperview()
-    }
-    
-    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        UIView.transition(with: addBtn, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.addBtn.isHidden = true
+    private func setupFloatyButton() {
+        let floaty = Floaty()
+        floaty.addItem("New Group", icon: UIImage(named: "task-group-30")!, handler: { item in
+            // TODO
+            floaty.close()
         })
-        
-    }
-    
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        UIView.transition(with: addBtn, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.addBtn.isHidden = false
+        floaty.addItem("New Task", icon: UIImage(named: "task-30")!, handler: { item in
+            // TODO
+            floaty.close()
         })
+        floaty.sticky = true
+        floaty.buttonColor = Colors.themeGreen
+        floaty.plusColor = UIColor.white
+        self.view.addSubview(floaty)
     }
     
     @objc func loadData() {

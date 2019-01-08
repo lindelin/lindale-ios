@@ -20,6 +20,8 @@ class ProjectGroupTasksController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupFloatyButton()
 
         // MARK: - Setup
         tableView.rowHeight = UITableView.automaticDimension
@@ -34,6 +36,23 @@ class ProjectGroupTasksController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.subTaskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasDeleted, object: nil)
+    }
+    
+    private func setupFloatyButton() {
+        let floaty = Floaty()
+        floaty.addItem("New Group", icon: UIImage(named: "task-group-30")!, handler: { item in
+            // TODO
+            floaty.close()
+        })
+        floaty.addItem("New Task", icon: UIImage(named: "task-30")!, handler: { item in
+            // TODO
+            floaty.close()
+        })
+        floaty.sticky = true
+        floaty.buttonColor = Colors.themeGreen
+        floaty.plusColor = UIColor.white
+        floaty.paddingY = Size.tabBarHeight + 14
+        self.view.addSubview(floaty)
     }
     
     @objc func loadData() {

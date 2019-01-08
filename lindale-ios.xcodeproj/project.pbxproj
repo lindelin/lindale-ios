@@ -149,6 +149,12 @@
 		F2E1FE2021ABA6B20033F8B3 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1FE1C21ABA55D0033F8B3 /* Other.swift */; };
 		F2E1FE2121ABA7080033F8B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
 		F2E1FE2221ABA70C0033F8B3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE10AA217B63C300D1F654 /* Errors.swift */; };
+		F2E7577321E4A51100A2AEA3 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7576D21E4A51000A2AEA3 /* FloatyDelegate.swift */; };
+		F2E7577421E4A51100A2AEA3 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7576E21E4A51100A2AEA3 /* FloatyManager.swift */; };
+		F2E7577521E4A51100A2AEA3 /* FloatyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7576F21E4A51100A2AEA3 /* FloatyItem.swift */; };
+		F2E7577621E4A51100A2AEA3 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7577021E4A51100A2AEA3 /* Floaty.swift */; };
+		F2E7577721E4A51100A2AEA3 /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7577121E4A51100A2AEA3 /* FloatyViewController.swift */; };
+		F2E7577821E4A51100A2AEA3 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7577221E4A51100A2AEA3 /* FloatyWindow.swift */; };
 		F2E94DF721C897F400722DC3 /* Others.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E94DF621C897F400722DC3 /* Others.swift */; };
 		F2E94DF921CA3BF400722DC3 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E94DF821CA3BF400722DC3 /* PushNotificationService.swift */; };
 		F2EC8132216C8069009B0DDD /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC8131216C8069009B0DDD /* ProgressController.swift */; };
@@ -445,6 +451,12 @@
 		F2E0D209214A401800023905 /* WatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchService.swift; sourceTree = "<group>"; };
 		F2E156BB216DDDAE001E4535 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		F2E1FE1C21ABA55D0033F8B3 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
+		F2E7576D21E4A51000A2AEA3 /* FloatyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatyDelegate.swift; sourceTree = "<group>"; };
+		F2E7576E21E4A51100A2AEA3 /* FloatyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatyManager.swift; sourceTree = "<group>"; };
+		F2E7576F21E4A51100A2AEA3 /* FloatyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatyItem.swift; sourceTree = "<group>"; };
+		F2E7577021E4A51100A2AEA3 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
+		F2E7577121E4A51100A2AEA3 /* FloatyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatyViewController.swift; sourceTree = "<group>"; };
+		F2E7577221E4A51100A2AEA3 /* FloatyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatyWindow.swift; sourceTree = "<group>"; };
 		F2E94DF621C897F400722DC3 /* Others.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Others.swift; sourceTree = "<group>"; };
 		F2E94DF821CA3BF400722DC3 /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		F2EC8131216C8069009B0DDD /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
@@ -849,6 +861,7 @@
 		F2CAE16721382704002C04E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F2E7576C21E4A4DD00A2AEA3 /* Floaty */,
 				F29F00A921B786BE00228E61 /* ProjectDetails */,
 				F29DBB8121381F9F009DA744 /* LaunchScreen.storyboard */,
 				F29DBB7921381F9E009DA744 /* Main.storyboard */,
@@ -937,6 +950,19 @@
 				F2E1FE1C21ABA55D0033F8B3 /* Other.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F2E7576C21E4A4DD00A2AEA3 /* Floaty */ = {
+			isa = PBXGroup;
+			children = (
+				F2E7577021E4A51100A2AEA3 /* Floaty.swift */,
+				F2E7576D21E4A51000A2AEA3 /* FloatyDelegate.swift */,
+				F2E7576F21E4A51100A2AEA3 /* FloatyItem.swift */,
+				F2E7576E21E4A51100A2AEA3 /* FloatyManager.swift */,
+				F2E7577121E4A51100A2AEA3 /* FloatyViewController.swift */,
+				F2E7577221E4A51100A2AEA3 /* FloatyWindow.swift */,
+			);
+			path = Floaty;
 			sourceTree = "<group>";
 		};
 		F2F46BA1214BA9E5005CD8A9 /* TaskControllers */ = {
@@ -1441,7 +1467,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-watchOS/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result-watchOS/Result.framework",
@@ -1454,7 +1480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-watch Extension/Pods-lindale-watch Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		58947900A6FF87A61DA72BCA /* [CP] Embed Pods Frameworks */ = {
@@ -1463,9 +1489,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -1485,6 +1512,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Down.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -1502,7 +1530,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lindale-ios/Pods-lindale-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE8B2F10A6649FBF9806F73B /* [CP] Check Pods Manifest.lock */ = {
@@ -1610,7 +1638,10 @@
 				F2C12C96219D1B23002B58C2 /* TodoEditViewController.swift in Sources */,
 				A89F87DA21726541004ADEA4 /* TaskActivityCell.swift in Sources */,
 				A8DCF834217AF88300839DA4 /* Setting.swift in Sources */,
+				F2E7577621E4A51100A2AEA3 /* Floaty.swift in Sources */,
 				F2403B312147B77E004BF3C8 /* Profile.swift in Sources */,
+				F2E7577821E4A51100A2AEA3 /* FloatyWindow.swift in Sources */,
+				F2E7577721E4A51100A2AEA3 /* FloatyViewController.swift in Sources */,
 				F2CAE1822138B559002C04E7 /* MainController.swift in Sources */,
 				D651A55921D35C8B00506B0C /* ProjectWikiEditController.swift in Sources */,
 				F2F4FFD92160EB2100D5F197 /* ShortcutManager.swift in Sources */,
@@ -1636,6 +1667,7 @@
 				A8CE9CAB21BA781B00AF6767 /* ProjectProgressCell.swift in Sources */,
 				F2480BDF21CC7A27006A2222 /* SharedHelpers.swift in Sources */,
 				F2E1FE1D21ABA55D0033F8B3 /* Other.swift in Sources */,
+				F2E7577321E4A51100A2AEA3 /* FloatyDelegate.swift in Sources */,
 				F2B273CA21B65661007153D7 /* ProjectTopController.swift in Sources */,
 				F22A715221B5236100B90C19 /* ProjectDetailController.swift in Sources */,
 				A8D013D5217CA4DC0099F11A /* ProfileSettingController.swift in Sources */,
@@ -1658,6 +1690,7 @@
 				F266D35521D3608F0057E0FA /* ProjectTodoEditController.swift in Sources */,
 				F2F4FFE3216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
 				A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */,
+				F2E7577521E4A51100A2AEA3 /* FloatyItem.swift in Sources */,
 				F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */,
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,
 				A8DCF837217AFDF500839DA4 /* LocaleUpdateController.swift in Sources */,
@@ -1679,6 +1712,7 @@
 				A8DE10AB217B63C300D1F654 /* Errors.swift in Sources */,
 				F2E94DF721C897F400722DC3 /* Others.swift in Sources */,
 				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,
+				F2E7577421E4A51100A2AEA3 /* FloatyManager.swift in Sources */,
 				F2E0D207214A3F3E00023905 /* WatchService.swift in Sources */,
 				F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */,
 				A86384032171CB7F00837E1B /* TaskUserInfoCell.swift in Sources */,

@@ -22,6 +22,7 @@ class ProjectWikisController: UITableViewController {
         super.viewDidLoad()
         
         self.setupNavigation()
+        self.setupFloatyButton()
         
         // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
@@ -30,6 +31,22 @@ class ProjectWikisController: UITableViewController {
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.wikiHasUpdated, object: nil)
+    }
+    
+    private func setupFloatyButton() {
+        let floaty = Floaty()
+        floaty.addItem("New Index", icon: UIImage(named: "book-30")!, handler: { item in
+            // TODO
+            floaty.close()
+        })
+        floaty.addItem("New Wiki", icon: UIImage(named: "wiki-30")!, handler: { item in
+            // TODO
+            floaty.close()
+        })
+        floaty.sticky = true
+        floaty.buttonColor = Colors.themeGreen
+        floaty.plusColor = UIColor.white
+        self.view.addSubview(floaty)
     }
     
     private func setupNavigation() {
