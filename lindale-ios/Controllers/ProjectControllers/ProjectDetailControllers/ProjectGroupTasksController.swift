@@ -39,7 +39,12 @@ class ProjectGroupTasksController: UITableViewController {
     }
     
     private func setupFloatyButton() {
-        let floaty = Floaty()
+        let size: CGFloat = 56
+        let margin: CGFloat = 14
+        let floaty = Floaty(frame: CGRect(x: self.view.frame.origin.x,
+                                          y: self.view.frame.origin.y - margin - size - Size.tabBarHeight,
+                                          width: size,
+                                          height: size))
         floaty.addItem("New Group", icon: UIImage(named: "task-group-30")!, handler: { item in
             // TODO
             floaty.close()
@@ -51,7 +56,7 @@ class ProjectGroupTasksController: UITableViewController {
         floaty.sticky = true
         floaty.buttonColor = Colors.themeGreen
         floaty.plusColor = UIColor.white
-        floaty.paddingY = Size.tabBarHeight + 14
+        floaty.tabBarHeight = Size.tabBarHeight
         self.view.addSubview(floaty)
     }
     

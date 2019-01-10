@@ -57,7 +57,9 @@ open class Floaty: UIView {
       self.setNeedsDisplay()
     }
   }
-  
+    
+    var tabBarHeight: CGFloat = 0
+    
   /**
    Automatically closes child items when tapped
    */
@@ -315,7 +317,9 @@ open class Floaty: UIView {
   @objc public func open() {
     fabDelegate?.floatyWillOpen?(self)
     let animationGroup = DispatchGroup()
-    
+    if let superview = superview as! UIScrollView? {
+        superview.isScrollEnabled = false
+    }
     if(items.count > 0){
       
       setOverlayView()
@@ -368,7 +372,9 @@ open class Floaty: UIView {
   @objc public func close() {
     fabDelegate?.floatyWillClose?(self)
     let animationGroup = DispatchGroup()
-    
+    if let superview = superview as! UIScrollView? {
+        superview.isScrollEnabled = true
+    }
     if(items.count > 0){
       self.overlayView.removeTarget(self, action: #selector(close), for: UIControl.Event.touchUpInside)
       animationGroup.enter()
@@ -683,7 +689,7 @@ open class Floaty: UIView {
         overlayView.frame = CGRect(
             x: 0,y: 0,
             width: superview.contentSize.width,
-            height: superview.contentSize.height
+            height: superview.contentSize.height > superview.bounds.height ? superview.contentSize.height : superview.bounds.height
         )
     } else if let superview = superview {
       overlayView.frame = CGRect(
@@ -780,7 +786,7 @@ open class Floaty: UIView {
     } else {
       frame = CGRect(
         x: (superview!.bounds.size.width - horizontalMargin) - paddingX,
-        y: (superview!.bounds.size.height - verticalMargin) - paddingY,
+        y: (superview!.bounds.size.height - verticalMargin) - paddingY - tabBarHeight,
         width: size,
         height: size
       )
@@ -841,8 +847,13 @@ open class Floaty: UIView {
       }
     } else if (object as? UIScrollView) == superview && keyPath == "contentOffset" {
       let scrollView = object as! UIScrollView
+        // MARK: - FIXME: safe area
+//        if #available(iOS 11, *) {
+//            horizontalMargin += safeAreaInsets.right
+//            verticalMargin += safeAreaInsets.bottom
+//        }
       frame.origin.x = ((self.superview!.bounds.size.width - size) - paddingX) + scrollView.contentOffset.x
-      frame.origin.y = ((self.superview!.bounds.size.height - size) - paddingY) + scrollView.contentOffset.y
+      frame.origin.y = ((self.superview!.bounds.size.height - size) - paddingY - tabBarHeight) + scrollView.contentOffset.y
     }
   }
   

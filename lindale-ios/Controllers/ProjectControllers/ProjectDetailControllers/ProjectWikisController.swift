@@ -34,7 +34,12 @@ class ProjectWikisController: UITableViewController {
     }
     
     private func setupFloatyButton() {
-        let floaty = Floaty()
+        let size: CGFloat = 56
+        let margin: CGFloat = 14
+        let floaty = Floaty(frame: CGRect(x: self.view.frame.origin.x,
+                                          y: self.view.frame.origin.y - margin - size - Size.tabBarHeight,
+                                          width: size,
+                                          height: size))
         floaty.addItem("New Index", icon: UIImage(named: "book-30")!, handler: { item in
             // TODO
             floaty.close()
@@ -46,6 +51,7 @@ class ProjectWikisController: UITableViewController {
         floaty.sticky = true
         floaty.buttonColor = Colors.themeGreen
         floaty.plusColor = UIColor.white
+        floaty.tabBarHeight = Size.tabBarHeight
         self.view.addSubview(floaty)
     }
     
