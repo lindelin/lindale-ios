@@ -682,8 +682,8 @@ open class Floaty: UIView {
     overlayView.backgroundColor = overlayColor
     overlayView.alpha = 0
     overlayView.isUserInteractionEnabled = true
-    
   }
+    
   fileprivate func setOverlayFrame() {
     if let superview = superview as! UIScrollView? {
         overlayView.frame = CGRect(

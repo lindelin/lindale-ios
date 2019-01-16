@@ -199,3 +199,15 @@ struct TodoRegister {
         }
     }
 }
+
+struct TodoListRegister {
+    var id: Int?
+    var title: String?
+    var projectId: Int?
+    
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeTodoList(todoList: self)) { (status) in
+            completion(status)
+        }
+    }
+}

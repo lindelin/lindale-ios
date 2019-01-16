@@ -43,7 +43,34 @@ class ProjectTodoController: UITableViewController {
     private func setupFloatyButton() {
         let floaty = Floaty()
         floaty.addItem("New List", icon: UIImage(named: "todo-list-30")!, handler: { item in
-            // TODO
+            let appearance = SCLAlertView.SCLAppearance(
+                showCircularIcon: false
+            )
+            let alert = SCLAlertView(appearance: appearance)
+            let textField = alert.addTextField("Name")
+            alert.addButton("追加") {
+                KRProgressHUD.show(withMessage: "Adding...")
+                
+                let todoList = TodoListRegister(id: nil,
+                                                title: textField.text,
+                                                projectId: self.project.id)
+                todoList.store(completion: { (response) in
+                    guard response["status"] == "OK" else {
+                        KRProgressHUD.dismiss()
+                        self.showAlert(title: "error", message: response["messages"]!)
+                        return
+                    }
+
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                })
+            }
+            alert.showCustom("TODO リストを追加",
+                             subTitle: "リスト名を入力してください。",
+                             color: Colors.themeBlue,
+                             icon: UIImage(named: "todo-list-30")!,
+                             closeButtonTitle: "取消")
             floaty.close()
         })
         floaty.addItem("New TODO", icon: UIImage(named: "todo-30")!, handler: { item in
