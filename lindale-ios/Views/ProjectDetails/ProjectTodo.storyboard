@@ -28,14 +28,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="e9N-OX-yd2">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DefaultTodoCell" rowHeight="110" id="4aZ-G9-OVe" customClass="DefaultTodoCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="600" height="110"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4aZ-G9-OVe" id="s9S-9E-rNv">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
@@ -156,7 +151,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingTodoCell" rowHeight="667" id="uWp-JV-yLg" customClass="FoldingTodoCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="154" width="600" height="667"/>
+                                <rect key="frame" x="0.0" y="138" width="600" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uWp-JV-yLg" id="JZ7-tX-J3a">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
@@ -211,12 +206,6 @@
                                                         <constraint firstAttribute="height" constant="1" id="VBt-ch-RXA"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lindalë Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UFU-4l-6IL" userLabel="W 85th St, New York, 10024">
-                                                    <rect key="frame" x="456.5" y="28" width="93.5" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                                    <color key="textColor" name="Theme-base-optional"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E 30th St, New York, 10016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="RNV-Br-FM8" userLabel="W 85th St, New York, 10024">
                                                     <rect key="frame" x="378" y="57" width="172" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
@@ -229,6 +218,12 @@
                                                     <color key="textColor" name="Theme-base"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lindalë Project" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UFU-4l-6IL" userLabel="W 85th St, New York, 10024">
+                                                    <rect key="frame" x="116" y="27.5" width="434" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" name="Theme-base-optional"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -238,15 +233,15 @@
                                                 <constraint firstItem="03o-ee-xwU" firstAttribute="leading" secondItem="gM2-ng-fn5" secondAttribute="trailing" constant="20" id="7t2-sc-ZGP"/>
                                                 <constraint firstItem="rIH-i9-Hjp" firstAttribute="leading" secondItem="gM2-ng-fn5" secondAttribute="trailing" constant="20" id="C93-Gd-S6j"/>
                                                 <constraint firstItem="gM2-ng-fn5" firstAttribute="leading" secondItem="lVA-Bd-tXi" secondAttribute="leading" id="MLN-R4-0Rl"/>
-                                                <constraint firstItem="UFU-4l-6IL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lVA-Bd-tXi" secondAttribute="leading" id="Px4-OX-rCK"/>
                                                 <constraint firstAttribute="height" constant="165" id="Rez-51-6Am"/>
                                                 <constraint firstItem="03o-ee-xwU" firstAttribute="top" secondItem="rIH-i9-Hjp" secondAttribute="bottom" constant="8" id="Suw-8Y-iMH"/>
                                                 <constraint firstItem="RNV-Br-FM8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lVA-Bd-tXi" secondAttribute="leading" id="UnO-3r-SRP"/>
                                                 <constraint firstAttribute="trailing" secondItem="QxB-R4-lLe" secondAttribute="trailing" constant="16" id="Xon-3j-S4C"/>
                                                 <constraint firstAttribute="trailing" secondItem="03o-ee-xwU" secondAttribute="trailing" constant="8" id="jKY-iP-LsM"/>
-                                                <constraint firstItem="UFU-4l-6IL" firstAttribute="top" secondItem="lVA-Bd-tXi" secondAttribute="top" constant="28" id="jnZ-CD-KAG"/>
                                                 <constraint firstItem="rIH-i9-Hjp" firstAttribute="top" secondItem="lVA-Bd-tXi" secondAttribute="top" constant="32" id="kIl-Ze-hot"/>
+                                                <constraint firstItem="QxB-R4-lLe" firstAttribute="top" secondItem="UFU-4l-6IL" secondAttribute="bottom" constant="8" id="lRq-qx-hMd"/>
                                                 <constraint firstItem="QxB-R4-lLe" firstAttribute="leading" secondItem="lVA-Bd-tXi" secondAttribute="leading" constant="120" id="nmV-Gu-Hv4"/>
+                                                <constraint firstItem="UFU-4l-6IL" firstAttribute="leading" secondItem="rIH-i9-Hjp" secondAttribute="leading" constant="8" id="pMd-tV-O8f"/>
                                                 <constraint firstAttribute="trailing" secondItem="RNV-Br-FM8" secondAttribute="trailing" constant="10" id="puY-xE-GTj"/>
                                                 <constraint firstAttribute="bottom" secondItem="gM2-ng-fn5" secondAttribute="bottom" id="uaa-6x-7QI"/>
                                                 <constraint firstItem="gM2-ng-fn5" firstAttribute="top" secondItem="lVA-Bd-tXi" secondAttribute="top" id="xXA-hK-DAU"/>

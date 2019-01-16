@@ -28,14 +28,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="dtk-Ug-cpZ">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DefaultTodoCell" rowHeight="110" id="BZA-HT-mZM" customClass="DefaultTodoCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="600" height="110"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BZA-HT-mZM" id="2n4-30-qmO">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
@@ -156,7 +151,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingTodoCell" rowHeight="667" id="zSu-IF-TrF" customClass="FoldingTodoCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="154" width="600" height="667"/>
+                                <rect key="frame" x="0.0" y="138" width="600" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zSu-IF-TrF" id="Vg7-9w-DDI">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
@@ -211,8 +206,8 @@
                                                         <constraint firstAttribute="height" constant="1" id="kgo-9O-a0Y"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lindalë Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="lzh-ar-Yxc" userLabel="W 85th St, New York, 10024">
-                                                    <rect key="frame" x="456.5" y="28" width="93.5" height="16.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lindalë Project" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="lzh-ar-Yxc" userLabel="W 85th St, New York, 10024">
+                                                    <rect key="frame" x="116" y="27.5" width="434" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" name="Theme-base-optional"/>
                                                     <nil key="highlightedColor"/>
@@ -234,7 +229,6 @@
                                             <constraints>
                                                 <constraint firstItem="PFq-6e-nt4" firstAttribute="top" secondItem="ahS-ds-2zn" secondAttribute="top" constant="57" id="2bc-LN-Kbi"/>
                                                 <constraint firstItem="tfj-eU-1XH" firstAttribute="leading" secondItem="ahS-ds-2zn" secondAttribute="leading" constant="120" id="9Lg-ma-q5p"/>
-                                                <constraint firstItem="lzh-ar-Yxc" firstAttribute="top" secondItem="ahS-ds-2zn" secondAttribute="top" constant="28" id="AR0-Pa-8bL"/>
                                                 <constraint firstItem="37p-L6-irF" firstAttribute="top" secondItem="qFC-0L-jtS" secondAttribute="bottom" constant="8" id="CTI-U7-p4x"/>
                                                 <constraint firstAttribute="trailing" secondItem="37p-L6-irF" secondAttribute="trailing" constant="8" id="Fkq-oD-k1R"/>
                                                 <constraint firstAttribute="height" constant="165" id="HEv-Os-O18"/>
@@ -242,10 +236,11 @@
                                                 <constraint firstItem="tfj-eU-1XH" firstAttribute="top" secondItem="ahS-ds-2zn" secondAttribute="top" constant="52" id="Mxa-WB-5Ep"/>
                                                 <constraint firstAttribute="bottom" secondItem="4T1-Ag-EoR" secondAttribute="bottom" id="NrP-vI-kIf"/>
                                                 <constraint firstItem="4T1-Ag-EoR" firstAttribute="leading" secondItem="ahS-ds-2zn" secondAttribute="leading" id="O99-Rw-dY4"/>
+                                                <constraint firstItem="lzh-ar-Yxc" firstAttribute="leading" secondItem="qFC-0L-jtS" secondAttribute="leading" constant="8" id="RGB-EZ-jcK"/>
+                                                <constraint firstItem="tfj-eU-1XH" firstAttribute="top" secondItem="lzh-ar-Yxc" secondAttribute="bottom" constant="8" id="SfJ-xQ-Rnh"/>
                                                 <constraint firstItem="qFC-0L-jtS" firstAttribute="top" secondItem="ahS-ds-2zn" secondAttribute="top" constant="32" id="aHt-Yb-Ueh"/>
                                                 <constraint firstItem="PFq-6e-nt4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ahS-ds-2zn" secondAttribute="leading" id="axK-J3-egF"/>
                                                 <constraint firstAttribute="trailing" secondItem="PFq-6e-nt4" secondAttribute="trailing" constant="10" id="fmf-76-Aln"/>
-                                                <constraint firstItem="lzh-ar-Yxc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ahS-ds-2zn" secondAttribute="leading" id="ltt-61-DGs"/>
                                                 <constraint firstItem="37p-L6-irF" firstAttribute="leading" secondItem="4T1-Ag-EoR" secondAttribute="trailing" constant="20" id="luA-3A-OP8"/>
                                                 <constraint firstAttribute="trailing" secondItem="lzh-ar-Yxc" secondAttribute="trailing" constant="10" id="oCw-WU-6W0"/>
                                                 <constraint firstItem="qFC-0L-jtS" firstAttribute="leading" secondItem="4T1-Ag-EoR" secondAttribute="trailing" constant="20" id="wAB-Uu-r8g"/>

@@ -74,7 +74,41 @@ class ProjectTodoController: UITableViewController {
             floaty.close()
         })
         floaty.addItem("New TODO", icon: UIImage(named: "todo-30")!, handler: { item in
-            // TODO
+            let appearance = SCLAlertView.SCLAppearance(
+                showCircularIcon: false
+            )
+            let alert = SCLAlertView(appearance: appearance)
+            let textField = alert.addTextField("TODO")
+            alert.addButton("追加") {
+                KRProgressHUD.show(withMessage: "Adding...")
+                
+                let todo = TodoRegister(id: nil,
+                                        content: textField.text,
+                                        details: nil,
+                                        statusId: nil,
+                                        colorId: nil,
+                                        listId: nil,
+                                        userId: nil,
+                                        projectId: self.project.id)
+                todo.store(completion: { (response) in
+                    guard response["status"] == "OK" else {
+                        KRProgressHUD.dismiss()
+                        self.showAlert(title: "error", message: response["messages"]!)
+                        return
+                    }
+                    
+                    NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+                    
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                })
+            }
+            alert.showCustom("TODO を追加",
+                             subTitle: "内容を入力してください。",
+                             color: Colors.themeGreen,
+                             icon: UIImage(named: "todo-30")!,
+                             closeButtonTitle: "取消")
             floaty.close()
         })
         floaty.sticky = true
@@ -300,10 +334,5 @@ class ProjectTodoController: UITableViewController {
         editAction.backgroundColor = Colors.themeYellow
         deleteAction.backgroundColor = Colors.themeMain
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-    }
-
-    // MARK: -  Add Button
-    @objc func addButtonTapped() {
-        // TODO
     }
 }

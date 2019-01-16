@@ -159,14 +159,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="39I-KG-ozd">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DefaultTaskCell" rowHeight="400" id="gfd-v7-eh3" customClass="DefaultTaskCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="600" height="400"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfd-v7-eh3" id="gtj-7T-uHd">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
@@ -465,7 +460,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingTaskCell" rowHeight="503" id="rQ5-Xt-WWM" customClass="FoldingTaskCell" customModule="lindale_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="444" width="600" height="503"/>
+                                <rect key="frame" x="0.0" y="428" width="600" height="503"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rQ5-Xt-WWM" id="FFe-38-1OT">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="503"/>
@@ -943,12 +938,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="TIB-Yy-MVx">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="TIB-Yy-MVx">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TKV-sp-Nsj">
-                                    <rect key="frame" x="16" y="16" width="343" height="128"/>
+                                    <rect key="frame" x="16" y="16" width="343" height="961"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BX2-pB-bDC">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
@@ -974,11 +969,11 @@
                                             </constraints>
                                         </stackView>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VRY-jN-LZL">
-                                            <rect key="frame" x="0.0" y="50" width="343" height="2"/>
+                                            <rect key="frame" x="0.0" y="50" width="343" height="835"/>
                                             <color key="trackTintColor" name="Theme-sub"/>
                                         </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3　サブチケット（0 - 完了 ， 3 - 未完了）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfi-sV-4e2">
-                                            <rect key="frame" x="0.0" y="68" width="343" height="16"/>
+                                            <rect key="frame" x="0.0" y="901" width="343" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="n96-p8-66H"/>
                                             </constraints>
@@ -987,7 +982,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dBr-Tl-hUz">
-                                            <rect key="frame" x="0.0" y="100" width="343" height="29"/>
+                                            <rect key="frame" x="0.0" y="933" width="343" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="yyC-21-aoH"/>
                                             </constraints>

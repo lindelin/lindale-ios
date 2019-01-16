@@ -59,7 +59,8 @@ class TodoEditViewController: UITableViewController {
                                         statusId: self.editResource.statuses[self.status.selectedRow(inComponent: 0)].id,
                                         colorId: self.color.selectedRow(inComponent: 0) + 1,
                                         listId: nil,
-                                        userId: self.editResource.users[self.user.selectedRow(inComponent: 0)].id)
+                                        userId: self.editResource.users[self.user.selectedRow(inComponent: 0)].id,
+                                        projectId: nil)
             register.update { (response) in
                 guard response["status"] == "OK" else {
                     KRProgressHUD.dismiss()

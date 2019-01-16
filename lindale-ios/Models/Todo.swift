@@ -192,9 +192,16 @@ struct TodoRegister {
     var colorId: Int?
     var listId: Int?
     var userId: Int?
+    var projectId: Int?
     
     func update(completion: @escaping ([String: String]) -> Void) {
         NetworkProvider.main.message(request: .todoUpdate(todo: self)) { (status) in
+            completion(status)
+        }
+    }
+    
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeTodo(todo: self)) { (status) in
             completion(status)
         }
     }

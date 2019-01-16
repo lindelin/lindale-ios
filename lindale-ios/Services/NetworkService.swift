@@ -46,6 +46,7 @@ enum NetworkService {
     case updateWiki(wiki: WikiRegister)
     case wikiDetail(id: Int)
     case storeTodoList(todoList: TodoListRegister)
+    case storeTodo(todo: TodoRegister)
 }
 
 extension NetworkService: TargetType {
@@ -122,6 +123,8 @@ extension NetworkService: TargetType {
             return "wikis/\(id)"
         case .storeTodoList(let todoList):
             return "/projects/\(todoList.projectId!)/todo-list"
+        case .storeTodo(let todo):
+            return "/projects/\(todo.projectId!)/todos"
         }
     }
     
@@ -133,7 +136,7 @@ extension NetworkService: TargetType {
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo:
             return .post
         }
     }
@@ -218,6 +221,10 @@ extension NetworkService: TargetType {
         case let .storeTodoList(todoList):
             return .requestParameters(parameters: [
                 "type_name": todoList.title as Any
+                ], encoding: JSONEncoding.default)
+        case let .storeTodo(todo):
+            return .requestParameters(parameters: [
+                "content": todo.content as Any,
                 ], encoding: JSONEncoding.default)
         }
     }
