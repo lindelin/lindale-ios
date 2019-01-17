@@ -158,7 +158,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVA-Bd-tXi" userLabel="Foreground" customClass="RotatedView" customModule="FoldingCell">
-                                            <rect key="frame" x="20" y="7" width="560" height="165"/>
+                                            <rect key="frame" x="20" y="8" width="560" height="165"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gM2-ng-fn5" userLabel="LeftView">
                                                     <rect key="frame" x="0.0" y="0.0" width="88" height="165"/>
@@ -248,7 +248,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJ6-bc-rK1" userLabel="Container">
-                                            <rect key="frame" x="20" y="180" width="560" height="479"/>
+                                            <rect key="frame" x="20" y="181" width="560" height="479"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7h-Gx-Py5" userLabel="FirstContainerView">
                                                     <rect key="frame" x="0.0" y="0.0" width="560" height="165"/>
@@ -587,10 +587,10 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="nJ6-bc-rK1" firstAttribute="top" secondItem="JZ7-tX-J3a" secondAttribute="top" constant="180" id="CQD-ed-nlK"/>
+                                        <constraint firstItem="nJ6-bc-rK1" firstAttribute="top" secondItem="JZ7-tX-J3a" secondAttribute="top" constant="181" id="CQD-ed-nlK"/>
                                         <constraint firstItem="lVA-Bd-tXi" firstAttribute="leading" secondItem="JZ7-tX-J3a" secondAttribute="leading" constant="20" id="FE1-dz-0by"/>
                                         <constraint firstItem="nJ6-bc-rK1" firstAttribute="leading" secondItem="JZ7-tX-J3a" secondAttribute="leading" constant="20" id="N15-0E-O7Q"/>
-                                        <constraint firstItem="lVA-Bd-tXi" firstAttribute="top" secondItem="JZ7-tX-J3a" secondAttribute="top" constant="7" id="kXC-7o-mAg"/>
+                                        <constraint firstItem="lVA-Bd-tXi" firstAttribute="top" secondItem="JZ7-tX-J3a" secondAttribute="top" constant="8" id="kXC-7o-mAg"/>
                                         <constraint firstAttribute="trailing" secondItem="lVA-Bd-tXi" secondAttribute="trailing" constant="20" id="lIo-Rf-aav"/>
                                         <constraint firstAttribute="trailing" secondItem="nJ6-bc-rK1" secondAttribute="trailing" constant="20" id="v69-03-6kd"/>
                                     </constraints>
@@ -603,7 +603,7 @@
                                         <color key="value" name="Theme-background"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                         <real key="value" value="0.29999999999999999"/>
@@ -612,7 +612,7 @@
                                         <color key="value" name="Theme-base-sub"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="2" height="2"/>
+                                        <size key="value" width="0.0" height="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>

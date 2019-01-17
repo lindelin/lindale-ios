@@ -13,8 +13,8 @@ import SCLAlertView
 class MyTodoTableViewController: UITableViewController {
     
     enum Const {
-        static let closeCellHeight: CGFloat = 179
-        static let openCellHeight: CGFloat = 488
+        static let closeCellHeight: CGFloat = 183
+        static let openCellHeight: CGFloat = 492
         static let rowsCount = 10
     }
     
@@ -122,6 +122,7 @@ class MyTodoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingTodoCell", for: indexPath) as! FoldingTodoCell
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+        cell.backgroundColor = .clear
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
         cell.setCell(todo: self.myTodoCollection!.todos[indexPath.row])
