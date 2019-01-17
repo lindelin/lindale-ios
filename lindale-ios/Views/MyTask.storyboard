@@ -1390,7 +1390,7 @@
                         <sections>
                             <tableViewSection headerTitle="題名" id="RRp-Zs-gDg">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gm1-lp-VmF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Gm1-lp-VmF">
                                         <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gm1-lp-VmF" id="EDb-7v-XW4">
@@ -1412,12 +1412,56 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="2sH-jc-6eM">
+                                        <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2sH-jc-6eM" id="BRI-5a-VJs">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="開始日" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Cha-oq-7l5">
+                                                    <rect key="frame" x="12" y="12.5" width="296" height="19"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Cha-oq-7l5" firstAttribute="centerY" secondItem="BRI-5a-VJs" secondAttribute="centerY" id="0bi-uC-Bhn"/>
+                                                <constraint firstItem="Cha-oq-7l5" firstAttribute="centerX" secondItem="BRI-5a-VJs" secondAttribute="centerX" id="HSl-TQ-zEy"/>
+                                                <constraint firstItem="Cha-oq-7l5" firstAttribute="leading" secondItem="BRI-5a-VJs" secondAttribute="leading" constant="12" id="MOp-kl-bsJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cha-oq-7l5" secondAttribute="trailing" constant="12" id="Thv-PS-JfR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="RGV-fi-fqw">
+                                        <rect key="frame" x="0.0" y="143.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RGV-fi-fqw" id="aLi-6V-kXX">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="期限日" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8Zf-O2-gTI">
+                                                    <rect key="frame" x="12" y="12.5" width="296" height="19"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8Zf-O2-gTI" firstAttribute="centerY" secondItem="aLi-6V-kXX" secondAttribute="centerY" id="Mmi-n0-v0U"/>
+                                                <constraint firstItem="8Zf-O2-gTI" firstAttribute="leading" secondItem="aLi-6V-kXX" secondAttribute="leading" constant="12" id="UnG-X6-mrX"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Zf-O2-gTI" secondAttribute="trailing" constant="12" id="cgu-qm-rpq"/>
+                                                <constraint firstItem="8Zf-O2-gTI" firstAttribute="centerX" secondItem="aLi-6V-kXX" secondAttribute="centerX" id="g2Q-cX-SdZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="担当者" id="3cy-ah-Tg2">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="NYm-WK-8G6">
-                                        <rect key="frame" x="0.0" y="155.5" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="243.5" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NYm-WK-8G6" id="Tdh-Bf-UYh">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
@@ -1444,7 +1488,7 @@
                             <tableViewSection headerTitle="色" id="cXy-q8-chV">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="U9q-zq-j36">
-                                        <rect key="frame" x="0.0" y="311.5" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="399.5" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U9q-zq-j36" id="oeW-wl-inp">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
@@ -1471,7 +1515,7 @@
                             <tableViewSection headerTitle="説明" id="aIU-HW-Ez0">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="160" id="PSu-RP-UXb">
-                                        <rect key="frame" x="0.0" y="467.5" width="320" height="160"/>
+                                        <rect key="frame" x="0.0" y="555.5" width="320" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PSu-RP-UXb" id="CJB-2k-5El">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="159.5"/>
@@ -1507,6 +1551,8 @@
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
                         <outlet property="colorPicker" destination="BdX-xg-0WL" id="wEY-rI-krI"/>
+                        <outlet property="endAt" destination="8Zf-O2-gTI" id="gwq-YK-dt1"/>
+                        <outlet property="startAt" destination="Cha-oq-7l5" id="IjK-ls-hLp"/>
                         <outlet property="taskContent" destination="cXJ-xo-l2I" id="dmp-Yd-eBv"/>
                         <outlet property="taskTitle" destination="42V-gU-924" id="TRX-8O-XDA"/>
                         <outlet property="userPicker" destination="Djp-EA-eFh" id="Los-81-EJP"/>

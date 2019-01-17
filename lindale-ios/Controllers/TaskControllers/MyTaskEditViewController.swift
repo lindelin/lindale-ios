@@ -14,6 +14,8 @@ class MyTaskEditViewController: UITableViewController {
     var editResource: TaskResource.EditResources!
 
     @IBOutlet weak var taskTitle: UITextField!
+    @IBOutlet weak var startAt: UITextField!
+    @IBOutlet weak var endAt: UITextField!
     @IBOutlet weak var userPicker: UIPickerView!
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var taskContent: UITextView!
@@ -21,13 +23,22 @@ class MyTaskEditViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setup()
+        
         self.tableView.keyboardDismissMode = .onDrag
         
         self.updateUI()
     }
     
+    func setup() {
+        self.startAt.addTarget(self, action: #selector(self.startAtEditing), for: .editingDidBegin)
+        self.endAt.addTarget(self, action: #selector(self.endAtEditing), for: .editingDidBegin)
+    }
+    
     func updateUI() {
         self.taskTitle.text = self.taskResource.title
+        self.startAt.text = Date.createFormFormat(string: self.taskResource.startAt ?? "")?.format("yyyy-MM-dd")
+        self.endAt.text = Date.createFormFormat(string: self.taskResource.endAt ?? "")?.format("yyyy-MM-dd")
         for (index, user) in self.editResource.users.enumerated() {
             if user.id == taskResource.user?.id {
                 self.userPicker.selectRow(index, inComponent: 0, animated: true)
@@ -44,8 +55,8 @@ class MyTaskEditViewController: UITableViewController {
         let register = TaskRegister(id: self.taskResource.id,
                                     title: self.taskTitle.text,
                                     content: self.taskContent.text,
-                                    startAt: nil,
-                                    endAt: nil,
+                                    startAt: self.startAt.text,
+                                    endAt: self.endAt.text,
                                     cost: nil,
                                     groupId: nil,
                                     typeId: nil,
@@ -66,6 +77,34 @@ class MyTaskEditViewController: UITableViewController {
             })
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    @objc func startAtEditing(sender: UITextField) {
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        if let date = Date.createFormFormat(string: sender.text ?? "", format: "yyyy-MM-dd") {
+            datePickerView.setDate(date, animated: true)
+        }
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(self.startAtPickerValueChanged), for: .valueChanged)
+    }
+    
+    @objc func startAtPickerValueChanged(sender: UIDatePicker) {
+        self.startAt.text = sender.date.format("yyyy-MM-dd")
+    }
+    
+    @objc func endAtEditing(sender: UITextField) {
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        if let date = Date.createFormFormat(string: sender.text ?? "", format: "yyyy-MM-dd") {
+            datePickerView.setDate(date, animated: true)
+        }
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(self.endAtPickerValueChanged), for: .valueChanged)
+    }
+    
+    @objc func endAtPickerValueChanged(sender: UIDatePicker) {
+        self.endAt.text = sender.date.format("yyyy-MM-dd")
     }
     
     /*

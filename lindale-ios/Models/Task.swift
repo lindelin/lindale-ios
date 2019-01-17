@@ -313,8 +313,8 @@ struct TaskRegister {
     var id: Int?
     var title: String?
     var content: String?
-    var startAt: Date?
-    var endAt: Date?
+    var startAt: String?
+    var endAt: String?
     var cost: Int?
     var groupId: Int?
     var typeId: Int?

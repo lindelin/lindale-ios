@@ -82,3 +82,18 @@ extension UIViewController {
         }
     }
 }
+
+extension Date {
+    static func createFormFormat(string date: String, format: String = "yyyy/MM/dd") -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        let date = formatter.date(from: date)
+        return date
+    }
+    
+    func format(_ format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}
