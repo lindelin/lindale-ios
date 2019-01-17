@@ -150,7 +150,7 @@
                                     <outlet property="updateAt" destination="7hm-Xa-kVa" id="rjc-af-dXK"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingTodoCell" rowHeight="667" id="uWp-JV-yLg" customClass="FoldingTodoCell" customModule="lindale_ios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingProjectTodoCell" rowHeight="667" id="uWp-JV-yLg" customClass="FoldingTodoCell" customModule="lindale_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="138" width="600" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uWp-JV-yLg" id="JZ7-tX-J3a">

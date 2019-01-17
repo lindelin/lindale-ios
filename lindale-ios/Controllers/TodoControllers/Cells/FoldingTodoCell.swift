@@ -99,6 +99,7 @@ class FoldingTodoCell: FoldingCell {
             }
             
             NotificationCenter.default.post(name: LocalNotificationService.todoHasUpdated, object: nil)
+            
             KRProgressHUD.dismiss({
                 KRProgressHUD.showSuccess(withMessage: response["messages"]!)
             })

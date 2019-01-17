@@ -96,12 +96,10 @@ class MyTodoTableViewController: UITableViewController {
     
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
+        // MARK: - Load More Data
         if let myTodoCollection = self.myTodoCollection {
             let lastCell = myTodoCollection.todos.count - 1
-            if lastCell == indexPath.row {
-                guard let nextPage = myTodoCollection.links.next else {
-                    return
-                }
+            if lastCell == indexPath.row, let nextPage = myTodoCollection.links.next {
                 self.loadMoreData(url: nextPage)
             }
         }
@@ -122,7 +120,6 @@ class MyTodoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingTodoCell", for: indexPath) as! FoldingTodoCell
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
-        cell.backgroundColor = .clear
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
         cell.setCell(todo: self.myTodoCollection!.todos[indexPath.row])
