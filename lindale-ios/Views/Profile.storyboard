@@ -122,7 +122,7 @@
                                         <segment title="" image="star-30"/>
                                         <segment title="" image="project-30"/>
                                     </segments>
-                                    <color key="tintColor" name="Theme-main"/>
+                                    <color key="tintColor" name="Theme-base-optional"/>
                                     <connections>
                                         <action selector="segmentedControlChanged:" destination="Dnu-SB-rQf" eventType="valueChanged" id="5OM-fZ-t8d"/>
                                     </connections>
@@ -304,11 +304,11 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGN-ay-rRn">
-                                                    <rect key="frame" x="295" y="48" width="56" height="24"/>
+                                                    <rect key="frame" x="295" y="50.333333333333336" width="56" height="19.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="56" id="r05-AC-Y8R"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="Theme-main"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -497,6 +497,9 @@
         </namedColor>
         <namedColor name="Theme-base">
             <color red="0.011764705882352941" green="0.10196078431372549" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-base-optional">
+            <color red="0.26666666666666666" green="0.30980392156862746" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-base-sub">
             <color red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

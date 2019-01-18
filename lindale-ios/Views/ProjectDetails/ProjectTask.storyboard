@@ -938,12 +938,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="TIB-Yy-MVx">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="TIB-Yy-MVx">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TKV-sp-Nsj">
-                                    <rect key="frame" x="16" y="16" width="343" height="961"/>
+                                    <rect key="frame" x="16" y="16" width="343" height="128"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BX2-pB-bDC">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
@@ -969,11 +969,11 @@
                                             </constraints>
                                         </stackView>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VRY-jN-LZL">
-                                            <rect key="frame" x="0.0" y="50" width="343" height="835"/>
+                                            <rect key="frame" x="0.0" y="50" width="343" height="2"/>
                                             <color key="trackTintColor" name="Theme-sub"/>
                                         </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3　サブチケット（0 - 完了 ， 3 - 未完了）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfi-sV-4e2">
-                                            <rect key="frame" x="0.0" y="901" width="343" height="16"/>
+                                            <rect key="frame" x="0.0" y="68" width="343" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="n96-p8-66H"/>
                                             </constraints>
@@ -982,16 +982,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dBr-Tl-hUz">
-                                            <rect key="frame" x="0.0" y="933" width="343" height="29"/>
+                                            <rect key="frame" x="0.0" y="100" width="343" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="yyC-21-aoH"/>
                                             </constraints>
                                             <segments>
-                                                <segment title="Overview"/>
-                                                <segment title="Check Points"/>
-                                                <segment title="Activities"/>
+                                                <segment title="" image="info-30"/>
+                                                <segment title="" image="check-all-30"/>
+                                                <segment title="" image="chat-bubble-30"/>
                                             </segments>
-                                            <color key="tintColor" name="Theme-main"/>
+                                            <color key="tintColor" name="Theme-base-optional"/>
                                             <connections>
                                                 <action selector="segmentedControlChanged:" destination="WAf-Fu-KPI" eventType="valueChanged" id="egQ-LB-IBe"/>
                                             </connections>
@@ -1678,7 +1678,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chat-bubble-30" width="45" height="45"/>
+        <image name="check-all-30" width="45" height="45"/>
         <image name="dots" width="14" height="84"/>
+        <image name="info-30" width="45" height="45"/>
         <image name="pencil-24" width="36" height="36"/>
         <image name="speech-bubble-24" width="36" height="36"/>
         <image name="task-24" width="36" height="36"/>

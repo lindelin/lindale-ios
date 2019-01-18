@@ -810,7 +810,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="uZh-x3-fGD">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="uZh-x3-fGD">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -845,13 +845,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zRq-ml-WOL">
-                                    <rect key="frame" x="16" y="207" width="343" height="970"/>
+                                    <rect key="frame" x="16" y="207" width="343" height="38"/>
                                     <segments>
-                                        <segment title="Overview"/>
-                                        <segment title="Check Points"/>
-                                        <segment title="Activities"/>
+                                        <segment title="" image="info-30"/>
+                                        <segment title="" image="check-all-30"/>
+                                        <segment title="" image="chat-bubble-30"/>
                                     </segments>
-                                    <color key="tintColor" name="Theme-main"/>
+                                    <color key="tintColor" name="Theme-base-optional"/>
                                     <connections>
                                         <action selector="segmentedControlChanged:" destination="McX-vL-jtt" eventType="valueChanged" id="Vjs-Tg-XkE"/>
                                     </connections>
@@ -1564,6 +1564,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chat-bubble-30" width="45" height="45"/>
+        <image name="check-all-30" width="45" height="45"/>
+        <image name="info-30" width="45" height="45"/>
         <image name="pencil-24" width="36" height="36"/>
         <image name="speech-bubble-24" width="36" height="36"/>
         <image name="task-24" width="36" height="36"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import KRProgressHUD
+import MobileCoreServices
 
 class ProjectWikiEditController: UITableViewController {
 
@@ -18,6 +19,7 @@ class ProjectWikiEditController: UITableViewController {
     
     @IBOutlet weak var wikiTitle: UITextField!
     @IBOutlet weak var wikiContent: UITextView!
+    @IBOutlet weak var image: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,47 @@ class ProjectWikiEditController: UITableViewController {
         }
     }
 
+    @IBAction func addImageButtonTapped(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let selectPhotoAction = UIAlertAction(title: "写真を選択", style: .default) { (_) in
+            guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+                KRProgressHUD.set(duration: 2.0).dismiss({
+                    KRProgressHUD.showError(withMessage: "写真を取得する権利がありません。")
+                })
+                return
+            }
+            
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.delegate = self
+            self.present(picker, animated: true)
+        }
+        
+        let takePhotoAction = UIAlertAction(title: "カメラで撮影", style: .default) { (_) in
+            guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+                KRProgressHUD.set(duration: 2.0).dismiss({
+                    KRProgressHUD.showError(withMessage: "カメラを利用する権利がありません。")
+                })
+                return
+            }
+            
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.delegate = self
+            self.present(picker, animated: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (_) in
+            actionSheet.dismiss(animated: true)
+        }
+        
+        actionSheet.addAction(selectPhotoAction)
+        actionSheet.addAction(takePhotoAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true)
+    }
     /*
     // MARK: - Navigation
 
@@ -78,3 +121,22 @@ class ProjectWikiEditController: UITableViewController {
     */
 
 }
+
+extension ProjectWikiEditController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let mediaType = info[.mediaType] as! String
+        
+        guard mediaType == (kUTTypeImage as String) else {
+            KRProgressHUD.set(duration: 2.0).dismiss({
+                KRProgressHUD.showError(withMessage: "写真を選択してください。")
+            })
+            return
+        }
+        
+        let image = info[.originalImage] as! UIImage
+        self.image.image = image
+        picker.dismiss(animated: true)
+    }
+}
+

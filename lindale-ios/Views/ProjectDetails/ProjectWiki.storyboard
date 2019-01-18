@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -159,10 +160,58 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Image" id="m9K-Ck-qhW">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="F0h-zm-9wV">
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F0h-zm-9wV" id="W2N-KD-vOP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-camera-30" translatesAutoresizingMaskIntoConstraints="NO" id="FJR-WB-kSz">
+                                                    <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                                    <color key="tintColor" name="Theme-base-sub"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="Met-g4-Z68"/>
+                                                        <constraint firstAttribute="width" constant="80" id="i7U-9F-kQD"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgH-On-hMk">
+                                                    <rect key="frame" x="104" y="30" width="80" height="40"/>
+                                                    <color key="backgroundColor" name="Theme-base"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="DWJ-b1-L8P"/>
+                                                        <constraint firstAttribute="width" constant="80" id="eLg-B9-FiD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="画像追加">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="addImageButtonTapped:" destination="BMG-TR-GWF" eventType="touchUpInside" id="0ua-DR-AHs"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vgH-On-hMk" firstAttribute="leading" secondItem="FJR-WB-kSz" secondAttribute="trailing" constant="16" id="5Rc-sw-IOG"/>
+                                                <constraint firstItem="FJR-WB-kSz" firstAttribute="leading" secondItem="W2N-KD-vOP" secondAttribute="leading" constant="8" id="9w5-nJ-jJU"/>
+                                                <constraint firstItem="vgH-On-hMk" firstAttribute="centerY" secondItem="W2N-KD-vOP" secondAttribute="centerY" id="Qnl-Rb-Vxc"/>
+                                                <constraint firstItem="FJR-WB-kSz" firstAttribute="centerY" secondItem="W2N-KD-vOP" secondAttribute="centerY" id="uh8-5l-cmb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Content" id="MLt-mN-ty8">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="400" id="hYr-QH-JMQ">
-                                        <rect key="frame" x="0.0" y="155.5" width="375" height="400"/>
+                                        <rect key="frame" x="0.0" y="311.5" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hYr-QH-JMQ" id="3wM-A0-ZwT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="399.5"/>
@@ -196,6 +245,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="f5X-D8-w2x"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="image" destination="FJR-WB-kSz" id="H6K-3d-yhU"/>
                         <outlet property="wikiContent" destination="Bw0-O0-kdm" id="v4N-99-yqF"/>
                         <outlet property="wikiTitle" destination="o2y-fo-Vig" id="Ryl-a0-VZL"/>
                     </connections>
@@ -206,4 +256,13 @@
             <point key="canvasLocation" x="6758" y="188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-camera-30" width="45" height="45"/>
+        <namedColor name="Theme-base">
+            <color red="0.011764705882352941" green="0.10196078431372549" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-base-sub">
+            <color red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
