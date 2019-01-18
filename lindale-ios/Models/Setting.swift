@@ -22,6 +22,12 @@ struct Settings {
                 completion(status)
             }
         }
+        
+        static func upload(photo: UIImage, completion: @escaping ([String: String]) -> Void) {
+            NetworkProvider.main.message(request: .uploadProfilePhoto(image: photo)) { (status) in
+                completion(status)
+            }
+        }
     }
     
     struct Notification: Codable {

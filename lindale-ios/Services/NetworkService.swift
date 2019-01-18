@@ -47,6 +47,7 @@ enum NetworkService {
     case wikiDetail(id: Int)
     case storeTodoList(todoList: TodoListRegister)
     case storeTodo(todo: TodoRegister)
+    case uploadProfilePhoto(image: UIImage)
 }
 
 extension NetworkService: TargetType {
@@ -81,6 +82,8 @@ extension NetworkService: TargetType {
             return "/settings/notification"
         case .profileInfoUpdate:
             return "/settings/profile"
+        case .uploadProfilePhoto:
+            return "/settings/profile/upload"
         case .updateSubTask(let subTask):
             return "/sub-tasks/\(subTask.id)"
         case .deleteSubTask(let subTask):
@@ -136,7 +139,7 @@ extension NetworkService: TargetType {
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto:
             return .post
         }
     }
@@ -171,6 +174,12 @@ extension NetworkService: TargetType {
                 "content": profileInfo.content,
                 "company": profileInfo.company
                 ], encoding: JSONEncoding.default)
+        case let .uploadProfilePhoto(image):
+            let imageData = image.jpegData(compressionQuality: 1.0)!
+            return .uploadMultipart([MultipartFormData(provider: .data(imageData),
+                                                       name: "photo",
+                                                       fileName: "photo.jpg",
+                                                       mimeType: "image/jpg")])
         case let .completeTask(task):
             return .requestParameters(parameters: [
                 "is_finish": task.isFinish,

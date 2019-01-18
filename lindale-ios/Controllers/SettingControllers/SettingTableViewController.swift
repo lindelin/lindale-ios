@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MobileCoreServices
+import KRProgressHUD
 
 class SettingTableViewController: UITableViewController {
 
@@ -100,6 +102,51 @@ class SettingTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func editPhotoButtonTapped(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let selectPhotoAction = UIAlertAction(title: "写真を選択", style: .default) { (_) in
+            guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+                KRProgressHUD.set(duration: 2.0).dismiss({
+                    KRProgressHUD.showError(withMessage: "写真を取得する権利がありません。")
+                })
+                return
+            }
+            
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = true
+            picker.delegate = self
+            self.present(picker, animated: true)
+        }
+        
+        let takePhotoAction = UIAlertAction(title: "カメラで撮影", style: .default) { (_) in
+            guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+                KRProgressHUD.set(duration: 2.0).dismiss({
+                    KRProgressHUD.showError(withMessage: "カメラを利用する権利がありません。")
+                })
+                return
+            }
+            
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.allowsEditing = true
+            picker.delegate = self
+            self.present(picker, animated: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (_) in
+            actionSheet.dismiss(animated: true)
+        }
+        
+        actionSheet.addAction(selectPhotoAction)
+        actionSheet.addAction(takePhotoAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true)
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -119,6 +166,38 @@ class SettingTableViewController: UITableViewController {
         if segue.identifier == "ProfileSettings" {
             let destination = segue.destination as! ProfileSettingController
             destination.profile = sender as? Profile
+        }
+    }
+}
+
+extension SettingTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        KRProgressHUD.show(withMessage: "Uploading...")
+        let mediaType = info[.mediaType] as! String
+        
+        guard mediaType == (kUTTypeImage as String) else {
+            KRProgressHUD.set(duration: 2.0).dismiss({
+                KRProgressHUD.showError(withMessage: "写真を選択してください。")
+            })
+            return
+        }
+        
+        let image = info[.editedImage] as! UIImage
+        //self.photo.image = image
+        Settings.ProfileInfo.upload(photo: image) { (response) in
+            guard response["status"] == "OK" else {
+                KRProgressHUD.dismiss()
+                self.showAlert(title: "Upload error", message: response["messages"]!)
+                return
+            }
+            
+            NotificationCenter.default.post(name: LocalNotificationService.profileInfoHasUpdated, object: nil)
+            
+            KRProgressHUD.dismiss({
+                KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+            })
+            
+            picker.dismiss(animated: true)
         }
     }
 }
