@@ -20,6 +20,7 @@ class TaskGroupCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var statusIcon: UIImageView!
     
     override func awakeFromNib() {
         card.layer.cornerRadius = 5
@@ -47,5 +48,7 @@ class TaskGroupCell: UITableViewCell {
         self.title.text = group.title
         self.date.text = "\(group.startAt ?? "∞")〜\(group.endAt ?? "∞")"
         self.status.text = group.status
+        self.statusIcon.image = group.isOpen() ? UIImage(named: "open-30") : UIImage(named: "close-30")
+        self.statusIcon.tintColor = group.isOpen() ? Colors.themeGreen : Colors.themeMain
     }
 }

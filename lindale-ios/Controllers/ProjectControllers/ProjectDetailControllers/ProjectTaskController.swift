@@ -95,6 +95,35 @@ class ProjectTaskController: UITableViewController {
         controller.taskGroup = cell.group
         self.parentNavigationController?.pushViewController(controller, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
+            KRProgressHUD.show(withMessage: "Loading...")
+            TaskGroup.EditResources.resources(project: self.project, completion: { (editResources) in
+                guard let editResources = editResources else {
+                    KRProgressHUD.set(duration: 2.0).dismiss({
+                        KRProgressHUD.showError(withMessage: "編集できません。")
+                    })
+                    return
+                }
+                
+                let cell = tableView.cellForRow(at: indexPath) as! TaskGroupCell
+                let storyboard = UIStoryboard(name: "ProjectTask", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: TaskGroupEditController.identity) as! TaskGroupEditController
+                controller.parentNavigationController = self.parentNavigationController
+                controller.project = self.project
+                controller.taskGroup = cell.group
+                controller.editResource = editResources
+                KRProgressHUD.dismiss()
+                self.parentNavigationController?.pushViewController(controller, animated: true)
+            })
+        }
+        
+        editAction.backgroundColor = Colors.themeYellow
+        
+        return UISwipeActionsConfiguration(actions: [editAction])
+    }
 
     // MARK: -  Add Button
     @objc func addButtonTapped() {

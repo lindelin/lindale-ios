@@ -50,6 +50,34 @@ struct TaskGroup: Codable {
         case color
     }
     
+    func isOpen() -> Bool {
+        if self.statusId == 1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    struct EditResources: Codable {
+        var types: [TaskType]
+        
+        enum CodingKeys: String, CodingKey {
+            case types
+        }
+        
+        static func resources(project: ProjectCollection.Project, completion: @escaping (EditResources?) -> Void) {
+            NetworkProvider.main.data(request: .taskGroupEditResource(project: project)) { (data) in
+                guard let data = data else {
+                    completion(nil)
+                    return
+                }
+                
+                let editResources = try! JSONDecoder.main.decode(EditResources.self, from: data)
+                completion(editResources)
+            }
+        }
+    }
+    
     static func resources(project: ProjectCollection.Project, completion: @escaping (TaskGroupCollection?) -> Void) {
         NetworkProvider.main.data(request: .projectTaskGroups(project: project)) { (data) in
             guard let data = data else {

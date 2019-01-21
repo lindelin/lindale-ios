@@ -16,6 +16,9 @@ class ProjectMemberCell: UITableViewCell {
     @IBOutlet weak var role: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var projectStatus: UILabel!
+    @IBOutlet weak var taskStatus: UILabel!
+    @IBOutlet weak var todoStatus: UILabel!
     
     enum Role: String {
         case pl = "pl-30"
@@ -33,10 +36,13 @@ class ProjectMemberCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func update(user: User, role: Role) {
+    func update(user: Profile, role: Role) {
         self.photo.load(url: user.photo, placeholder: UIImage(named: "lindale-launch"))
         self.role.image = UIImage(named: role.rawValue)
         self.name.text = user.name
         self.email.text = user.email
+        self.projectStatus.text = user.status.projectCount.description
+        self.taskStatus.text = user.status.unfinishedTaskCount.description
+        self.todoStatus.text = user.status.unfinishedTodoCount.description
     }
 }

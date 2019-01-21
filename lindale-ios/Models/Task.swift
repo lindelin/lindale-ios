@@ -282,6 +282,20 @@ struct TaskResource: Codable {
     }
 }
 
+struct TaskType: Codable  {
+    var projectId: Int
+    var id: Int
+    var name: String
+    var colorId: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case projectId = "project_id"
+        case id
+        case name
+        case colorId = "color_id"
+    }
+}
+
 struct TaskActivityRegister {
     var taskId: Int
     var content: String

@@ -76,23 +76,76 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNQ-fu-Hn7">
-                                                    <rect key="frame" x="287" y="84" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="gMF-3v-Oqt"/>
-                                                        <constraint firstAttribute="width" constant="40" id="iMn-QC-5Le"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="config-48"/>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4uo-pM-ZfP">
+                                                    <rect key="frame" x="112" y="81.5" width="216.5" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LU7-5n-TPQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="30"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="project-30" translatesAutoresizingMaskIntoConstraints="NO" id="ZsM-kr-mnC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <color key="tintColor" name="Theme-green"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="NEa-re-wRr"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="fsk-ra-PLc"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-5d-PCf">
+                                                                    <rect key="frame" x="34" y="0.0" width="35.5" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="VPx-0x-s5J">
+                                                            <rect key="frame" x="73.5" y="0.0" width="69.5" height="30"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task-30" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-iA-C7s">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <color key="tintColor" name="Theme-yellow"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="gob-Ej-Zsn"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="yqR-Ce-wBr"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f9-iI-tzl">
+                                                                    <rect key="frame" x="34" y="0.0" width="35.5" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6Dx-jI-Ymz">
+                                                            <rect key="frame" x="147" y="0.0" width="69.5" height="30"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="todo-30" translatesAutoresizingMaskIntoConstraints="NO" id="Rjp-50-Isd">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <color key="tintColor" name="Theme-main"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="KOw-u2-979"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="KQa-Mj-Lx8"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAZ-aa-iXG">
+                                                                    <rect key="frame" x="34" y="0.0" width="35.5" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="140" id="P3q-G0-oug"/>
                                                 <constraint firstAttribute="trailing" secondItem="CLR-cl-Ubo" secondAttribute="trailing" constant="16" id="SH1-id-I9e"/>
                                                 <constraint firstItem="KmP-1l-vGQ" firstAttribute="top" secondItem="7MT-UA-gUu" secondAttribute="top" constant="16" id="gpf-k9-dUM"/>
-                                                <constraint firstAttribute="trailing" secondItem="KNQ-fu-Hn7" secondAttribute="trailing" constant="16" id="qGz-ns-2oo"/>
                                                 <constraint firstItem="CLR-cl-Ubo" firstAttribute="top" secondItem="7MT-UA-gUu" secondAttribute="top" constant="16" id="qbT-x7-9NH"/>
-                                                <constraint firstAttribute="bottom" secondItem="KNQ-fu-Hn7" secondAttribute="bottom" constant="16" id="rbV-do-5pq"/>
                                                 <constraint firstItem="KmP-1l-vGQ" firstAttribute="leading" secondItem="7MT-UA-gUu" secondAttribute="leading" constant="16" id="uF8-WJ-NEl"/>
                                                 <constraint firstItem="CLR-cl-Ubo" firstAttribute="leading" secondItem="KmP-1l-vGQ" secondAttribute="trailing" constant="16" id="vZs-LV-lNg"/>
                                             </constraints>
@@ -126,7 +179,10 @@
                                     <outlet property="email" destination="zbH-Rg-M8W" id="NvW-ac-gda"/>
                                     <outlet property="name" destination="4p1-wA-p02" id="Zbf-BV-y99"/>
                                     <outlet property="photo" destination="KmP-1l-vGQ" id="mHd-jC-gP9"/>
+                                    <outlet property="projectStatus" destination="UqL-5d-PCf" id="VhH-Do-oA0"/>
                                     <outlet property="role" destination="2oZ-td-m4m" id="fRF-xb-Ucy"/>
+                                    <outlet property="taskStatus" destination="3f9-iI-tzl" id="LaO-Tv-vFp"/>
+                                    <outlet property="todoStatus" destination="fAZ-aa-iXG" id="uW5-lD-pz3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -138,13 +194,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmt-VE-G41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2145" y="22"/>
+            <point key="canvasLocation" x="-2146.4000000000001" y="21.139430284857571"/>
         </scene>
     </scenes>
     <resources>
-        <image name="config-48" width="72" height="72"/>
         <image name="king-30" width="45" height="45"/>
         <image name="lindale-launch" width="1500" height="1500"/>
+        <image name="project-30" width="45" height="45"/>
+        <image name="task-30" width="45" height="45"/>
+        <image name="todo-30" width="45" height="45"/>
         <namedColor name="Theme-base">
             <color red="0.011764705882352941" green="0.10196078431372549" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -154,11 +212,17 @@
         <namedColor name="Theme-base-sub">
             <color red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Theme-green">
+            <color red="0.32549019607843138" green="0.63921568627450975" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Theme-main">
             <color red="0.80000000000000004" green="0.26666666666666666" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme-sub">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-yellow">
+            <color red="0.96862745098039216" green="0.76078431372549016" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

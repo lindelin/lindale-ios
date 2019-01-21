@@ -35,7 +35,6 @@ class ProjectWikiEditController: UITableViewController {
         self.navigationItem.leftBarButtonItem = backButton
         let updateButton = UIBarButtonItem(title: "Update", style: .plain, target: self, action: #selector(self.updateButtonTapped))
         self.navigationItem.rightBarButtonItem = updateButton
-        
     }
     
     func updateUI() {
@@ -52,7 +51,8 @@ class ProjectWikiEditController: UITableViewController {
         let register = WikiRegister(id: self.wiki.id,
                                     title: self.wikiTitle.text,
                                     content: self.wikiContent.text,
-                                    typeId: nil)
+                                    typeId: nil,
+                                    image: self.image.image)
         register.update { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()

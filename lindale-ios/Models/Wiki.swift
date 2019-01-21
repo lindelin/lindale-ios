@@ -82,6 +82,7 @@ struct WikiRegister {
     var title: String?
     var content: String?
     var typeId: Int?
+    var image: UIImage?
     
     func update(completion: @escaping ([String: String]) -> Void) {
         NetworkProvider.main.message(request: .updateWiki(wiki: self)) { (status) in

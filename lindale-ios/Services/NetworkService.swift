@@ -48,6 +48,7 @@ enum NetworkService {
     case storeTodoList(todoList: TodoListRegister)
     case storeTodo(todo: TodoRegister)
     case uploadProfilePhoto(image: UIImage)
+    case taskGroupEditResource(project: ProjectCollection.Project)
 }
 
 extension NetworkService: TargetType {
@@ -128,25 +129,27 @@ extension NetworkService: TargetType {
             return "/projects/\(todoList.projectId!)/todo-list"
         case .storeTodo(let todo):
             return "/projects/\(todo.projectId!)/todos"
+        case .taskGroupEditResource(let project):
+            return "/projects/\(project.id)/tasks/groups/edit-resource"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .groupTasks, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail:
+        case .projects, .profile, .myTasks, .myTodos, .groupTasks, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail, .taskGroupEditResource:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate, .taskUpdate, .updateWiki:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate, .taskUpdate:
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki:
             return .post
         }
     }
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .groupTasks, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .groupTasks, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail, .taskGroupEditResource:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -223,10 +226,24 @@ extension NetworkService: TargetType {
                 "revoked": false
                 ], encoding: JSONEncoding.default)
         case let .updateWiki(wiki):
-            return .requestParameters(parameters: [
-                "title": wiki.title as Any,
-                "content": wiki.content as Any
-                ], encoding: JSONEncoding.default)
+            let imageData = wiki.image?.jpegData(compressionQuality: 1.0)!
+            if let imageData = imageData {
+                return .uploadMultipart([
+                    MultipartFormData(provider: .data("PUT".data(using: .utf8)!), name: "_method"),
+                    MultipartFormData(provider: .data(imageData),
+                                      name: "image",
+                                      fileName: "image.jpg",
+                                      mimeType: "image/jpg"),
+                    MultipartFormData(provider: .data((wiki.title ?? "").data(using: .utf8)!), name: "title"),
+                    MultipartFormData(provider: .data((wiki.content ?? "").data(using: .utf8)!), name: "content")
+                    ])
+            } else {
+                return .requestParameters(parameters: [
+                    "title": wiki.title as Any,
+                    "content": wiki.content as Any,
+                    "_method": "PUT"
+                    ], encoding: JSONEncoding.default)
+            }
         case let .storeTodoList(todoList):
             return .requestParameters(parameters: [
                 "type_name": todoList.title as Any

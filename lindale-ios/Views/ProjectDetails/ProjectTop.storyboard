@@ -295,10 +295,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhN-2S-vgD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="500.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="430"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="500" id="WRR-dj-ye7"/>
+                                                <constraint firstAttribute="height" constant="430" id="WRR-dj-ye7"/>
                                             </constraints>
                                             <wkWebViewConfiguration key="configuration">
                                                 <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>

@@ -10,9 +10,9 @@ import Moya
 import UIKit
 
 struct ProjectMember: Codable {
-    var pl: User
-    var sl: User?
-    var members: [User]
+    var pl: Profile
+    var sl: Profile?
+    var members: [Profile]
     
     enum CodingKeys: String, CodingKey {
         case pl

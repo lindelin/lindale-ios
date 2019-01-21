@@ -86,6 +86,7 @@
 		F2480BE521CC84D6006A2222 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F266D35521D3608F0057E0FA /* ProjectTodoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F266D35421D3608F0057E0FA /* ProjectTodoEditController.swift */; };
+		F2819EAA21F5B4D70070BD3B /* TaskGroupEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */; };
 		F289596A21BFA9A000A1F1A7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596921BFA9A000A1F1A7 /* TaskGroup.swift */; };
 		F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */; };
 		F298A57121C23FE40047D79F /* ProjectTop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57021C23FE40047D79F /* ProjectTop.storyboard */; };
@@ -387,6 +388,7 @@
 		F2480BDD21CC7A0E006A2222 /* SharedHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpers.swift; sourceTree = "<group>"; };
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F266D35421D3608F0057E0FA /* ProjectTodoEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTodoEditController.swift; sourceTree = "<group>"; };
+		F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupEditController.swift; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
 		F298A57021C23FE40047D79F /* ProjectTop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectTop.storyboard; sourceTree = "<group>"; };
@@ -845,6 +847,7 @@
 				D63DA1FA21D4A2AA000A7EE8 /* ProjectGroupTasksController.swift */,
 				D63DA1FC21D4B349000A7EE8 /* ProjectTaskDetailController.swift */,
 				D63DA1FE21D4BCD3000A7EE8 /* ProjectTaskEditController.swift */,
+				F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */,
 			);
 			path = ProjectDetailControllers;
 			sourceTree = "<group>";
@@ -1710,6 +1713,7 @@
 				A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */,
 				F2423E96219EAE8600868F00 /* UITabelView+Animation.swift in Sources */,
 				A8DE10AB217B63C300D1F654 /* Errors.swift in Sources */,
+				F2819EAA21F5B4D70070BD3B /* TaskGroupEditController.swift in Sources */,
 				F2E94DF721C897F400722DC3 /* Others.swift in Sources */,
 				F2F46BA8214BAD04005CD8A9 /* Task.swift in Sources */,
 				F2E7577421E4A51100A2AEA3 /* FloatyManager.swift in Sources */,
