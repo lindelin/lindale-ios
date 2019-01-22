@@ -27,12 +27,30 @@ class ProjectTaskController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskGroupHasUpdated, object: nil)
     }
     
     private func setupFloatyButton() {
         let floaty = Floaty()
         floaty.addItem("New Group", icon: UIImage(named: "task-group-30")!, handler: { item in
-            // TODO
+            KRProgressHUD.show(withMessage: "Loading...")
+            TaskGroup.EditResources.resources(project: self.project, completion: { (editResources) in
+                guard let editResources = editResources else {
+                    KRProgressHUD.set(duration: 2.0).dismiss({
+                        KRProgressHUD.showError(withMessage: "作成できません。")
+                    })
+                    return
+                }
+                
+                let storyboard = UIStoryboard(name: "ProjectTask", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: TaskGroupCreateController.identity) as! TaskGroupCreateController
+                controller.parentNavigationController = self.parentNavigationController
+                controller.project = self.project
+                controller.editResource = editResources
+                KRProgressHUD.dismiss()
+                self.parentNavigationController?.pushViewController(controller, animated: true)
+            })
             floaty.close()
         })
         floaty.addItem("New Task", icon: UIImage(named: "task-30")!, handler: { item in

@@ -280,6 +280,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="langLabelComplete" destination="Q01-qk-9tz" id="m1l-5n-jr4"/>
+                                    <outlet property="langLabelProjectLeader" destination="fMv-bn-L4G" id="Tv1-Dz-yiO"/>
                                     <outlet property="plImage" destination="36Y-gx-jdB" id="jpq-Dg-sHG"/>
                                     <outlet property="plName" destination="73m-ae-aU7" id="5ns-ho-tqM"/>
                                     <outlet property="progress" destination="dcR-SO-HQA" id="hwN-Uw-Hxq"/>

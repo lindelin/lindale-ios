@@ -17,6 +17,10 @@ class ProfileStatusCell: UITableViewCell {
     @IBOutlet weak var taskProgressText: UILabel!
     @IBOutlet weak var todoProgressText: UILabel!
     
+    // MARK: - language label
+    @IBOutlet weak var langLabelTotal: UILabel!
+    @IBOutlet weak var langLabelTask: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,6 +46,8 @@ class ProfileStatusCell: UITableViewCell {
     }
     
     func updateStatus(_ progress: Profile.Progress) {
+        self.langLabelTotal.text = trans("header.progress")
+        self.langLabelTask.text = trans("header.tasks")
         self.totalProgress.progress = Float(Double(progress.total) / Double(100))
         self.taskProgress.progress = Float(Double(progress.task) / Double(100))
         self.todoProgress.progress = Float(Double(progress.todo) / Double(100))

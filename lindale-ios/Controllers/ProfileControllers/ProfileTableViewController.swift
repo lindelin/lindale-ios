@@ -22,6 +22,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -117,19 +118,19 @@ class ProfileTableViewController: UITableViewController {
             switch segmentedControl.selectedSegmentIndex {
             case 0:
                 if section == 0 {
-                    title = "進捗"
+                    title = trans("header.progress")
                 } else {
-                    title = "アクティビティ"
+                    title = trans("progress.status")
                 }
                 break
             case 1:
-                title = "お気に入り"
+                title = trans("project.favorite")
                 break
             case 2:
                 if section == 0 {
-                    title = "管理しているプロジェクト"
+                    title = trans("project.projects-manage")
                 } else {
-                    title = "参与しているプロジェクト"
+                    title = trans("project.projects-join")
                 }
                 break
             default:

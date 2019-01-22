@@ -9,15 +9,14 @@
 import UIKit
 import KRProgressHUD
 
-class TaskGroupEditController: UITableViewController {
+class TaskGroupCreateController: UITableViewController {
     
-    static let identity = "ProjectTaskGroupEdit"
+    static let identity = "ProjectTaskGroupCreate"
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
-    var taskGroup: TaskGroup!
     var editResource: TaskGroup.EditResources!
-
+    
     @IBOutlet weak var groupName: UITextField!
     @IBOutlet weak var startAt: UITextField!
     @IBOutlet weak var endAt: UITextField!
@@ -31,8 +30,6 @@ class TaskGroupEditController: UITableViewController {
         self.setup()
         
         self.tableView.keyboardDismissMode = .onDrag
-        
-        self.updateUI()
     }
     
     func setup() {
@@ -40,23 +37,10 @@ class TaskGroupEditController: UITableViewController {
         self.endAt.addTarget(self, action: #selector(self.endAtEditing), for: .editingDidBegin)
     }
     
-    func updateUI() {
-        self.groupName.text = self.taskGroup.title
-        self.startAt.text = Date.createFormFormat(string: self.taskGroup.startAt ?? "")?.format("yyyy-MM-dd")
-        self.endAt.text = Date.createFormFormat(string: self.taskGroup.endAt ?? "")?.format("yyyy-MM-dd")
-        for (index, type) in self.editResource.types.enumerated() {
-            if type.name == self.taskGroup.type {
-                self.type.selectRow(index, inComponent: 0, animated: true)
-            }
-        }
-        self.color.selectRow(self.taskGroup.color - 1 , inComponent: 0, animated: true)
-        self.status.selectedSegmentIndex = self.taskGroup.isOpen() ? 0 : 1
-    }
-    
     @IBAction func updateButtonTapped(_ sender: Any) {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show(withMessage: "Creating...")
         let type = self.editResource.types[self.type.selectedRow(inComponent: 0)]
-        let statusId: Int = self.status.selectedSegmentIndex == 0 ? TaskGroup.Status.open.rawValue : TaskGroup.Status.close.rawValue
+        let statusId = TaskGroup.Status.open.rawValue
         let colorId = self.color.selectedRow(inComponent: 0) + 1
         let register = TaskGroupRegister(id: nil,
                                          title: self.groupName.text,
@@ -66,11 +50,11 @@ class TaskGroupEditController: UITableViewController {
                                          startAt: self.startAt.text,
                                          endAt: self.endAt.text,
                                          colorId: colorId,
-                                         projectId: nil)
-        register.update { (response) in
+                                         projectId: self.project.id)
+        register.store { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Update error", message: response["messages"]!)
+                self.showAlert(title: "Create error", message: response["messages"]!)
                 return
             }
             
@@ -112,7 +96,7 @@ class TaskGroupEditController: UITableViewController {
     }
 }
 
-extension TaskGroupEditController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension TaskGroupCreateController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

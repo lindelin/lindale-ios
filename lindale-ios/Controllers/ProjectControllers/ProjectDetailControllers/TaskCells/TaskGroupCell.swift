@@ -21,6 +21,9 @@ class TaskGroupCell: UITableViewCell {
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var statusIcon: UIImageView!
+    @IBOutlet weak var typeLabel: UILabel!
+    
+    
     
     override func awakeFromNib() {
         card.layer.cornerRadius = 5
@@ -45,6 +48,8 @@ class TaskGroupCell: UITableViewCell {
         self.colorView.backgroundColor = Colors.get(id: group.color)
         self.progress.progressTintColor = Colors.get(id: group.color)
         self.progress.setProgress(Float(Double(group.progress) / Double(100)), animated: false)
+        self.typeLabel.text = "\(group.type)#\(group.id)"
+        self.typeLabel.textColor = Colors.get(id: group.typeColor)
         self.title.text = group.title
         self.date.text = "\(group.startAt ?? "∞")〜\(group.endAt ?? "∞")"
         self.status.text = group.status

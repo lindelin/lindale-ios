@@ -57,6 +57,7 @@ class LocaleUpdateController: UITableViewController {
             self.localeSettings.currentLanguage = option.key
             self.localeSettings.currentLanguageName = option.value
             tableView.reloadData()
+            LanguageService.sync()
             NotificationCenter.default.post(name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
         }
     }

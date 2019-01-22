@@ -50,6 +50,11 @@ struct TaskGroup: Codable {
         case color
     }
     
+    enum Status: Int {
+        case open = 1
+        case close = 999
+    }
+    
     func isOpen() -> Bool {
         if self.statusId == 1 {
             return true
@@ -87,6 +92,30 @@ struct TaskGroup: Codable {
             
             let taskGroupCollection = try! JSONDecoder.main.decode(TaskGroupCollection.self, from: data)
             completion(taskGroupCollection)
+        }
+    }
+}
+
+struct TaskGroupRegister {
+    var id: Int?
+    var title: String?
+    var information: String?
+    var typeId: Int?
+    var statusId: Int?
+    var startAt: String?
+    var endAt: String?
+    var colorId: Int?
+    var projectId: Int?
+    
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeTaskGroup(group: self)) { (status) in
+            completion(status)
+        }
+    }
+    
+    func update(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .updateTaskGroup(group: self)) { (status) in
+            completion(status)
         }
     }
 }

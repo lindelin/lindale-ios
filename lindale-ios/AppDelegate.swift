@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             unUserNotificationCenter.delegate = self
             application.registerForRemoteNotifications()
             // [END register_for_notifications]
+            
+            LanguageService.sync()
         }
         
         return true

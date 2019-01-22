@@ -16,4 +16,5 @@ struct LocalNotificationService {
     static let taskActivityHasUpdated = Notification.Name("taskActivityHasUpdated")
     static let todoHasUpdated = Notification.Name("todoHasUpdated")
     static let wikiHasUpdated = Notification.Name("wikiHasUpdated")
+    static let taskGroupHasUpdated = Notification.Name("taskGroupHasUpdated")
 }

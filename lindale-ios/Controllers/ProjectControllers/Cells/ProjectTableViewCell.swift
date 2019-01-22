@@ -23,6 +23,10 @@ class ProjectTableViewCell: UITableViewCell {
     @IBOutlet weak var plImage: UIImageView!
     @IBOutlet weak var plName: UILabel!
     
+    // MARK: - language label
+    @IBOutlet weak var langLabelProjectLeader: UILabel!
+    @IBOutlet weak var langLabelComplete: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -36,6 +40,8 @@ class ProjectTableViewCell: UITableViewCell {
     }
     
     func setCell(project: ProjectCollection.Project) {
+        self.langLabelProjectLeader.text = trans("member.pl")
+        self.langLabelComplete.text = trans("common.finish")
         self.project = project
         self.projectImage.image = #imageLiteral(resourceName: "lindale-launch")
         self.projectImage.load(url: project.image, placeholder: #imageLiteral(resourceName: "lindale-launch"))

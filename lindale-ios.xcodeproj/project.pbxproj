@@ -87,6 +87,8 @@
 		F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F266D35521D3608F0057E0FA /* ProjectTodoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F266D35421D3608F0057E0FA /* ProjectTodoEditController.swift */; };
 		F2819EAA21F5B4D70070BD3B /* TaskGroupEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */; };
+		F2819EAC21F6BCE60070BD3B /* TaskGroupCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2819EAB21F6BCE60070BD3B /* TaskGroupCreateController.swift */; };
+		F2819EAE21F6E7450070BD3B /* LocaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2819EAD21F6E7450070BD3B /* LocaleService.swift */; };
 		F289596A21BFA9A000A1F1A7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596921BFA9A000A1F1A7 /* TaskGroup.swift */; };
 		F289596D21BFAD5D00A1F1A7 /* TaskGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */; };
 		F298A57121C23FE40047D79F /* ProjectTop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57021C23FE40047D79F /* ProjectTop.storyboard */; };
@@ -389,6 +391,8 @@
 		F24FB83E213C086D00045DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F266D35421D3608F0057E0FA /* ProjectTodoEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTodoEditController.swift; sourceTree = "<group>"; };
 		F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupEditController.swift; sourceTree = "<group>"; };
+		F2819EAB21F6BCE60070BD3B /* TaskGroupCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCreateController.swift; sourceTree = "<group>"; };
+		F2819EAD21F6E7450070BD3B /* LocaleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleService.swift; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
 		F298A57021C23FE40047D79F /* ProjectTop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectTop.storyboard; sourceTree = "<group>"; };
@@ -693,6 +697,7 @@
 				F2E0D206214A3F3E00023905 /* WatchService.swift */,
 				A89F87D721723C02004ADEA4 /* Notification.swift */,
 				F2E94DF821CA3BF400722DC3 /* PushNotificationService.swift */,
+				F2819EAD21F6E7450070BD3B /* LocaleService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -848,6 +853,7 @@
 				D63DA1FC21D4B349000A7EE8 /* ProjectTaskDetailController.swift */,
 				D63DA1FE21D4BCD3000A7EE8 /* ProjectTaskEditController.swift */,
 				F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */,
+				F2819EAB21F6BCE60070BD3B /* TaskGroupCreateController.swift */,
 			);
 			path = ProjectDetailControllers;
 			sourceTree = "<group>";
@@ -1685,6 +1691,7 @@
 				F2D684E821C0F15F0094D5B9 /* Member.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				F2F4FFD2215E246800D5F197 /* Intents.intentdefinition in Sources */,
+				F2819EAC21F6BCE60070BD3B /* TaskGroupCreateController.swift in Sources */,
 				A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */,
 				F2D684E321C0B9710094D5B9 /* Wiki.swift in Sources */,
 				F2C12C98219D5264002B58C2 /* User.swift in Sources */,
@@ -1695,6 +1702,7 @@
 				A8D5A027214422E1002E8D52 /* UITheme.swift in Sources */,
 				F2E7577521E4A51100A2AEA3 /* FloatyItem.swift in Sources */,
 				F2A39AEA214D109100BF2AF7 /* DefaultTodoCell.swift in Sources */,
+				F2819EAE21F6E7450070BD3B /* LocaleService.swift in Sources */,
 				F2CAE18E21393610002C04E7 /* ProjectTableViewCell.swift in Sources */,
 				A8DCF837217AFDF500839DA4 /* LocaleUpdateController.swift in Sources */,
 				F2B273CE21B656AB007153D7 /* ProjectTaskController.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import Moya
 
 enum NetworkService {
+    case languageResource
     case projects
     case favoriteProjects
     case profile
@@ -49,6 +50,8 @@ enum NetworkService {
     case storeTodo(todo: TodoRegister)
     case uploadProfilePhoto(image: UIImage)
     case taskGroupEditResource(project: ProjectCollection.Project)
+    case updateTaskGroup(group: TaskGroupRegister)
+    case storeTaskGroup(group: TaskGroupRegister)
 }
 
 extension NetworkService: TargetType {
@@ -57,6 +60,8 @@ extension NetworkService: TargetType {
     
     var path: String {
         switch self {
+        case .languageResource:
+            return "/lang"
         case .projects:
             return "/projects"
         case .favoriteProjects:
@@ -131,25 +136,29 @@ extension NetworkService: TargetType {
             return "/projects/\(todo.projectId!)/todos"
         case .taskGroupEditResource(let project):
             return "/projects/\(project.id)/tasks/groups/edit-resource"
+        case .updateTaskGroup(let group):
+            return "/tasks/group/\(group.id!)"
+        case .storeTaskGroup(let group):
+            return "/projects/\(group.projectId!)/tasks/groups"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .groupTasks, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail, .taskGroupEditResource:
+        case .projects, .profile, .myTasks, .myTodos, .groupTasks, .myTaskDetail, .localeSettings, .notificationSettings, .favoriteProjects, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail, .taskGroupEditResource, .languageResource:
             return .get
-        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate, .taskUpdate:
+        case .localeUpdate, .resetPassword, .notificationUpdate, .profileInfoUpdate, .updateSubTask, .completeTask, .changeTodoColor, .updateTodoToFinished, .todoUpdate, .taskUpdate, .updateTaskGroup:
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup:
             return .post
         }
     }
     
     var task: Task {
         switch self {
-        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .groupTasks, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail, .taskGroupEditResource:
+        case .projects, .profile, .myTasks, .myTodos, .myTaskDetail, .groupTasks, .localeSettings, .notificationSettings, .favoriteProjects, .deleteTask, .deleteSubTask, .deleteTodo, .updateTodoToFinished, .todoEditResource, .taskEditResource, .projectTopResources, .projectTaskGroups, .projectWikiTypes, .projectMembers, .projectTodos, .projectWikis, .wikiDetail, .taskGroupEditResource, .languageResource:
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
@@ -251,6 +260,26 @@ extension NetworkService: TargetType {
         case let .storeTodo(todo):
             return .requestParameters(parameters: [
                 "content": todo.content as Any,
+                ], encoding: JSONEncoding.default)
+        case let .updateTaskGroup(group):
+            return .requestParameters(parameters: [
+                "title": group.title as Any,
+                "information": group.information as Any,
+                "type_id": group.typeId as Any,
+                "start_at": group.startAt as Any,
+                "end_at": group.endAt as Any,
+                "status_id": group.statusId as Any,
+                "color_id": group.colorId as Any
+                ], encoding: JSONEncoding.default)
+        case let .storeTaskGroup(group):
+            return .requestParameters(parameters: [
+                "title": group.title as Any,
+                "information": group.information as Any,
+                "type_id": group.typeId as Any,
+                "start_at": group.startAt as Any,
+                "end_at": group.endAt as Any,
+                "status_id": group.statusId as Any,
+                "color_id": group.colorId as Any
                 ], encoding: JSONEncoding.default)
         }
     }

@@ -254,6 +254,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="langLabelTask" destination="e0t-bz-lru" id="Bw8-EB-K3g"/>
+                                    <outlet property="langLabelTotal" destination="XOV-5u-xuH" id="Akg-e8-MEV"/>
                                     <outlet property="taskProgress" destination="I5n-jO-u1k" id="H1h-W6-9Zw"/>
                                     <outlet property="taskProgressText" destination="di4-Jm-GZH" id="0e7-Dd-26u"/>
                                     <outlet property="todoProgress" destination="oNn-GO-sGa" id="qxL-Bu-bFH"/>
