@@ -629,6 +629,12 @@
                                     <outlet property="id" destination="mie-Wg-mMc" id="6PK-tG-tCR"/>
                                     <outlet property="initiatorEmail" destination="xcT-jx-cCA" id="9SB-Ug-15Z"/>
                                     <outlet property="initiatorName" destination="biO-fa-wWX" id="eEp-P6-gqt"/>
+                                    <outlet property="langLabelComplete" destination="InU-T8-IHr" id="ljE-tV-Sw3"/>
+                                    <outlet property="langLabelList" destination="LSu-yg-QBN" id="NLo-hn-XNt"/>
+                                    <outlet property="langLabelPIC" destination="wK4-LZ-fkn" id="r4k-5U-kpV"/>
+                                    <outlet property="langLabelStatus" destination="JGy-z5-F0U" id="cox-GN-eJC"/>
+                                    <outlet property="langLabelType" destination="cvY-Ir-6KO" id="9eA-o5-Xr1"/>
+                                    <outlet property="langlabelInitator" destination="rpC-cU-nad" id="YVk-gh-s61"/>
                                     <outlet property="list" destination="r1l-Rq-O53" id="gpy-XP-ibd"/>
                                     <outlet property="projectName" destination="UFU-4l-6IL" id="PVh-d5-kTr"/>
                                     <outlet property="status" destination="HQn-hI-76F" id="C19-Jh-dH9"/>

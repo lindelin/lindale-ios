@@ -32,7 +32,9 @@
                             <constraints>
                                 <constraint firstItem="dAU-Fu-nJ8" firstAttribute="leading" secondItem="0dk-8j-rJq" secondAttribute="leading" id="5Q6-Bn-2hb"/>
                                 <constraint firstAttribute="trailing" secondItem="dAU-Fu-nJ8" secondAttribute="trailing" id="FVW-9i-dox"/>
+                                <constraint firstItem="dAU-Fu-nJ8" firstAttribute="centerX" secondItem="0dk-8j-rJq" secondAttribute="centerX" id="I4V-EV-rPI"/>
                                 <constraint firstAttribute="bottom" secondItem="dAU-Fu-nJ8" secondAttribute="bottom" id="KHA-xB-Sut"/>
+                                <constraint firstItem="dAU-Fu-nJ8" firstAttribute="centerY" secondItem="0dk-8j-rJq" secondAttribute="centerY" id="LiO-G2-Tfa"/>
                                 <constraint firstItem="dAU-Fu-nJ8" firstAttribute="top" secondItem="0dk-8j-rJq" secondAttribute="top" id="esr-O2-ymM"/>
                             </constraints>
                         </view>
@@ -194,6 +196,10 @@
                         <outlet property="contents" destination="oVJ-58-enM" id="SEc-i7-EEM"/>
                         <outlet property="endAt" destination="aPq-eh-gHl" id="ZG3-5F-VUU"/>
                         <outlet property="image" destination="dAU-Fu-nJ8" id="IkB-TZ-HSi"/>
+                        <outlet property="langLabelEnd" destination="z2F-5a-niL" id="jxK-a6-L1X"/>
+                        <outlet property="langLabelPL" destination="cZ0-DR-BX3" id="NXB-Ck-Ll5"/>
+                        <outlet property="langLabelSL" destination="E7j-ts-gyg" id="wFD-gL-LRY"/>
+                        <outlet property="langLabelStart" destination="f1X-qm-7YO" id="r8L-Bd-Fkx"/>
                         <outlet property="pl" destination="grw-wy-SZJ" id="6aJ-9k-oNR"/>
                         <outlet property="sl" destination="LO8-xd-5l4" id="Xho-72-JVu"/>
                         <outlet property="startAt" destination="yRi-cX-g2q" id="K9M-sX-dpd"/>

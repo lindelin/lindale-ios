@@ -28,6 +28,7 @@ class ProjectTaskEditController: UITableViewController {
         super.viewDidLoad()
         
         self.setup()
+        self.setupLangLabel()
         
         self.tableView.keyboardDismissMode = .onDrag
         
@@ -37,6 +38,33 @@ class ProjectTaskEditController: UITableViewController {
     func setup() {
         self.startAt.addTarget(self, action: #selector(self.startAtEditing), for: .editingDidBegin)
         self.endAt.addTarget(self, action: #selector(self.endAtEditing), for: .editingDidBegin)
+        self.navigationItem.title = trans("task.edit-task")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
+    func setupLangLabel() {
+        self.taskTitle.placeholder = trans("task.task-title")
+        self.startAt.placeholder = trans("task.start_at")
+        self.endAt.placeholder = trans("task.end_at")
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return trans("task.task-title")
+        case 1:
+            return trans("task.end_at")
+        case 2:
+            return trans("task.user")
+        case 3:
+            return trans("task.color")
+        case 4:
+            return trans("task.info")
+        default:
+            return nil
+        }
     }
     
     func updateUI() {
@@ -146,5 +174,9 @@ extension ProjectTaskEditController: UIPickerViewDelegate, UIPickerViewDataSourc
         default:
             return nil
         }
+    }
+    
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.parentNavigationController?.popViewController(animated: true)
     }
 }

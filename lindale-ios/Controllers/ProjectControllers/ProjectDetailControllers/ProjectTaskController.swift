@@ -33,12 +33,12 @@ class ProjectTaskController: UITableViewController {
     
     private func setupFloatyButton() {
         let floaty = Floaty()
-        floaty.addItem("New Group", icon: UIImage(named: "task-group-30")!, handler: { item in
-            KRProgressHUD.show(withMessage: "Loading...")
+        floaty.addItem(trans("task.new-group"), icon: UIImage(named: "task-group-30")!, handler: { item in
+            KRProgressHUD.show()
             TaskGroup.EditResources.resources(project: self.project, completion: { (editResources) in
                 guard let editResources = editResources else {
                     KRProgressHUD.set(duration: 2.0).dismiss({
-                        KRProgressHUD.showError(withMessage: "作成できません。")
+                        KRProgressHUD.showError(withMessage: trans("errors.save-failed"))
                     })
                     return
                 }
@@ -53,7 +53,7 @@ class ProjectTaskController: UITableViewController {
             })
             floaty.close()
         })
-        floaty.addItem("New Task", icon: UIImage(named: "task-30")!, handler: { item in
+        floaty.addItem(trans("task.new-task"), icon: UIImage(named: "task-30")!, handler: { item in
             // TODO
             floaty.close()
         })
@@ -64,7 +64,7 @@ class ProjectTaskController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show()
         TaskGroup.resources(project: self.project) { (taskGroupCollection) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()
@@ -116,12 +116,12 @@ class ProjectTaskController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
-            KRProgressHUD.show(withMessage: "Loading...")
+        let editAction = UIContextualAction(style: .normal, title: trans("task.edit")) { (_, _, _) in
+            KRProgressHUD.show()
             TaskGroup.EditResources.resources(project: self.project, completion: { (editResources) in
                 guard let editResources = editResources else {
                     KRProgressHUD.set(duration: 2.0).dismiss({
-                        KRProgressHUD.showError(withMessage: "編集できません。")
+                        KRProgressHUD.showError(withMessage: "Network Error!")
                     })
                     return
                 }

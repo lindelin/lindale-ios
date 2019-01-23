@@ -921,6 +921,13 @@
                                     <outlet property="group" destination="9KA-Cu-BXc" id="zHR-kE-gXz"/>
                                     <outlet property="initiatorEmail" destination="8sv-3i-9Ca" id="cP6-6n-nNh"/>
                                     <outlet property="initiatorName" destination="YnB-HU-nAt" id="PlH-02-AHK"/>
+                                    <outlet property="langLabelEnd" destination="fyJ-PV-WEy" id="po4-dr-qqA"/>
+                                    <outlet property="langLabelGroup" destination="ZDC-bX-TMQ" id="9QG-cy-vtm"/>
+                                    <outlet property="langLabelPIC" destination="oBd-K8-Pag" id="stg-02-LYB"/>
+                                    <outlet property="langLabelPriority" destination="uQA-5x-c9Q" id="DzI-Nh-pL4"/>
+                                    <outlet property="langLabelStart" destination="R5O-JK-AcQ" id="Bpn-FN-leA"/>
+                                    <outlet property="langLabelStatus" destination="hfm-0i-Ph1" id="wSY-jY-sQh"/>
+                                    <outlet property="langlabelInitator" destination="JEV-3Z-a7c" id="oax-3d-0ng"/>
                                     <outlet property="priority" destination="ae1-G8-qO0" id="CCM-RA-APY"/>
                                     <outlet property="progressBar" destination="eBm-rN-sL3" id="FPz-QU-6D9"/>
                                     <outlet property="projectNameAndCode" destination="9rA-hT-ixS" id="W4D-xn-KiE"/>
@@ -943,7 +950,15 @@
                     <tabBarItem key="tabBarItem" title="" image="task-30" id="tfC-iH-V5g">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Tasks" id="9tP-c8-Zfl"/>
+                    <navigationItem key="navigationItem" title="Tasks" id="9tP-c8-Zfl">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="qit-d6-S4W">
+                            <color key="tintColor" name="Theme-base-sub"/>
+                            <connections>
+                                <action selector="backButton:" destination="b76-n9-e2a" id="t1X-sq-9UO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="600" height="1200"/>
                 </tableViewController>
@@ -959,12 +974,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="TIB-Yy-MVx">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="TIB-Yy-MVx">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TKV-sp-Nsj">
-                                    <rect key="frame" x="16" y="16" width="343" height="128"/>
+                                    <rect key="frame" x="16" y="16" width="343" height="801"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BX2-pB-bDC">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
@@ -990,11 +1005,11 @@
                                             </constraints>
                                         </stackView>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VRY-jN-LZL">
-                                            <rect key="frame" x="0.0" y="50" width="343" height="2"/>
+                                            <rect key="frame" x="0.0" y="50" width="343" height="675"/>
                                             <color key="trackTintColor" name="Theme-sub"/>
                                         </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3　サブチケット（0 - 完了 ， 3 - 未完了）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfi-sV-4e2">
-                                            <rect key="frame" x="0.0" y="68" width="343" height="16"/>
+                                            <rect key="frame" x="0.0" y="741" width="343" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="n96-p8-66H"/>
                                             </constraints>
@@ -1003,7 +1018,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dBr-Tl-hUz">
-                                            <rect key="frame" x="0.0" y="100" width="343" height="29"/>
+                                            <rect key="frame" x="0.0" y="773" width="343" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="yyC-21-aoH"/>
                                             </constraints>
@@ -1474,6 +1489,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="2pX-wZ-xlL">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="EuP-fq-AsX">
+                            <color key="tintColor" name="Theme-base-sub"/>
+                            <connections>
+                                <action selector="backButton:" destination="WAf-Fu-KPI" id="QMF-K2-WkH"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Tasks" image="task-24" id="p0k-BI-KXt">
                                 <color key="tintColor" name="Theme-green"/>
@@ -1501,6 +1522,7 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="segmentedControl" destination="dBr-Tl-hUz" id="ido-ys-gO1"/>
@@ -1514,7 +1536,7 @@
             </objects>
             <point key="canvasLocation" x="3804" y="679"/>
         </scene>
-        <!--Edit-->
+        <!--Project Task Edit Controller-->
         <scene sceneID="VpL-eR-YHT">
             <objects>
                 <tableViewController storyboardIdentifier="ProjectTaskEdit" id="5E6-Rg-T8X" customClass="ProjectTaskEditController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -1680,13 +1702,21 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit" id="LfP-HC-bEN">
-                        <barButtonItem key="rightBarButtonItem" title="Update" id="EB5-Us-dYO">
+                    <navigationItem key="navigationItem" id="LfP-HC-bEN">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="UNT-V0-Cjr">
+                            <color key="tintColor" name="Theme-base-sub"/>
+                            <connections>
+                                <action selector="backButton:" destination="5E6-Rg-T8X" id="hcE-X5-3A8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" image="insert-30" id="EB5-Us-dYO">
+                            <color key="tintColor" name="Theme-yellow"/>
                             <connections>
                                 <action selector="updateTask:" destination="5E6-Rg-T8X" id="InH-AS-xHm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
                         <outlet property="colorPicker" destination="RQK-fZ-8Id" id="D0M-ee-A1q"/>
@@ -1701,7 +1731,7 @@
             </objects>
             <point key="canvasLocation" x="4702" y="453"/>
         </scene>
-        <!--Edit-->
+        <!--Task Group Edit Controller-->
         <scene sceneID="yT3-O8-12r">
             <objects>
                 <tableViewController storyboardIdentifier="ProjectTaskGroupEdit" id="DmP-pH-KVx" customClass="TaskGroupEditController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -1873,8 +1903,15 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Edit" id="UL1-jb-XW2">
-                        <barButtonItem key="rightBarButtonItem" title="Update" id="Ino-IJ-AdG">
+                    <navigationItem key="navigationItem" id="UL1-jb-XW2">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="TU6-zk-uRF">
+                            <color key="tintColor" name="Theme-base-sub"/>
+                            <connections>
+                                <action selector="backButton:" destination="DmP-pH-KVx" id="Tzi-yx-qSI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" image="insert-30" id="Ino-IJ-AdG">
+                            <color key="tintColor" name="Theme-yellow"/>
                             <connections>
                                 <action selector="updateButtonTapped:" destination="DmP-pH-KVx" id="rEN-Tz-Fuc"/>
                             </connections>
@@ -1896,7 +1933,7 @@
             </objects>
             <point key="canvasLocation" x="1809" y="1128"/>
         </scene>
-        <!--Create-->
+        <!--Task Group Create Controller-->
         <scene sceneID="wmL-1e-AdQ">
             <objects>
                 <tableViewController storyboardIdentifier="ProjectTaskGroupCreate" id="rCF-w9-qHT" customClass="TaskGroupCreateController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -2068,8 +2105,15 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Create" id="3CU-zL-ZKt">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="hlD-20-JRF">
+                    <navigationItem key="navigationItem" id="3CU-zL-ZKt">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="s49-hY-71a">
+                            <color key="tintColor" name="Theme-base-sub"/>
+                            <connections>
+                                <action selector="backButton:" destination="rCF-w9-qHT" id="k92-RV-WUQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create" image="insert-30" id="hlD-20-JRF">
+                            <color key="tintColor" name="Theme-yellow"/>
                             <connections>
                                 <action selector="updateButtonTapped:" destination="rCF-w9-qHT" id="kHr-W0-0Lq"/>
                             </connections>
@@ -2093,10 +2137,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back-30" width="45" height="45"/>
         <image name="chat-bubble-30" width="45" height="45"/>
         <image name="check-all-30" width="45" height="45"/>
         <image name="dots" width="14" height="84"/>
         <image name="info-30" width="45" height="45"/>
+        <image name="insert-30" width="45" height="45"/>
         <image name="pencil-24" width="36" height="36"/>
         <image name="speech-bubble-24" width="36" height="36"/>
         <image name="task-24" width="36" height="36"/>

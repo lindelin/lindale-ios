@@ -29,6 +29,7 @@ class TaskGroupEditController: UITableViewController {
         super.viewDidLoad()
         
         self.setup()
+        self.setupLangLabel()
         
         self.tableView.keyboardDismissMode = .onDrag
         
@@ -38,6 +39,33 @@ class TaskGroupEditController: UITableViewController {
     func setup() {
         self.startAt.addTarget(self, action: #selector(self.startAtEditing), for: .editingDidBegin)
         self.endAt.addTarget(self, action: #selector(self.endAtEditing), for: .editingDidBegin)
+        self.navigationItem.title = trans("task.edit-group")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
+    func setupLangLabel() {
+        self.groupName.placeholder = trans("task.group-title")
+        self.startAt.placeholder = trans("task.start_at")
+        self.endAt.placeholder = trans("task.end_at")
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return trans("task.group-title")
+        case 1:
+            return trans("task.end_at")
+        case 2:
+            return trans("task.type")
+        case 3:
+            return trans("task.status")
+        case 4:
+            return trans("task.color")
+        default:
+            return nil
+        }
     }
     
     func updateUI() {
@@ -54,7 +82,7 @@ class TaskGroupEditController: UITableViewController {
     }
     
     @IBAction func updateButtonTapped(_ sender: Any) {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         let type = self.editResource.types[self.type.selectedRow(inComponent: 0)]
         let statusId: Int = self.status.selectedSegmentIndex == 0 ? TaskGroup.Status.open.rawValue : TaskGroup.Status.close.rawValue
         let colorId = self.color.selectedRow(inComponent: 0) + 1
@@ -70,7 +98,7 @@ class TaskGroupEditController: UITableViewController {
         register.update { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Update error", message: response["messages"]!)
+                self.showAlert(title: nil, message: response["messages"]!)
                 return
             }
             
@@ -109,6 +137,10 @@ class TaskGroupEditController: UITableViewController {
     
     @objc func endAtPickerValueChanged(sender: UIDatePicker) {
         self.endAt.text = sender.date.format("yyyy-MM-dd")
+    }
+    
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.parentNavigationController?.popViewController(animated: true)
     }
 }
 

@@ -61,16 +61,16 @@ class ProjectTopController: UITableViewController {
             
             switch section {
             case 0:
-                title = "ステータス"
+                title = trans("project.status")
                 break
             case 1:
-                title = "進捗"
+                title = trans("header.progress")
                 break
             case 2:
-                title = "マイルストーン"
+                title = trans("project.milestone")
                 break
             case 3:
-                title = "アクティビティ"
+                title = trans("progress.status")
                 break
             default:
                 break
@@ -131,18 +131,4 @@ class ProjectTopController: UITableViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -208,7 +208,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             } else {
                 sectionCell.setCell(task: self.task)
             }
-            sectionCell.label.text = "担当者"
+            sectionCell.label.text = trans("task.user")
             sectionCell.label.textColor = Colors.themeBlue
             cell = sectionCell
             break
@@ -220,7 +220,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             } else {
                 sectionCell.setCell(task: self.task, isInitiator: true)
             }
-            sectionCell.label.text = "起票者"
+            sectionCell.label.text = trans("todo.initiator")
             sectionCell.label.textColor = Colors.themeGreen
             cell = sectionCell
             break
@@ -256,7 +256,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "予定工数"
+            cell.textLabel?.text = trans("task.cost")
             if let taskResource = self.taskResource {
                 cell.detailTextLabel?.text = taskResource.cost.description
             } else {
@@ -264,7 +264,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             }
             break
         case 1:
-            cell.textLabel?.text = "グループ"
+            cell.textLabel?.text = trans("task.group")
             if let taskResource = self.taskResource {
                 cell.detailTextLabel?.text = taskResource.group
             } else {
@@ -272,7 +272,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             }
             break
         case 2:
-            cell.textLabel?.text = "優先度"
+            cell.textLabel?.text = trans("task.priority")
             if let taskResource = self.taskResource {
                 cell.detailTextLabel?.text = taskResource.priority
             } else {
@@ -280,7 +280,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             }
             break
         case 3:
-            cell.textLabel?.text = "開始日"
+            cell.textLabel?.text = trans("task.start_at")
             if let taskResource = self.taskResource {
                 cell.detailTextLabel?.text = taskResource.startAt
             } else {
@@ -288,7 +288,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             }
             break
         case 4:
-            cell.textLabel?.text = "期限日"
+            cell.textLabel?.text = trans("task.end_at")
             if let taskResource = self.taskResource {
                 cell.detailTextLabel?.text = taskResource.endAt
             } else {
@@ -296,7 +296,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             }
             break
         case 5:
-            cell.textLabel?.text = "ステータス"
+            cell.textLabel?.text = trans("task.status")
             if let taskResource = self.taskResource {
                 cell.detailTextLabel?.text = taskResource.status
             } else {
@@ -304,7 +304,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             }
             break
         case 6:
-            cell.textLabel?.text = "最終更新日"
+            cell.textLabel?.text = trans("task.updated")
             if let taskResource = self.taskResource {
                 cell.detailTextLabel?.text = taskResource.updatedAt
             } else {
@@ -319,25 +319,25 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
     }
     
     @IBAction func deleteButton(_ sender: UIBarButtonItem) {
-        let actionSheet = UIAlertController(title: "削除", message: "チケットを削除しますか？", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: "\(self.taskResource?.title ?? self.task.title)\(trans("task.delete-title"))", preferredStyle: .actionSheet)
         
-        let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+        let noAction = UIAlertAction(title: trans("task.cancel"), style: .cancel, handler: { (action: UIAlertAction) in
             actionSheet.dismiss(animated: true, completion: nil)
         })
         
-        let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
-            KRProgressHUD.show(withMessage: "Deleting...")
+        let yesAction = UIAlertAction(title: trans("task.delete"), style: .default, handler: { (action: UIAlertAction) in
+            KRProgressHUD.show()
             
             guard let taskResource = self.taskResource else {
                 KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Network Error!")
+                    KRProgressHUD.showError(withMessage: trans("errors.network-error", option: "Network Error!"))
                 })
                 return
             }
             
             taskResource.delete(completion: { (response) in
                 guard response["status"] == "OK" else {
-                    self.showAlert(title: "Delete error", message: response["messages"]!)
+                    self.showAlert(title: trans("errors.delete-failed"), message: response["messages"]!)
                     KRProgressHUD.dismiss()
                     return
                 }
@@ -357,23 +357,23 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
-        let actionSheet = UIAlertController(title: "編集", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cancelAction = UIAlertAction(title: "取り消し", style: .cancel, handler: { (action: UIAlertAction) in
+        let cancelAction = UIAlertAction(title: trans("task.cancel"), style: .cancel, handler: { (action: UIAlertAction) in
             actionSheet.dismiss(animated: true, completion: nil)
         })
         
-        let taskEditAction = UIAlertAction(title: "チケット編集", style: .default, handler: { (action: UIAlertAction) in
+        let taskEditAction = UIAlertAction(title: trans("task.edit-task"), style: .default, handler: { (action: UIAlertAction) in
             guard let taskResource = self.taskResource else {
                 KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Network Error!")
+                    KRProgressHUD.showError(withMessage: trans("errors.network-error", option: "Network Error!"))
                 })
                 return
             }
             TaskResource.EditResources.load(task: taskResource, completion: { (resource) in
                 guard let resource = resource else {
                     KRProgressHUD.dismiss({
-                        KRProgressHUD.showError(withMessage: "Network Error!")
+                        KRProgressHUD.showError(withMessage: trans("errors.network-error", option: "Network Error!"))
                     })
                     return
                 }
@@ -391,8 +391,8 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         actionSheet.addAction(taskEditAction)
         
         if self.taskResource?.progress == 100 && self.taskResource?.isFinish == 0 {
-            let completionAction = UIAlertAction(title: "完了", style: .default, handler: { (action: UIAlertAction) in
-                KRProgressHUD.show(withMessage: "Updating...")
+            let completionAction = UIAlertAction(title: trans("task.finish"), style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show()
                 
                 self.taskResource!.changeCompleteStatus(to: .completed, completion: { (response) in
                     guard response["status"] == "OK" else {
@@ -412,8 +412,8 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         }
         
         if self.taskResource?.isFinish == 1 {
-            let completionAction = UIAlertAction(title: "進行中にします", style: .default, handler: { (action: UIAlertAction) in
-                KRProgressHUD.show(withMessage: "Updating...")
+            let completionAction = UIAlertAction(title: trans("task.unfinished"), style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show()
                 self.taskResource!.changeCompleteStatus(to: .incomplete, completion: { (response) in
                     guard response["status"] == "OK" else {
                         KRProgressHUD.dismiss({
@@ -440,13 +440,13 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         )
         // Add a text field
         let alert = SCLAlertView(appearance: appearance)
-        let textField = alert.addTextField("コメント")
-        alert.addButton("送信") {
-            KRProgressHUD.show(withMessage: "Sending...")
+        let textField = alert.addTextField()
+        alert.addButton(trans("task.add-comment")) {
+            KRProgressHUD.show()
             
             guard let taskResource = self.taskResource else {
                 KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Network Error!")
+                    KRProgressHUD.showError(withMessage: trans("errors.network-error", option: "Network Error!"))
                 })
                 return
             }
@@ -455,7 +455,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
             activity.store(completion: { (response) in
                 guard response["status"] == "OK" else {
                     KRProgressHUD.dismiss()
-                    self.showAlert(title: "error", message: response["messages"]!)
+                    self.showAlert(title: nil, message: response["messages"]!)
                     return
                 }
                 
@@ -465,11 +465,11 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
                 })
             })
         }
-        alert.showCustom("アクティビティーを追加",
-                         subTitle: "コメントを入力してください。",
+        alert.showCustom(trans("task.add-comment"),
+                         subTitle: "",
                          color: Colors.themeBlue,
                          icon: UIImage(named: "task-24")!,
-                         closeButtonTitle: "取消")
+                         closeButtonTitle: trans("task.cancel"))
     }
     
     @IBAction func addSubTask(_ sender: UIBarButtonItem) {
@@ -478,13 +478,13 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         )
         // Add a text field
         let alert = SCLAlertView(appearance: appearance)
-        let textField = alert.addTextField("内容")
-        alert.addButton("追加") {
-            KRProgressHUD.show(withMessage: "Adding...")
+        let textField = alert.addTextField()
+        alert.addButton(trans("task.submit")) {
+            KRProgressHUD.show()
             
             guard let taskResource = self.taskResource else {
                 KRProgressHUD.dismiss({
-                    KRProgressHUD.showError(withMessage: "Network Error!")
+                    KRProgressHUD.showError(withMessage: trans("errors.network-error", option: "Network Error!"))
                 })
                 return
             }
@@ -503,11 +503,11 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
                 })
             })
         }
-        alert.showCustom("サブチケットを追加",
-                         subTitle: "内容を入力してください。",
+        alert.showCustom(trans("task.add-sub"),
+                         subTitle: "",
                          color: Colors.themeGreen,
                          icon: UIImage(named: "task-24")!,
-                         closeButtonTitle: "取消")
+                         closeButtonTitle: trans("task.cancel"))
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -517,15 +517,15 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         case 0:
             break
         case 1:
-            let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (_, _, completion) in
-                let actionSheet = UIAlertController(title: "削除", message: "サブチケットを削除しますか？", preferredStyle: .actionSheet)
+            let deleteAction = UIContextualAction(style: .normal, title: trans("task.delete")) { (_, _, completion) in
+                let actionSheet = UIAlertController(title: trans("task.delete"), message: trans("task.delete-title"), preferredStyle: .actionSheet)
                 
-                let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+                let noAction = UIAlertAction(title: trans("task.cancel"), style: .cancel, handler: { (action: UIAlertAction) in
                     actionSheet.dismiss(animated: true, completion: nil)
                 })
                 
-                let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
-                    KRProgressHUD.show(withMessage: "Deleting...")
+                let yesAction = UIAlertAction(title: trans("task.delete"), style: .default, handler: { (action: UIAlertAction) in
+                    KRProgressHUD.show()
                     let cell = self.tableView.cellForRow(at: indexPath) as! SubTaskCell
                     let subTask = cell.subTask!
                     subTask.delete(completion: { (response) in
@@ -560,5 +560,9 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         }
         
         return config
+    }
+    
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.parentNavigationController?.popViewController(animated: true)
     }
 }

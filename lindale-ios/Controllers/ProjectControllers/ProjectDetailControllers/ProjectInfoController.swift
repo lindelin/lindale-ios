@@ -21,12 +21,35 @@ class ProjectInfoController: UITableViewController {
     @IBOutlet weak var endAt: UILabel!
     @IBOutlet weak var contents: UILabel!
     
+    // MARK: - language label
+    @IBOutlet weak var langLabelPL: UILabel!
+    @IBOutlet weak var langLabelSL: UILabel!
+    @IBOutlet weak var langLabelStart: UILabel!
+    @IBOutlet weak var langLabelEnd: UILabel!
+    
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
     
+    func setupLangLabel() {
+        self.langLabelPL.text = trans("member.pl")
+        self.langLabelSL.text = trans("member.sl")
+        self.langLabelStart.text = trans("project.start_at")
+        self.langLabelEnd.text = trans("project.end_at")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupLangLabel()
         self.loadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return trans("project.content")
+        default:
+            return nil
+        }
     }
     
     @objc func loadData() {

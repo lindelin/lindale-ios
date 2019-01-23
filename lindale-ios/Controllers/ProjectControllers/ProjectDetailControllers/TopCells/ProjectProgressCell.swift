@@ -19,6 +19,14 @@ class ProjectProgressCell: UITableViewCell {
     @IBOutlet weak var todoProgressBar: UIProgressView!
     @IBOutlet weak var todoProgress: UILabel!
     
+    // MARK: - language label
+    @IBOutlet weak var langLabelTotal: UILabel!
+    @IBOutlet weak var langLabelTask: UILabel!
+    
+    func setupLangLabel() {
+        self.langLabelTotal.text = trans("header.progress")
+        self.langLabelTask.text = trans("header.tasks")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +52,7 @@ class ProjectProgressCell: UITableViewCell {
     }
     
     func updateStatus(_ progress: ProjectTopResource.Progress) {
+        self.setupLangLabel()
         self.totalProgressBar.setProgress(Float(Double(progress.total) / Double(100)), animated: false)
         self.taskProgressBar.setProgress(Float(Double(progress.task) / Double(100)), animated: false)
         self.todoProgressBar.setProgress(Float(Double(progress.todo) / Double(100)), animated: false)
