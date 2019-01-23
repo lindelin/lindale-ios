@@ -393,6 +393,18 @@
 		F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupEditController.swift; sourceTree = "<group>"; };
 		F2819EAB21F6BCE60070BD3B /* TaskGroupCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCreateController.swift; sourceTree = "<group>"; };
 		F2819EAD21F6E7450070BD3B /* LocaleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleService.swift; sourceTree = "<group>"; };
+		F2819EAF21F80C1A0070BD3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F2819EB021F80C1A0070BD3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		F2819EB121F80C1A0070BD3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		F2819EB221F80C1A0070BD3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
+		F2819EB321F80C1B0070BD3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		F2819EB421F80C1B0070BD3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		F2819EB521F80C2B0070BD3B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F2819EB621F80C2C0070BD3B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		F2819EB721F80C2C0070BD3B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		F2819EB821F80C2C0070BD3B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Interface.strings; sourceTree = "<group>"; };
+		F2819EB921F80C2C0070BD3B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		F2819EBA21F80C2C0070BD3B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		F289596921BFA9A000A1F1A7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		F289596C21BFAD5D00A1F1A7 /* TaskGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupCell.swift; sourceTree = "<group>"; };
 		F298A57021C23FE40047D79F /* ProjectTop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectTop.storyboard; sourceTree = "<group>"; };
@@ -1853,6 +1865,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F22CBC1821D1E05E00F17C27 /* Base */,
+				F2819EB321F80C1B0070BD3B /* zh-Hans */,
+				F2819EB921F80C2C0070BD3B /* ja */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1861,6 +1875,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2480BAC21CB252E006A2222 /* Base */,
+				F2819EB421F80C1B0070BD3B /* zh-Hans */,
+				F2819EBA21F80C2C0070BD3B /* ja */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1869,6 +1885,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F29DBB7A21381F9E009DA744 /* Base */,
+				F2819EB021F80C1A0070BD3B /* zh-Hans */,
+				F2819EB621F80C2C0070BD3B /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1877,6 +1895,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F29DBB8221381F9F009DA744 /* Base */,
+				F2819EAF21F80C1A0070BD3B /* zh-Hans */,
+				F2819EB521F80C2B0070BD3B /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1885,6 +1905,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2E0D1E1214A342C00023905 /* Base */,
+				F2819EB221F80C1A0070BD3B /* zh-Hans */,
+				F2819EB821F80C2C0070BD3B /* ja */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -1893,6 +1915,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2F4FFA2215E160E00D5F197 /* Base */,
+				F2819EB121F80C1A0070BD3B /* zh-Hans */,
+				F2819EB721F80C2C0070BD3B /* ja */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -2053,6 +2077,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2113,6 +2138,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

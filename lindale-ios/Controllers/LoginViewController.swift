@@ -117,12 +117,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         unUserNotificationCenter.delegate = appDelegate
         UIApplication.shared.registerForRemoteNotifications()
         // [END register_for_notifications]
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
-        UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
-            _ in
-            UIApplication.shared.keyWindow?.rootViewController = mainController
-        })
+        LanguageService.sync { (data) in
+            guard let _ = data  else {
+                self.showLoginAlert()
+                return
+            }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainController = storyboard.instantiateViewController(withIdentifier: "MainController") as! UITabBarController
+            UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
+                _ in
+                UIApplication.shared.keyWindow?.rootViewController = mainController
+            })
+        }
     }
     
     // MARK: - ログイン失敗

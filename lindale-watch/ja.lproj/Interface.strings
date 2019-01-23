@@ -1,0 +1,75 @@
+
+/* Class = "WKInterfaceController"; title = "Menu"; ObjectID = "2Sc-RS-G6H"; */
+"2Sc-RS-G6H.title" = "Menu";
+
+/* Class = "WKInterfaceLabel"; text = "..."; ObjectID = "7ed-fF-cuw"; */
+"7ed-fF-cuw.text" = "...";
+
+/* Class = "WKInterfaceLabel"; text = "..."; ObjectID = "He0-mx-Rjc"; */
+"He0-mx-Rjc.text" = "...";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceController"; title = "Tasks"; ObjectID = "Kkr-4e-yqI"; */
+"Kkr-4e-yqI.title" = "Tasks";
+
+/* Class = "WKInterfaceButton"; title = "進捗状況"; ObjectID = "Kpf-RU-e52"; */
+"Kpf-RU-e52.title" = "進捗状況";
+
+/* Class = "WKInterfaceLabel"; text = "..."; ObjectID = "NbW-dG-tgb"; */
+"NbW-dG-tgb.text" = "...";
+
+/* Class = "WKInterfaceButton"; title = "同期"; ObjectID = "O2p-Cg-ICx"; */
+"O2p-Cg-ICx.title" = "同期";
+
+/* Class = "WKInterfaceButton"; title = "チケット"; ObjectID = "OQJ-pJ-OoU"; */
+"OQJ-pJ-OoU.title" = "チケット";
+
+/* Class = "WKInterfaceLabel"; text = "Task"; ObjectID = "OiN-bz-Iwz"; */
+"OiN-bz-Iwz.text" = "Task";
+
+/* Class = "WKInterfaceLabel"; text = "ご利用になる前に、iPhone と同期してください。"; ObjectID = "PbJ-hY-HwL"; */
+"PbJ-hY-HwL.text" = "ご利用になる前に、iPhone と同期してください。";
+
+/* Class = "WKInterfaceLabel"; text = "..."; ObjectID = "PmI-NK-qqe"; */
+"PmI-NK-qqe.text" = "...";
+
+/* Class = "WKInterfaceButton"; title = "TODO"; ObjectID = "Pox-0V-Bds"; */
+"Pox-0V-Bds.title" = "TODO";
+
+/* Class = "WKInterfaceLabel"; text = "..."; ObjectID = "Wh1-Xj-sOi"; */
+"Wh1-Xj-sOi.text" = "...";
+
+/* Class = "WKInterfaceLabel"; text = "..."; ObjectID = "Yc2-JV-lZI"; */
+"Yc2-JV-lZI.text" = "...";
+
+/* Class = "WKInterfaceController"; title = "Progress"; ObjectID = "aFC-p0-mmy"; */
+"aFC-p0-mmy.title" = "Progress";
+
+/* Class = "WKInterfaceLabel"; text = "Total"; ObjectID = "dSf-0x-1Se"; */
+"dSf-0x-1Se.text" = "Total";
+
+/* Class = "WKInterfaceLabel"; text = "..."; ObjectID = "e3C-7b-eRI"; */
+"e3C-7b-eRI.text" = "...";
+
+/* Class = "WKInterfaceMenuItem"; title = "更新"; ObjectID = "i2f-Ox-fL0"; */
+"i2f-Ox-fL0.title" = "更新";
+
+/* Class = "WKInterfaceLabel"; text = "NO DATA"; ObjectID = "maX-qg-dub"; */
+"maX-qg-dub.text" = "NO DATA";
+
+/* Class = "WKInterfaceLabel"; text = "NO DATA"; ObjectID = "ofx-0H-hMT"; */
+"ofx-0H-hMT.text" = "NO DATA";
+
+/* Class = "WKInterfaceMenuItem"; title = "更新"; ObjectID = "pDy-wY-5a3"; */
+"pDy-wY-5a3.title" = "更新";
+
+/* Class = "WKInterfaceController"; title = "TODOs"; ObjectID = "pgX-as-OZz"; */
+"pgX-as-OZz.title" = "TODOs";
+
+/* Class = "WKInterfaceLabel"; text = "TODO"; ObjectID = "vea-Xn-bpt"; */
+"vea-Xn-bpt.text" = "TODO";
+
+/* Class = "WKInterfaceMenuItem"; title = "更新"; ObjectID = "yyf-At-lE6"; */
+"yyf-At-lE6.title" = "更新";

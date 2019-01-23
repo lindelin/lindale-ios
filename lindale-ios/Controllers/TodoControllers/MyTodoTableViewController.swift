@@ -34,6 +34,7 @@ class MyTodoTableViewController: UITableViewController {
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.todoHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
     }
     
     private func setupNavigation() {
@@ -70,7 +71,7 @@ class MyTodoTableViewController: UITableViewController {
     }
     
     func loadMoreData(url: URL) {
-        KRProgressHUD.show(withMessage: "Loding...")
+        KRProgressHUD.show()
         MyTodoCollection.more(nextUrl: url) { (myTodoCollection) in
             if let myTodoCollection = myTodoCollection {
                 self .myTodoCollection?.links = myTodoCollection.links
@@ -160,12 +161,12 @@ class MyTodoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
-        let colorChangeActon = UIContextualAction(style: .normal, title: "Color") { (_, _, completion) in
+        let colorChangeActon = UIContextualAction(style: .normal, title: trans("todo.color")) { (_, _, completion) in
             let alert = SCLAlertView()
             
             for id in Colors.ids() {
                 alert.addButton("", backgroundColor: Colors.get(id: id), textColor: nil, showTimeout: nil, action: {
-                    KRProgressHUD.show(withMessage: "Updating...")
+                    KRProgressHUD.show()
                     guard let todo = cell.todo else {
                         KRProgressHUD.dismiss({
                             KRProgressHUD.showError(withMessage: "Network Error!")
@@ -189,11 +190,11 @@ class MyTodoTableViewController: UITableViewController {
                 })
             }
             
-            alert.showCustom("カラー変更",
-                             subTitle: "カラーを選んでください。",
+            alert.showCustom(trans("todo.color"),
+                             subTitle: "",
                              color: Colors.get(id: cell.todo!.color),
                              icon: UIImage(),
-                             closeButtonTitle: "取消")
+                             closeButtonTitle: trans("task.cancel"))
         }
         colorChangeActon.backgroundColor = Colors.get(id: cell.todo!.color)
         return UISwipeActionsConfiguration(actions: [colorChangeActon])
@@ -202,15 +203,15 @@ class MyTodoTableViewController: UITableViewController {
     // MARK: - 右滑菜单
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (_, _, completion) in
-            let actionSheet = UIAlertController(title: "削除", message: "TODOを削除しますか？", preferredStyle: .actionSheet)
+        let deleteAction = UIContextualAction(style: .normal, title: trans("todo.delete")) { (_, _, completion) in
+            let actionSheet = UIAlertController(title: nil, message: "TODO\(trans("task.delete-title"))", preferredStyle: .actionSheet)
             
-            let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+            let noAction = UIAlertAction(title: trans("task.cancel"), style: .cancel, handler: { (action: UIAlertAction) in
                 actionSheet.dismiss(animated: true, completion: nil)
             })
             
-            let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
-                KRProgressHUD.show(withMessage: "Deleting...")
+            let yesAction = UIAlertAction(title: trans("todo.delete"), style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show()
                 let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
                 
                 guard let todo = cell.todo else {
@@ -244,7 +245,7 @@ class MyTodoTableViewController: UITableViewController {
         }
         
         // TODO: - 代码优化
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
+        let editAction = UIContextualAction(style: .normal, title: trans("todo.edit")) { (_, _, completion) in
             let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
             Todo.EditResources.load(todo: cell.todo!, completion: { (resource) in
                 if let resource = resource {

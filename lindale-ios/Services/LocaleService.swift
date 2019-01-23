@@ -14,7 +14,20 @@ struct LanguageService {
     
     static var main = LanguageService()
     
-    static func sync() {
+    init() {
+        let coder = JSONDecoder()
+        do {
+            let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+            let archiveURL = cachesDirectory.appendingPathComponent("LanguageResource").appendingPathExtension("json")
+            let data = try Data(contentsOf: archiveURL)
+            let languageResource = try coder.decode([String: [String: String]].self, from: data)
+            self.languageResource = languageResource
+        } catch {
+            self.languageResource = nil
+        }
+    }
+    
+    static func sync(completion: (@escaping ([String: [String: String]]?) -> Void) = {(_) in }) {
         KRProgressHUD.show()
         NetworkProvider.main.data(request: .languageResource) { (data) in
             guard let data = data else {
@@ -30,34 +43,22 @@ struct LanguageService {
             let archiveURL = cachesDirectory.appendingPathComponent("LanguageResource").appendingPathExtension("json")
             try! languageResourceFile.write(to: archiveURL)
             print("保存成功：", archiveURL)
+            completion(languageResource)
             KRProgressHUD.dismiss()
         }
     }
     
-    func update() {
-        let coder = JSONDecoder()
-        do {
-            let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-            let archiveURL = cachesDirectory.appendingPathComponent("LanguageResource").appendingPathExtension("json")
-            let data = try Data(contentsOf: archiveURL)
-            let languageResource = try coder.decode([String: [String: String]].self, from: data)
-            LanguageService.main.languageResource = languageResource
-        } catch {
-            print("None Language Resources")
-        }
-    }
-    
-    func trans(_ key: String) -> String {
+    func trans(_ key: String, option: String?) -> String {
         guard let languageResource = self.languageResource else {
             return key
         }
         
         let split = key.components(separatedBy: ".")
-        return languageResource[split[0]]?[split[1]] ?? key
+        return languageResource[split[0]]?[split[1]] ?? option ?? key
     }
 }
 
-func trans(_ key: String) -> String {
-    return LanguageService.main.trans(key)
+func trans(_ key: String, option: String? = nil) -> String {
+    return LanguageService.main.trans(key, option: option)
 }
 

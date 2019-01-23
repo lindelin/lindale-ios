@@ -35,6 +35,23 @@ class FoldingTodoCell: FoldingCell {
     @IBOutlet weak var updateAtDetail: UILabel!
     @IBOutlet weak var updateButton: UIButton!
     
+    // MARK: - language label
+    @IBOutlet weak var langLabelPIC: UILabel!
+    @IBOutlet weak var langlabelInitator: UILabel!
+    @IBOutlet weak var langLabelStatus: UILabel!
+    @IBOutlet weak var langLabelType: UILabel!
+    @IBOutlet weak var langLabelList: UILabel!
+    @IBOutlet weak var langLabelComplete: UIButton!
+    
+    func setupLangLabel() {
+        self.langLabelPIC.text = trans("todo.user")
+        self.langlabelInitator.text = trans("todo.initiator")
+        self.langLabelStatus.text = trans("todo.status")
+        self.langLabelType.text = trans("todo.type")
+        self.langLabelList.text = trans("todo.todo-list")
+        self.langLabelComplete.setTitle(trans("status.finish"), for: .normal)
+    }
+    
 
     override func awakeFromNib() {
         foregroundView.layer.cornerRadius = 5
@@ -54,7 +71,7 @@ class FoldingTodoCell: FoldingCell {
     }
     
     func setCell(todo: Todo) {
-        
+        self.setupLangLabel()
         self.todo = todo
         
         self.id.text = "#\(todo.id)"
@@ -81,7 +98,7 @@ class FoldingTodoCell: FoldingCell {
     
     // MARK: - Actions ⚡️
     @IBAction func buttonHandler(_ sender: UIButton) {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         
         guard let todo = self.todo else {
             KRProgressHUD.dismiss({

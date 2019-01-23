@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--Setting Table View Controller-->
         <scene sceneID="zcA-w5-vgT">
             <objects>
                 <tableViewController id="FdR-jh-7wi" customClass="SettingTableViewController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -239,10 +239,15 @@
                     <tabBarItem key="tabBarItem" title="" image="setup-30" id="1yK-kv-aPB">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Settings" id="71b-ca-wv4"/>
+                    <navigationItem key="navigationItem" id="71b-ca-wv4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="email" destination="MEc-fO-25i" id="QXs-up-tE5"/>
+                        <outlet property="langLabelAccount" destination="r0a-ap-OGR" id="HPa-6g-O3S"/>
+                        <outlet property="langLabelLocale" destination="3OH-Vz-tfZ" id="aqC-PW-Qnb"/>
+                        <outlet property="langLabelLogout" destination="hR6-u3-QaI" id="WOk-oR-zPo"/>
+                        <outlet property="langLabelNotification" destination="y22-kD-67D" id="fiS-Kb-pkr"/>
+                        <outlet property="langLabelProfile" destination="DHA-BU-kHi" id="2uf-J5-ROB"/>
                         <outlet property="name" destination="Bil-02-675" id="K4A-un-Cgr"/>
                         <outlet property="photo" destination="oWm-Lh-2iF" id="UTQ-Kc-DbX"/>
                         <segue destination="ZFe-BR-iIm" kind="show" identifier="ProfileSettings" id="LqE-DJ-HOc"/>
@@ -255,7 +260,7 @@
             </objects>
             <point key="canvasLocation" x="1088.8" y="-33.733133433283363"/>
         </scene>
-        <!--Language & Region-->
+        <!--Language Setting Controller-->
         <scene sceneID="l3k-0G-Zkf">
             <objects>
                 <tableViewController id="ehJ-mO-LlW" customClass="LanguageSettingController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,8 +308,15 @@
                             <outlet property="delegate" destination="ehJ-mO-LlW" id="ZnA-1C-dra"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Language &amp; Region" id="QRb-AJ-NYX"/>
+                    <navigationItem key="navigationItem" id="QRb-AJ-NYX">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="Qp4-n9-IWj">
+                            <connections>
+                                <action selector="backButton:" destination="ehJ-mO-LlW" id="HdB-tG-fGF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="langLabelLanguage" destination="Tca-J9-4Sy" id="EMB-MD-bKa"/>
                         <outlet property="language" destination="Iyt-wp-CUO" id="HMv-Li-rQn"/>
                         <segue destination="a9J-dx-epd" kind="show" identifier="UpdateLocale" id="c8C-vF-FUN"/>
                     </connections>
@@ -346,12 +358,19 @@
                             <outlet property="delegate" destination="a9J-dx-epd" id="7FN-9v-br9"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="QvU-iW-4Kw">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="yLD-zK-v3Y">
+                            <connections>
+                                <action selector="backButton:" destination="a9J-dx-epd" id="ErW-RV-agw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgR-DI-tUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1558" y="1431"/>
         </scene>
-        <!--Account-->
+        <!--Account Setting Controller-->
         <scene sceneID="Mcd-fG-cN6">
             <objects>
                 <tableViewController id="oRu-Ya-LtZ" customClass="AccountSettingController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -433,8 +452,14 @@
                             <outlet property="delegate" destination="oRu-Ya-LtZ" id="QwC-a8-dCV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Account" id="LoK-Sl-Qcr">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="THg-xQ-esz">
+                    <navigationItem key="navigationItem" id="LoK-Sl-Qcr">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="PCf-Br-UBu">
+                            <connections>
+                                <action selector="backButton:" destination="oRu-Ya-LtZ" id="ygI-nO-100"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" image="insert-30" id="THg-xQ-esz">
+                            <color key="tintColor" name="Theme-yellow"/>
                             <connections>
                                 <action selector="save:" destination="oRu-Ya-LtZ" id="1qq-TM-km3"/>
                             </connections>
@@ -450,7 +475,7 @@
             </objects>
             <point key="canvasLocation" x="652" y="734"/>
         </scene>
-        <!--Profile-->
+        <!--Profile Setting Controller-->
         <scene sceneID="yom-VH-FAL">
             <objects>
                 <tableViewController id="ZFe-BR-iIm" customClass="ProfileSettingController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -570,8 +595,14 @@
                             <outlet property="delegate" destination="ZFe-BR-iIm" id="5jU-fT-Fpj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="Ga1-vC-G3H">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="T43-km-Spk">
+                    <navigationItem key="navigationItem" id="Ga1-vC-G3H">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="W9S-SC-Odx">
+                            <connections>
+                                <action selector="backButton:" destination="ZFe-BR-iIm" id="Huu-2P-N7G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" image="insert-30" id="T43-km-Spk">
+                            <color key="tintColor" name="Theme-yellow"/>
                             <connections>
                                 <action selector="updateProfileInfo:" destination="ZFe-BR-iIm" id="3yb-hT-6JA"/>
                             </connections>
@@ -579,6 +610,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="content" destination="r2k-FW-1Sv" id="hui-Hv-toq"/>
+                        <outlet property="langLabelContent" destination="iPp-be-B9V" id="Nik-By-sG9"/>
+                        <outlet property="langLabelName" destination="UaW-iy-HKU" id="SsT-Gh-Inb"/>
+                        <outlet property="langLabelOrganization" destination="XFc-nL-LtZ" id="jDY-Ez-Yzk"/>
                         <outlet property="name" destination="Jed-lz-cqS" id="kMs-VG-Z6f"/>
                         <outlet property="organization" destination="GrL-2R-YL0" id="AyC-Z4-1lV"/>
                     </connections>
@@ -635,6 +669,13 @@
                             <outlet property="delegate" destination="X0s-ZU-ymm" id="8sS-Ee-gA1"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="9Y1-5t-y7s">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="XON-aF-u7T">
+                            <connections>
+                                <action selector="backButton:" destination="X0s-ZU-ymm" id="ShU-yi-LGv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="slack" destination="xKd-xl-lbK" id="1dj-Jh-y0H"/>
                     </connections>
@@ -664,9 +705,11 @@
     </scenes>
     <resources>
         <image name="add-camera-30" width="45" height="45"/>
+        <image name="back-30" width="45" height="45"/>
         <image name="bell-30" width="45" height="45"/>
         <image name="exit-30" width="45" height="45"/>
         <image name="globe-30" width="45" height="45"/>
+        <image name="insert-30" width="45" height="45"/>
         <image name="lock-30" width="45" height="45"/>
         <image name="setup-30" width="45" height="45"/>
         <image name="user-30" width="45" height="45"/>

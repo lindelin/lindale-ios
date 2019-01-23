@@ -25,11 +25,41 @@ class TodoEditViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.keyboardDismissMode = .onDrag
+        self.setup()
+        self.setupLangLabel()
         
         self.updateUI()
         
         print(self.editResource)
+    }
+    
+    func setup() {
+        self.tableView.keyboardDismissMode = .onDrag
+        self.navigationItem.title = trans("todo.edit")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
+    func setupLangLabel() {
+        self.content.placeholder = trans("todo.content")
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return trans("todo.content")
+        case 1:
+            return trans("todo.user")
+        case 2:
+            return trans("todo.status")
+        case 3:
+            return trans("todo.color")
+        case 4:
+            return trans("todo.details")
+        default:
+            return nil
+        }
     }
 
     func updateUI() {

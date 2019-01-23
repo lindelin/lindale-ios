@@ -33,6 +33,33 @@ class MyTaskEditViewController: UITableViewController {
     func setup() {
         self.startAt.addTarget(self, action: #selector(self.startAtEditing), for: .editingDidBegin)
         self.endAt.addTarget(self, action: #selector(self.endAtEditing), for: .editingDidBegin)
+        self.navigationItem.title = trans("task.edit-task")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
+    func setupLangLabel() {
+        self.taskTitle.placeholder = trans("task.task-title")
+        self.startAt.placeholder = trans("task.start_at")
+        self.endAt.placeholder = trans("task.end_at")
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return trans("task.task-title")
+        case 1:
+            return trans("task.end_at")
+        case 2:
+            return trans("task.user")
+        case 3:
+            return trans("task.color")
+        case 4:
+            return trans("task.info")
+        default:
+            return nil
+        }
     }
     
     func updateUI() {
@@ -51,7 +78,7 @@ class MyTaskEditViewController: UITableViewController {
     @IBAction func updateTask(_ sender: UIBarButtonItem) {
         let user = self.editResource.users[self.userPicker.selectedRow(inComponent: 0)]
         let colorId = self.colorPicker.selectedRow(inComponent: 0) + 1
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         let register = TaskRegister(id: self.taskResource.id,
                                     title: self.taskTitle.text,
                                     content: self.taskContent.text,
@@ -67,7 +94,7 @@ class MyTaskEditViewController: UITableViewController {
         register.update { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Update error", message: response["messages"]!)
+                self.showAlert(title: trans("errors.update-failed"), message: response["messages"]!)
                 return
             }
             
@@ -107,16 +134,11 @@ class MyTaskEditViewController: UITableViewController {
         self.endAt.text = sender.date.format("yyyy-MM-dd")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
 }
 
 extension MyTaskEditViewController: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -769,6 +769,13 @@
                                     <outlet property="group" destination="Ylj-Js-ipw" id="Ydb-y4-Hdl"/>
                                     <outlet property="initiatorEmail" destination="Lha-pE-EJX" id="zM1-21-I6l"/>
                                     <outlet property="initiatorName" destination="9Ip-cC-jTt" id="iNX-KM-UKP"/>
+                                    <outlet property="langLabelEnd" destination="E0D-Kt-rJD" id="SgW-nS-cuN"/>
+                                    <outlet property="langLabelGroup" destination="RK8-Wp-1qD" id="nh2-jP-eDz"/>
+                                    <outlet property="langLabelPIC" destination="itV-q8-l7O" id="PBr-ML-9tH"/>
+                                    <outlet property="langLabelPriority" destination="zKn-Mn-4fB" id="P9f-xa-jIa"/>
+                                    <outlet property="langLabelStart" destination="Oz5-7o-W3G" id="bvs-Ed-cCc"/>
+                                    <outlet property="langLabelStatus" destination="sBd-wV-jup" id="iwI-OC-yhc"/>
+                                    <outlet property="langlabelInitator" destination="Gk3-vf-xqV" id="O5d-Cf-bEy"/>
                                     <outlet property="priority" destination="okh-wD-51N" id="odJ-ps-upD"/>
                                     <outlet property="progressBar" destination="4HI-TT-P9Q" id="cVE-7P-dEe"/>
                                     <outlet property="projectNameAndCode" destination="xRR-Ch-jGI" id="bi0-IS-ewG"/>
@@ -1057,6 +1064,13 @@
                                     <outlet property="cost" destination="8zj-di-SvU" id="P3w-tY-0qd"/>
                                     <outlet property="end" destination="kxP-Kh-oan" id="i8b-Tq-ave"/>
                                     <outlet property="group" destination="vA9-xt-enW" id="hdl-FP-TgX"/>
+                                    <outlet property="langLabelCost" destination="hbt-8l-pJq" id="fH0-D0-dwF"/>
+                                    <outlet property="langLabelEnd" destination="kfh-vJ-BcK" id="fgE-1Q-EkE"/>
+                                    <outlet property="langLabelGroup" destination="McW-OS-03Q" id="QxN-v3-psB"/>
+                                    <outlet property="langLabelPriority" destination="WGx-Av-4HY" id="voE-3L-HbJ"/>
+                                    <outlet property="langLabelStart" destination="4OF-J8-Ybv" id="u4X-6c-5ml"/>
+                                    <outlet property="langLabelStatus" destination="qgz-Xq-0oV" id="bkY-3W-kSd"/>
+                                    <outlet property="langlabelUpdateAt" destination="Sxz-Ea-UgB" id="ozd-qU-LR8"/>
                                     <outlet property="priority" destination="C1f-Ob-yi4" id="raj-QN-aBE"/>
                                     <outlet property="start" destination="bg5-NZ-TMD" id="beQ-El-Fc5"/>
                                     <outlet property="status" destination="mVZ-cn-vOh" id="2jW-8I-xhT"/>
@@ -1320,6 +1334,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Zxu-wL-OFV">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-30" id="lvn-Ig-W8T">
+                            <connections>
+                                <action selector="backButton:" destination="McX-vL-jtt" id="QbB-nh-XQn"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Tasks" image="task-24" id="9U7-HU-Z1G">
                                 <color key="tintColor" name="Theme-green"/>
@@ -1379,7 +1398,7 @@
             </objects>
             <point key="canvasLocation" x="-83" y="-510"/>
         </scene>
-        <!--Edit-->
+        <!--My Task Edit View Controller-->
         <scene sceneID="gEp-uh-OhS">
             <objects>
                 <tableViewController id="tcu-IE-Qdi" customClass="MyTaskEditViewController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -1545,8 +1564,14 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit" id="fij-Gq-WAy">
-                        <barButtonItem key="rightBarButtonItem" title="Update" id="Qki-PY-53v">
+                    <navigationItem key="navigationItem" id="fij-Gq-WAy">
+                        <barButtonItem key="leftBarButtonItem" image="back-30" id="7Rx-iA-FCX">
+                            <connections>
+                                <action selector="backButton:" destination="tcu-IE-Qdi" id="gqa-Fi-NbG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" image="insert-30" id="Qki-PY-53v">
+                            <color key="tintColor" name="Theme-yellow"/>
                             <connections>
                                 <action selector="updateTask:" destination="tcu-IE-Qdi" id="ZWL-WT-Hti"/>
                             </connections>
@@ -1568,9 +1593,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back-30" width="45" height="45"/>
         <image name="chat-bubble-30" width="45" height="45"/>
         <image name="check-all-30" width="45" height="45"/>
         <image name="info-30" width="45" height="45"/>
+        <image name="insert-30" width="45" height="45"/>
         <image name="pencil-24" width="36" height="36"/>
         <image name="speech-bubble-24" width="36" height="36"/>
         <image name="task-24" width="36" height="36"/>

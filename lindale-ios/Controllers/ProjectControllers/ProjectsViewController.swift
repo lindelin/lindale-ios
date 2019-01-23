@@ -23,6 +23,8 @@ class ProjectsViewController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
     }
     
     private func setupNavigation() {

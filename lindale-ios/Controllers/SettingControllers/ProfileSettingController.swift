@@ -16,17 +16,30 @@ class ProfileSettingController: UITableViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var content: UITextView!
     @IBOutlet weak var organization: UITextField!
+    
+    @IBOutlet weak var langLabelName: UILabel!
+    @IBOutlet weak var langLabelContent: UILabel!
+    @IBOutlet weak var langLabelOrganization: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        self.setup()
+        self.setupLangLabel()
         self.updateUI()
+    }
+    
+    func setup() {
+        self.tableView.keyboardDismissMode = .onDrag
+        self.navigationItem.title = trans("user.settings")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
+    func setupLangLabel() {
+        self.langLabelName.text = trans("user.name")
+        self.langLabelContent.text = trans("user.content")
+        self.langLabelOrganization.text = trans("user.company")
     }
     
     func updateUI() {
@@ -53,14 +66,10 @@ class ProfileSettingController: UITableViewController {
             })
         }
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
 }

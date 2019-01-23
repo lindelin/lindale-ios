@@ -17,20 +17,29 @@ class AccountSettingController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        self.setup()
         self.setTextFieldDelegate()
+        self.setupLangLabel()
+    }
+    
+    func setup() {
+        self.tableView.keyboardDismissMode = .onDrag
+        self.navigationItem.title = trans("user.account")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     func setTextFieldDelegate() {
         self.password.delegate = self
         self.newPassword.delegate = self
         self.confirmPassword.delegate = self
+    }
+    
+    func setupLangLabel() {
+        self.password.placeholder = trans("auth.password")
+        self.newPassword.placeholder = trans("auth.set")
+        self.confirmPassword.placeholder = trans("auth.confirm_password")
     }
 
     @IBAction func save(_ sender: UIBarButtonItem) {
@@ -76,14 +85,9 @@ class AccountSettingController: UITableViewController, UITextFieldDelegate {
         return true
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
 }

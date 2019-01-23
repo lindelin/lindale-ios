@@ -31,6 +31,24 @@ class FoldingTaskCell: UITableViewCell {
     @IBOutlet weak var endAt: UILabel!
     @IBOutlet weak var updatedAt: UILabel!
     
+    // MARK: - language label
+    @IBOutlet weak var langLabelPIC: UILabel!
+    @IBOutlet weak var langlabelInitator: UILabel!
+    @IBOutlet weak var langLabelStatus: UILabel!
+    @IBOutlet weak var langLabelPriority: UILabel!
+    @IBOutlet weak var langLabelGroup: UILabel!
+    @IBOutlet weak var langLabelStart: UILabel!
+    @IBOutlet weak var langLabelEnd: UILabel!
+    
+    func setupLangLabel() {
+        self.langLabelPIC.text = trans("task.user")
+        self.langlabelInitator.text = trans("todo.initiator")
+        self.langLabelStatus.text = trans("task.status")
+        self.langLabelPriority.text = trans("task.priority")
+        self.langLabelGroup.text = trans("task.group")
+        self.langLabelStart.text = trans("task.start_at")
+        self.langLabelEnd.text = trans("task.end_at")
+    }
     
     override func awakeFromNib() {
         card.layer.cornerRadius = 5
@@ -47,6 +65,7 @@ class FoldingTaskCell: UITableViewCell {
     }
     
     func setCell(task: MyTaskCollection.Task) {
+        self.setupLangLabel()
         self.task = task
         self.colorView.backgroundColor = Colors.get(id: task.color)
         self.colorBar.backgroundColor = Colors.get(id: task.color)
@@ -67,5 +86,4 @@ class FoldingTaskCell: UITableViewCell {
         self.endAt.text = task.endAt ?? "N/A"
         self.updatedAt.text = task.updatedAt
     }
-
 }

@@ -13,19 +13,23 @@ class LanguageSettingController: UITableViewController {
     var localeSettings: Settings.Locale!
     
     @IBOutlet weak var language: UILabel!
+    @IBOutlet weak var langLabelLanguage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        self.setup()
         self.updateUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
+    }
+    
+    func setup() {
+        self.tableView.keyboardDismissMode = .onDrag
+        self.navigationItem.title = trans("config.locale")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.langLabelLanguage.text = trans("project.lang")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -55,7 +59,12 @@ class LanguageSettingController: UITableViewController {
             if let localeSettings = localeSettings {
                 self.localeSettings = localeSettings
                 self.updateUI()
+                self.setup()
             }
         }
+    }
+    
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

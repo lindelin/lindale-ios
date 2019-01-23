@@ -17,14 +17,16 @@ class NotificationSettingController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        self.setup()
         self.updateUI()
+    }
+    
+    func setup() {
+        self.tableView.keyboardDismissMode = .onDrag
+        self.navigationItem.title = trans("config.notification")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 
     func updateUI() {
@@ -54,14 +56,9 @@ class NotificationSettingController: UITableViewController {
         }
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
 }

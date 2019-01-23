@@ -18,9 +18,25 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
     
+    // MARK: - language label
+    @IBOutlet weak var langLabelProfile: UILabel!
+    @IBOutlet weak var langLabelAccount: UILabel!
+    @IBOutlet weak var langLabelLocale: UILabel!
+    @IBOutlet weak var langLabelNotification: UILabel!
+    @IBOutlet weak var langLabelLogout: UILabel!
+    
+    @objc func setupLangLabel() {
+        self.langLabelProfile.text = trans("user.public-profile")
+        self.langLabelAccount.text = trans("user.account")
+        self.langLabelLocale.text = trans("config.locale")
+        self.langLabelNotification.text = trans("config.notification")
+        self.langLabelLogout.text = trans("auth.logout")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupLangLabel()
         self.setupNavigation()
         
         // MARK: - Refresh Control Config
@@ -32,6 +48,7 @@ class SettingTableViewController: UITableViewController {
         
         // MARK: - Notification Center Config
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.profileInfoHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
     }
     
     private func setupNavigation() {
@@ -40,6 +57,8 @@ class SettingTableViewController: UITableViewController {
         titleImageView.contentMode = .scaleAspectFit
         navigationItem.titleView = titleImageView
     }
+    
+    
     
     @objc func loadData() {
         Profile.resources { (profile) in
@@ -52,6 +71,7 @@ class SettingTableViewController: UITableViewController {
             
             self.profile = profile
             self.updateUI()
+            self.setupLangLabel()
         }
     }
     
@@ -85,13 +105,13 @@ class SettingTableViewController: UITableViewController {
             }
         }
         if indexPath.section == 2 && indexPath.row == 0 {
-            let logoutAlert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: .actionSheet)
+            let logoutAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+            let noAction = UIAlertAction(title: trans("common.cancel"), style: .cancel, handler: { (action: UIAlertAction) in
                 logoutAlert.dismiss(animated: true, completion: nil)
             })
             
-            let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
+            let yesAction = UIAlertAction(title: trans("auth.logout"), style: .default, handler: { (action: UIAlertAction) in
                 self.logout()
             })
             
@@ -105,10 +125,10 @@ class SettingTableViewController: UITableViewController {
     @IBAction func editPhotoButtonTapped(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let selectPhotoAction = UIAlertAction(title: "写真を選択", style: .default) { (_) in
+        let selectPhotoAction = UIAlertAction(title: trans("common.choose-file"), style: .default) { (_) in
             guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
                 KRProgressHUD.set(duration: 2.0).dismiss({
-                    KRProgressHUD.showError(withMessage: "写真を取得する権利がありません。")
+                    KRProgressHUD.showError(withMessage: trans("errors.unauthorized"))
                 })
                 return
             }
@@ -120,10 +140,10 @@ class SettingTableViewController: UITableViewController {
             self.present(picker, animated: true)
         }
         
-        let takePhotoAction = UIAlertAction(title: "カメラで撮影", style: .default) { (_) in
+        let takePhotoAction = UIAlertAction(title: trans("common.take-photo"), style: .default) { (_) in
             guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
                 KRProgressHUD.set(duration: 2.0).dismiss({
-                    KRProgressHUD.showError(withMessage: "カメラを利用する権利がありません。")
+                    KRProgressHUD.showError(withMessage: trans("errors.unauthorized"))
                 })
                 return
             }
@@ -135,7 +155,7 @@ class SettingTableViewController: UITableViewController {
             self.present(picker, animated: true)
         }
         
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (_) in
+        let cancelAction = UIAlertAction(title: trans("common.cancel"), style: .cancel) { (_) in
             actionSheet.dismiss(animated: true)
         }
         
@@ -172,12 +192,12 @@ class SettingTableViewController: UITableViewController {
 
 extension SettingTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        KRProgressHUD.show(withMessage: "Uploading...")
+        KRProgressHUD.show()
         let mediaType = info[.mediaType] as! String
         
         guard mediaType == (kUTTypeImage as String) else {
             KRProgressHUD.set(duration: 2.0).dismiss({
-                KRProgressHUD.showError(withMessage: "写真を選択してください。")
+                KRProgressHUD.showError(withMessage: trans("errors.not-photo"))
             })
             return
         }
@@ -187,7 +207,7 @@ extension SettingTableViewController: UIImagePickerControllerDelegate, UINavigat
         Settings.ProfileInfo.upload(photo: image) { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Upload error", message: response["messages"]!)
+                self.showAlert(title: nil, message: response["messages"]!)
                 return
             }
             

@@ -28,6 +28,8 @@ class TaskInfoCell: UITableViewCell {
         if let content = task.content {
             let md = Down(markdownString: content)
             self.info.attributedText = try? md.toAttributedString()
+        } else {
+            self.info.text = trans("task.none")
         }
     }
     
@@ -35,6 +37,8 @@ class TaskInfoCell: UITableViewCell {
         if let content = taskResource.content {
             let md = Down(markdownString: content)
             self.info.attributedText = try? md.toAttributedString()
+        } else {
+            self.info.text = trans("task.none")
         }
     }
 }
