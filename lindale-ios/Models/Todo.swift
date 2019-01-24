@@ -154,10 +154,12 @@ struct Todo: Codable {
     struct EditResources: Codable {
         var statuses: [Status]
         var users: [User]
+        var lists: [List]
         
         enum CodingKeys: String, CodingKey {
             case statuses
             case users
+            case lists
         }
         
         struct Status: Codable {
@@ -170,6 +172,16 @@ struct Todo: Codable {
             }
         }
         
+        struct List: Codable {
+            var id: Int
+            var title: String
+            
+            enum CodingKeys: String, CodingKey {
+                case id
+                case title
+            }
+        }
+        
         static func load(todo: Todo, completion: @escaping (EditResources?) -> Void) {
             NetworkProvider.main.data(request: .todoEditResource(todo: todo)) { (data) in
                 guard let data = data else {
@@ -177,7 +189,9 @@ struct Todo: Codable {
                     return
                 }
                 
-                let editResources = try! JSONDecoder.main.decode(EditResources.self, from: data)
+                var editResources = try! JSONDecoder.main.decode(EditResources.self, from: data)
+                let list = List(id: 0, title: trans("project.none"))
+                editResources.lists.insert(list, at: 0)
                 completion(editResources)
             }
         }

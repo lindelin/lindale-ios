@@ -22,6 +22,7 @@ class ProjectTodoEditController: UITableViewController {
     @IBOutlet weak var status: UIPickerView!
     @IBOutlet weak var color: UIPickerView!
     @IBOutlet weak var detail: UITextView!
+    @IBOutlet weak var listPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,18 +61,44 @@ class ProjectTodoEditController: UITableViewController {
             }
             self.color.selectRow(todo.color - 1 , inComponent: 0, animated: true)
             self.detail.text = todo.details ?? ""
+            for (index, list) in self.editResource.lists.enumerated() {
+                if list.title == todo.listName {
+                    self.listPicker.selectRow(index, inComponent: 0, animated: true)
+                }
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return trans("todo.content")
+        case 1:
+            return trans("todo.user")
+        case 2:
+            return trans("todo.status")
+        case 3:
+            return trans("todo.color")
+        case 4:
+            return trans("todo.todo-list")
+        case 5:
+            return trans("todo.details")
+        default:
+            return nil
         }
     }
     
     @objc func updateButtonTapped() {
         if let todo = self.cell.todo {
+            print(self.listPicker.selectedRow(inComponent: 0))
+            print(self.editResource.lists[self.listPicker.selectedRow(inComponent: 0)].id)
             KRProgressHUD.show()
             let register = TodoRegister(id: todo.id,
                                         content: self.content.text,
                                         details: self.detail.text,
                                         statusId: self.editResource.statuses[self.status.selectedRow(inComponent: 0)].id,
                                         colorId: self.color.selectedRow(inComponent: 0) + 1,
-                                        listId: nil,
+                                        listId: self.editResource.lists[self.listPicker.selectedRow(inComponent: 0)].id,
                                         userId: self.editResource.users[self.user.selectedRow(inComponent: 0)].id,
                                         projectId: nil)
             register.update { (response) in
@@ -109,6 +136,8 @@ extension ProjectTodoEditController: UIPickerViewDelegate, UIPickerViewDataSourc
             return Colors.ids().count
         case 3:
             return self.editResource.users.count
+        case 4:
+            return self.editResource.lists.count
         default:
             return 0
         }
@@ -133,6 +162,12 @@ extension ProjectTodoEditController: UIPickerViewDelegate, UIPickerViewDataSourc
                 .foregroundColor : Colors.themeMain,
                 ]
             let string = NSAttributedString(string: self.editResource.users[row].name, attributes:stringAttributes)
+            return string
+        case 4:
+            let stringAttributes: [NSAttributedString.Key : Any] = [
+                .foregroundColor : Colors.themeMain,
+                ]
+            let string = NSAttributedString(string: self.editResource.lists[row].title, attributes:stringAttributes)
             return string
         default:
             return nil
