@@ -28,7 +28,7 @@ class ProjectTopController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show()
         ProjectTopResource.load(project: self.project) { (projectTopResource) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()

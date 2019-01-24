@@ -24,7 +24,7 @@ struct OAuth: Codable {
     }
     
     static func configure() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show()
         let ref = Database.database().reference()
         ref.child("system").child("oauth").observeSingleEvent(of: .value, with: { (snapshot) in
             

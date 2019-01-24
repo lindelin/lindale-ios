@@ -53,7 +53,7 @@ class ProjectInfoController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show()
         self.image.load(url: self.project.image, placeholder: UIImage(named: "lindale-launch"))
         self.pl.text = project.pl.name
         self.sl.text = project.sl?.name
@@ -65,7 +65,7 @@ class ProjectInfoController: UITableViewController {
                 let md = Down(markdownString: content)
                 self.contents.attributedText = try? md.toAttributedString()
             } else {
-                self.contents.text = "なし"
+                self.contents.text = trans("project.none")
             }
             self.updateUI()
             KRProgressHUD.dismiss()

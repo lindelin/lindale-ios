@@ -34,7 +34,7 @@ class NotificationSettingController: UITableViewController {
     }
 
     @IBAction func updateSlack(_ sender: UISwitch) {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         if sender.isOn {
             self.notificationSettings.slack = Settings.Notification.on
         } else {

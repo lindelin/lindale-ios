@@ -28,7 +28,7 @@ class ProjectMemberController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show()
         ProjectMember.resources(project: self.project) { (projectMember) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()

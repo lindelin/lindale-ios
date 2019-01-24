@@ -39,7 +39,7 @@ class SubTaskCell: UITableViewCell {
     }
     
     @IBAction func completeSwitchChanged(_ sender: UISwitch) {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         
         if sender.isOn {
             self.subTask!.isFinish = TaskResource.SubTask.on

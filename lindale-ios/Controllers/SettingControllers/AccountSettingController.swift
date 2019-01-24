@@ -43,14 +43,14 @@ class AccountSettingController: UITableViewController, UITextFieldDelegate {
     }
 
     @IBAction func save(_ sender: UIBarButtonItem) {
-        KRProgressHUD.show(withMessage: "Saving...")
+        KRProgressHUD.show()
         let password = Settings.Password(password: self.password.text,
                                          newPassword: self.newPassword.text,
                                          newPasswordConfirmation: self.confirmPassword.text)
         password.save { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Save error", message: response["messages"]!)
+                self.showAlert(title: nil, message: response["messages"]!)
                 return
             }
             

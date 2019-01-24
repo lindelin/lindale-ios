@@ -82,7 +82,7 @@ class TodoEditViewController: UITableViewController {
     
     @IBAction func update(_ sender: Any) {
         if let todo = self.cell.todo {
-            KRProgressHUD.show(withMessage: "Updating...")
+            KRProgressHUD.show()
             let register = TodoRegister(id: todo.id,
                                         content: self.content.text,
                                         details: self.detail.text,
@@ -94,7 +94,7 @@ class TodoEditViewController: UITableViewController {
             register.update { (response) in
                 guard response["status"] == "OK" else {
                     KRProgressHUD.dismiss()
-                    self.showAlert(title: "Update error", message: response["messages"]!)
+                    self.showAlert(title: nil, message: response["messages"]!)
                     return
                 }
                 

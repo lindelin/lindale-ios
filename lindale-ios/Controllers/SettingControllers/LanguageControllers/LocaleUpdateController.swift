@@ -45,12 +45,12 @@ class LocaleUpdateController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         let option = self.localeSettings.optionObjs()[indexPath.row]
         Settings.Locale.update(to: option.key) { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Update error", message: response["messages"]!)
+                self.showAlert(title: nil, message: response["messages"]!)
                 return
             }
             KRProgressHUD.dismiss()

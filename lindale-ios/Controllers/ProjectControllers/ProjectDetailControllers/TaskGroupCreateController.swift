@@ -66,7 +66,7 @@ class TaskGroupCreateController: UITableViewController {
     }
     
     @IBAction func updateButtonTapped(_ sender: Any) {
-        KRProgressHUD.show(withMessage: "Creating...")
+        KRProgressHUD.show()
         let type = self.editResource.types[self.type.selectedRow(inComponent: 0)]
         let statusId = TaskGroup.Status.open.rawValue
         let colorId = self.color.selectedRow(inComponent: 0) + 1
@@ -82,7 +82,7 @@ class TaskGroupCreateController: UITableViewController {
         register.store { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Create error", message: response["messages"]!)
+                self.showAlert(title: nil, message: response["messages"]!)
                 return
             }
             

@@ -108,7 +108,7 @@ class ProjectsViewController: UITableViewController {
     }
     
     func loadMoreData(url: URL) {
-        KRProgressHUD.show(withMessage: "Loding...")
+        KRProgressHUD.show()
         ProjectCollection.more(nextUrl: url) { (projectCollection) in
             if let projectCollection = projectCollection {
                 self .projectCollection?.links = projectCollection.links
