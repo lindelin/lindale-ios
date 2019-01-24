@@ -665,7 +665,7 @@
             </objects>
             <point key="canvasLocation" x="1221" y="156"/>
         </scene>
-        <!--Edit-->
+        <!--Project Todo Edit Controller-->
         <scene sceneID="5Iy-vY-OGG">
             <objects>
                 <tableViewController storyboardIdentifier="ProjectTodoEdit" id="en3-OY-FdM" customClass="ProjectTodoEditController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -814,10 +814,15 @@
                             <outlet property="delegate" destination="en3-OY-FdM" id="giy-c9-an5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit" id="z9s-FB-5xX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OSj-Lx-R4S"/>
-                        <barButtonItem key="rightBarButtonItem" title="Update" id="vPc-Bn-JJG"/>
+                    <navigationItem key="navigationItem" id="z9s-FB-5xX">
+                        <barButtonItem key="leftBarButtonItem" image="back-30" id="OSj-Lx-R4S">
+                            <color key="tintColor" name="Theme-base-sub"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" image="insert-30" id="vPc-Bn-JJG">
+                            <color key="tintColor" name="Theme-yellow"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="color" destination="gee-UQ-lxr" id="SiF-0f-HKh"/>
                         <outlet property="content" destination="Heq-GN-Ycw" id="z2Z-mM-JDg"/>
@@ -832,7 +837,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back-30" width="45" height="45"/>
         <image name="dots" width="14" height="84"/>
+        <image name="insert-30" width="45" height="45"/>
         <image name="todo-30" width="45" height="45"/>
         <image name="user-30" width="45" height="45"/>
         <namedColor name="Theme-background">
@@ -849,6 +856,9 @@
         </namedColor>
         <namedColor name="Theme-main">
             <color red="0.80000000000000004" green="0.26666666666666666" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme-yellow">
+            <color red="0.96862745098039216" green="0.76078431372549016" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -45,11 +45,27 @@ class ProjectGroupTasksController: UITableViewController {
                                           y: self.view.frame.origin.y - margin - size - Size.tabBarHeight,
                                           width: size,
                                           height: size))
-        floaty.addItem("New Group", icon: UIImage(named: "task-group-30")!, handler: { item in
-            // TODO
+        floaty.addItem(trans("task.new-group"), icon: UIImage(named: "task-group-30")!, handler: { item in
+            KRProgressHUD.show()
+            TaskGroup.EditResources.resources(project: self.project, completion: { (editResources) in
+                guard let editResources = editResources else {
+                    KRProgressHUD.set(duration: 2.0).dismiss({
+                        KRProgressHUD.showError(withMessage: trans("errors.save-failed"))
+                    })
+                    return
+                }
+                
+                let storyboard = UIStoryboard(name: "ProjectTask", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: TaskGroupCreateController.identity) as! TaskGroupCreateController
+                controller.parentNavigationController = self.parentNavigationController
+                controller.project = self.project
+                controller.editResource = editResources
+                KRProgressHUD.dismiss()
+                self.parentNavigationController?.pushViewController(controller, animated: true)
+            })
             floaty.close()
         })
-        floaty.addItem("New Task", icon: UIImage(named: "task-30")!, handler: { item in
+        floaty.addItem(trans("task.new-task"), icon: UIImage(named: "task-30")!, handler: { item in
             // TODO
             floaty.close()
         })
@@ -61,7 +77,7 @@ class ProjectGroupTasksController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loding...")
+        KRProgressHUD.show()
         MyTaskCollection.resources(group: self.taskGroup) { (myTaskCollection) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()
@@ -115,7 +131,7 @@ class ProjectGroupTasksController: UITableViewController {
     }
     
     func loadMoreData(url: URL) {
-        KRProgressHUD.show(withMessage: "Loding...")
+        KRProgressHUD.show()
         MyTaskCollection.more(nextUrl: url) { (myTaskCollection) in
             if let myTaskCollection = myTaskCollection {
                 self .myTaskCollection?.links = myTaskCollection.links

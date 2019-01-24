@@ -49,7 +49,7 @@ class ProfileSettingController: UITableViewController {
     }
 
     @IBAction func updateProfileInfo(_ sender: UIBarButtonItem) {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         let profileInfo = Settings.ProfileInfo(name: self.name.text ?? "",
                                                content: self.content.text ?? "",
                                                company: self.organization.text ?? "")

@@ -79,6 +79,7 @@
                             <outlet property="delegate" destination="wMz-04-Lr4" id="Gir-MX-7ep"/>
                         </connections>
                     </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekx-FF-euW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

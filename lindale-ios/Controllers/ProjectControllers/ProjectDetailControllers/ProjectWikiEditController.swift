@@ -30,10 +30,11 @@ class ProjectWikiEditController: UITableViewController {
     }
     
     private func setupNavigation() {
-        self.navigationItem.title = "Edit"
-        let backButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.backButtonTapped))
+        self.navigationItem.title = trans("wiki.edit-title")
+        let backButton = UIBarButtonItem(image: UIImage(named: "back-30"), style: .plain, target: self, action: #selector(self.backButtonTapped))
         self.navigationItem.leftBarButtonItem = backButton
-        let updateButton = UIBarButtonItem(title: "Update", style: .plain, target: self, action: #selector(self.updateButtonTapped))
+        let updateButton = UIBarButtonItem(image: UIImage(named: "insert-30"), style: .plain, target: self, action: #selector(self.updateButtonTapped))
+        updateButton.tintColor = Colors.themeYellow
         self.navigationItem.rightBarButtonItem = updateButton
     }
     
@@ -47,7 +48,7 @@ class ProjectWikiEditController: UITableViewController {
     }
     
     @objc func updateButtonTapped() {
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         let register = WikiRegister(id: self.wiki.id,
                                     title: self.wikiTitle.text,
                                     content: self.wikiContent.text,
@@ -56,7 +57,7 @@ class ProjectWikiEditController: UITableViewController {
         register.update { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Update error", message: response["messages"]!)
+                self.showAlert(title: nil, message: response["messages"]!)
                 return
             }
             
@@ -72,10 +73,10 @@ class ProjectWikiEditController: UITableViewController {
     @IBAction func addImageButtonTapped(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let selectPhotoAction = UIAlertAction(title: "写真を選択", style: .default) { (_) in
+        let selectPhotoAction = UIAlertAction(title: trans("common.choose-file"), style: .default) { (_) in
             guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
                 KRProgressHUD.set(duration: 2.0).dismiss({
-                    KRProgressHUD.showError(withMessage: "写真を取得する権利がありません。")
+                    KRProgressHUD.showError(withMessage: trans("errors.unauthorized"))
                 })
                 return
             }
@@ -86,10 +87,10 @@ class ProjectWikiEditController: UITableViewController {
             self.present(picker, animated: true)
         }
         
-        let takePhotoAction = UIAlertAction(title: "カメラで撮影", style: .default) { (_) in
+        let takePhotoAction = UIAlertAction(title: trans("common.take-photo"), style: .default) { (_) in
             guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
                 KRProgressHUD.set(duration: 2.0).dismiss({
-                    KRProgressHUD.showError(withMessage: "カメラを利用する権利がありません。")
+                    KRProgressHUD.showError(withMessage: trans("errors.unauthorized"))
                 })
                 return
             }
@@ -100,7 +101,7 @@ class ProjectWikiEditController: UITableViewController {
             self.present(picker, animated: true)
         }
         
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (_) in
+        let cancelAction = UIAlertAction(title: trans("common.cancel"), style: .cancel) { (_) in
             actionSheet.dismiss(animated: true)
         }
         
@@ -110,16 +111,6 @@ class ProjectWikiEditController: UITableViewController {
         
         self.present(actionSheet, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ProjectWikiEditController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -129,7 +120,7 @@ extension ProjectWikiEditController: UIImagePickerControllerDelegate, UINavigati
         
         guard mediaType == (kUTTypeImage as String) else {
             KRProgressHUD.set(duration: 2.0).dismiss({
-                KRProgressHUD.showError(withMessage: "写真を選択してください。")
+                KRProgressHUD.showError(withMessage: trans("errors.not-photo"))
             })
             return
         }

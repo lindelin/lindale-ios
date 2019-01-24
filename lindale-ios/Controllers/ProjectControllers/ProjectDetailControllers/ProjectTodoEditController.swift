@@ -34,10 +34,14 @@ class ProjectTodoEditController: UITableViewController {
     }
     
     func setUpNavigationBar() {
-        self.navigationItem.title = "Edit"
-        let backButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.backButtonTapped))
+        self.navigationItem.title = trans("todo.edit")
+        self.navigationController?.navigationBar.barStyle = .default
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        let backButton = UIBarButtonItem(image: UIImage(named: "back-30"), style: .plain, target: self, action: #selector(self.backButtonTapped))
         self.navigationItem.leftBarButtonItem = backButton
-        let updateButton = UIBarButtonItem(title: "Update", style: .plain, target: self, action: #selector(self.updateButtonTapped))
+        let updateButton = UIBarButtonItem(image: UIImage(named: "insert-30"), style: .plain, target: self, action: #selector(self.updateButtonTapped))
+        updateButton.tintColor = Colors.themeYellow
         self.navigationItem.rightBarButtonItem = updateButton
     }
     
@@ -61,7 +65,7 @@ class ProjectTodoEditController: UITableViewController {
     
     @objc func updateButtonTapped() {
         if let todo = self.cell.todo {
-            KRProgressHUD.show(withMessage: "Updating...")
+            KRProgressHUD.show()
             let register = TodoRegister(id: todo.id,
                                         content: self.content.text,
                                         details: self.detail.text,
@@ -73,7 +77,7 @@ class ProjectTodoEditController: UITableViewController {
             register.update { (response) in
                 guard response["status"] == "OK" else {
                     KRProgressHUD.dismiss()
-                    self.showAlert(title: "Update error", message: response["messages"]!)
+                    self.showAlert(title: nil, message: response["messages"]!)
                     return
                 }
                 

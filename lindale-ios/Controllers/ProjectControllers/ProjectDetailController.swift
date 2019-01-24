@@ -60,7 +60,7 @@ class ProjectDetailController: UIViewController {
         let contorller = storyboard.instantiateViewController(withIdentifier: ProjectTopController.identity) as! ProjectTopController
         contorller.parentNavigationController = self.navigationController
         contorller.project = self.project
-        contorller.title = "Top"
+        contorller.title = trans("header.top")
         controllers.append(contorller)
     }
     
@@ -69,7 +69,7 @@ class ProjectDetailController: UIViewController {
         let contorller = storyboard.instantiateViewController(withIdentifier: ProjectInfoController.identity) as! ProjectInfoController
         contorller.parentNavigationController = self.navigationController
         contorller.project = self.project
-        contorller.title = "Overview"
+        contorller.title = trans("header.info")
         controllers.append(contorller)
     }
     
@@ -78,7 +78,7 @@ class ProjectDetailController: UIViewController {
         let contorller = storyboard.instantiateViewController(withIdentifier: ProjectTaskController.identity) as! ProjectTaskController
         contorller.parentNavigationController = self.navigationController
         contorller.project = self.project
-        contorller.title = "Tasks"
+        contorller.title = trans("header.tasks")
         controllers.append(contorller)
     }
     
@@ -96,7 +96,7 @@ class ProjectDetailController: UIViewController {
         let contorller = storyboard.instantiateViewController(withIdentifier: ProjectMemberController.identity) as! ProjectMemberController
         contorller.parentNavigationController = self.navigationController
         contorller.project = self.project
-        contorller.title = "Members"
+        contorller.title = trans("header.member")
         controllers.append(contorller)
     }
     
@@ -114,7 +114,7 @@ class ProjectDetailController: UIViewController {
         let contorller = storyboard.instantiateViewController(withIdentifier: ProjectSettingsController.identity) as! ProjectSettingsController
         contorller.parentNavigationController = self.navigationController
         contorller.project = self.project
-        contorller.title = "Settings"
+        contorller.title = trans("header.config")
         controllers.append(contorller)
     }
     

@@ -42,14 +42,14 @@ class ProjectTodoController: UITableViewController {
     
     private func setupFloatyButton() {
         let floaty = Floaty()
-        floaty.addItem("New List", icon: UIImage(named: "todo-list-30")!, handler: { item in
+        floaty.addItem(trans("todo.add-todo-list"), icon: UIImage(named: "todo-list-30")!, handler: { item in
             let appearance = SCLAlertView.SCLAppearance(
                 showCircularIcon: false
             )
             let alert = SCLAlertView(appearance: appearance)
-            let textField = alert.addTextField("Name")
-            alert.addButton("追加") {
-                KRProgressHUD.show(withMessage: "Adding...")
+            let textField = alert.addTextField()
+            alert.addButton(trans("todo.add")) {
+                KRProgressHUD.show()
                 
                 let todoList = TodoListRegister(id: nil,
                                                 title: textField.text,
@@ -57,7 +57,7 @@ class ProjectTodoController: UITableViewController {
                 todoList.store(completion: { (response) in
                     guard response["status"] == "OK" else {
                         KRProgressHUD.dismiss()
-                        self.showAlert(title: "error", message: response["messages"]!)
+                        self.showAlert(title: nil, message: response["messages"]!)
                         return
                     }
 
@@ -66,21 +66,21 @@ class ProjectTodoController: UITableViewController {
                     })
                 })
             }
-            alert.showCustom("TODO リストを追加",
-                             subTitle: "リスト名を入力してください。",
+            alert.showCustom(trans("todo.add-todo-list"),
+                             subTitle: "",
                              color: Colors.themeBlue,
                              icon: UIImage(named: "todo-list-30")!,
-                             closeButtonTitle: "取消")
+                             closeButtonTitle: trans("todo.cancel"))
             floaty.close()
         })
-        floaty.addItem("New TODO", icon: UIImage(named: "todo-30")!, handler: { item in
+        floaty.addItem(trans("todo.add-title"), icon: UIImage(named: "todo-30")!, handler: { item in
             let appearance = SCLAlertView.SCLAppearance(
                 showCircularIcon: false
             )
             let alert = SCLAlertView(appearance: appearance)
             let textField = alert.addTextField("TODO")
-            alert.addButton("追加") {
-                KRProgressHUD.show(withMessage: "Adding...")
+            alert.addButton(trans("todo.add")) {
+                KRProgressHUD.show()
                 
                 let todo = TodoRegister(id: nil,
                                         content: textField.text,
@@ -104,11 +104,11 @@ class ProjectTodoController: UITableViewController {
                     })
                 })
             }
-            alert.showCustom("TODO を追加",
-                             subTitle: "内容を入力してください。",
+            alert.showCustom(trans("todo.new-title"),
+                             subTitle: "",
                              color: Colors.themeGreen,
                              icon: UIImage(named: "todo-30")!,
-                             closeButtonTitle: "取消")
+                             closeButtonTitle: trans("todo.cancel"))
             floaty.close()
         })
         floaty.sticky = true
@@ -144,7 +144,7 @@ class ProjectTodoController: UITableViewController {
     }
     
     func loadMoreData(url: URL) {
-        KRProgressHUD.show(withMessage: "Loding...")
+        KRProgressHUD.show()
         TodoCollection.more(nextUrl: url) { (todoCollection) in
             if let todoCollection = todoCollection {
                 self .todoCollection?.links = todoCollection.links
@@ -229,12 +229,12 @@ class ProjectTodoController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
-        let colorChangeActon = UIContextualAction(style: .normal, title: "Color") { (_, _, completion) in
+        let colorChangeActon = UIContextualAction(style: .normal, title: trans("todo.color")) { (_, _, completion) in
             let alert = SCLAlertView()
             
             for id in Colors.ids() {
                 alert.addButton("", backgroundColor: Colors.get(id: id), textColor: nil, showTimeout: nil, action: {
-                    KRProgressHUD.show(withMessage: "Updating...")
+                    KRProgressHUD.show()
                     guard let todo = cell.todo else {
                         KRProgressHUD.dismiss({
                             KRProgressHUD.showError(withMessage: "Network Error!")
@@ -258,11 +258,11 @@ class ProjectTodoController: UITableViewController {
                 })
             }
             
-            alert.showCustom("カラー変更",
-                             subTitle: "カラーを選んでください。",
+            alert.showCustom("",
+                             subTitle: trans("todo.color"),
                              color: Colors.get(id: cell.todo!.color),
                              icon: UIImage(),
-                             closeButtonTitle: "取消")
+                             closeButtonTitle: trans("todo.cancel"))
         }
         colorChangeActon.backgroundColor = Colors.get(id: cell.todo!.color)
         return UISwipeActionsConfiguration(actions: [colorChangeActon])
@@ -271,15 +271,15 @@ class ProjectTodoController: UITableViewController {
     // MARK: - 右滑菜单
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (_, _, completion) in
-            let actionSheet = UIAlertController(title: "削除", message: "TODOを削除しますか？", preferredStyle: .actionSheet)
+        let deleteAction = UIContextualAction(style: .normal, title: trans("todo.delete")) { (_, _, completion) in
+            let actionSheet = UIAlertController(title: nil, message: trans("todo.delete-title"), preferredStyle: .actionSheet)
             
-            let noAction = UIAlertAction(title: "いいえ", style: .cancel, handler: { (action: UIAlertAction) in
+            let noAction = UIAlertAction(title: trans("todo.cancel"), style: .cancel, handler: { (action: UIAlertAction) in
                 actionSheet.dismiss(animated: true, completion: nil)
             })
             
-            let yesAction = UIAlertAction(title: "はい", style: .default, handler: { (action: UIAlertAction) in
-                KRProgressHUD.show(withMessage: "Deleting...")
+            let yesAction = UIAlertAction(title: trans("todo.delete"), style: .default, handler: { (action: UIAlertAction) in
+                KRProgressHUD.show()
                 let cell = tableView.cellForRow(at: indexPath) as! FoldingTodoCell
                 
                 guard let todo = cell.todo else {
@@ -313,8 +313,8 @@ class ProjectTodoController: UITableViewController {
         }
         
         // TODO: - 代码优化
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
-            KRProgressHUD.show(withMessage: "Loading...")
+        let editAction = UIContextualAction(style: .normal, title: trans("task.edit")) { (_, _, completion) in
+            KRProgressHUD.show()
             let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
             Todo.EditResources.load(todo: cell.todo!, completion: { (resource) in
                 KRProgressHUD.dismiss()

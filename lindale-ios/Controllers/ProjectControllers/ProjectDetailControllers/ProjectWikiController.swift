@@ -32,11 +32,11 @@ class ProjectWikiController: UITableViewController {
     
     private func setupFloatyButton() {
         let floaty = Floaty()
-        floaty.addItem("New Index", icon: UIImage(named: "book-30")!, handler: { item in
+        floaty.addItem(trans("wiki.add-index"), icon: UIImage(named: "book-30")!, handler: { item in
             // TODO
             floaty.close()
         })
-        floaty.addItem("New Wiki", icon: UIImage(named: "wiki-30")!, handler: { item in
+        floaty.addItem(trans("wiki.submit"), icon: UIImage(named: "wiki-30")!, handler: { item in
             // TODO
             floaty.close()
         })
@@ -47,7 +47,7 @@ class ProjectWikiController: UITableViewController {
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show()
         WikiType.resources(project: self.project) { (wikiTypes) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()

@@ -34,7 +34,10 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
     
     private func setupNavigation() {
         self.navigationItem.title = self.wiki.title
+        let backButton = UIBarButtonItem(image: UIImage(named: "back-30"), style: .plain, target: self, action: #selector(self.backButtonTapped))
+        self.navigationItem.leftBarButtonItem = backButton
         let editButton = UIBarButtonItem(image: UIImage(named: "pencil-24"), style: .plain, target: self, action: #selector(self.editButtonTapped))
+        editButton.tintColor = Colors.themeBlue
         self.navigationItem.rightBarButtonItem = editButton
     }
     
@@ -83,13 +86,7 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
         self.parentNavigationController?.pushViewController(controller, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        self.parentNavigationController?.popViewController(animated: true)
     }
-    */
 }

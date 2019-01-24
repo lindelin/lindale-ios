@@ -83,7 +83,7 @@ class ProjectTaskEditController: UITableViewController {
     @IBAction func updateTask(_ sender: UIBarButtonItem) {
         let user = self.editResource.users[self.userPicker.selectedRow(inComponent: 0)]
         let colorId = self.colorPicker.selectedRow(inComponent: 0) + 1
-        KRProgressHUD.show(withMessage: "Updating...")
+        KRProgressHUD.show()
         let register = TaskRegister(id: self.taskResource.id,
                                     title: self.taskTitle.text,
                                     content: self.taskContent.text,
@@ -99,7 +99,7 @@ class ProjectTaskEditController: UITableViewController {
         register.update { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
-                self.showAlert(title: "Update error", message: response["messages"]!)
+                self.showAlert(title: nil, message: response["messages"]!)
                 return
             }
             

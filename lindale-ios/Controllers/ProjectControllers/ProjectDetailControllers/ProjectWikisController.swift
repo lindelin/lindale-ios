@@ -40,11 +40,11 @@ class ProjectWikisController: UITableViewController {
                                           y: self.view.frame.origin.y - margin - size - Size.tabBarHeight,
                                           width: size,
                                           height: size))
-        floaty.addItem("New Index", icon: UIImage(named: "book-30")!, handler: { item in
+        floaty.addItem(trans("wiki.add-index"), icon: UIImage(named: "book-30")!, handler: { item in
             // TODO
             floaty.close()
         })
-        floaty.addItem("New Wiki", icon: UIImage(named: "wiki-30")!, handler: { item in
+        floaty.addItem(trans("wiki.submit"), icon: UIImage(named: "wiki-30")!, handler: { item in
             // TODO
             floaty.close()
         })
@@ -57,10 +57,12 @@ class ProjectWikisController: UITableViewController {
     
     private func setupNavigation() {
         self.navigationItem.title = self.wikiType.name
+        let backButton = UIBarButtonItem(image: UIImage(named: "back-30"), style: .plain, target: self, action: #selector(self.backButtonTapped))
+        self.navigationItem.leftBarButtonItem = backButton
     }
     
     @objc func loadData() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show()
         Wiki.resources(project: self.project, type: self.wikiType) { (wikis) in
             self.refreshControl?.endRefreshing()
             KRProgressHUD.dismiss()
@@ -108,50 +110,8 @@ class ProjectWikisController: UITableViewController {
         controller.wiki = wiki
         self.parentNavigationController?.pushViewController(controller, animated: true)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @objc func backButtonTapped(_ sender: UIBarButtonItem) {
+        self.parentNavigationController?.popViewController(animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
