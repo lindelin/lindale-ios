@@ -270,16 +270,30 @@ struct TaskResource: Codable {
     struct EditResources: Codable {
         var users: [User]
         var groups: [TaskGroup]
+        var openGroups: [TaskGroup]
         var types: [TaskType]
         
         enum CodingKeys: String, CodingKey {
             case users
             case groups
+            case openGroups = "open_groups"
             case types
         }
         
         static func load(task: TaskResource, completion: @escaping (EditResources?) -> Void) {
             NetworkProvider.main.data(request: .taskEditResource(projectId: task.projectId)) { (data) in
+                guard let data = data else {
+                    completion(nil)
+                    return
+                }
+                
+                let editResources = try! JSONDecoder.main.decode(EditResources.self, from: data)
+                completion(editResources)
+            }
+        }
+        
+        static func load(projectId: Int, completion: @escaping (EditResources?) -> Void) {
+            NetworkProvider.main.data(request: .taskEditResource(projectId: projectId)) { (data) in
                 guard let data = data else {
                     completion(nil)
                     return
@@ -346,9 +360,16 @@ struct TaskRegister {
     var statusId: Int?
     var priorityId: Int?
     var colorId: Int?
+    var projectId: Int?
     
     func update(completion: @escaping ([String: String]) -> Void) {
         NetworkProvider.main.message(request: .taskUpdate(task: self)) { (status) in
+            completion(status)
+        }
+    }
+    
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeTask(task: self)) { (status) in
             completion(status)
         }
     }

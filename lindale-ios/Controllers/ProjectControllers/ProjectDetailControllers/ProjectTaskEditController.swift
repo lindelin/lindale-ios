@@ -116,7 +116,8 @@ class ProjectTaskEditController: UITableViewController {
                                     userId: user.id,
                                     statusId: nil,
                                     priorityId: nil,
-                                    colorId: colorId)
+                                    colorId: colorId,
+                                    projectId: nil)
         register.update { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()

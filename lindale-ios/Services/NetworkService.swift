@@ -54,6 +54,7 @@ enum NetworkService {
     case storeTaskGroup(group: TaskGroupRegister)
     case storeWiki(wiki: WikiRegister)
     case storeWikiType(wikiType: WikiTypeRegister)
+    case storeTask(task: TaskRegister)
 }
 
 extension NetworkService: TargetType {
@@ -146,6 +147,8 @@ extension NetworkService: TargetType {
             return "/projects/\(wiki.projectId!)/wikis"
         case .storeWikiType(let wikiType):
             return "/projects/\(wikiType.projectId!)/wikis/types"
+        case .storeTask(let task):
+            return "/projects/\(task.projectId!)/tasks"
         }
     }
     
@@ -157,7 +160,7 @@ extension NetworkService: TargetType {
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup, .storeWiki, .storeWikiType:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup, .storeWiki, .storeWikiType, .storeTask:
             return .post
         }
     }
@@ -220,6 +223,20 @@ extension NetworkService: TargetType {
                 "list_id": todo.listId as Any
                 ], encoding: JSONEncoding.default)
         case let .taskUpdate(task):
+            return .requestParameters(parameters: [
+                "group_id": task.groupId as Any,
+                "title": task.title as Any,
+                "content": task.content as Any,
+                "start_at": task.startAt as Any,
+                "end_at": task.endAt as Any,
+                "cost": task.cost as Any,
+                "type_id": task.typeId as Any,
+                "user_id": task.userId as Any,
+                "status_id": task.statusId as Any,
+                "priority_id": task.priorityId as Any,
+                "color_id": task.colorId as Any
+                ], encoding: JSONEncoding.default)
+        case let .storeTask(task):
             return .requestParameters(parameters: [
                 "group_id": task.groupId as Any,
                 "title": task.title as Any,

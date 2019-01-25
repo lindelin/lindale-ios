@@ -29,6 +29,8 @@ class ProjectTaskController: UITableViewController {
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskGroupHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.taskHasCreated, object: nil)
     }
     
     private func setupFloatyButton() {
@@ -54,7 +56,23 @@ class ProjectTaskController: UITableViewController {
             floaty.close()
         })
         floaty.addItem(trans("task.new-task"), icon: UIImage(named: "task-30")!, handler: { item in
-            // TODO
+            KRProgressHUD.show()
+            TaskResource.EditResources.load(projectId: self.project.id, completion: { (resource) in
+                guard let resource = resource else {
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showError(withMessage: trans("errors.network-error", option: "Network Error!"))
+                    })
+                    return
+                }
+                
+                let storyboard = UIStoryboard(name: "ProjectTask", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: ProjectTaskCreateController.identity) as! ProjectTaskCreateController
+                controller.parentNavigationController = self.parentNavigationController
+                controller.project = self.project
+                controller.editResource = resource
+                KRProgressHUD.dismiss()
+                self.parentNavigationController?.pushViewController(controller, animated: true)
+            })
             floaty.close()
         })
         floaty.sticky = true

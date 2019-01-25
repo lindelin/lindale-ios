@@ -364,6 +364,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         })
         
         let taskEditAction = UIAlertAction(title: trans("task.edit-task"), style: .default, handler: { (action: UIAlertAction) in
+            KRProgressHUD.show()
             guard let taskResource = self.taskResource else {
                 KRProgressHUD.dismiss({
                     KRProgressHUD.showError(withMessage: trans("errors.network-error", option: "Network Error!"))
@@ -383,6 +384,7 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
                 controller.parentNavigationController = self.parentNavigationController
                 controller.taskResource = taskResource
                 controller.editResource = resource
+                KRProgressHUD.dismiss()
                 self.parentNavigationController?.pushViewController(controller, animated: true)
             })
         })

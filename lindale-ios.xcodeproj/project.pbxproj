@@ -120,6 +120,7 @@
 		F2BB3AB42152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F2BB3AB52152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F2BC25C921FAA825005555F1 /* ProjectWikiCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC25C821FAA825005555F1 /* ProjectWikiCreateController.swift */; };
+		F2BC25CB21FAF262005555F1 /* ProjectTaskCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC25CA21FAF262005555F1 /* ProjectTaskCreateController.swift */; };
 		F2C12C96219D1B23002B58C2 /* TodoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C95219D1B23002B58C2 /* TodoEditViewController.swift */; };
 		F2C12C98219D5264002B58C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
 		F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */; };
@@ -436,6 +437,7 @@
 		F2BB3AAD215215C000AB2632 /* TasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskRow.swift; sourceTree = "<group>"; };
 		F2BC25C821FAA825005555F1 /* ProjectWikiCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWikiCreateController.swift; sourceTree = "<group>"; };
+		F2BC25CA21FAF262005555F1 /* ProjectTaskCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTaskCreateController.swift; sourceTree = "<group>"; };
 		F2C12C95219D1B23002B58C2 /* TodoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditViewController.swift; sourceTree = "<group>"; };
 		F2C12C97219D5264002B58C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 				F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */,
 				F2819EAB21F6BCE60070BD3B /* TaskGroupCreateController.swift */,
 				F2BC25C821FAA825005555F1 /* ProjectWikiCreateController.swift */,
+				F2BC25CA21FAF262005555F1 /* ProjectTaskCreateController.swift */,
 			);
 			path = ProjectDetailControllers;
 			sourceTree = "<group>";
@@ -1732,6 +1735,7 @@
 				A86384012171C6AC00837E1B /* TaskBasicInfoCell.swift in Sources */,
 				A89F87D621722D0A004ADEA4 /* SubTaskCell.swift in Sources */,
 				F2DF020C214E1249003E0033 /* Todo.swift in Sources */,
+				F2BC25CB21FAF262005555F1 /* ProjectTaskCreateController.swift in Sources */,
 				F2CAE18021384B22002C04E7 /* OAuthService.swift in Sources */,
 				F2CAE17D21384A93002C04E7 /* OAuth.swift in Sources */,
 				A8250EC2217195C50084C5CE /* MyTaskDetailController.swift in Sources */,
