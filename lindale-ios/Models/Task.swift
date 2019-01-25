@@ -135,6 +135,7 @@ struct MyTaskCollection: Codable {
 
 struct TaskResource: Codable {
     var project: String
+    var projectId: Int
     var id: Int
     var initiator: User?
     var title: String
@@ -146,9 +147,11 @@ struct TaskResource: Codable {
     var user: User?
     var color: Int
     var type: String
+    var typeId: Int
     var status: String
     var subTaskStatus: String
     var group: String?
+    var groupId: Int?
     var priority: String
     var isFinish: Int
     var updatedAt: String
@@ -157,6 +160,7 @@ struct TaskResource: Codable {
     
     enum CodingKeys: String, CodingKey {
         case project
+        case projectId = "project_id"
         case id
         case initiator
         case title
@@ -168,9 +172,11 @@ struct TaskResource: Codable {
         case user
         case color
         case type
+        case typeId = "type_id"
         case status
         case subTaskStatus = "sub_task_status"
         case group
+        case groupId = "group_id"
         case priority
         case isFinish = "is_finish"
         case updatedAt = "updated_at"
@@ -263,13 +269,17 @@ struct TaskResource: Codable {
     
     struct EditResources: Codable {
         var users: [User]
+        var groups: [TaskGroup]
+        var types: [TaskType]
         
         enum CodingKeys: String, CodingKey {
             case users
+            case groups
+            case types
         }
         
         static func load(task: TaskResource, completion: @escaping (EditResources?) -> Void) {
-            NetworkProvider.main.data(request: .taskEditResource(task: task)) { (data) in
+            NetworkProvider.main.data(request: .taskEditResource(projectId: task.projectId)) { (data) in
                 guard let data = data else {
                     completion(nil)
                     return

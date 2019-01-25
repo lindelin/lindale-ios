@@ -258,9 +258,9 @@ class ProjectTaskDetailController: UITableViewController, UINavigationController
         case 0:
             cell.textLabel?.text = trans("task.cost")
             if let taskResource = self.taskResource {
-                cell.detailTextLabel?.text = taskResource.cost.description
+                cell.detailTextLabel?.text = "\(taskResource.cost.description) \(trans("task.hour"))"
             } else {
-                cell.detailTextLabel?.text = task.cost.description
+                cell.detailTextLabel?.text = "\(task.cost) \(trans("task.hour"))"
             }
             break
         case 1:

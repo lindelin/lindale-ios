@@ -50,6 +50,21 @@ struct TaskGroup: Codable {
         case color
     }
     
+    init() {
+        self.projectId = 0
+        self.id = 0
+        self.title = trans("project.none")
+        self.information = nil
+        self.progress = 0
+        self.status = ""
+        self.type = ""
+        self.typeColor = 0
+        self.statusId = 0
+        self.startAt = nil
+        self.endAt = nil
+        self.color = 1
+    }
+    
     enum Status: Int {
         case open = 1
         case close = 999

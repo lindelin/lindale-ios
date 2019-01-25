@@ -23,6 +23,9 @@ class ProjectTaskEditController: UITableViewController {
     @IBOutlet weak var userPicker: UIPickerView!
     @IBOutlet weak var colorPicker: UIPickerView!
     @IBOutlet weak var taskContent: UITextView!
+    @IBOutlet weak var groupPicker: UIPickerView!
+    @IBOutlet weak var typePicker: UIPickerView!
+    @IBOutlet weak var cost: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,19 +51,26 @@ class ProjectTaskEditController: UITableViewController {
         self.taskTitle.placeholder = trans("task.task-title")
         self.startAt.placeholder = trans("task.start_at")
         self.endAt.placeholder = trans("task.end_at")
+        self.cost.placeholder = trans("task.cost")
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return trans("task.task-title")
+            return trans("task.group")
         case 1:
-            return trans("task.end_at")
+            return trans("task.type")
         case 2:
-            return trans("task.user")
+            return trans("task.task-title")
         case 3:
-            return trans("task.color")
+            return trans("task.end_at")
         case 4:
+            return trans("task.cost")
+        case 5:
+            return trans("task.user")
+        case 6:
+            return trans("task.color")
+        case 7:
             return trans("task.info")
         default:
             return nil
@@ -71,17 +81,28 @@ class ProjectTaskEditController: UITableViewController {
         self.taskTitle.text = self.taskResource.title
         self.startAt.text = Date.createFormFormat(string: self.taskResource.startAt ?? "")?.format("yyyy-MM-dd")
         self.endAt.text = Date.createFormFormat(string: self.taskResource.endAt ?? "")?.format("yyyy-MM-dd")
-        for (index, user) in self.editResource.users.enumerated() {
-            if user.id == taskResource.user?.id {
-                self.userPicker.selectRow(index, inComponent: 0, animated: true)
-            }
+        
+        if let index = self.editResource.users.index(where: {$0.id == self.taskResource.user?.id}) {
+            self.userPicker.selectRow(index, inComponent: 0, animated: true)
         }
+        
+        if let index = self.editResource.groups.index(where: {$0.id == self.taskResource.groupId}) {
+            self.groupPicker.selectRow(index, inComponent: 0, animated: true)
+        }
+        
+        if let index = self.editResource.types.index(where: {$0.id == self.taskResource.typeId}) {
+            self.typePicker.selectRow(index, inComponent: 0, animated: true)
+        }
+        
         self.colorPicker.selectRow(taskResource.color - 1 , inComponent: 0, animated: true)
         self.taskContent.text = self.taskResource.content
+        self.cost.text = self.taskResource.cost.description
     }
     
     @IBAction func updateTask(_ sender: UIBarButtonItem) {
         let user = self.editResource.users[self.userPicker.selectedRow(inComponent: 0)]
+        let group = self.editResource.groups[self.groupPicker.selectedRow(inComponent: 0)]
+        let type = self.editResource.types[self.typePicker.selectedRow(inComponent: 0)]
         let colorId = self.colorPicker.selectedRow(inComponent: 0) + 1
         KRProgressHUD.show()
         let register = TaskRegister(id: self.taskResource.id,
@@ -89,9 +110,9 @@ class ProjectTaskEditController: UITableViewController {
                                     content: self.taskContent.text,
                                     startAt: self.startAt.text,
                                     endAt: self.endAt.text,
-                                    cost: nil,
-                                    groupId: nil,
-                                    typeId: nil,
+                                    cost: Int(self.cost.text ?? "0"),
+                                    groupId: group.id,
+                                    typeId: type.id,
                                     userId: user.id,
                                     statusId: nil,
                                     priorityId: nil,
@@ -156,6 +177,10 @@ extension ProjectTaskEditController: UIPickerViewDelegate, UIPickerViewDataSourc
             return self.editResource.users.count
         case 2:
             return Colors.ids().count
+        case 3:
+            return self.editResource.groups.count
+        case 4:
+            return self.editResource.types.count
         default:
             return 0
         }
@@ -174,6 +199,18 @@ extension ProjectTaskEditController: UIPickerViewDelegate, UIPickerViewDataSourc
                 .foregroundColor : Colors.get(id: row + 1),
                 ]
             let string = NSAttributedString(string: "■", attributes:stringAttributes)
+            return string
+        case 3:
+            let stringAttributes: [NSAttributedString.Key : Any] = [
+                .foregroundColor : Colors.get(id: self.editResource.groups[row].color),
+                ]
+            let string = NSAttributedString(string: self.editResource.groups[row].title, attributes:stringAttributes)
+            return string
+        case 4:
+            let stringAttributes: [NSAttributedString.Key : Any] = [
+                .foregroundColor : Colors.get(id: self.editResource.types[row].colorId),
+                ]
+            let string = NSAttributedString(string: self.editResource.types[row].name, attributes:stringAttributes)
             return string
         default:
             return nil
