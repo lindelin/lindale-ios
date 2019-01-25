@@ -52,6 +52,8 @@ enum NetworkService {
     case taskGroupEditResource(project: ProjectCollection.Project)
     case updateTaskGroup(group: TaskGroupRegister)
     case storeTaskGroup(group: TaskGroupRegister)
+    case storeWiki(wiki: WikiRegister)
+    case storeWikiType(wikiType: WikiTypeRegister)
 }
 
 extension NetworkService: TargetType {
@@ -140,6 +142,10 @@ extension NetworkService: TargetType {
             return "/tasks/group/\(group.id!)"
         case .storeTaskGroup(let group):
             return "/projects/\(group.projectId!)/tasks/groups"
+        case .storeWiki(let wiki):
+            return "/projects/\(wiki.projectId!)/wikis"
+        case .storeWikiType(let wikiType):
+            return "/projects/\(wikiType.projectId!)/wikis/types"
         }
     }
     
@@ -151,7 +157,7 @@ extension NetworkService: TargetType {
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup, .storeWiki, .storeWikiType:
             return .post
         }
     }
@@ -244,13 +250,34 @@ extension NetworkService: TargetType {
                                       fileName: "image.jpg",
                                       mimeType: "image/jpg"),
                     MultipartFormData(provider: .data((wiki.title ?? "").data(using: .utf8)!), name: "title"),
-                    MultipartFormData(provider: .data((wiki.content ?? "").data(using: .utf8)!), name: "content")
+                    MultipartFormData(provider: .data((wiki.content ?? "").data(using: .utf8)!), name: "content"),
+                    MultipartFormData(provider: .data((wiki.typeId?.description ?? "").data(using: .utf8)!), name: "type_id")
                     ])
             } else {
                 return .requestParameters(parameters: [
+                    "type_id": wiki.typeId as Any,
                     "title": wiki.title as Any,
                     "content": wiki.content as Any,
                     "_method": "PUT"
+                    ], encoding: JSONEncoding.default)
+            }
+        case let .storeWiki(wiki):
+            let imageData = wiki.image?.jpegData(compressionQuality: 1.0)!
+            if let imageData = imageData {
+                return .uploadMultipart([
+                    MultipartFormData(provider: .data(imageData),
+                                      name: "image",
+                                      fileName: "image.jpg",
+                                      mimeType: "image/jpg"),
+                    MultipartFormData(provider: .data((wiki.title ?? "").data(using: .utf8)!), name: "title"),
+                    MultipartFormData(provider: .data((wiki.content ?? "").data(using: .utf8)!), name: "content"),
+                    MultipartFormData(provider: .data((wiki.typeId?.description ?? "").data(using: .utf8)!), name: "type_id")
+                    ])
+            } else {
+                return .requestParameters(parameters: [
+                    "type_id": wiki.typeId as Any,
+                    "title": wiki.title as Any,
+                    "content": wiki.content as Any,
                     ], encoding: JSONEncoding.default)
             }
         case let .storeTodoList(todoList):
@@ -280,6 +307,10 @@ extension NetworkService: TargetType {
                 "end_at": group.endAt as Any,
                 "status_id": group.statusId as Any,
                 "color_id": group.colorId as Any
+                ], encoding: JSONEncoding.default)
+        case let .storeWikiType(wikiType):
+            return .requestParameters(parameters: [
+                "type_name": wikiType.name as Any,
                 ], encoding: JSONEncoding.default)
         }
     }

@@ -9,6 +9,7 @@
 import UIKit
 import KRProgressHUD
 import Floaty
+import SCLAlertView
 
 class ProjectWikiController: UITableViewController {
     
@@ -28,16 +29,50 @@ class ProjectWikiController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         
         self.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.wikiTypeHasUpdated, object: nil)
     }
     
     private func setupFloatyButton() {
         let floaty = Floaty()
         floaty.addItem(trans("wiki.add-index"), icon: UIImage(named: "book-30")!, handler: { item in
-            // TODO
+            let appearance = SCLAlertView.SCLAppearance(
+                showCircularIcon: false
+            )
+            let alert = SCLAlertView(appearance: appearance)
+            let textField = alert.addTextField()
+            alert.addButton(trans("wiki.add-index")) {
+                KRProgressHUD.show()
+                
+                let register = WikiTypeRegister(id: nil, name: textField.text, projectId: self.project.id)
+                register.store(completion: { (response) in
+                    guard response["status"] == "OK" else {
+                        KRProgressHUD.dismiss()
+                        self.showAlert(title: nil, message: response["messages"]!)
+                        return
+                    }
+                    
+                    NotificationCenter.default.post(name: LocalNotificationService.wikiTypeHasUpdated, object: nil)
+                    
+                    KRProgressHUD.dismiss({
+                        KRProgressHUD.showSuccess(withMessage: response["messages"]!)
+                    })
+                })
+            }
+            alert.showCustom(trans("wiki.add-index"),
+                             subTitle: "",
+                             color: Colors.themeBlue,
+                             icon: UIImage(),
+                             closeButtonTitle: trans("wiki.cancel"))
             floaty.close()
         })
         floaty.addItem(trans("wiki.submit"), icon: UIImage(named: "wiki-30")!, handler: { item in
-            // TODO
+            let storyboad = UIStoryboard(name: "ProjectWiki", bundle: nil)
+            let controller = storyboad.instantiateViewController(withIdentifier: ProjectWikiCreateController.identity) as! ProjectWikiCreateController
+            controller.parentNavigationController = self.parentNavigationController
+            controller.project = self.project
+            controller.wikiTypes = self.wikiTypes
+            self.parentNavigationController?.pushViewController(controller, animated: true)
             floaty.close()
         })
         floaty.sticky = true
@@ -93,6 +128,7 @@ class ProjectWikiController: UITableViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: ProjectWikisController.identity) as! ProjectWikisController
         controller.parentNavigationController = self.parentNavigationController
         controller.project = self.project
+        controller.wikiTypes = self.wikiTypes
         controller.wikiType = type
         self.parentNavigationController?.pushViewController(controller, animated: true)
     }

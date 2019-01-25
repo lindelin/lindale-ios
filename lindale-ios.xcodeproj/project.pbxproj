@@ -119,6 +119,7 @@
 		F2BB3AB3215254B100AB2632 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5A026214422E1002E8D52 /* UITheme.swift */; };
 		F2BB3AB42152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
 		F2BB3AB52152593E00AB2632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FB83E213C086D00045DFA /* Assets.xcassets */; };
+		F2BC25C921FAA825005555F1 /* ProjectWikiCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC25C821FAA825005555F1 /* ProjectWikiCreateController.swift */; };
 		F2C12C96219D1B23002B58C2 /* TodoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C95219D1B23002B58C2 /* TodoEditViewController.swift */; };
 		F2C12C98219D5264002B58C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C12C97219D5264002B58C2 /* User.swift */; };
 		F2CAE16F21382E5F002C04E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */; };
@@ -434,6 +435,7 @@
 		F2B9D7DF218C49B7009A119A /* FoldingTodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTodoCell.swift; sourceTree = "<group>"; };
 		F2BB3AAD215215C000AB2632 /* TasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		F2BB3AB021524FAD00AB2632 /* DefaultTaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTaskRow.swift; sourceTree = "<group>"; };
+		F2BC25C821FAA825005555F1 /* ProjectWikiCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWikiCreateController.swift; sourceTree = "<group>"; };
 		F2C12C95219D1B23002B58C2 /* TodoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditViewController.swift; sourceTree = "<group>"; };
 		F2C12C97219D5264002B58C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2CAE16E21382E5F002C04E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -866,6 +868,7 @@
 				D63DA1FE21D4BCD3000A7EE8 /* ProjectTaskEditController.swift */,
 				F2819EA921F5B4D70070BD3B /* TaskGroupEditController.swift */,
 				F2819EAB21F6BCE60070BD3B /* TaskGroupCreateController.swift */,
+				F2BC25C821FAA825005555F1 /* ProjectWikiCreateController.swift */,
 			);
 			path = ProjectDetailControllers;
 			sourceTree = "<group>";
@@ -1700,6 +1703,7 @@
 				A8C0447C2153DF3B00A75FC1 /* SettingTableViewController.swift in Sources */,
 				F21C92072194336A00961362 /* FoldingTaskCell.swift in Sources */,
 				F2F46BA6214BAA53005CD8A9 /* DefaultTaskCell.swift in Sources */,
+				F2BC25C921FAA825005555F1 /* ProjectWikiCreateController.swift in Sources */,
 				F2D684E821C0F15F0094D5B9 /* Member.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
 				F2F4FFD2215E246800D5F197 /* Intents.intentdefinition in Sources */,

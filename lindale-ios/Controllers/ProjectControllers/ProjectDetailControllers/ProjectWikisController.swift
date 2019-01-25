@@ -15,6 +15,7 @@ class ProjectWikisController: UITableViewController {
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
+    var wikiTypes: [WikiType]!
     var wikiType: WikiType!
     var wikis: [Wiki]?
     
@@ -40,12 +41,14 @@ class ProjectWikisController: UITableViewController {
                                           y: self.view.frame.origin.y - margin - size - Size.tabBarHeight,
                                           width: size,
                                           height: size))
-        floaty.addItem(trans("wiki.add-index"), icon: UIImage(named: "book-30")!, handler: { item in
-            // TODO
-            floaty.close()
-        })
         floaty.addItem(trans("wiki.submit"), icon: UIImage(named: "wiki-30")!, handler: { item in
-            // TODO
+            let storyboad = UIStoryboard(name: "ProjectWiki", bundle: nil)
+            let controller = storyboad.instantiateViewController(withIdentifier: ProjectWikiCreateController.identity) as! ProjectWikiCreateController
+            controller.parentNavigationController = self.parentNavigationController
+            controller.project = self.project
+            controller.wikiTypes = self.wikiTypes
+            controller.selectedIndex = self.wikiType
+            self.parentNavigationController?.pushViewController(controller, animated: true)
             floaty.close()
         })
         floaty.sticky = true
@@ -107,6 +110,9 @@ class ProjectWikisController: UITableViewController {
         let storyboad = UIStoryboard(name: "ProjectWiki", bundle: nil)
         let controller = storyboad.instantiateViewController(withIdentifier: ProjectWikiDetailController.identity) as! ProjectWikiDetailController
         controller.parentNavigationController = self.parentNavigationController
+        controller.project = self.project
+        controller.wikiTypes = self.wikiTypes
+        controller.wikiType = self.wikiType
         controller.wiki = wiki
         self.parentNavigationController?.pushViewController(controller, animated: true)
     }

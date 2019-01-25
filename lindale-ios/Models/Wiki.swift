@@ -83,9 +83,28 @@ struct WikiRegister {
     var content: String?
     var typeId: Int?
     var image: UIImage?
+    var projectId: Int?
     
     func update(completion: @escaping ([String: String]) -> Void) {
         NetworkProvider.main.message(request: .updateWiki(wiki: self)) { (status) in
+            completion(status)
+        }
+    }
+    
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeWiki(wiki: self)) { (status) in
+            completion(status)
+        }
+    }
+}
+
+struct WikiTypeRegister {
+    var id: Int?
+    var name: String?
+    var projectId: Int?
+    
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeWikiType(wikiType: self)) { (status) in
             completion(status)
         }
     }

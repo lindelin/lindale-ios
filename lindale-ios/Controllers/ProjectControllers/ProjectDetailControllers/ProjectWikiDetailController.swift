@@ -15,6 +15,9 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
     static let identity = "ProjectWikiDetail"
     
     var parentNavigationController: UINavigationController?
+    var project: ProjectCollection.Project!
+    var wikiTypes: [WikiType]!
+    var wikiType: WikiType!
     var wiki: Wiki!
     
     @IBOutlet weak var wikiContents: WKWebView!
@@ -82,6 +85,9 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
         let storyboard = UIStoryboard(name: "ProjectWiki", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: ProjectWikiEditController.identity) as! ProjectWikiEditController
         controller.parentNavigationController = self.parentNavigationController
+        controller.project = self.project
+        controller.wikiTypes = self.wikiTypes
+        controller.wikiType = self.wikiType
         controller.wiki = wiki
         self.parentNavigationController?.pushViewController(controller, animated: true)
     }

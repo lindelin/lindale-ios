@@ -138,6 +138,10 @@ class ProjectTaskEditController: UITableViewController {
     @objc func endAtPickerValueChanged(sender: UIDatePicker) {
         self.endAt.text = sender.date.format("yyyy-MM-dd")
     }
+    
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.parentNavigationController?.popViewController(animated: true)
+    }
 }
 
 extension ProjectTaskEditController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -174,9 +178,5 @@ extension ProjectTaskEditController: UIPickerViewDelegate, UIPickerViewDataSourc
         default:
             return nil
         }
-    }
-    
-    @IBAction func backButton(_ sender: UIBarButtonItem) {
-        self.parentNavigationController?.popViewController(animated: true)
     }
 }

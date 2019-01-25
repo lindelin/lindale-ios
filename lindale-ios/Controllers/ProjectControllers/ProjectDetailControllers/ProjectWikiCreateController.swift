@@ -1,24 +1,22 @@
 //
-//  ProjectWikiEditController.swift
+//  ProjectWikiCreateController.swift
 //  lindale-ios
 //
-//  Created by Yuta Fuseki on 2018/12/26.
-//  Copyright © 2018 lindelin. All rights reserved.
+//  Created by Jie Wu on 2019/01/25.
+//  Copyright © 2019 lindelin. All rights reserved.
 //
 
 import UIKit
 import KRProgressHUD
 import MobileCoreServices
 
-class ProjectWikiEditController: UITableViewController {
-
-    static let identity = "ProjectWikiEdit"
+class ProjectWikiCreateController: UITableViewController {
+    
+    static let identity = "ProjectWikiCreate"
     
     var parentNavigationController: UINavigationController?
     var project: ProjectCollection.Project!
     var wikiTypes: [WikiType]!
-    var wikiType: WikiType!
-    var wiki: Wiki!
     var selectedIndex: WikiType?
     
     @IBOutlet weak var indexLabel: UITextField!
@@ -44,27 +42,22 @@ class ProjectWikiEditController: UITableViewController {
         picker.tag = 0
         picker.dataSource = self
         picker.delegate = self
-        for (index, type) in self.wikiTypes.enumerated() {
-            if type.id == self.wikiType.id {
-                picker.selectRow(index, inComponent: 0, animated: false)
-            }
-        }
         sender.inputView = picker
     }
     
+    func updateUI() {
+        if let index = self.selectedIndex {
+            self.indexLabel.text = index.name
+        }
+    }
+    
     private func setupNavigation() {
-        self.navigationItem.title = trans("wiki.edit-title")
+        self.navigationItem.title = trans("wiki.submit")
         let backButton = UIBarButtonItem(image: UIImage(named: "back-30"), style: .plain, target: self, action: #selector(self.backButtonTapped))
         self.navigationItem.leftBarButtonItem = backButton
         let updateButton = UIBarButtonItem(image: UIImage(named: "insert-30"), style: .plain, target: self, action: #selector(self.updateButtonTapped))
         updateButton.tintColor = Colors.themeYellow
         self.navigationItem.rightBarButtonItem = updateButton
-    }
-    
-    func updateUI() {
-        self.wikiTitle.text = self.wiki.title
-        self.wikiContent.text = self.wiki.originalContent
-        self.indexLabel.text = self.wikiType.name
     }
     
     @objc func backButtonTapped() {
@@ -73,13 +66,13 @@ class ProjectWikiEditController: UITableViewController {
     
     @objc func updateButtonTapped() {
         KRProgressHUD.show()
-        let register = WikiRegister(id: self.wiki.id,
+        let register = WikiRegister(id: nil,
                                     title: self.wikiTitle.text,
                                     content: self.wikiContent.text,
                                     typeId: self.selectedIndex?.id,
                                     image: self.image.image,
-                                    projectId: nil)
-        register.update { (response) in
+                                    projectId: self.project.id)
+        register.store { (response) in
             guard response["status"] == "OK" else {
                 KRProgressHUD.dismiss()
                 self.showAlert(title: nil, message: response["messages"]!)
@@ -94,7 +87,7 @@ class ProjectWikiEditController: UITableViewController {
             self.parentNavigationController?.popViewController(animated: true)
         }
     }
-
+    
     @IBAction func addImageButtonTapped(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -138,7 +131,7 @@ class ProjectWikiEditController: UITableViewController {
     }
 }
 
-extension ProjectWikiEditController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ProjectWikiCreateController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let mediaType = info[.mediaType] as! String
@@ -156,7 +149,7 @@ extension ProjectWikiEditController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
-extension ProjectWikiEditController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ProjectWikiCreateController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
