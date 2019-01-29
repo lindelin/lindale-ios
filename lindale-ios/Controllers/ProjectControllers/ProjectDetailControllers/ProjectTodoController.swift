@@ -104,7 +104,7 @@ class ProjectTodoController: UITableViewController {
                     })
                 })
             }
-            alert.showCustom(trans("todo.new-title"),
+            alert.showCustom(trans("todo.add-title"),
                              subTitle: "",
                              color: Colors.themeGreen,
                              icon: UIImage(named: "todo-30")!,

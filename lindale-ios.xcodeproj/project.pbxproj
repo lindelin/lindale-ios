@@ -65,6 +65,12 @@
 		F22CBC2721D209FB00F17C27 /* SharedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2480BDD21CC7A0E006A2222 /* SharedHelpers.swift */; };
 		F22CBC2821D20A0000F17C27 /* UserDefaults+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFCC215E1B7000D5F197 /* UserDefaults+DataSource.swift */; };
 		F23226C32170908400846250 /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23226C22170908400846250 /* ActivityViewCell.swift */; };
+		F23EE6E522004C24005E5F42 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */; };
+		F23EE6E622004C24005E5F42 /* Intents.intentdefinition in Resources */ = {isa = PBXBuildFile; fileRef = F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */; };
+		F23EE6E722004C24005E5F42 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */; };
+		F23EE6E822004C24005E5F42 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */; };
+		F23EE6E922004C24005E5F42 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */; };
+		F23EE6EA22004C24005E5F42 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */; };
 		F2403B312147B77E004BF3C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2403B302147B77E004BF3C8 /* Profile.swift */; };
 		F2423E96219EAE8600868F00 /* UITabelView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */; };
 		F2480BA521CB252E006A2222 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2480BA421CB252E006A2222 /* UserNotifications.framework */; };
@@ -184,12 +190,6 @@
 		F2F4FFCE215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFCC215E1B7000D5F197 /* UserDefaults+DataSource.swift */; };
 		F2F4FFCF215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFCC215E1B7000D5F197 /* UserDefaults+DataSource.swift */; };
 		F2F4FFD0215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFCC215E1B7000D5F197 /* UserDefaults+DataSource.swift */; };
-		F2F4FFD2215E246800D5F197 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */; };
-		F2F4FFD3215E246800D5F197 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */; };
-		F2F4FFD4215E246800D5F197 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */; };
-		F2F4FFD5215E246800D5F197 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */; };
-		F2F4FFD6215E259400D5F197 /* Intents.intentdefinition in Resources */ = {isa = PBXBuildFile; fileRef = F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */; };
-		F2F4FFD7215E259500D5F197 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */; };
 		F2F4FFD92160EB2100D5F197 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD82160EB2100D5F197 /* ShortcutManager.swift */; };
 		F2F4FFDA2160EB2100D5F197 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD82160EB2100D5F197 /* ShortcutManager.swift */; };
 		F2F4FFDB2160EB2100D5F197 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFD82160EB2100D5F197 /* ShortcutManager.swift */; };
@@ -374,6 +374,9 @@
 		F22CBC2121D1E09100F17C27 /* lindale-task-notification-ui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-task-notification-ui.entitlements"; sourceTree = "<group>"; };
 		F22CBC2921D2204F00F17C27 /* SharedUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUIHelpers.swift; sourceTree = "<group>"; };
 		F23226C22170908400846250 /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
+		F23EE6EB22004C24005E5F42 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = en; path = en.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
+		F23EE6EE22004C27005E5F42 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
+		F23EE6F022004C29005E5F42 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Intents.strings; sourceTree = "<group>"; };
 		F2403B302147B77E004BF3C8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2423E95219EAE8600868F00 /* UITabelView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabelView+Animation.swift"; sourceTree = "<group>"; };
 		F2480BA321CB252E006A2222 /* lindale-todo-notification-ui.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "lindale-todo-notification-ui.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -503,7 +506,6 @@
 		F2F4FFC4215E16B300D5F197 /* lindale-watch-intents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lindale-watch-intents.entitlements"; sourceTree = "<group>"; };
 		F2F4FFC6215E179C00D5F197 /* NSUserActivity+IntentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUserActivity+IntentData.swift"; sourceTree = "<group>"; };
 		F2F4FFCC215E1B7000D5F197 /* UserDefaults+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+DataSource.swift"; sourceTree = "<group>"; };
-		F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		F2F4FFD82160EB2100D5F197 /* ShortcutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutManager.swift; sourceTree = "<group>"; };
 		F2F4FFDD2160EC0900D5F197 /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
 		F2F4FFE2216103FF00D5F197 /* TaskIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskIntentHandler.swift; sourceTree = "<group>"; };
@@ -1052,7 +1054,7 @@
 			isa = PBXGroup;
 			children = (
 				F2E1FE1F21ABA61C0033F8B3 /* Models */,
-				F2F4FFD1215E246800D5F197 /* Intents.intentdefinition */,
+				F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */,
 				F2F4FFDD2160EC0900D5F197 /* Shortcuts.swift */,
 				F2F4FFD82160EB2100D5F197 /* ShortcutManager.swift */,
 				F2F4FFE2216103FF00D5F197 /* TaskIntentHandler.swift */,
@@ -1374,6 +1376,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				ja,
 			);
 			mainGroup = F29DBB6921381F9E009DA744;
 			productRefGroup = F29DBB7321381F9E009DA744 /* Products */;
@@ -1449,7 +1453,7 @@
 			files = (
 				F2E0D1E4214A342D00023905 /* Assets.xcassets in Resources */,
 				F2BB3AB42152593E00AB2632 /* Assets.xcassets in Resources */,
-				F2F4FFD6215E259400D5F197 /* Intents.intentdefinition in Resources */,
+				F23EE6E622004C24005E5F42 /* Intents.intentdefinition in Resources */,
 				F2E0D1E2214A342C00023905 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1709,7 +1713,7 @@
 				F2BC25C921FAA825005555F1 /* ProjectWikiCreateController.swift in Sources */,
 				F2D684E821C0F15F0094D5B9 /* Member.swift in Sources */,
 				F2CAE1862138F45F002C04E7 /* NetworkService.swift in Sources */,
-				F2F4FFD2215E246800D5F197 /* Intents.intentdefinition in Sources */,
+				F23EE6E522004C24005E5F42 /* Intents.intentdefinition in Sources */,
 				F2819EAC21F6BCE60070BD3B /* TaskGroupCreateController.swift in Sources */,
 				A852D21A214802AC00C2221D /* ProfileStatusCell.swift in Sources */,
 				F2D684E321C0B9710094D5B9 /* Wiki.swift in Sources */,
@@ -1762,7 +1766,7 @@
 				A87EEFB3214A92F5009C8E61 /* Helpers.swift in Sources */,
 				F2E1FE2121ABA7080033F8B3 /* User.swift in Sources */,
 				F2BB3AAE215215C000AB2632 /* TasksController.swift in Sources */,
-				F2F4FFD3215E246800D5F197 /* Intents.intentdefinition in Sources */,
+				F23EE6E722004C24005E5F42 /* Intents.intentdefinition in Sources */,
 				F2F4FFCE215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
 				F2A4FCBD216586C700E0C35E /* NetworkService.swift in Sources */,
 				F2F4FFC9215E1B5000D5F197 /* NSUserActivity+IntentData.swift in Sources */,
@@ -1793,7 +1797,7 @@
 				F2F4FFE5216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
 				F2F4FFCF215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
 				F2F4FFCA215E1B5100D5F197 /* NSUserActivity+IntentData.swift in Sources */,
-				F2F4FFD4215E246800D5F197 /* Intents.intentdefinition in Sources */,
+				F23EE6E822004C24005E5F42 /* Intents.intentdefinition in Sources */,
 				F2F4FFE02160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				F2F4FF95215E160E00D5F197 /* IntentHandler.swift in Sources */,
 				F2F4FFDB2160EB2100D5F197 /* ShortcutManager.swift in Sources */,
@@ -1804,7 +1808,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2F4FFD7215E259500D5F197 /* Intents.intentdefinition in Sources */,
+				F23EE6E922004C24005E5F42 /* Intents.intentdefinition in Sources */,
 				F2F4FFA0215E160E00D5F197 /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1816,7 +1820,7 @@
 				F2F4FFE6216103FF00D5F197 /* TaskIntentHandler.swift in Sources */,
 				F2F4FFD0215E1B7000D5F197 /* UserDefaults+DataSource.swift in Sources */,
 				F2F4FFCB215E1B5200D5F197 /* NSUserActivity+IntentData.swift in Sources */,
-				F2F4FFD5215E246800D5F197 /* Intents.intentdefinition in Sources */,
+				F23EE6EA22004C24005E5F42 /* Intents.intentdefinition in Sources */,
 				F2F4FFE12160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				F2F4FFBB215E169E00D5F197 /* IntentHandler.swift in Sources */,
 				F2F4FFDC2160EB2100D5F197 /* ShortcutManager.swift in Sources */,
@@ -1877,6 +1881,16 @@
 				F2CA13F621FEEEF80060DED8 /* ja */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		F23EE6EC22004C24005E5F42 /* Intents.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F23EE6EB22004C24005E5F42 /* en */,
+				F23EE6EE22004C27005E5F42 /* zh-Hans */,
+				F23EE6F022004C29005E5F42 /* ja */,
+			);
+			name = Intents.intentdefinition;
 			sourceTree = "<group>";
 		};
 		F2480BAB21CB252E006A2222 /* MainInterface.storyboard */ = {
@@ -2248,7 +2262,7 @@
 		F2E0D1FC214A342D00023905 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2269,7 +2283,7 @@
 		F2E0D1FD214A342D00023905 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
