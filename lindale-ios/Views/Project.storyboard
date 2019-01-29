@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -331,9 +332,6 @@
                                 <action selector="backToProjectList:" destination="hhW-Ra-vIo" id="fMJ-bV-TNO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="bell-30" id="ygD-ml-uMV">
-                            <color key="tintColor" name="Theme-yellow"/>
-                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmF-aQ-wTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,7 +370,6 @@
     </scenes>
     <resources>
         <image name="back-30" width="67.5" height="67.5"/>
-        <image name="bell-30" width="67.5" height="67.5"/>
         <image name="lindale-launch" width="1500" height="1500"/>
         <image name="project-30" width="67.5" height="67.5"/>
         <namedColor name="Theme-background">
@@ -401,9 +398,6 @@
         </namedColor>
         <namedColor name="Theme-sub">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Theme-yellow">
-            <color red="0.96862745098039216" green="0.76078431372549016" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="Theme-base-sub"/>

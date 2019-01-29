@@ -84,7 +84,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - パスワードリセット
     @IBAction func resetPasswordButton(_ sender: Any) {
-        let url = URL(string: "https://lindale.stg.lindelin.org/password/reset")!   // 仮URL
+        let url = URL(string: "\(UserDefaults.dataSuite.string(forOAuthKey: .clientUrl) ?? "https://lindale.lindelin.org")/password/reset")!
         let safariViewController = SFSafariViewController(url: url)
         let navigationController = UINavigationController(rootViewController: safariViewController)
         navigationController.setNavigationBarHidden(true, animated: false)
