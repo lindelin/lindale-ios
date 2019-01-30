@@ -86,7 +86,7 @@ class TaskGroupEditController: UITableViewController {
         let type = self.editResource.types[self.type.selectedRow(inComponent: 0)]
         let statusId: Int = self.status.selectedSegmentIndex == 0 ? TaskGroup.Status.open.rawValue : TaskGroup.Status.close.rawValue
         let colorId = self.color.selectedRow(inComponent: 0) + 1
-        let register = TaskGroupRegister(id: nil,
+        let register = TaskGroupRegister(id: self.taskGroup.id,
                                          title: self.groupName.text,
                                          information: nil,
                                          typeId: type.id,
