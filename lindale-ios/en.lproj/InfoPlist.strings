@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  lindale-ios
+
+  Created by Jie Wu on 2019/02/19.
+  Copyright © 2019 lindelin. All rights reserved.
+*/
+
+"NSPhotoLibraryUsageDescription" = "Selecting an image to upload requires access to your photo Library";
+"NSCameraUsageDescription" = "In order to take an avatar, need to access the camera";

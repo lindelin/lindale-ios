@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  lindale-ios
+
+  Created by Jie Wu on 2019/02/19.
+  Copyright © 2019 lindelin. All rights reserved.
+*/
+
+"NSPhotoLibraryUsageDescription" = "选择要上传的图像需要访问您的相册";
+"NSCameraUsageDescription" = "为了拍摄您的头像需要访问您的照相机";

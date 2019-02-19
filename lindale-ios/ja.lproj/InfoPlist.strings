@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  lindale-ios
+
+  Created by Jie Wu on 2019/02/19.
+  Copyright © 2019 lindelin. All rights reserved.
+*/
+
+"NSPhotoLibraryUsageDescription" = "アップロードする画像を選択するために必要です";
+"NSCameraUsageDescription" = "アバターを撮るには、カメラにアクセスする必要があります";

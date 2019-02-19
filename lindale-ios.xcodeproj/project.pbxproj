@@ -104,6 +104,7 @@
 		F298A57921C2453E0047D79F /* ProjectMember.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57821C2453E0047D79F /* ProjectMember.storyboard */; };
 		F298A57B21C245AA0047D79F /* ProjectWiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57A21C245AA0047D79F /* ProjectWiki.storyboard */; };
 		F298A57D21C246350047D79F /* ProjectSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298A57C21C246350047D79F /* ProjectSettings.storyboard */; };
+		F29C5189221BE3CF00AFA9E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F29C518B221BE3CF00AFA9E1 /* InfoPlist.strings */; };
 		F29DA32621C73CD1005D941A /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29DA32521C73CD1005D941A /* AuthenticationServices.framework */; };
 		F29DBB7621381F9E009DA744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DBB7521381F9E009DA744 /* AppDelegate.swift */; };
 		F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29DBB7921381F9E009DA744 /* Main.storyboard */; };
@@ -407,6 +408,9 @@
 		F298A57821C2453E0047D79F /* ProjectMember.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectMember.storyboard; sourceTree = "<group>"; };
 		F298A57A21C245AA0047D79F /* ProjectWiki.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectWiki.storyboard; sourceTree = "<group>"; };
 		F298A57C21C246350047D79F /* ProjectSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectSettings.storyboard; sourceTree = "<group>"; };
+		F29C518A221BE3CF00AFA9E1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F29C518C221BE3D400AFA9E1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F29C518D221BE3D600AFA9E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F29DA32521C73CD1005D941A /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		F29DBB7221381F9E009DA744 /* lindale-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lindale-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29DBB7521381F9E009DA744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -802,6 +806,7 @@
 				F29DBB8421381F9F009DA744 /* Info.plist */,
 				F22364322148BB8B003D03E8 /* GoogleService-Info.plist */,
 				F29DBB7C21381F9E009DA744 /* lindale_ios.xcdatamodeld */,
+				F29C518B221BE3CF00AFA9E1 /* InfoPlist.strings */,
 			);
 			path = "lindale-ios";
 			sourceTree = "<group>";
@@ -1434,6 +1439,7 @@
 				F2CAE17321382EC7002C04E7 /* Login.storyboard in Resources */,
 				F298A57521C243FF0047D79F /* ProjectTask.storyboard in Resources */,
 				A876AA76214CA57200425ECA /* MyTodo.storyboard in Resources */,
+				F29C5189221BE3CF00AFA9E1 /* InfoPlist.strings in Resources */,
 				A8F3563321400486006204D3 /* Project.storyboard in Resources */,
 				F29DBB7B21381F9E009DA744 /* Main.storyboard in Resources */,
 				F24FB83F213C086D00045DFA /* Assets.xcassets in Resources */,
@@ -1901,6 +1907,16 @@
 				F2CA13F721FEEEF80060DED8 /* ja */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		F29C518B221BE3CF00AFA9E1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F29C518A221BE3CF00AFA9E1 /* ja */,
+				F29C518C221BE3D400AFA9E1 /* zh-Hans */,
+				F29C518D221BE3D600AFA9E1 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		F29DBB7921381F9E009DA744 /* Main.storyboard */ = {
