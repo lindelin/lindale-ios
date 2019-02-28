@@ -9,6 +9,8 @@
 import UIKit
 import KRProgressHUD
 import SCLAlertView
+import BLTNBoard
+import Down
 
 class ProjectTodoController: UITableViewController {
     
@@ -39,6 +41,9 @@ class ProjectTodoController: UITableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.todoHasUpdated, object: nil)
     }
+    
+    // MARK: - 弹出窗
+    var bulletinManager: BLTNItemManager!
     
     private func setupFloatyButton() {
         let floaty = Floaty()
@@ -271,6 +276,8 @@ class ProjectTodoController: UITableViewController {
     // MARK: - 右滑菜单
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // MARK: - 削除
         let deleteAction = UIContextualAction(style: .normal, title: trans("todo.delete")) { (_, _, completion) in
             let actionSheet = UIAlertController(title: nil, message: trans("todo.delete-title"), preferredStyle: .actionSheet)
             
@@ -313,6 +320,7 @@ class ProjectTodoController: UITableViewController {
         }
         
         // TODO: - 代码优化
+        // MARK: - 編集
         let editAction = UIContextualAction(style: .normal, title: trans("task.edit")) { (_, _, completion) in
             KRProgressHUD.show()
             let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
@@ -329,8 +337,26 @@ class ProjectTodoController: UITableViewController {
             })
         }
         
+        // MARK: - 詳細
+        let detailAction = UIContextualAction(style: .normal, title: trans("todo.details")) { (_, _, completion) in
+            let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+            self.bulletinManager = {
+                let page = BLTNPageItem(title: trans("todo.details"))
+                if let content = cell.todo?.details {
+                    let md = Down(markdownString: content)
+                    page.attributedDescriptionText = try? md.toAttributedString()
+                } else {
+                    page.descriptionText = trans("project.none")
+                }
+                let rootItem: BLTNItem = page
+                return BLTNItemManager(rootItem: rootItem)
+            }()
+            self.bulletinManager.showBulletin(above: self)
+        }
+        
+        detailAction.backgroundColor = Colors.themeBase
         editAction.backgroundColor = Colors.themeYellow
         deleteAction.backgroundColor = Colors.themeMain
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction, detailAction])
     }
 }

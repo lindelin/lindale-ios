@@ -319,7 +319,7 @@
         <!--Title-->
         <scene sceneID="CVZ-tF-pLP">
             <objects>
-                <viewController id="hhW-Ra-vIo" customClass="ProjectDetailController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectDetailView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hhW-Ra-vIo" customClass="ProjectDetailController" customModule="lindale_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaS-pr-P8c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

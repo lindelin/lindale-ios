@@ -9,6 +9,8 @@
 import UIKit
 import KRProgressHUD
 import SCLAlertView
+import BLTNBoard
+import Down
 
 class MyTodoTableViewController: UITableViewController {
     
@@ -21,6 +23,9 @@ class MyTodoTableViewController: UITableViewController {
     var cellHeights: [CGFloat] = []
     
     var myTodoCollection: MyTodoCollection? = MyTodoCollection.find()
+    
+    // MARK: - 弹出窗
+    var bulletinManager: BLTNItemManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -254,9 +259,27 @@ class MyTodoTableViewController: UITableViewController {
             })
         }
         
+        // MARK: - 詳細
+        let detailAction = UIContextualAction(style: .normal, title: trans("todo.details")) { (_, _, completion) in
+            let cell = self.tableView.cellForRow(at: indexPath) as! FoldingTodoCell
+            self.bulletinManager = {
+                let page = BLTNPageItem(title: trans("todo.details"))
+                if let content = cell.todo?.details {
+                    let md = Down(markdownString: content)
+                    page.attributedDescriptionText = try? md.toAttributedString()
+                } else {
+                    page.descriptionText = trans("project.none")
+                }
+                let rootItem: BLTNItem = page
+                return BLTNItemManager(rootItem: rootItem)
+            }()
+            self.bulletinManager.showBulletin(above: self)
+        }
+        
+        detailAction.backgroundColor = Colors.themeBase
         editAction.backgroundColor = Colors.themeYellow
         deleteAction.backgroundColor = Colors.themeMain
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction, detailAction])
     }
 
     // MARK: - Navigation

@@ -122,6 +122,7 @@ class ProjectDetailController: UIViewController {
         self.navigationController?.navigationBar.barStyle = .default
         let textAttributes = [NSAttributedString.Key.foregroundColor: Colors.themeBase]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationItem.title = self.project.title
     }
     
     @IBAction func backToProjectList(_ sender: UIBarButtonItem) {

@@ -11,9 +11,6 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
     
     var profile: Profile? = Profile.find()
-    var favorites: [ProjectCollection.Project] = []
-    var myProjects: [ProjectCollection.Project] = []
-    var userProjects: [ProjectCollection.Project] = []
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var projectCount: UILabel!
@@ -59,13 +56,6 @@ class ProfileTableViewController: UITableViewController {
             self.profile = profile
             self.updateUI()
         }
-        ProjectCollection.favorites { (favorites) in
-            guard let favorites = favorites else {
-                self.authErrorHandle()
-                return
-            }
-            self.favorites = favorites
-        }
     }
     
     func updateUI() {
@@ -96,13 +86,7 @@ class ProfileTableViewController: UITableViewController {
             sectionCount = 1
             break
         case 2:
-            sectionCount = 0
-            if self.myProjects.count > 0 {
-                sectionCount += 1
-            }
-            if self.userProjects.count > 0 {
-                sectionCount += 1
-            }
+            sectionCount = 2
             break
         default:
             break
@@ -153,13 +137,13 @@ class ProfileTableViewController: UITableViewController {
             cellCount = 1
             break
         case 1:
-            cellCount = self.favorites.count
+            cellCount = self.profile?.projects.favorites.count ?? 0
             break
         case 2:
             if section == 0 {
-                cellCount = self.myProjects.count
+                cellCount = self.profile?.projects.management.count ?? 0
             } else {
-                cellCount = self.userProjects.count
+                cellCount = self.profile?.projects.normal.count ?? 0
             }
             break
         default:
@@ -196,17 +180,25 @@ class ProfileTableViewController: UITableViewController {
         case 1:
             let id = String(describing: ProfileFavoriteCell.self)
             let profileFavoriteCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileFavoriteCell
-            if self.favorites.count > 0 {
-                profileFavoriteCell.setProject(self.favorites[indexPath.row])
+            if (self.profile?.projects.favorites.count ?? 0) > 0 {
+                profileFavoriteCell.setProject(self.profile!.projects.favorites[indexPath.row])
             }
             cell = profileFavoriteCell
             break
         case 2:
             let id = String(describing: ProfileFavoriteCell.self)
             let profileFavoriteCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ProfileFavoriteCell
-            if self.favorites.count > 0 {
-                profileFavoriteCell.setProject(self.favorites[indexPath.row])
+            
+            if indexPath.section == 0 {
+                if (self.profile?.projects.management.count ?? 0) > 0 {
+                    profileFavoriteCell.setProject(self.profile!.projects.management[indexPath.row])
+                }
+            } else {
+                if (self.profile?.projects.normal.count ?? 0) > 0 {
+                    profileFavoriteCell.setProject(self.profile!.projects.normal[indexPath.row])
+                }
             }
+
             cell = profileFavoriteCell
             break
         default:
@@ -215,6 +207,27 @@ class ProfileTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            break
+        case 1:
+            let storyboard = UIStoryboard(name: "Project", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ProjectDetailView") as! ProjectDetailController
+            controller.project = self.profile!.projects.favorites[indexPath.row]
+            self.navigationController?.pushViewController(controller, animated: true)
+            break
+        case 2:
+            let storyboard = UIStoryboard(name: "Project", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ProjectDetailView") as! ProjectDetailController
+            controller.project = indexPath.section == 0 ? self.profile!.projects.management[indexPath.row] : self.profile!.projects.normal[indexPath.row]
+            self.navigationController?.pushViewController(controller, animated: true)
+            break
+        default:
+            break
+        }
     }
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {

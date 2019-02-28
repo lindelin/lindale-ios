@@ -21,6 +21,7 @@ struct Profile: Codable {
     var updated: String
     var status: Status
     var progress: Progress
+    var projects: Projects
     var activity: String
     
     enum CodingKeys: String, CodingKey {
@@ -35,6 +36,7 @@ struct Profile: Codable {
         case updated = "updated_at"
         case status
         case progress
+        case projects
         case activity
     }
     
@@ -47,6 +49,18 @@ struct Profile: Codable {
             case projectCount = "project_count"
             case unfinishedTaskCount = "unfinished_task_count"
             case unfinishedTodoCount = "unfinished_todo_count"
+        }
+    }
+    
+    struct Projects: Codable {
+        var favorites: [ProjectCollection.Project]
+        var management: [ProjectCollection.Project]
+        var normal: [ProjectCollection.Project]
+        
+        enum CodingKeys: String, CodingKey {
+            case favorites
+            case management
+            case normal
         }
     }
     
