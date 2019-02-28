@@ -55,6 +55,7 @@ enum NetworkService {
     case storeWiki(wiki: WikiRegister)
     case storeWikiType(wikiType: WikiTypeRegister)
     case storeTask(task: TaskRegister)
+    case logout
 }
 
 extension NetworkService: TargetType {
@@ -149,6 +150,8 @@ extension NetworkService: TargetType {
             return "/projects/\(wikiType.projectId!)/wikis/types"
         case .storeTask(let task):
             return "/projects/\(task.projectId!)/tasks"
+        case .logout:
+            return "/logout"
         }
     }
     
@@ -160,7 +163,7 @@ extension NetworkService: TargetType {
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup, .storeWiki, .storeWikiType, .storeTask:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup, .storeWiki, .storeWikiType, .storeTask, .logout:
             return .post
         }
     }
@@ -171,6 +174,11 @@ extension NetworkService: TargetType {
             return .requestPlain
         case let .localeUpdate(lang):
             return .requestParameters(parameters: ["language": lang], encoding: JSONEncoding.default)
+        case .logout:
+            return .requestParameters(parameters: [
+                "device_name": UIDevice.current.name,
+                "device_type": "iOS"
+                ], encoding: JSONEncoding.default)
         case let .resetPassword(password):
             return .requestParameters(parameters: [
                     "password": password.password ?? "",
