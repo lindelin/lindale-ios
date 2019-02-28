@@ -276,6 +276,7 @@ class MyTodoTableViewController: UITableViewController {
             self.bulletinManager.showBulletin(above: self)
         }
         
+        detailAction.backgroundColor = Colors.themeBase
         editAction.backgroundColor = Colors.themeYellow
         deleteAction.backgroundColor = Colors.themeMain
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction, detailAction])
