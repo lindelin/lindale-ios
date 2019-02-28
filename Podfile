@@ -22,6 +22,7 @@ target 'lindale-ios' do
   pod 'FoldingCell'
   pod 'PageMenu' , :git => 'https://github.com/orazz/PageMenu'
   pod "Floaty"
+  pod 'BulletinBoard'
 end
 
 target 'lindale-watch Extension' do
