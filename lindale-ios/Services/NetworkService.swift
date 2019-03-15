@@ -55,6 +55,7 @@ enum NetworkService {
     case storeWiki(wiki: WikiRegister)
     case storeWikiType(wikiType: WikiTypeRegister)
     case storeTask(task: TaskRegister)
+    case storeProject(project: ProjectRegister)
     case logout
 }
 
@@ -67,6 +68,8 @@ extension NetworkService: TargetType {
         case .languageResource:
             return "/lang"
         case .projects:
+            return "/projects"
+        case .storeProject:
             return "/projects"
         case .favoriteProjects:
             return "/projects/favorites"
@@ -163,7 +166,7 @@ extension NetworkService: TargetType {
             return .put
         case .deleteTask, .deleteSubTask, .deleteTodo:
             return .delete
-        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup, .storeWiki, .storeWikiType, .storeTask, .logout:
+        case .storeSubTask, .storeActivity, .storeDeviceToken, .storeTodoList, .storeTodo, .uploadProfilePhoto, .updateWiki, .storeTaskGroup, .storeWiki, .storeWikiType, .storeTask, .logout, .storeProject:
             return .post
         }
     }
@@ -337,6 +340,33 @@ extension NetworkService: TargetType {
             return .requestParameters(parameters: [
                 "type_name": wikiType.name as Any,
                 ], encoding: JSONEncoding.default)
+        case let .storeProject(project):
+            let imageData = project.image?.jpegData(compressionQuality: 1.0)!
+            if let imageData = imageData {
+                return .uploadMultipart([
+                    MultipartFormData(provider: .data(imageData),
+                                      name: "image",
+                                      fileName: "image.jpg",
+                                      mimeType: "image/jpg"),
+                    MultipartFormData(provider: .data((project.title ?? "").data(using: .utf8)!), name: "title"),
+                    MultipartFormData(provider: .data((project.content ?? "").data(using: .utf8)!), name: "content"),
+                    MultipartFormData(provider: .data((project.startAt ?? "").data(using: .utf8)!), name: "start_at"),
+                    MultipartFormData(provider: .data((project.endAt ?? "").data(using: .utf8)!), name: "end_at"),
+                    MultipartFormData(provider: .data((project.type ?? "").data(using: .utf8)!), name: "type_id"),
+                    MultipartFormData(provider: .data((project.password ?? "").data(using: .utf8)!), name: "password"),
+                    MultipartFormData(provider: .data((project.passwordConfirmation ?? "").data(using: .utf8)!), name: "password_confirmation")
+                    ])
+            } else {
+                return .requestParameters(parameters: [
+                    "title": project.title as Any,
+                    "content": project.content as Any,
+                    "start_at": project.startAt as Any,
+                    "end_at": project.endAt as Any,
+                    "type_id": project.type as Any,
+                    "password": project.password as Any,
+                    "password_confirmation": project.passwordConfirmation as Any,
+                    ], encoding: JSONEncoding.default)
+            }
         }
     }
     
@@ -457,8 +487,8 @@ class NetworkProvider {
                         let coder = JSONDecoder()
                         let errors = try! coder.decode(InputError.self, from: data)
                         var message: String = ""
-                        for errors in errors.errors {
-                            for error in errors.value {
+                        for errorsObject in errors.errors {
+                            for error in errorsObject.value {
                                 message += error
                             }
                         }

@@ -181,3 +181,24 @@ struct ProjectTopResource: Codable {
         }
     }
 }
+
+struct ProjectRegister {
+    var id: Int?
+    var title: String?
+    var content: String?
+    var startAt: String?
+    var endAt: String?
+    var type: String?
+    var SlId: Int?
+    var status: String?
+    var password: String?
+    var passwordConfirmation: String?
+    var image: UIImage?
+    
+    func store(completion: @escaping ([String: String]) -> Void) {
+        NetworkProvider.main.message(request: .storeProject(project: self)) { (status) in
+            completion(status)
+        }
+    }
+}
+

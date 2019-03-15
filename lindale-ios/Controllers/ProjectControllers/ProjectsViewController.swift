@@ -17,6 +17,7 @@ class ProjectsViewController: UITableViewController {
         super.viewDidLoad()
         
         self.setupNavigation()
+        self.setupFloatyButton()
         
         // MARK: - Refresh Control Config
         refreshControl = UIRefreshControl()
@@ -25,6 +26,7 @@ class ProjectsViewController: UITableViewController {
         self.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.localeSettingsHasUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotificationService.projectHasCreated, object: nil)
     }
     
     private func setupNavigation() {
@@ -32,6 +34,19 @@ class ProjectsViewController: UITableViewController {
         titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         titleImageView.contentMode = .scaleAspectFit
         navigationItem.titleView = titleImageView
+    }
+    
+    private func setupFloatyButton() {
+        let floaty = Floaty()
+        floaty.addItem(trans("header.project"), icon: UIImage(named: "project-30")!, handler: { item in
+            self.performSegue(withIdentifier: "CreateProjectSegue", sender: nil)
+            floaty.close()
+        })
+        floaty.sticky = true
+        floaty.buttonColor = Colors.themeGreen
+        floaty.plusColor = UIColor.white
+        floaty.paddingY += Size.tabBarHeight
+        self.view.addSubview(floaty)
     }
     
     @objc func loadData() {
@@ -128,6 +143,8 @@ class ProjectsViewController: UITableViewController {
     }
 
     // MARK: - Navigation
+    @IBAction func unwindToProjectList(unwindSegue: UIStoryboardSegue) {
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

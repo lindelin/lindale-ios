@@ -19,4 +19,5 @@ struct LocalNotificationService {
     static let wikiHasUpdated = Notification.Name("wikiHasUpdated")
     static let wikiTypeHasUpdated = Notification.Name("wikiTypeHasUpdated")
     static let taskGroupHasUpdated = Notification.Name("taskGroupHasUpdated")
+    static let projectHasCreated = Notification.Name("projectHasCreated")
 }

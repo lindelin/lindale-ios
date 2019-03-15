@@ -203,6 +203,7 @@
 		F2F4FFE4216103FF00D5F197 /* TaskIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFE2216103FF00D5F197 /* TaskIntentHandler.swift */; };
 		F2F4FFE5216103FF00D5F197 /* TaskIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFE2216103FF00D5F197 /* TaskIntentHandler.swift */; };
 		F2F4FFE6216103FF00D5F197 /* TaskIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F4FFE2216103FF00D5F197 /* TaskIntentHandler.swift */; };
+		F2F5A0D5223B8C8C006C5DFB /* ProjectCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5A0D4223B8C8C006C5DFB /* ProjectCreateController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -513,6 +514,7 @@
 		F2F4FFD82160EB2100D5F197 /* ShortcutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutManager.swift; sourceTree = "<group>"; };
 		F2F4FFDD2160EC0900D5F197 /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
 		F2F4FFE2216103FF00D5F197 /* TaskIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskIntentHandler.swift; sourceTree = "<group>"; };
+		F2F5A0D4223B8C8C006C5DFB /* ProjectCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreateController.swift; sourceTree = "<group>"; };
 		F6B8729374BB005277964279 /* Pods_lindale_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lindale_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -707,6 +709,7 @@
 				A876AA74214CA4F300425ECA /* Cells */,
 				F2CAE18B21391905002C04E7 /* ProjectsViewController.swift */,
 				F22A715121B5236100B90C19 /* ProjectDetailController.swift */,
+				F2F5A0D4223B8C8C006C5DFB /* ProjectCreateController.swift */,
 			);
 			path = ProjectControllers;
 			sourceTree = "<group>";
@@ -1698,6 +1701,7 @@
 				F2B273D221B656E8007153D7 /* ProjectSettingsController.swift in Sources */,
 				F2B273D021B656C4007153D7 /* ProjectTodoController.swift in Sources */,
 				F2A39AEC214D120000BF2AF7 /* MyTodoTableViewController.swift in Sources */,
+				F2F5A0D5223B8C8C006C5DFB /* ProjectCreateController.swift in Sources */,
 				F2F4FFDE2160EC0900D5F197 /* Shortcuts.swift in Sources */,
 				A8CE9CAD21BA7F4500AF6767 /* ProjectMilestoneCell.swift in Sources */,
 				F22364352148F06E003D03E8 /* ProfileFavoriteCell.swift in Sources */,

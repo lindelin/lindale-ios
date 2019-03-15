@@ -25,6 +25,8 @@ class MyTaskEditViewController: UITableViewController {
         
         self.setup()
         
+        self.setupLangLabel()
+        
         self.tableView.keyboardDismissMode = .onDrag
         
         self.updateUI()
