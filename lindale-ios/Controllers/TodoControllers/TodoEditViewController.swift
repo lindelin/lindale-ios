@@ -29,8 +29,6 @@ class TodoEditViewController: UITableViewController {
         self.setupLangLabel()
         
         self.updateUI()
-        
-        print(self.editResource)
     }
     
     func setup() {

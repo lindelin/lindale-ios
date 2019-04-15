@@ -82,15 +82,15 @@ class ProjectTaskEditController: UITableViewController {
         self.startAt.text = Date.createFormFormat(string: self.taskResource.startAt ?? "")?.format("yyyy-MM-dd")
         self.endAt.text = Date.createFormFormat(string: self.taskResource.endAt ?? "")?.format("yyyy-MM-dd")
         
-        if let index = self.editResource.users.index(where: {$0.id == self.taskResource.user?.id}) {
+        if let index = self.editResource.users.firstIndex(where: {$0.id == self.taskResource.user?.id}) {
             self.userPicker.selectRow(index, inComponent: 0, animated: true)
         }
         
-        if let index = self.editResource.groups.index(where: {$0.id == self.taskResource.groupId}) {
+        if let index = self.editResource.groups.firstIndex(where: {$0.id == self.taskResource.groupId}) {
             self.groupPicker.selectRow(index, inComponent: 0, animated: true)
         }
         
-        if let index = self.editResource.types.index(where: {$0.id == self.taskResource.typeId}) {
+        if let index = self.editResource.types.firstIndex(where: {$0.id == self.taskResource.typeId}) {
             self.typePicker.selectRow(index, inComponent: 0, animated: true)
         }
         
