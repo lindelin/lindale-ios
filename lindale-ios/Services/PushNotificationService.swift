@@ -53,11 +53,9 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        if UserDefaults.standard.string(forOAuthKey: .fcmToken) == nil {
-            print("Firebase registration token: \(fcmToken)")
-            UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
-            UserDefaults.standard.synchronize()
-        }
+        print("Firebase registration token: \(fcmToken)")
+        UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
+        UserDefaults.standard.synchronize()
     }
     // [END refresh_token]
     // [START ios_10_data_message]
