@@ -56,6 +56,18 @@ extension AppDelegate : MessagingDelegate {
         print("Firebase registration token: \(fcmToken)")
         UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
         UserDefaults.standard.synchronize()
+        
+        if OAuth.get() != nil {
+            DispatchQueue.main.async {
+                Device(token: fcmToken).store(completion: { (response) in
+                    guard response["status"] == "OK" else {
+                        print("Store Firebase token Error: \(String(describing: response["messages"]))")
+                        return
+                    }
+                    print("Store Firebase token OK: \(String(describing: response["messages"]))")
+                })
+            }
+        }
     }
     // [END refresh_token]
     // [START ios_10_data_message]
