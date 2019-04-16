@@ -8,7 +8,6 @@
 
 import UIKit
 import KRProgressHUD
-import Floaty
 import SCLAlertView
 
 class ProjectWikiController: UITableViewController {

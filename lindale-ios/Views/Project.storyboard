@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6bH-DP-tGa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6bH-DP-tGa">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -432,7 +432,7 @@
                                                     <rect key="frame" x="12" y="12.333333333333336" width="390" height="19"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -454,7 +454,7 @@
                                                     <rect key="frame" x="12" y="12.333333333333336" width="390" height="19"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -566,8 +566,8 @@
                         <outlet property="endField" destination="z4Y-gn-YbC" id="guQ-Z0-CuJ"/>
                         <outlet property="imageView" destination="t49-sQ-ohi" id="yVg-qa-FdW"/>
                         <outlet property="nameField" destination="ybt-4Z-CYV" id="48f-fv-KsE"/>
-                        <outlet property="passwordConfirmationField" destination="KUs-by-i80" id="cyQ-Bt-Sph"/>
-                        <outlet property="passwordField" destination="ZiT-Vk-8ao" id="jpS-tj-BkH"/>
+                        <outlet property="projectPassConfirmationField" destination="KUs-by-i80" id="wkV-L6-H8F"/>
+                        <outlet property="projectPassField" destination="ZiT-Vk-8ao" id="VRf-xd-sH1"/>
                         <outlet property="startField" destination="2iR-W5-CRJ" id="414-ju-qAd"/>
                         <outlet property="typeField" destination="AkA-Ys-A7G" id="QwT-xu-pi4"/>
                     </connections>
@@ -648,11 +648,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add-camera-30" width="67.5" height="67.5"/>
-        <image name="back-30" width="67.5" height="67.5"/>
-        <image name="insert-30" width="67.5" height="67.5"/>
+        <image name="add-camera-30" width="30" height="30"/>
+        <image name="back-30" width="30" height="30"/>
+        <image name="insert-30" width="30" height="30"/>
         <image name="lindale-launch" width="1500" height="1500"/>
-        <image name="project-30" width="67.5" height="67.5"/>
+        <image name="project-30" width="30" height="30"/>
         <namedColor name="Theme-background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -101,7 +101,7 @@ class WatchSession: NSObject, WCSessionDelegate {
     
     // Json Decode
     private func jsonDecode(data: Data) -> [String: Any] {
-        let items = try? JSONSerialization.jsonObject(with: data) as! [String: Any]
+        let items = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
         return items ?? [:]
     }
 

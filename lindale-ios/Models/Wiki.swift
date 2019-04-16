@@ -34,8 +34,8 @@ struct WikiType: Codable {
 struct Wiki: Codable {
     var id: Int
     var title: String
-    var content: String
-    var originalContent: String
+    var content: String?
+    var originalContent: String?
     var image: URL?
     var user: User
     var project: Int

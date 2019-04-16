@@ -39,7 +39,7 @@ class TaskUserInfoCell: UITableViewCell {
             self.name.text = "\(user.name)（\(user.email)）"
         } else {
             self.photo.image = UIImage(named: "user-30")
-            self.name.text = "System"
+            self.name.text = trans("project.none")
         }
     }
 
