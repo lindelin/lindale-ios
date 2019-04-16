@@ -140,6 +140,7 @@ class ProjectCreateController: UITableViewController {
     }
     
     @IBAction func saveButtonHasTapped(_ sender: Any) {
+        KRProgressHUD.show()
         let project = ProjectRegister(id: nil,
                                       title: self.nameField.text,
                                       content: self.contentField.text,

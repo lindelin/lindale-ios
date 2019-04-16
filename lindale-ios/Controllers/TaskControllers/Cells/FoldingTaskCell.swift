@@ -80,6 +80,7 @@ class FoldingTaskCell: UITableViewCell {
         self.initiatorName.text = task.initiator?.name
         self.initiatorEmail.text = task.initiator?.email
         self.status.text = task.status
+        self.status.textColor = Colors.themeMain
         self.priority.text = task.priority
         self.group.text = task.group ?? "N/A"
         self.startAt.text = task.startAt ?? "N/A"
