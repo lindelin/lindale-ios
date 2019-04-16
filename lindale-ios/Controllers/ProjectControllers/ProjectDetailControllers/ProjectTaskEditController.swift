@@ -83,7 +83,7 @@ class ProjectTaskEditController: UITableViewController {
         self.endAt.text = Date.createFormFormat(string: self.taskResource.endAt ?? "")?.format("yyyy-MM-dd")
         
         if let index = self.editResource.users.firstIndex(where: {$0.id == self.taskResource.user?.id}) {
-            self.userPicker.selectRow(index, inComponent: 0, animated: true)
+            self.userPicker.selectRow(index + 1, inComponent: 0, animated: true)
         }
         
         if let index = self.editResource.groups.firstIndex(where: {$0.id == self.taskResource.groupId}) {
@@ -100,7 +100,7 @@ class ProjectTaskEditController: UITableViewController {
     }
     
     @IBAction func updateTask(_ sender: UIBarButtonItem) {
-        let user = self.editResource.users[self.userPicker.selectedRow(inComponent: 0)]
+        let userId = self.userPicker.selectedRow(inComponent: 0) == 0 ? nil : self.editResource.users[self.userPicker.selectedRow(inComponent: 0) - 1].id
         let group = self.editResource.groups[self.groupPicker.selectedRow(inComponent: 0)]
         let type = self.editResource.types[self.typePicker.selectedRow(inComponent: 0)]
         let colorId = self.colorPicker.selectedRow(inComponent: 0) + 1
@@ -113,7 +113,7 @@ class ProjectTaskEditController: UITableViewController {
                                     cost: Int(self.cost.text ?? "0"),
                                     groupId: group.id,
                                     typeId: type.id,
-                                    userId: user.id,
+                                    userId: userId,
                                     statusId: nil,
                                     priorityId: nil,
                                     colorId: colorId,
@@ -175,7 +175,7 @@ extension ProjectTaskEditController: UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView.tag {
         case 1:
-            return self.editResource.users.count
+            return self.editResource.users.count + 1
         case 2:
             return Colors.ids().count
         case 3:
@@ -193,7 +193,7 @@ extension ProjectTaskEditController: UIPickerViewDelegate, UIPickerViewDataSourc
             let stringAttributes: [NSAttributedString.Key : Any] = [
                 .foregroundColor : Colors.themeMain,
                 ]
-            let string = NSAttributedString(string: self.editResource.users[row].name, attributes:stringAttributes)
+            let string = NSAttributedString(string: row == 0 ? "--" : self.editResource.users[row - 1].name, attributes:stringAttributes)
             return string
         case 2:
             let stringAttributes: [NSAttributedString.Key : Any] = [

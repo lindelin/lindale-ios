@@ -68,17 +68,17 @@ class MyTaskEditViewController: UITableViewController {
         self.taskTitle.text = self.taskResource.title
         self.startAt.text = Date.createFormFormat(string: self.taskResource.startAt ?? "")?.format("yyyy-MM-dd")
         self.endAt.text = Date.createFormFormat(string: self.taskResource.endAt ?? "")?.format("yyyy-MM-dd")
-        for (index, user) in self.editResource.users.enumerated() {
-            if user.id == taskResource.user?.id {
-                self.userPicker.selectRow(index, inComponent: 0, animated: true)
-            }
+        
+        if let index = self.editResource.users.firstIndex(where: {$0.id == self.taskResource.user?.id}) {
+            self.userPicker.selectRow(index + 1, inComponent: 0, animated: true)
         }
+        
         self.colorPicker.selectRow(taskResource.color - 1 , inComponent: 0, animated: true)
         self.taskContent.text = self.taskResource.content
     }
 
     @IBAction func updateTask(_ sender: UIBarButtonItem) {
-        let user = self.editResource.users[self.userPicker.selectedRow(inComponent: 0)]
+        let userId = self.userPicker.selectedRow(inComponent: 0) == 0 ? nil : self.editResource.users[self.userPicker.selectedRow(inComponent: 0) - 1].id
         let colorId = self.colorPicker.selectedRow(inComponent: 0) + 1
         KRProgressHUD.show()
         let register = TaskRegister(id: self.taskResource.id,
@@ -89,7 +89,7 @@ class MyTaskEditViewController: UITableViewController {
                                     cost: nil,
                                     groupId: nil,
                                     typeId: nil,
-                                    userId: user.id,
+                                    userId: userId,
                                     statusId: nil,
                                     priorityId: nil,
                                     colorId: colorId,
@@ -153,7 +153,7 @@ extension MyTaskEditViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView.tag {
         case 1:
-            return self.editResource.users.count
+            return self.editResource.users.count + 1
         case 2:
             return Colors.ids().count
         default:
@@ -167,13 +167,13 @@ extension MyTaskEditViewController: UIPickerViewDelegate, UIPickerViewDataSource
             let stringAttributes: [NSAttributedString.Key : Any] = [
                 .foregroundColor : Colors.themeMain,
                 ]
-            let string = NSAttributedString(string: self.editResource.users[row].name, attributes:stringAttributes)
+            let string = NSAttributedString(string: row == 0 ? "--" : self.editResource.users[row - 1].name, attributes: stringAttributes)
             return string
         case 2:
             let stringAttributes: [NSAttributedString.Key : Any] = [
                 .foregroundColor : Colors.get(id: row + 1),
                 ]
-            let string = NSAttributedString(string: "■", attributes:stringAttributes)
+            let string = NSAttributedString(string: "■", attributes: stringAttributes)
             return string
         default:
             return nil
