@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -586,6 +587,7 @@
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-30" translatesAutoresizingMaskIntoConstraints="NO" id="usI-E1-7FM" userLabel="photo">
                                                                     <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                                                    <color key="tintColor" name="Theme-base-sub"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="49" id="ZRh-3J-ofT"/>
                                                                         <constraint firstAttribute="width" constant="49" id="hKN-d6-9fC"/>
@@ -1269,6 +1271,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-30" translatesAutoresizingMaskIntoConstraints="NO" id="QJZ-Bn-9VD">
                                                     <rect key="frame" x="16" y="6" width="60" height="60"/>
+                                                    <color key="tintColor" name="Theme-base-sub"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="5ee-a9-q3d"/>
                                                         <constraint firstAttribute="width" constant="60" id="UyU-SX-oWZ"/>
@@ -1401,6 +1404,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-30" translatesAutoresizingMaskIntoConstraints="NO" id="0yv-4u-1nN">
                                             <rect key="frame" x="16" y="16" width="60" height="60"/>
+                                            <color key="tintColor" name="Theme-base-sub"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="Auu-IE-m9C"/>
                                                 <constraint firstAttribute="width" constant="60" id="MTn-za-bv8"/>
@@ -2497,18 +2501,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back-30" width="45" height="45"/>
-        <image name="chat-bubble-30" width="45" height="45"/>
-        <image name="check-all-30" width="45" height="45"/>
+        <image name="back-30" width="30" height="30"/>
+        <image name="chat-bubble-30" width="30" height="30"/>
+        <image name="check-all-30" width="30" height="30"/>
         <image name="dots" width="14" height="84"/>
-        <image name="info-30" width="45" height="45"/>
-        <image name="insert-30" width="45" height="45"/>
-        <image name="pencil-24" width="36" height="36"/>
-        <image name="speech-bubble-24" width="36" height="36"/>
-        <image name="task-24" width="36" height="36"/>
-        <image name="task-30" width="45" height="45"/>
-        <image name="trash-24" width="36" height="36"/>
-        <image name="user-30" width="45" height="45"/>
+        <image name="info-30" width="30" height="30"/>
+        <image name="insert-30" width="30" height="30"/>
+        <image name="pencil-24" width="24" height="24"/>
+        <image name="speech-bubble-24" width="24" height="24"/>
+        <image name="task-24" width="24" height="24"/>
+        <image name="task-30" width="30" height="30"/>
+        <image name="trash-24" width="24" height="24"/>
+        <image name="user-30" width="30" height="30"/>
         <namedColor name="Theme-background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

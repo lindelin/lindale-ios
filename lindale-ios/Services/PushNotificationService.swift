@@ -53,10 +53,20 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        if UserDefaults.standard.string(forOAuthKey: .fcmToken) == nil {
-            print("Firebase registration token: \(fcmToken)")
-            UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
-            UserDefaults.standard.synchronize()
+        print("Firebase registration token: \(fcmToken)")
+        UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
+        UserDefaults.standard.synchronize()
+        
+        if OAuth.get() != nil {
+            DispatchQueue.main.async {
+                Device(token: fcmToken).store(completion: { (response) in
+                    guard response["status"] == "OK" else {
+                        print("Store Firebase token Error: \(String(describing: response["messages"]))")
+                        return
+                    }
+                    print("Store Firebase token OK: \(String(describing: response["messages"]))")
+                })
+            }
         }
     }
     // [END refresh_token]

@@ -587,7 +587,7 @@ open class Floaty: UIView {
    Remove item.
    */
   @objc open func removeItem(item: FloatyItem) {
-    guard let index = items.index(of: item) else { return }
+    guard let index = items.firstIndex(of: item) else { return }
     items[index].removeFromSuperview()
     items.remove(at: index)
   }

@@ -59,7 +59,7 @@ class ProjectWikiDetailController: UIViewController, WKNavigationDelegate {
     }
     
     func updateUI() {
-        self.wikiContents.loadHTMLString(self.wiki.content, baseURL: nil)
+        self.wikiContents.loadHTMLString(self.wiki.content ?? "", baseURL: nil)
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
