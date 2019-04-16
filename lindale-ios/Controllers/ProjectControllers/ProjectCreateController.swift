@@ -17,8 +17,8 @@ class ProjectCreateController: UITableViewController {
     @IBOutlet weak var startField: UITextField!
     @IBOutlet weak var endField: UITextField!
     @IBOutlet weak var contentField: UITextView!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var passwordConfirmationField: UITextField!
+    @IBOutlet weak var projectPassField: UITextField!
+    @IBOutlet weak var projectPassConfirmationField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -45,8 +45,8 @@ class ProjectCreateController: UITableViewController {
         self.typeField.placeholder = trans("project.type")
         self.startField.placeholder = trans("project.start_at")
         self.endField.placeholder = trans("project.end_at")
-        self.passwordField.placeholder = trans("project.password")
-        self.passwordConfirmationField.placeholder = trans("project.password_confirmation")
+        self.projectPassField.placeholder = trans("project.password")
+        self.projectPassConfirmationField.placeholder = trans("project.password_confirmation")
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -148,8 +148,8 @@ class ProjectCreateController: UITableViewController {
                                       type: self.typeField.text,
                                       SlId: nil,
                                       status: nil,
-                                      password: self.passwordField.text,
-                                      passwordConfirmation: self.passwordConfirmationField.text,
+                                      password: self.projectPassField.text,
+                                      passwordConfirmation: self.projectPassConfirmationField.text,
                                       image: self.imageView.image)
         project.store { (response) in
             guard response["status"] == "OK" else {
