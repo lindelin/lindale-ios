@@ -44,12 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = loginController
         } else {
             // [START register_for_notifications]
+            UNUserNotificationCenter.current().delegate = self
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            let unUserNotificationCenter = UNUserNotificationCenter.current()
-            unUserNotificationCenter.requestAuthorization(
+            UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: {_, _ in })
-            unUserNotificationCenter.delegate = self
             application.registerForRemoteNotifications()
             // [END register_for_notifications]
             

@@ -54,8 +54,11 @@ extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
-        UserDefaults.standard.synchronize()
+        
+        if UserDefaults.standard.string(forOAuthKey: .fcmToken) != fcmToken {
+            UserDefaults.standard.set(fcmToken, forOAuthKey: .fcmToken)
+            UserDefaults.standard.synchronize()
+        }
         
         if OAuth.get() != nil {
             DispatchQueue.main.async {
